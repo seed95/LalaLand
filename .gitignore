@@ -1,0 +1,7 @@
+gallery_qmlcache.qrc
+*.user
+Makefile
+.qmake.stash
+HMM*
+!HMM.pro
+Build/*
