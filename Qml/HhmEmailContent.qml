@@ -20,7 +20,7 @@ Item
         anchors.leftMargin: 22 * scale_width
         anchors.topMargin: 13 * scale_height
         anchors.top: parent.top
-        color: "#3c3c3c"
+        color: "#5a5a5a"
     }
 
     Rectangle

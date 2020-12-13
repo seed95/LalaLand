@@ -8,6 +8,16 @@ Window
     property real scale_width: width/1280
     property real scale_height: height/800
 
+    signal newButtonClicked()
+    signal replyButtonClicked()
+    signal forwardButtonClicked()
+    signal deleteButtonClicked()
+    signal archiveButtonClicked()
+    signal scanButtonClicked()
+    signal sendButtonClicked()
+    signal syncButtonClicked()
+    signal flagButtonClicked(int id)
+
     visible: true
     width: 1280
     height: 800
@@ -18,17 +28,22 @@ Window
     FontLoader
     {
         id: fontAwesomeSolid
-        source: "qrc:Resources/Fonts/Font Awesome 5 Free Solid.ttf"
+        source: "qrc:/Fonts/fa-solid.ttf"
     }
     FontLoader
     {
         id: fontRobotoMedium
-        source: "qrc:Resources/Fonts/Roboto-Medium.ttf"
+        source: "qrc:/Fonts/Roboto-Medium.ttf"
     }
     FontLoader
     {
         id: fontRobotoRegular
-        source: "qrc:Resources/Fonts/Roboto-Regular.ttf"
+        source: "qrc:/Fonts/Roboto-Regular.ttf"
+    }
+    FontLoader
+    {
+        id: fontAwesome_brand
+        source: "qrc:/Fonts/fa-brands-400.ttf"
     }
 
     HhmTopBar

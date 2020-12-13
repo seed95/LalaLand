@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="Lalaei_0v1.svg"
+   sodipodi:docname="Lalaei_0v2.svg"
    inkscape:export-filename="/home/esi/Projects/PNA_UI/Resources/images/background_main.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -266,17 +266,17 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="671.70358"
-     inkscape:cy="386.7073"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="423.04781"
+     inkscape:cy="553.72422"
      inkscape:document-units="px"
-     inkscape:current-layer="layer4"
+     inkscape:current-layer="layer19"
      showgrid="false"
      showguides="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1052"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
+     inkscape:window-height="1025"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      units="px"
      inkscape:document-rotation="0" />
@@ -297,8 +297,7 @@
      id="layer2"
      inkscape:label="Background"
      transform="translate(0,5.9054957)"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <rect
        style="fill:url(#meshGradient7030);fill-opacity:1"
        id="rect4904"
@@ -308,7 +307,7 @@
        y="-736.13953"
        transform="scale(1,-1)" />
     <rect
-       style="display:inline;opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;opacity:1;fill:#e8e8e8;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect5076"
        width="1199.9999"
        height="749.99994"
@@ -534,7 +533,7 @@
        y="-0.14387871"
        transform="translate(0,421.87498)" />
     <rect
-       style="display:inline;opacity:1;fill:#cdcdcd;fill-opacity:1;stroke:none;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;opacity:1;fill:#e1e1e1;fill-opacity:1;stroke:none;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect5371"
        width="281.25"
        height="37.499996"
@@ -724,7 +723,7 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        x="38.663639"
        y="155.7347"
        id="text5142"
@@ -733,7 +732,7 @@
          id="tspan5144"
          x="38.663639"
          y="155.7347"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-opacity:1">Cassie Hicks</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;">Cassie Hicks</tspan></text>
     <text
        id="text5146"
        y="174.4847"
@@ -748,7 +747,7 @@
          sodipodi:role="line">Launch this week?</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        x="215.26657"
        y="153.81667"
        id="text5156"
@@ -757,10 +756,10 @@
          id="tspan5158"
          x="215.26657"
          y="153.81667"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#646464;fill-opacity:1;stroke:none;stroke-opacity:1">7:17PM</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;">7:17PM</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
        x="247.5"
        y="173.74313"
        id="text4487"
@@ -769,21 +768,21 @@
          id="tspan4489"
          x="247.5"
          y="173.74313"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"></tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"></tspan></text>
     <text
        id="text5195"
        y="154.06844"
        x="22.500006"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"
          y="154.06844"
          x="22.500006"
          id="tspan5197"
          sodipodi:role="line"></tspan></text>
     <rect
-       style="display:inline;opacity:1;fill:#e5e5e5;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;opacity:1;fill:#d7d7d7;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect5932"
        width="281.25"
        height="56.249996"
@@ -794,71 +793,66 @@
        id="path5934"
        d="m 13.12501,243.37176 243.74998,0"
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-    <g
-       transform="translate(1.9174302,100.06755)"
-       id="g5936"
-       style="display:inline">
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="36.746208"
-         y="111.91718"
-         id="text5938"
-         sodipodi:linespacing="0%"><tspan
-           sodipodi:role="line"
-           id="tspan5940"
-           x="36.746208"
-           y="111.91718"
-           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-opacity:1">Cassie Hicks</tspan></text>
-      <text
-         id="text5942"
-         y="130.66718"
-         x="36.746208"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1"
-           y="130.66718"
-           x="36.746208"
-           id="tspan5944"
-           sodipodi:role="line">Launch this week?</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="213.34914"
-         y="109.99915"
-         id="text5946"
-         sodipodi:linespacing="0%"><tspan
-           sodipodi:role="line"
-           id="tspan5948"
-           x="213.34914"
-           y="109.99915"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#646464;fill-opacity:1;stroke:none;stroke-opacity:1">7:17PM</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-         x="245.58257"
-         y="129.92561"
-         id="text5950"
-         sodipodi:linespacing="0%"><tspan
-           sodipodi:role="line"
-           id="tspan5952"
-           x="245.58257"
-           y="129.92561"
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"></tspan></text>
-      <text
-         id="text5954"
-         y="110.25092"
-         x="20.582575"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"
-           y="110.25092"
-           x="20.582575"
-           id="tspan5956"
-           sodipodi:role="line"></tspan></text>
-    </g>
+    <text
+       sodipodi:linespacing="0%"
+       id="text5938"
+       y="211.98473"
+       x="38.663639"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;"
+         y="211.98473"
+         x="38.663639"
+         id="tspan5940"
+         sodipodi:role="line">Cassie Hicks</tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="38.663639"
+       y="230.73473"
+       id="text5942"><tspan
+         sodipodi:role="line"
+         id="tspan5944"
+         x="38.663639"
+         y="230.73473"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1">Launch this week?</tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       id="text5946"
+       y="210.0667"
+       x="215.26657"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;"
+         y="210.0667"
+         x="215.26657"
+         id="tspan5948"
+         sodipodi:role="line">7:17PM</tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       id="text5950"
+       y="229.99316"
+       x="247.5"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"
+         y="229.99316"
+         x="247.5"
+         id="tspan5952"
+         sodipodi:role="line"></tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
+       x="22.500006"
+       y="210.31847"
+       id="text5954"><tspan
+         sodipodi:role="line"
+         id="tspan5956"
+         x="22.500006"
+         y="210.31847"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"></tspan></text>
     <rect
        y="243.84047"
        x="-2.1699816e-07"
@@ -937,7 +931,7 @@
            style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#e6e6e6;fill-opacity:1;stroke-width:1.97060001"></tspan></text>
     </g>
     <rect
-       style="display:inline;opacity:1;fill:#545f88;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="display:inline;opacity:1;fill:#d7d7d7;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect5988"
        width="281.25"
        height="56.249996"
@@ -948,71 +942,66 @@
        id="path5990"
        d="m 13.12501,355.87175 243.74998,0"
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-    <g
-       transform="translate(1.9174302,212.56754)"
-       id="g5992"
-       style="display:inline">
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="36.746208"
-         y="111.91718"
-         id="text5994"
-         sodipodi:linespacing="0%"><tspan
-           sodipodi:role="line"
-           id="tspan5996"
-           x="36.746208"
-           y="111.91718"
-           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#d7d7d7;fill-opacity:1;stroke:none;stroke-opacity:1">Cassie Hicks</tspan></text>
-      <text
-         id="text5998"
-         y="130.66718"
-         x="36.746208"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#d7d7d7;fill-opacity:1;stroke:none;stroke-opacity:1"
-           y="130.66718"
-           x="36.746208"
-           id="tspan6000"
-           sodipodi:role="line">Launch this week?</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="213.34914"
-         y="109.99915"
-         id="text6002"
-         sodipodi:linespacing="0%"><tspan
-           sodipodi:role="line"
-           id="tspan6004"
-           x="213.34914"
-           y="109.99915"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#d7d7d7;fill-opacity:1;stroke:none;stroke-opacity:1">7:17PM</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#c8c8c8;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-         x="245.58257"
-         y="129.92561"
-         id="text6006"
-         sodipodi:linespacing="0%"><tspan
-           sodipodi:role="line"
-           id="tspan6008"
-           x="245.58257"
-           y="129.92561"
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#d7d7d7;fill-opacity:1;stroke-width:1.97060001"></tspan></text>
-      <text
-         id="text6010"
-         y="110.25092"
-         x="20.582575"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#d7d7d7;fill-opacity:1;stroke-width:1.97060001"
-           y="110.25092"
-           x="20.582575"
-           id="tspan6012"
-           sodipodi:role="line"></tspan></text>
-    </g>
+    <text
+       sodipodi:linespacing="0%"
+       id="text5994"
+       y="324.48471"
+       x="38.663639"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;"
+         y="324.48471"
+         x="38.663639"
+         id="tspan5996"
+         sodipodi:role="line">Cassie Hicks</tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="38.663639"
+       y="343.23471"
+       id="text5998"><tspan
+         sodipodi:role="line"
+         id="tspan6000"
+         x="38.663639"
+         y="343.23471"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1;">Launch this week?</tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       id="text6002"
+       y="322.56668"
+       x="215.26657"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;"
+         y="322.56668"
+         x="215.26657"
+         id="tspan6004"
+         sodipodi:role="line">7:17PM</tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       id="text6006"
+       y="342.49316"
+       x="247.5"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"
+         y="342.49316"
+         x="247.5"
+         id="tspan6008"
+         sodipodi:role="line"></tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
+       x="22.500006"
+       y="322.81845"
+       id="text6010"><tspan
+         sodipodi:role="line"
+         id="tspan6012"
+         x="22.500006"
+         y="322.81845"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"></tspan></text>
     <rect
        y="356.34045"
        x="-2.1699816e-07"
@@ -1025,71 +1014,66 @@
        d="m 13.12501,412.12175 243.74998,0"
        id="path6018"
        inkscape:connector-curvature="0" />
-    <g
-       id="g6020"
-       transform="translate(1.9174302,268.81754)"
-       style="display:inline">
-      <text
-         id="text6022"
-         y="111.91718"
-         x="36.746208"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-opacity:1"
-           y="111.91718"
-           x="36.746208"
-           id="tspan6024"
-           sodipodi:role="line">Cassie Hicks</tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="36.746208"
-         y="130.66718"
-         id="text6026"
-         sodipodi:linespacing="0%"><tspan
-           sodipodi:role="line"
-           id="tspan6028"
-           x="36.746208"
-           y="130.66718"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1">Launch this week?</tspan></text>
-      <text
-         id="text6030"
-         y="109.99915"
-         x="213.34914"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#646464;fill-opacity:1;stroke:none;stroke-opacity:1"
-           y="109.99915"
-           x="213.34914"
-           id="tspan6032"
-           sodipodi:role="line">7:17PM</tspan></text>
-      <text
-         id="text6034"
-         y="129.92561"
-         x="245.58257"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"
-           y="129.92561"
-           x="245.58257"
-           id="tspan6036"
-           sodipodi:role="line"></tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-         x="20.582575"
-         y="110.25092"
-         id="text6038"
-         sodipodi:linespacing="0%"><tspan
-           sodipodi:role="line"
-           id="tspan6040"
-           x="20.582575"
-           y="110.25092"
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"></tspan></text>
-    </g>
+    <text
+       sodipodi:linespacing="0%"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="38.663639"
+       y="380.73471"
+       id="text6022"><tspan
+         sodipodi:role="line"
+         id="tspan6024"
+         x="38.663639"
+         y="380.73471"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;">Cassie Hicks</tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       id="text6026"
+       y="399.48471"
+       x="38.663639"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1"
+         y="399.48471"
+         x="38.663639"
+         id="tspan6028"
+         sodipodi:role="line">Launch this week?</tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="215.26657"
+       y="378.81668"
+       id="text6030"><tspan
+         sodipodi:role="line"
+         id="tspan6032"
+         x="215.26657"
+         y="378.81668"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;">7:17PM</tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
+       x="247.5"
+       y="398.74316"
+       id="text6034"><tspan
+         sodipodi:role="line"
+         id="tspan6036"
+         x="247.5"
+         y="398.74316"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"></tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       id="text6038"
+       y="379.06845"
+       x="22.500006"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"
+         y="379.06845"
+         x="22.500006"
+         id="tspan6040"
+         sodipodi:role="line"></tspan></text>
     <rect
        y="412.59045"
        x="-2.1699816e-07"
@@ -1106,10 +1090,10 @@
        id="text6050"
        y="436.98468"
        x="38.663639"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;"
          y="436.98468"
          x="38.663639"
          id="tspan6052"
@@ -1130,10 +1114,10 @@
        id="text6058"
        y="435.06665"
        x="215.26657"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#646464;fill-opacity:1;stroke:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;"
          y="435.06665"
          x="215.26657"
          id="tspan6060"
@@ -1142,17 +1126,17 @@
        id="text6062"
        y="454.99313"
        x="247.5"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"
          y="454.99313"
          x="247.5"
          id="tspan6064"
          sodipodi:role="line"></tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
        x="22.500006"
        y="435.31842"
        id="text6066"
@@ -1161,7 +1145,7 @@
          id="tspan6068"
          x="22.500006"
          y="435.31842"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"></tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"></tspan></text>
     <rect
        style="display:inline;opacity:1;fill:#d7d7d7;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect6116"
@@ -1176,7 +1160,7 @@
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        x="38.663639"
        y="493.23468"
        id="text6120"
@@ -1185,7 +1169,7 @@
          id="tspan6122"
          x="38.663639"
          y="493.23468"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-opacity:1">Cassie Hicks</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;">Cassie Hicks</tspan></text>
     <text
        id="text6124"
        y="511.98468"
@@ -1200,7 +1184,7 @@
          sodipodi:role="line">Launch this week?</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        x="215.26657"
        y="491.31665"
        id="text6128"
@@ -1209,10 +1193,10 @@
          id="tspan6130"
          x="215.26657"
          y="491.31665"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#646464;fill-opacity:1;stroke:none;stroke-opacity:1">7:17PM</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;">7:17PM</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
        x="247.5"
        y="511.2431"
        id="text6132"
@@ -1221,15 +1205,15 @@
          id="tspan6134"
          x="247.5"
          y="511.2431"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"></tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"></tspan></text>
     <text
        id="text6136"
        y="491.56842"
        x="22.500006"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"
          y="491.56842"
          x="22.500006"
          id="tspan6138"
@@ -1250,10 +1234,10 @@
        id="text6146"
        y="549.48468"
        x="38.663639"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;"
          y="549.48468"
          x="38.663639"
          id="tspan6148"
@@ -1274,10 +1258,10 @@
        id="text6154"
        y="547.56665"
        x="215.26657"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#646464;fill-opacity:1;stroke:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;"
          y="547.56665"
          x="215.26657"
          id="tspan6156"
@@ -1286,17 +1270,17 @@
        id="text6158"
        y="567.4931"
        x="247.5"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"
          y="567.4931"
          x="247.5"
          id="tspan6160"
          sodipodi:role="line"></tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
        x="22.500006"
        y="547.81842"
        id="text6162"
@@ -1305,7 +1289,7 @@
          id="tspan6164"
          x="22.500006"
          y="547.81842"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"></tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"></tspan></text>
     <rect
        style="display:inline;opacity:1;fill:#d7d7d7;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect6168"
@@ -1320,7 +1304,7 @@
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        x="38.663639"
        y="605.73468"
        id="text6172"
@@ -1329,7 +1313,7 @@
          id="tspan6174"
          x="38.663639"
          y="605.73468"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-opacity:1">Cassie Hicks</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;">Cassie Hicks</tspan></text>
     <text
        id="text6176"
        y="624.48468"
@@ -1344,7 +1328,7 @@
          sodipodi:role="line">Launch this week?</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        x="215.26657"
        y="603.81665"
        id="text6180"
@@ -1353,10 +1337,10 @@
          id="tspan6182"
          x="215.26657"
          y="603.81665"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#646464;fill-opacity:1;stroke:none;stroke-opacity:1">7:17PM</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;">7:17PM</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
        x="247.5"
        y="623.7431"
        id="text6184"
@@ -1365,15 +1349,15 @@
          id="tspan6186"
          x="247.5"
          y="623.7431"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"></tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"></tspan></text>
     <text
        id="text6188"
        y="604.06842"
        x="22.500006"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"
          y="604.06842"
          x="22.500006"
          id="tspan6190"
@@ -1394,10 +1378,10 @@
        id="text6198"
        y="661.98468"
        x="38.663639"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;"
          y="661.98468"
          x="38.663639"
          id="tspan6200"
@@ -1418,10 +1402,10 @@
        id="text6206"
        y="660.06665"
        x="215.26657"
-       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#646464;fill-opacity:1;stroke:none;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;"
          y="660.06665"
          x="215.26657"
          id="tspan6208"
@@ -1430,17 +1414,17 @@
        id="text6210"
        y="679.9931"
        x="247.5"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"
          y="679.9931"
          x="247.5"
          id="tspan6212"
          sodipodi:role="line"></tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
        x="22.500006"
        y="660.31842"
        id="text6214"
@@ -1449,91 +1433,91 @@
          id="tspan6216"
          x="22.500006"
          y="660.31842"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"></tspan></text>
-    <g
-       transform="translate(0,-384.14057)"
-       style="display:inline"
-       id="g4885">
-      <rect
-         transform="translate(0,421.87498)"
-         y="656.10608"
-         x="-2.1699816e-07"
-         height="56.249996"
-         width="281.25"
-         id="rect6220"
-         style="display:inline;opacity:1;fill:#d7d7d7;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <path
-         transform="translate(0,421.87498)"
-         style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 13.12501,711.88733 243.74998,0"
-         id="path6222"
-         inkscape:connector-curvature="0" />
-      <text
-         sodipodi:linespacing="0%"
-         transform="translate(0,421.87498)"
-         id="text6224"
-         y="680.50031"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"></tspan></text>
+    <rect
+       style="display:inline;opacity:1;fill:#d7d7d7;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect6220"
+       width="281.25"
+       height="56.249996"
+       x="-2.1699816e-07"
+       y="693.84052" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path6222"
+       d="m 13.12501,749.62174 243.74998,0"
+       style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="38.663639"
+       y="718.23474"
+       id="text6224"
+       sodipodi:linespacing="0%"><tspan
+         sodipodi:role="line"
+         id="tspan6226"
          x="38.663639"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-opacity:1"
-           y="680.50031"
-           x="38.663639"
-           id="tspan6226"
-           sodipodi:role="line">Cassie Hicks</tspan></text>
-      <text
-         sodipodi:linespacing="0%"
-         transform="translate(0,421.87498)"
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         y="718.23474"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Medium';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;">Cassie Hicks</tspan></text>
+    <text
+       id="text6228"
+       y="736.98474"
+       x="38.663639"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"
+       sodipodi:linespacing="0%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1"
+         y="736.98474"
          x="38.663639"
-         y="699.25031"
-         id="text6228"><tspan
-           sodipodi:role="line"
-           id="tspan6230"
-           x="38.663639"
-           y="699.25031"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1">Launch this week?</tspan></text>
-      <text
-         sodipodi:linespacing="0%"
-         transform="translate(0,421.87498)"
-         id="text6232"
-         y="678.58228"
+         id="tspan6230"
+         sodipodi:role="line">Launch this week?</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       x="215.26657"
+       y="716.31671"
+       id="text6232"
+       sodipodi:linespacing="0%"><tspan
+         sodipodi:role="line"
+         id="tspan6234"
          x="215.26657"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#646464;fill-opacity:1;stroke:none;stroke-opacity:1"
-           y="678.58228"
-           x="215.26657"
-           id="tspan6234"
-           sodipodi:role="line">7:17PM</tspan></text>
-      <text
-         sodipodi:linespacing="0%"
-         transform="translate(0,421.87498)"
-         id="text6236"
-         y="698.50873"
+         y="716.31671"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1;">7:17PM</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
+       x="247.5"
+       y="736.24316"
+       id="text6236"
+       sodipodi:linespacing="0%"><tspan
+         sodipodi:role="line"
+         id="tspan6238"
          x="247.5"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"
-           y="698.50873"
-           x="247.5"
-           id="tspan6238"
-           sodipodi:role="line"></tspan></text>
-      <text
-         sodipodi:linespacing="0%"
-         transform="translate(0,421.87498)"
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+         y="736.24316"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"></tspan></text>
+    <text
+       id="text6240"
+       y="716.56848"
+       x="22.500006"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001;"
+       xml:space="preserve"
+       sodipodi:linespacing="0%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001;"
+         y="716.56848"
          x="22.500006"
-         y="678.83405"
-         id="text6240"><tspan
-           sodipodi:role="line"
-           id="tspan6242"
-           x="22.500006"
-           y="678.83405"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"></tspan></text>
-    </g>
+         id="tspan6242"
+         sodipodi:role="line"></tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       id="text5684"
+       y="117.49313"
+       x="264.375"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001"
+         y="117.49313"
+         x="264.375"
+         id="tspan5686"
+         sodipodi:role="line"></tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -1541,7 +1525,7 @@
      inkscape:label="SideBar_Search">
     <g
        id="g5616"
-       transform="translate(3.28125,0.16577527)">
+       transform="translate(-7.9687494,0.16577527)">
       <rect
          ry="3.409091"
          rx="3.2608697"
@@ -1839,7 +1823,7 @@
          id="tspan6801"
          x="301.16364"
          y="133.00031"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.15620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#5a5a5a;fill-opacity:1;stroke:none;stroke-opacity:1">Cassie Hicksa</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.15620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#5a5a5a;fill-opacity:1;stroke:none;stroke-opacity:1">Cassie Hicks</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#646464;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 304.13957,155.62971 880.75713,0"

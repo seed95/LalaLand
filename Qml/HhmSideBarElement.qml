@@ -6,8 +6,8 @@ Rectangle
 
     property color color_background_normal: "#d7d7d7"
     property color color_background_hovered: "#e5e5e5"
-    property color color_background_active: "#bfbfbf"
-    property color color_background_active_hovered: "#cccccc"
+    property color color_background_active: "#545f88"
+    property color color_background_active_hovered: "#6179cb"
     property color color_background:
     {
         if(isActive && isHovered)
@@ -28,7 +28,8 @@ Rectangle
         }
     }
 
-    property color color_text_active: "#ffffff"
+    property color color_text_active: "#d7d7d7"
+    property color color_text_active_hovered: "#e6e6e6"
 
     property string text_name: "Cassie Hicks"
     property string text_content: "Launch this week?"
@@ -37,7 +38,9 @@ Rectangle
     property bool isHovered: false
     property bool isActive: false
     property bool isRead: false
-    property bool haveFlag: true
+    property bool isFlag: true
+
+//    signal emailClicked()
 
     color: color_background
     height: 60 * scale_height
@@ -48,7 +51,7 @@ Rectangle
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.leftMargin: 16 * scale_width
-        anchors.topMargin: 10 * scale_height
+        anchors.topMargin: 14 * scale_height
         text:
         {
             if(isRead)
@@ -64,7 +67,11 @@ Rectangle
         font.pixelSize: 15
         color:
         {
-            if(isActive)
+            if(isHovered && isActive)
+            {
+                color_text_active_hovered
+            }
+            else if(isActive)
             {
                 color_text_active
             }
@@ -88,7 +95,11 @@ Rectangle
         anchors.topMargin: 8 * scale_height
         color:
         {
-            if(isActive)
+            if(isHovered && isActive)
+            {
+                color_text_active_hovered
+            }
+            else if(isActive)
             {
                 color_text_active
             }
@@ -112,7 +123,11 @@ Rectangle
         anchors.topMargin: -1 * scale_height
         color:
         {
-            if(isActive)
+            if(isHovered && isActive)
+            {
+                color_text_active_hovered
+            }
+            else if(isActive)
             {
                 color_text_active
             }
@@ -136,7 +151,11 @@ Rectangle
         anchors.topMargin: 10 * scale_height
         color:
         {
-            if(isActive)
+            if(isHovered && isActive)
+            {
+                color_text_active_hovered
+            }
+            else if(isActive)
             {
                 color_text_active
             }
@@ -159,7 +178,11 @@ Rectangle
         font.pixelSize: 15
         color:
         {
-            if(isActive)
+            if(isHovered && isActive)
+            {
+                color_text_active_hovered
+            }
+            else if(isActive)
             {
                 color_text_active
             }
@@ -168,7 +191,7 @@ Rectangle
                 "#646464"
             }
         }
-        visible: haveFlag
+        visible: isFlag
     }
 
     Rectangle

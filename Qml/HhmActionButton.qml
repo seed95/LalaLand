@@ -8,7 +8,23 @@ Rectangle
 
     property bool isHovered: false
 
-    width: childrenRect.width
+    property color color_label_normal: "#d8dbe0"
+    property color color_label_hovered: "#ffffff"
+    property color color_label:
+    {
+        if(isHovered)
+        {
+            color_label_hovered
+        }
+        else
+        {
+            color_label_normal
+        }
+    }
+
+    signal buttonClicked()
+
+//    width: childrenRect.width + 2*margin
     color:
     {
         if(isHovered)
@@ -21,29 +37,38 @@ Rectangle
         }
     }
 
-    Text
+    Rectangle
     {
-        id: label_icon
-        text: icon
-        anchors.left: parent.left
-        anchors.verticalCenter: parent.verticalCenter
-        font.family: fontAwesomeSolid.name
-        font.pixelSize: 15
-        color: "#d8dbe0"
+        height: parent.height
+        width: childrenRect.width
+        anchors.centerIn: parent
+        color: "transparent"
+
+        Text
+        {
+            id: label_icon
+            text: icon
+            anchors.left: parent.left
+            anchors.verticalCenter: parent.verticalCenter
+            font.family: fontAwesomeSolid.name
+            font.pixelSize: 14
+            color: color_label
+        }
+
+        Text
+        {
+            id: label_action
+            text: action
+            anchors.left: label_icon.right
+            anchors.leftMargin: 7 * scale_width
+            anchors.verticalCenter: parent.verticalCenter
+            font.family: fontRobotoMedium.name
+            font.weight: Font.Medium
+            font.pixelSize: 17
+            color: color_label
+        }
     }
 
-    Text
-    {
-        id: label_action
-        text: action
-        anchors.left: label_icon.right
-        anchors.leftMargin: 5 * scale_width
-        anchors.verticalCenter: parent.verticalCenter
-        font.family: fontRobotoMedium.name
-        font.weight: Font.Medium
-        font.pixelSize: 15
-        color: "#d8dbe0"
-    }
 
     MouseArea
     {
@@ -63,7 +88,7 @@ Rectangle
 
         onClicked:
         {
-            console.log("Action:", action)
+            buttonClicked()
         }
     }
 

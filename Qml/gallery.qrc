@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>HhmActionButton.qml</file>
+        <file>HhmBottomBar.qml</file>
+        <file>HhmEmailContent.qml</file>
+        <file>HhmSideBar.qml</file>
+        <file>HhmSideBarElement.qml</file>
+        <file>HhmTopBar.qml</file>
+        <file>main.qml</file>
+    </qresource>
+</RCC>
