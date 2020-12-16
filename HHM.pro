@@ -1,7 +1,7 @@
 QT += quick
 QT += sql
 
-#QTPLUGIN += qsqlmysql
+DEFINES += HHM_USER_ADMIN
 
 RCC_DIR = Build/
 OBJECTS_DIR = Build/

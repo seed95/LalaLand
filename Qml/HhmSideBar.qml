@@ -6,9 +6,9 @@ Item
 
     Component.onCompleted:
     {
-        listmodel_sidebar.append({})
-        listmodel_sidebar.append({})
-        listmodel_sidebar.append({})
+//        listmodel_sidebar.append({})
+//        listmodel_sidebar.append({})
+//        listmodel_sidebar.append({})
     }
 
     Rectangle
@@ -36,8 +36,18 @@ Item
         delegate: HhmSideBarElement
         {
             width: container.width
+            text_name: name
+            text_content: emailTitle
+            text_time: time
         }
 
+    }
+
+    function receivedNewEmail()
+    {
+        listmodel_sidebar.append({"name" : root.r_email_sender_name,
+                                  "emailTitle" : root.r_email_title,
+                                  "time" : root.r_email_date})
     }
 
 }

@@ -8,6 +8,10 @@ Window
     property real scale_width: width/1280
     property real scale_height: height/800
 
+    property string r_email_sender_name: "Cassie Hicks" //Received email sender name
+    property string r_email_title: "Launch this week" //Received email title
+    property string r_email_date: "7:17PM" //Received email date
+
     signal newButtonClicked()
     signal replyButtonClicked()
     signal forwardButtonClicked()
@@ -64,6 +68,7 @@ Window
 
     HhmEmailContent
     {
+        id: email_content
         anchors.left: sidebar.right
         anchors.top: topbar.bottom
         anchors.right: parent.right
@@ -76,6 +81,13 @@ Window
         width: parent.width
         anchors.bottom: parent.bottom
         anchors.left: parent.left
+    }
+
+
+    function receivedNewEmail()
+    {
+        sidebar.receivedNewEmail()
+
     }
 
 }

@@ -3,6 +3,9 @@
 
 #include <QObject>
 #include <QVector>
+#include <QDate>
+#include <QQmlProperty>
+
 #include "hhm_database.h"
 
 class HhmMail : public QObject
@@ -14,7 +17,7 @@ public:
     void loadReceivedEmails(int userID);
 
 private:
-    QString getIdReceivedEmails(int userID);
+    QStringList getIdReceivedEmails(int userID);
 
 private:
     QObject *ui;

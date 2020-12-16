@@ -1,19 +1,17 @@
 #include "hhm_mail.h"
-#include <QDate>
 
 HhmMail::HhmMail(QObject *item, HhmDatabase *database, QObject *parent) : QObject(parent)
 {
     ui = item;
     db = database;
 
-    loadReceivedEmails(1);
+    loadReceivedEmails(102);
 }
-
 
 void HhmMail::loadReceivedEmails(int userID)
 {
 
-    QStringList received_emails = getIdReceivedEmails(userID).split(",");
+    QStringList received_emails = getIdReceivedEmails(userID);
     QString query = "";
     for(int i=0; i<received_emails.size(); i++)
     {
@@ -23,15 +21,30 @@ void HhmMail::loadReceivedEmails(int userID)
         {
             QString condition = "`id`=" + res.value(0).toString();
             res = db->select("*", HHM_TABLE_DOCUMENTS, condition);
-            db->printQuery(res);
-//            if(res.next())
-//            {
-//            }
+            int num_rec = res.record().count(); //Number of record
+//            db->printQuery(res);
+            while(res.next())
+            {
+                QVariant data = res.value(HHM_DOCUMENTS_SENDER_NAME);
+                if(data.isValid())
+                {
+                    QQmlProperty::write(ui, "r_email_sender_name", data.toString());
+                }
+                data = res.value(HHM_DOCUMENTS_DATE);
+                if(data.isValid())
+                {
+                    QString datetime = data.toDateTime().toString("hh:mmAP");
+                    QQmlProperty::write(ui, "r_email_date", datetime);
+                }
+
+                QMetaObject::invokeMethod(ui, "receivedNewEmail");
+
+            }
         }
     }
 
 
-//    int month = (QDate::currentDate().year() - START_YEAR) * 12 + QDate::currentDate().month();
+//    int month = (QDate::currentDate().year() - HHM_START_YEAR) * 12 + QDate::currentDate().month();
 //    QString query = "SELECT (`received_emails`) FROM `"DATABASE_NAME"`.`user_emails` ";
 //    query += "WHERE `id`=" + QString::number(userID) + " AND `date`=" + QString::number(month);
 //    QSqlQuery res = db->sendQuery(query);
@@ -76,16 +89,19 @@ void HhmMail::loadReceivedEmails(int userID)
 //    db.sendQuery()
 }
 
-
 //return in csv format
-QString HhmMail::getIdReceivedEmails(int userID)
+QStringList HhmMail::getIdReceivedEmails(int userID)
 {
-    int month = (QDate::currentDate().year() - START_YEAR)*12 + QDate::currentDate().month();
-    QString condition = "`id`=" + QString::number(userID) + " AND `date`=" + QString::number(month);
-    QSqlQuery res = db->select("`received_emails`", "user_emails", condition);
+    int month = (QDate::currentDate().year() - HHM_START_YEAR)*12 + QDate::currentDate().month();
+    QString condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(userID);
+    condition += " AND `" + QString(HHM_UE_DATE) + "`=" + QString::number(month);
+    QSqlQuery res = db->select(HHM_UE_RECEIVED_EMAILS, HHM_TABLE_USER_EMAILS, condition);
+    QStringList result;
     if(res.next())
     {
-        return res.value(0).toString();
+        result = res.value(0).toString().split(",");
+        result.removeAll(QString(""));
+        return result;
     }
-    return "";
+    return result;
 }

@@ -2,7 +2,6 @@
     <qresource prefix="/">
         <file>Fonts/Roboto-Medium.ttf</file>
         <file>Fonts/Roboto-Regular.ttf</file>
-        <file>Fonts/fa-light.ttf</file>
         <file>Fonts/fa-regular.ttf</file>
         <file>Fonts/fa-regular-brand.ttf</file>
         <file>Fonts/fa-solid.ttf</file>

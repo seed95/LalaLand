@@ -7,5 +7,7 @@
         <file>HhmSideBarElement.qml</file>
         <file>HhmTopBar.qml</file>
         <file>main.qml</file>
+        <file>HhmNewEmail.qml</file>
+        <file>HhmInputBox.qml</file>
     </qresource>
 </RCC>
