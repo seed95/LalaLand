@@ -7,6 +7,7 @@
 #include <QQmlProperty>
 
 #include "hhm_database.h"
+#include "hhm_user.h"
 
 class HhmMail : public QObject
 {
@@ -14,10 +15,13 @@ class HhmMail : public QObject
 public:
     explicit HhmMail(QObject *item, HhmDatabase *database, QObject *parent = nullptr);
 
-    void loadReceivedEmails(int userID);
+    void loadEmails(QString username);
 
 private:
     QStringList getIdReceivedEmails(int userID);
+    QStringList getIdSendEmails(int userID);
+    void showInSidebar(QStringList emailIds);//in csv format
+    void addNewDocument();
 
 private:
     QObject *ui;

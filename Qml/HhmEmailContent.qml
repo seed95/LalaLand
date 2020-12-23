@@ -4,6 +4,7 @@ Item
 {
 
     property string text_name: "Cassie Hicks"
+    property int    doc_status: 1
     property string text_user: "User #1"
     property string text_username: "Amy E. Alberts."
     property string text_email: "amy.alberts@lolo.com"
@@ -18,10 +19,74 @@ Item
         font.pixelSize: 36
         anchors.left: parent.left
         anchors.leftMargin: 22 * scale_width
-        anchors.topMargin: 13 * scale_height
+        anchors.topMargin: 4 * scale_height
         anchors.top: parent.top
         color: "#5a5a5a"
     }
+
+
+    Rectangle
+    {
+        id: rect_status
+        width: 220
+        height: 30
+        anchors.right: parent.right
+        anchors.rightMargin: 45
+        anchors.top: parent.top
+        anchors.topMargin: 20
+        color: "transparent"
+
+        Text
+        {
+            id: label_status
+            anchors.left: parent.left
+            anchors.verticalCenter: parent.verticalCenter
+            text: "Document Status: "
+            font.family: fontRobotoMedium.name
+            font.weight: Font.Medium
+            font.pixelSize: 20
+            color: "#5a5a5a"
+        }
+
+        Text
+        {
+            anchors.left: label_status.right
+            anchors.verticalCenter: parent.verticalCenter
+            text:
+            {
+                if( doc_status===1 )
+                {
+                    "Success"
+                }
+                else if( doc_status===2 )
+                {
+                    "Pending"
+                }
+                else if( doc_status===3 )
+                {
+                    "Failed"
+                }
+            }
+            font.family: fontRobotoRegular.name
+            font.pixelSize: 17
+            color:
+            {
+                if( doc_status===1 )
+                {
+                    "#377d42"
+                }
+                else if( doc_status===2 )
+                {
+                    "#5a5a5a"
+                }
+                else if( doc_status===3 )
+                {
+                    "#cc3333"
+                }
+            }
+        }
+    }
+
 
     Rectangle
     {
@@ -29,7 +94,7 @@ Item
         anchors.left: label_name.left
         anchors.leftMargin: 3 * scale_width
         anchors.top: label_name.bottom
-        anchors.topMargin: 15 * scale_height
+        anchors.topMargin: 13 * scale_height
         width: 940 * scale_width
         height: 1
         color: "#646464"

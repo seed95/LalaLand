@@ -12,6 +12,8 @@ Window
     property string r_email_title: "Launch this week" //Received email title
     property string r_email_date: "7:17PM" //Received email date
 
+    property string s_new_email_username: "Admin"//Sender email username
+
     signal newButtonClicked()
     signal replyButtonClicked()
     signal forwardButtonClicked()
@@ -21,6 +23,7 @@ Window
     signal sendButtonClicked()
     signal syncButtonClicked()
     signal flagButtonClicked(int id)
+    signal uploadFileClicked()
 
     visible: true
     width: 1280
@@ -29,11 +32,22 @@ Window
     color: "#e6e6e6"
 
     //Fonts:
+//    FontLoader
+//    {
+//        id: fontAwesomeSolid
+//        source: "qrc:/Fonts/fa-solid.ttf"
+//    }
     FontLoader
     {
         id: fontAwesomeSolid
-        source: "qrc:/Fonts/fa-solid.ttf"
+        source: "qrc:/Fonts/fasolid.ttf"
     }
+    FontLoader
+    {
+        id: fontAwesomeBrand
+        source: "qrc:/Fonts/fa-brands-400.ttf"
+    }
+
     FontLoader
     {
         id: fontRobotoMedium
@@ -46,15 +60,22 @@ Window
     }
     FontLoader
     {
-        id: fontAwesome_brand
-        source: "qrc:/Fonts/fa-brands-400.ttf"
+        id: fontRobotoLight
+        source: "qrc:/Fonts/Roboto-Light.ttf"
+    }
+
+    HhmNews
+    {
+        id: news
+        anchors.right: parent.right
+        anchors.top: parent.top
     }
 
     HhmTopBar
     {
         id: topbar
         anchors.right: parent.right
-        anchors.top: parent.top
+        anchors.top: news.bottom
     }
 
     HhmSideBar
@@ -75,6 +96,17 @@ Window
         anchors.bottom: bottombar.top
     }
 
+    HhmNewEmail
+    {
+        id: new_email
+        anchors.left: sidebar.right
+        anchors.top: topbar.bottom
+        anchors.right: parent.right
+        anchors.bottom: bottombar.top
+        visible: false
+        text_from: s_new_email_username
+    }
+
     HhmBottomBar
     {
         id: bottombar
@@ -88,6 +120,19 @@ Window
     {
         sidebar.receivedNewEmail()
 
+    }
+
+    function showNewEmail()
+    {
+        email_content.visible = false
+        new_email.visible = true
+        newButtonClicked()
+    }
+
+    function showEmailContent()
+    {
+        email_content.visible = true
+        new_email.visible = false
     }
 
 }

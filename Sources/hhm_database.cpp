@@ -10,7 +10,8 @@ HhmDatabase::HhmDatabase(QObject *parent) : QObject(parent)
     db.setUserName(SERVER_USER);
     db.setPassword(SERVER_PASS);
     bool ok = db.open();
-    qDebug() << ok << db.tables();
+    qDebug() << ok;
+//    qDebug() << ok << db.tables();
 }
 
 QSqlQuery HhmDatabase::sendQuery(QString query)
@@ -53,7 +54,7 @@ QSqlQuery HhmDatabase::sendQuery(QString query)
 
 void HhmDatabase::update(int id, QString value, QString table)
 {
-    QString query = "UPDATE `"DATABASE_NAME"`.`" +  table + "` SET " + value;
+    QString query = "UPDATE `" + QString(DATABASE_NAME) + "`.`" +  table + "` SET " + value;
     query += " WHERE `id`='" + QString::number(id) + "';";
     QSqlQuery res = db.exec(query);
 
@@ -90,9 +91,10 @@ void HhmDatabase::update(int id, QString value, QString table)
 
 void HhmDatabase::insert(QString table, QString columns, QString values)
 {
-    QString query = "INSERT INTO `"DATABASE_NAME"`.`" + table;
+    QString query = "INSERT INTO `" + QString(DATABASE_NAME) + "`.`" + table;
     query += "` (" + columns + ") VALUES (" + values + ");";
     QSqlQuery res = db.exec(query);
+    qDebug() << res.record().count();
 
     QSqlError err = res.lastError();
     QString s_err; //string error
@@ -127,15 +129,28 @@ void HhmDatabase::insert(QString table, QString columns, QString values)
 
 QSqlQuery HhmDatabase::select(QString fields, QString table)
 {
-    QString query = "SELECT " + fields + " FROM `"DATABASE_NAME"`.`" + table + "`;";
+    QString query = "SELECT " + fields + " FROM `" + QString(DATABASE_NAME) + "`.`" + table + "`;";
     return sendQuery(query);
 }
 
 QSqlQuery HhmDatabase::select(QString fields, QString table, QString condition)
 {
-    QString query = "SELECT " + fields + " FROM `"DATABASE_NAME"`.`" + table;
+    QString query = "SELECT " + fields + " FROM `" + QString(DATABASE_NAME) + "`.`" + table;
     query += "` WHERE " + condition + ";";
     return sendQuery(query);
+}
+
+//return -1 if not found user with this `username`
+int HhmDatabase::getId(QString username)
+{
+    QString condition = "`" + QString(HHM_USER_USERNAME) + "`='" + username + "'";
+    QSqlQuery res = select(HHM_USER_ID, HHM_TABLE_USERS, condition);
+    int result = -1;
+    if(res.next())
+    {
+        result = res.value(0).toInt();
+    }
+    return result;
 }
 
 void HhmDatabase::printQuery(QSqlQuery res)

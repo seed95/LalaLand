@@ -4,13 +4,6 @@ Item
 {
     id: container
 
-    Component.onCompleted:
-    {
-//        listmodel_sidebar.append({})
-//        listmodel_sidebar.append({})
-//        listmodel_sidebar.append({})
-    }
-
     Rectangle
     {
         id: rect_logo
@@ -21,12 +14,19 @@ Item
         anchors.top: parent.top
     }
 
+    HhmSearchDialog
+    {
+        id: search
+        anchors.left: parent.left
+        anchors.top: rect_logo.bottom
+    }
+
     ListView
     {
         id: listview_sidebar
         width: parent.width
         anchors.left: parent.left
-        anchors.top: rect_logo.bottom
+        anchors.top: search.bottom
         anchors.bottom: parent.bottom
         model: ListModel
         {

@@ -22,6 +22,8 @@ public:
     QSqlQuery select(QString fields, QString table);
     QSqlQuery select(QString fields, QString table, QString condition);
 
+    int getId(QString username);
+
     void printQuery(QSqlQuery res);
 
 private:

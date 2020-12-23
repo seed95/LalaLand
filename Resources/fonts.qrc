@@ -7,5 +7,7 @@
         <file>Fonts/fa-solid.ttf</file>
         <file>Fonts/fa-brands-400.ttf</file>
         <file>Fonts/fa-regular-400.ttf</file>
+        <file>Fonts/Roboto-Light.ttf</file>
+        <file>Fonts/fasolid.ttf</file>
     </qresource>
 </RCC>

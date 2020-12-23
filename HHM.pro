@@ -1,5 +1,6 @@
 QT += quick
 QT += sql
+QT += widgets
 
 DEFINES += HHM_USER_ADMIN
 
@@ -11,17 +12,18 @@ QMLCACHE_DIR = Build/
 CONFIG += c++11
 
 SOURCES += Sources/main.cpp \
-    Sources/backend.cpp \
-    Sources/hhm_chapar.cpp \
-    Sources/hhm_database.cpp \
-    Sources/hhm_mail.cpp
+           Sources/backend.cpp \
+           Sources/hhm_chapar.cpp \
+           Sources/hhm_database.cpp \
+           Sources/hhm_mail.cpp \
+           Sources/hhm_user.cpp
 
-HEADERS += \
-    Sources/backend.h \
-    Sources/hhm_chapar.h \
-    Sources/hhm_config.h \
-    Sources/hhm_database.h \
-    Sources/hhm_mail.h
+HEADERS += Sources/backend.h \
+           Sources/hhm_chapar.h \
+           Sources/hhm_config.h \
+           Sources/hhm_database.h \
+           Sources/hhm_mail.h \
+           Sources/hhm_user.h
 
 RESOURCES += Qml/gallery.qrc \
              Resources/fonts.qrc

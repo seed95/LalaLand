@@ -14,9 +14,23 @@ Rectangle
         width: 100 * scale_width
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
+        visible: email_content.visible
         icon: "\uf067"
         action: "New"
-        onButtonClicked: root.newButtonClicked()
+        onButtonClicked: root.showNewEmail()
+    }
+
+    HhmActionButton
+    {
+        id: action_back
+        height: parent.height
+        width: 100 * scale_width
+        anchors.left: parent.left
+        anchors.verticalCenter: parent.verticalCenter
+        visible: new_email.visible
+        icon: "\uf104"
+        action: "Back"
+        onButtonClicked: root.showEmailContent()
     }
 
     HhmActionButton
@@ -85,9 +99,37 @@ Rectangle
         width: 100 * scale_width
         anchors.left: action_scan.right
         anchors.verticalCenter: parent.verticalCenter
+        visible: new_email.visible
         icon: "\uf1d8"
         action: "Send"
         onButtonClicked: root.sendButtonClicked()
+    }
+
+    Text
+    {
+        id: department
+        text: "Iraq Department of Justice"
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.rightMargin: 16
+        anchors.topMargin: 5
+        color: "#c8c8c8"
+        font.family: fontRobotoMedium.name
+        font.weight: Font.Medium
+        font.pixelSize: 15
+    }
+
+    Text
+    {
+        id: office
+        text: "Office of Legislative Affairs"
+        anchors.right: parent.right
+        anchors.top: department.bottom
+        anchors.rightMargin: 16
+        color: "#c8c8c8"
+        font.family: fontRobotoLight.name
+        font.weight: Font.Light
+        font.pixelSize: 11
     }
 
 }

@@ -24,7 +24,6 @@ Rectangle
 
     signal buttonClicked()
 
-//    width: childrenRect.width + 2*margin
     color:
     {
         if(isHovered)
@@ -68,7 +67,6 @@ Rectangle
             color: color_label
         }
     }
-
 
     MouseArea
     {
