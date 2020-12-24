@@ -14,7 +14,7 @@ Rectangle
         width: 100 * scale_width
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
-        visible: email_content.visible
+        visible: !new_email.visible
         icon: "\uf067"
         action: "New"
         onButtonClicked: root.showNewEmail()
@@ -27,10 +27,10 @@ Rectangle
         width: 100 * scale_width
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
-        visible: new_email.visible
+        visible: !action_new.visible
         icon: "\uf104"
         action: "Back"
-        onButtonClicked: root.showEmailContent()
+        onButtonClicked: root.showContent()
     }
 
     HhmActionButton

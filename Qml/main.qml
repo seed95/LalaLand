@@ -8,8 +8,9 @@ Window
     property real scale_width: width/1280
     property real scale_height: height/800
 
-    property string r_email_sender_name: "Cassie Hicks" //Received email sender name
-    property string r_email_title: "Launch this week" //Received email title
+    property int    case_number: 2 //Document id
+    property string sender_name: "Cassie Hicks"
+    property int    doc_status:  1//Success(1), Pending(2), Failed(3)
     property string r_email_date: "7:17PM" //Received email date
 
     property string s_new_email_username: "Admin"//Sender email username
@@ -94,6 +95,7 @@ Window
         anchors.top: topbar.bottom
         anchors.right: parent.right
         anchors.bottom: bottombar.top
+        visible: false
     }
 
     HhmNewEmail
@@ -116,9 +118,9 @@ Window
     }
 
 
-    function receivedNewEmail()
+    function addToInbox()
     {
-        sidebar.receivedNewEmail()
+        sidebar.addToInbox()
 
     }
 
@@ -129,10 +131,18 @@ Window
         newButtonClicked()
     }
 
-    function showEmailContent()
+    function showContent()
     {
         email_content.visible = true
         new_email.visible = false
+    }
+
+    function showEmailContent(name, time, status)
+    {
+        showContent()
+        email_content.text_name = name
+        email_content.text_time = time
+        email_content.doc_status = status
     }
 
 }

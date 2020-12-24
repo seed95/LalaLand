@@ -35,11 +35,26 @@ void HhmMail::showInSidebar(QStringList emailIds)
 //            db->printQuery(res);
             while(res.next())
             {
-                QVariant data = res.value(HHM_DOCUMENTS_SENDER_NAME);
+                QVariant data = res.value(HHM_DOCUMENTS_DOCID);
                 if(data.isValid())
                 {
-                    QQmlProperty::write(ui, "r_email_sender_name", data.toString());
+                    QQmlProperty::write(ui, "case_number", data.toInt());
                 }
+
+                data = res.value(HHM_DOCUMENTS_SENDER_NAME);
+                qDebug() << data.toString();
+                if(data.isValid())
+                {
+                    QQmlProperty::write(ui, "sender_name", data.toString());
+                }
+
+
+                data = res.value(HHM_DOCUMENTS_STATUS);
+                if(data.isValid())
+                {
+                    QQmlProperty::write(ui, "doc_status", data.toInt());
+                }
+
                 data = res.value(HHM_DOCUMENTS_DATE);
                 if(data.isValid())
                 {
@@ -47,7 +62,7 @@ void HhmMail::showInSidebar(QStringList emailIds)
                     QQmlProperty::write(ui, "r_email_date", datetime);
                 }
 
-                QMetaObject::invokeMethod(ui, "receivedNewEmail");
+                QMetaObject::invokeMethod(ui, "addToInbox");
 
             }
         }

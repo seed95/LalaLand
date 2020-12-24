@@ -24,7 +24,6 @@ Item
         color: "#5a5a5a"
     }
 
-
     Rectangle
     {
         id: rect_status
@@ -86,7 +85,6 @@ Item
             }
         }
     }
-
 
     Rectangle
     {
@@ -187,7 +185,6 @@ Item
             color: "#646464"
         }
 
-
         Rectangle
         {
             id: rect_download
@@ -235,7 +232,6 @@ Item
             }
 
         }
-
 
         Text
         {

@@ -273,10 +273,10 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.0000001"
-     inkscape:cx="722.22493"
-     inkscape:cy="403.86989"
+     inkscape:cx="588.22495"
+     inkscape:cy="376.86989"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer11"
      showgrid="false"
      showguides="false"
      inkscape:window-width="1920"
@@ -1545,7 +1545,7 @@
      inkscape:groupmode="layer"
      id="layer11"
      inkscape:label="Document"
-     style="display:none"
+     style="display:inline"
      sodipodi:insensitive="true">
     <rect
        style="opacity:1;fill:none;fill-opacity:0.70588199;stroke:#9c9c9c;stroke-width:1.40625;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -1932,7 +1932,7 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-302.36222)"
-     style="display:inline;opacity:1">
+     style="display:none;opacity:1">
     <path
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#51967f;stroke-width:2.81982994;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m -1459.2954,654.18949 261.583,1.84868 0,-86.93495 130.0036,0 0,89.32766 261.60239,0 1.59516,3.98783"

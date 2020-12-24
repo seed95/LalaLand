@@ -31,16 +31,19 @@ Rectangle
     property color color_text_active: "#d7d7d7"
     property color color_text_active_hovered: "#e6e6e6"
 
-    property string text_name: "Cassie Hicks"
-    property string text_content: "Launch this week?"
+    property int    case_number: 1992
+    property int    doc_status: 1
     property string text_time: "7:17PM"
+    property string text_name: "Cassie Hicks"
+    property string text_username: "Admin"
+    property string text_filepath: "file.pdf"
 
     property bool isHovered: false
     property bool isActive: false
     property bool isRead: false
     property bool isFlag: true
 
-//    signal emailClicked()
+    signal emailClicked()
 
     color: color_background
     height: 60 * scale_height
@@ -84,8 +87,8 @@ Rectangle
 
     Text
     {
-        id: label_name
-        text: text_name
+        id: label_case_number
+        text: "#" + case_number
         font.family: fontRobotoMedium.name
         font.weight: Font.Medium
         font.pixelSize: 18
@@ -113,13 +116,28 @@ Rectangle
     Text
     {
         id: label_content
-        text: text_content
+        text:
+        {
+            if( doc_status===1 )
+            {
+                "Accept"
+            }
+            else if( doc_status===2 )
+            {
+                "Waiting for approved"
+            }
+            else if( doc_status===3 )
+            {
+                "Reject"
+            }
+        }
+
         font.family: fontRobotoRegular.name
         font.weight: Font.Normal
         font.pixelSize: 15
         anchors.left: label_read_status.right
         anchors.leftMargin: 10 * scale_width
-        anchors.top: label_name.bottom
+        anchors.top: label_case_number.bottom
         anchors.topMargin: -1 * scale_height
         color:
         {
@@ -222,8 +240,8 @@ Rectangle
 
         onClicked:
         {
-            isActive = !isActive
-            console.log("Clicked")
+            emailClicked()
+//            isActive = !isActive
         }
 
     }

@@ -4,6 +4,8 @@ Item
 {
     id: container
 
+    property int id_active_email: 0
+
     Rectangle
     {
         id: rect_logo
@@ -37,16 +39,25 @@ Item
         {
             width: container.width
             text_name: name
-            text_content: emailTitle
+            case_number: caseNumber
+            doc_status: docStatus
             text_time: time
+            isActive: case_number === id_active_email
+
+            onEmailClicked:
+            {
+                id_active_email = case_number
+                root.showEmailContent(text_name, text_time, doc_status)
+            }
         }
 
     }
 
-    function receivedNewEmail()
+    function addToInbox()
     {
-        listmodel_sidebar.append({"name" : root.r_email_sender_name,
-                                  "emailTitle" : root.r_email_title,
+        listmodel_sidebar.append({"name" : root.sender_name,
+                                  "caseNumber" : root.case_number,
+                                  "docStatus" : root.doc_status,
                                   "time" : root.r_email_date})
     }
 
