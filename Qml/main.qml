@@ -20,7 +20,7 @@ Window
     signal deleteButtonClicked()
     signal archiveButtonClicked()
     signal scanButtonClicked()
-    signal sendButtonClicked()
+    signal sendButtonClicked(int docId, string subject)
     signal syncButtonClicked()
     signal flagButtonClicked(int id)
     signal uploadFileClicked()
@@ -32,16 +32,16 @@ Window
     color: "#e6e6e6"
 
     //Fonts:
-//    FontLoader
-//    {
-//        id: fontAwesomeSolid
-//        source: "qrc:/Fonts/fa-solid.ttf"
-//    }
     FontLoader
     {
         id: fontAwesomeSolid
-        source: "qrc:/Fonts/fasolid.ttf"
+        source: "qrc:/Fonts/fa-solid.ttf"
     }
+//    FontLoader
+//    {
+//        id: fontAwesomeSolid
+//        source: "qrc:/Fonts/fasolid.ttf"
+//    }
     FontLoader
     {
         id: fontAwesomeBrand

@@ -17,7 +17,7 @@ public:
     explicit HhmDatabase(QObject *parent = nullptr);
 
     QSqlQuery sendQuery(QString query);
-    void update(int id, QString value, QString table);
+    void update(QString condition, QString value, QString table);
     void insert(QString table, QString columns, QString values);
     QSqlQuery select(QString fields, QString table);
     QSqlQuery select(QString fields, QString table, QString condition);

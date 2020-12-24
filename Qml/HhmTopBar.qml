@@ -102,7 +102,7 @@ Rectangle
         visible: new_email.visible
         icon: "\uf1d8"
         action: "Send"
-        onButtonClicked: root.sendButtonClicked()
+        onButtonClicked: root.sendButtonClicked(new_email.getCaseNumber(), new_email.getSubject())
     }
 
     Text

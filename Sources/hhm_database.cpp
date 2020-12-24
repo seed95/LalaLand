@@ -11,7 +11,6 @@ HhmDatabase::HhmDatabase(QObject *parent) : QObject(parent)
     db.setPassword(SERVER_PASS);
     bool ok = db.open();
     qDebug() << ok;
-//    qDebug() << ok << db.tables();
 }
 
 QSqlQuery HhmDatabase::sendQuery(QString query)
@@ -52,10 +51,10 @@ QSqlQuery HhmDatabase::sendQuery(QString query)
     return res;
 }
 
-void HhmDatabase::update(int id, QString value, QString table)
+void HhmDatabase::update(QString condition, QString value, QString table)
 {
     QString query = "UPDATE `" + QString(DATABASE_NAME) + "`.`" +  table + "` SET " + value;
-    query += " WHERE `id`='" + QString::number(id) + "';";
+    query += " WHERE " + condition + ";";
     QSqlQuery res = db.exec(query);
 
     QSqlError err = res.lastError();
@@ -94,7 +93,6 @@ void HhmDatabase::insert(QString table, QString columns, QString values)
     QString query = "INSERT INTO `" + QString(DATABASE_NAME) + "`.`" + table;
     query += "` (" + columns + ") VALUES (" + values + ");";
     QSqlQuery res = db.exec(query);
-    qDebug() << res.record().count();
 
     QSqlError err = res.lastError();
     QString s_err; //string error

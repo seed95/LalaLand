@@ -26,11 +26,11 @@ void HhmMail::showInSidebar(QStringList emailIds)
     QString query = "";
     for(int i=0; i<emailIds.size(); i++)
     {
-        QString condition = "`id`=" + emailIds.at(i);
-        QSqlQuery res = db->select("doc_id", HHM_TABLE_EMAILS, condition);
+        QString condition = "`" + QString(HHM_EMAILS_ID) + "`=" + emailIds.at(i);
+        QSqlQuery res = db->select(HHM_EMAILS_DOCID, HHM_TABLE_EMAILS, condition);
         if(res.next())
         {
-            QString condition = "`id`=" + res.value(0).toString();
+            QString condition = "`" + QString(HHM_DOCUMENTS_ID) + "`=" + res.value(0).toString();
             res = db->select("*", HHM_TABLE_DOCUMENTS, condition);
 //            db->printQuery(res);
             while(res.next())

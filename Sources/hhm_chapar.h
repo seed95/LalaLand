@@ -16,8 +16,6 @@ class HhmChapar : public QObject
 public:
     explicit HhmChapar(QObject *item, QObject *parent = nullptr);
 
-signals:
-
 private slots:
     void newBtnClicked();
     void replyBtnClicked();
@@ -25,10 +23,13 @@ private slots:
     void deleteBtnClicked();
     void archiveBtnClicked();
     void scanBtnClicked();
-    void sendBtnClicked();
+    void sendBtnClicked(int caseNumber, QString subject);
     void syncBtnClicked();
     void flagBtnClicked(int id);
     void uploadFileClicked();
+
+private:
+    void addNewDocToDocuments();
 
 private:
     QObject *ui;

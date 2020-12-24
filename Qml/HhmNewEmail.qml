@@ -150,4 +150,14 @@ Item
 
     }
 
+    function getCaseNumber()
+    {
+        return case_number_input_box.getInput()
+    }
+
+    function getSubject()
+    {
+        return subject_input_box.getInput()
+    }
+
 }

@@ -74,7 +74,18 @@ Rectangle
             font.family: font_name_input_box
             font.pixelSize: font_size_input_box
             selectByMouse: true
-            textColor: "#828282"
+            textColor:
+            {
+                if(text===text_input_box)
+                {
+                    "#828282"
+                }
+                else
+                {
+                    "#464646"
+                }
+
+            }
 //            validator : RegExpValidator
 //            {
 //                regExp :
@@ -97,8 +108,27 @@ Rectangle
             }
             readOnly: !isEnabled
 
+            onFocusChanged:
+            {
+                if(focus)
+                {
+                    if(text===text_input_box)
+                    {
+                        text = ""
+                    }
+                }
+                else
+                {
+                    if(text==="")
+                    {
+                        text = text_input_box
+                    }
+                }
+            }
+
             onAccepted:
             {
+                focus = false
             }
 
             Keys.onEscapePressed:
@@ -108,6 +138,11 @@ Rectangle
 
         }
 
+    }
+
+    function getInput()
+    {
+        return input.text
     }
 
 }
