@@ -7,6 +7,7 @@ Item
     property string text_to: "Admin"
     property string text_subject: "Subject"
     property string text_case_number: "1245"
+    property string text_file_path: ""
 
     Rectangle
     {
@@ -87,7 +88,6 @@ Item
         anchors.top: rect_input_box.bottom
         anchors.left: parent.left
         anchors.leftMargin: 181
-        anchors.topMargin: 0
 
         onPaint:
         {
@@ -109,6 +109,7 @@ Item
 
         Rectangle
         {
+            id: rect_upload
             width: 215
             height: 145
             anchors.centerIn: parent
@@ -117,21 +118,21 @@ Item
             Text
             {
                 id: icon_upload
-                anchors.centerIn: parent
+                anchors.top: parent.top
+                anchors.horizontalCenter: parent.horizontalCenter
                 text: "\uf382"
                 font.family: fontAwesomeSolid.name
-                font.pixelSize: 60
+                font.pixelSize: 80
                 color: "#808080"
             }
 
             Text
             {
                 anchors.horizontalCenter: parent.horizontalCenter
-                anchors.bottom: parent.bottom
-                anchors.bottomMargin: 10
+                anchors.top: icon_upload.bottom
                 text: "Upload File"
                 font.family: fontRobotoMedium.name
-                font.pixelSize: 30
+                font.pixelSize: 40
                 color: "#808080"
             }
 
@@ -148,6 +149,17 @@ Item
 
         }
 
+        Text
+        {
+            id: label_file
+            text: text_file_path
+            font.family: fontRobotoRegular.name
+            font.pixelSize: 20
+            color: "#808080"
+            anchors.centerIn: parent
+            visible: false
+        }
+
     }
 
     function getCaseNumber()
@@ -158,6 +170,20 @@ Item
     function getSubject()
     {
         return subject_input_box.getInput()
+    }
+
+    function showSelectedFile()
+    {
+        rect_upload.visible = false
+        label_file.visible = true
+        text_file_path = root.selected_file_path
+    }
+
+    function compeleteItems()
+    {
+        return ( text_file_path!=="" &&
+                 subject_input_box.getInput() !== subject_input_box.text_input_box &&
+                 case_number_input_box.getInput() !== case_number_input_box.text_input_box)
     }
 
 }

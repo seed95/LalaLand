@@ -1,10 +1,11 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.0
 
 Item
 {
     id: container
 
-    property int id_active_email: 0
+    property int id_active_email: -1
 
     Rectangle
     {
@@ -14,6 +15,14 @@ Item
         color: "#243554"
         anchors.left: parent.left
         anchors.top: parent.top
+
+        Image
+        {
+            id: image_logo
+            anchors.centerIn: parent
+            source: "qrc:/logo.png"
+        }
+
     }
 
     HhmSearchDialog
@@ -34,10 +43,12 @@ Item
         {
             id: listmodel_sidebar
         }
+        clip: true
 
         delegate: HhmSideBarElement
         {
             width: container.width
+            text_subject: subject
             text_name: name
             case_number: caseNumber
             doc_status: docStatus
@@ -51,14 +62,30 @@ Item
             }
         }
 
+        ScrollBar.vertical: ScrollBar
+        {
+            policy: ScrollBar.AsNeeded
+        }
+
     }
 
     function addToInbox()
     {
-        listmodel_sidebar.append({"name" : root.sender_name,
+        listmodel_sidebar.append({"subject" : root.subject,
+                                  "name" : root.sender_name,
                                   "caseNumber" : root.case_number,
                                   "docStatus" : root.doc_status,
                                   "time" : root.r_email_date})
+    }
+
+    function isEmailSelected()
+    {
+        return id_active_email !== -1
+    }
+
+    function finishSync()
+    {
+        search.finishSync()
     }
 
 }

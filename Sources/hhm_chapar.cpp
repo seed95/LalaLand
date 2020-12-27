@@ -29,7 +29,13 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
 
 void HhmChapar::newBtnClicked()
 {
+#ifdef HHM_USER_ADMIN
+    QString r_new_email_username = "User";
+#else
+    QString r_new_email_username = "Admin";
+#endif
     QQmlProperty::write(ui, "s_new_email_username", user->getUsername());
+    QQmlProperty::write(ui, "r_new_email_username", r_new_email_username);
 }
 
 void HhmChapar::replyBtnClicked()
@@ -87,8 +93,7 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
         db->insert(HHM_TABLE_DOCUMENTS, columns, values);
 
         //Get id document
-        QString query = "SELECT COUNT(" + QString(HHM_DOCUMENTS_ID) + ") FROM `";
-        query += QString(DATABASE_NAME) + "`.`" + QString(HHM_TABLE_DOCUMENTS) + "`";
+        QString query = "SELECT LAST_INSERT_ID();";
         QSqlQuery res = db->sendQuery(query);
         int doc_id = 0;
         if(res.next())
@@ -166,6 +171,7 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
         {
             qDebug() << "no user return";
         }
+        mail->loadEmails(user->getUsername());
     }
     else
     {
@@ -175,7 +181,8 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
 
 void HhmChapar::syncBtnClicked()
 {
-    qDebug() << "syncBtnClicked";
+    mail->loadEmails(user->getUsername());
+    QMetaObject::invokeMethod(ui, "finishSync");
 }
 
 void HhmChapar::flagBtnClicked(int id)
@@ -185,8 +192,14 @@ void HhmChapar::flagBtnClicked(int id)
 
 void HhmChapar::uploadFileClicked()
 {
-    upload_file = QFileDialog::getOpenFileName( NULL,
-                                                "Choose Document File",
-                                                QDir::currentPath(),
-                                                "*");
+    QString file_path = QFileDialog::getOpenFileName( NULL,
+                                                     "Choose Document File",
+                                                     QDir::currentPath(),
+                                                     "*");
+    if(!file_path.isEmpty())
+    {
+        upload_file = file_path;
+        QQmlProperty::write(ui, "selected_file_path", QFileInfo(upload_file).fileName());
+        QMetaObject::invokeMethod(ui, "showSelectedFilePath");
+    }
 }

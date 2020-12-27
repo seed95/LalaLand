@@ -42,12 +42,16 @@ void HhmMail::showInSidebar(QStringList emailIds)
                 }
 
                 data = res.value(HHM_DOCUMENTS_SENDER_NAME);
-                qDebug() << data.toString();
                 if(data.isValid())
                 {
                     QQmlProperty::write(ui, "sender_name", data.toString());
                 }
 
+                data = res.value(HHM_DOCUMENTS_SUBJECT);
+                if(data.isValid())
+                {
+                    QQmlProperty::write(ui, "subject", data.toString());
+                }
 
                 data = res.value(HHM_DOCUMENTS_STATUS);
                 if(data.isValid())

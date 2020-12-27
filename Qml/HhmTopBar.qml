@@ -17,7 +17,7 @@ Rectangle
         visible: !new_email.visible
         icon: "\uf067"
         action: "New"
-        onButtonClicked: root.showNewEmail()
+        onButtonClicked: root.showPageNewEmail()
     }
 
     HhmActionButton
@@ -30,7 +30,7 @@ Rectangle
         visible: !action_new.visible
         icon: "\uf104"
         action: "Back"
-        onButtonClicked: root.showContent()
+        onButtonClicked: root.showPageContentEmail()
     }
 
     HhmActionButton
@@ -102,7 +102,7 @@ Rectangle
         visible: new_email.visible
         icon: "\uf1d8"
         action: "Send"
-        onButtonClicked: root.sendButtonClicked(new_email.getCaseNumber(), new_email.getSubject())
+        onButtonClicked: root.sendEmail()
     }
 
     Text

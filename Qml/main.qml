@@ -10,10 +10,14 @@ Window
 
     property int    case_number: 2 //Document id
     property string sender_name: "Cassie Hicks"
+    property string subject: "Subject"
     property int    doc_status:  1//Success(1), Pending(2), Failed(3)
     property string r_email_date: "7:17PM" //Received email date
 
     property string s_new_email_username: "Admin"//Sender email username
+    property string r_new_email_username: "Admin"//Received email username
+
+    property string selected_file_path: "path/to/file"//Sender email username
 
     signal newButtonClicked()
     signal replyButtonClicked()
@@ -29,7 +33,11 @@ Window
     visible: true
     width: 1280
     height: 800
-    title: "Haeri HotMail"
+    minimumHeight: height
+    maximumHeight: height
+    minimumWidth: width
+    maximumWidth: width
+    title: "Document Manager"
     color: "#e6e6e6"
 
     //Fonts:
@@ -86,6 +94,7 @@ Window
         height: parent.height
         anchors.top: parent.top
         anchors.left: parent.left
+        anchors.bottom: bottombar.top
     }
 
     HhmEmailContent
@@ -107,6 +116,7 @@ Window
         anchors.bottom: bottombar.top
         visible: false
         text_from: s_new_email_username
+        text_to: r_new_email_username
     }
 
     HhmBottomBar
@@ -117,32 +127,52 @@ Window
         anchors.left: parent.left
     }
 
-
     function addToInbox()
     {
         sidebar.addToInbox()
-
     }
 
-    function showNewEmail()
+    function showPageNewEmail()
     {
         email_content.visible = false
         new_email.visible = true
         newButtonClicked()
     }
 
-    function showContent()
+    function showPageContentEmail()
     {
-        email_content.visible = true
+        if(sidebar.isEmailSelected())
+        {
+            email_content.visible = true
+        }
         new_email.visible = false
     }
 
     function showEmailContent(name, time, status)
     {
-        showContent()
+        showPageContentEmail()
         email_content.text_name = name
         email_content.text_time = time
         email_content.doc_status = status
+    }
+
+    function showSelectedFilePath()
+    {
+        new_email.showSelectedFile()
+    }
+
+    function finishSync()
+    {
+        sidebar.finishSync()
+    }
+
+    function sendEmail()
+    {
+        if(new_email.compeleteItems())
+        {
+            showPageContentEmail()
+            sendButtonClicked(new_email.getCaseNumber(), new_email.getSubject())
+        }
     }
 
 }

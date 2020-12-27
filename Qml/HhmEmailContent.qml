@@ -51,6 +51,7 @@ Item
         {
             anchors.left: label_status.right
             anchors.verticalCenter: parent.verticalCenter
+            anchors.verticalCenterOffset: 2
             text:
             {
                 if( doc_status===1 )

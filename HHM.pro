@@ -26,7 +26,8 @@ HEADERS += Sources/backend.h \
            Sources/hhm_user.h
 
 RESOURCES += Qml/gallery.qrc \
-             Resources/fonts.qrc
+             Resources/fonts.qrc \
+             Resources/images.qrc
 
 OTHER_FILES += Qml/*.qml
 

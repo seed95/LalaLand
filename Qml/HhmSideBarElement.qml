@@ -33,10 +33,11 @@ Rectangle
 
     property int    case_number: 1992
     property int    doc_status: 1
+    property string text_subject: "Subject"
     property string text_time: "7:17PM"
     property string text_name: "Cassie Hicks"
     property string text_username: "Admin"
-    property string text_filepath: "file.pdf"
+    property string text_filepath: "Filename.pdf"
 
     property bool isHovered: false
     property bool isActive: false
@@ -87,8 +88,8 @@ Rectangle
 
     Text
     {
-        id: label_case_number
-        text: "#" + case_number
+        id: label_subject
+        text: text_subject
         font.family: fontRobotoMedium.name
         font.weight: Font.Medium
         font.pixelSize: 18
@@ -167,6 +168,35 @@ Rectangle
         anchors.rightMargin: 1 * scale_width
         anchors.top: parent.top
         anchors.topMargin: 10 * scale_height
+        visible: false
+        color:
+        {
+            if(isHovered && isActive)
+            {
+                color_text_active_hovered
+            }
+            else if(isActive)
+            {
+                color_text_active
+            }
+            else
+            {
+                "#646464"
+            }
+        }
+    }
+
+    Text
+    {
+        id: label_case_number
+        text: "#" + case_number
+        font.family: fontRobotoRegular.name
+        font.weight: Font.Normal
+        font.pixelSize: 13
+        anchors.right: split_line.right
+        anchors.rightMargin: 1 * scale_width
+        anchors.top: parent.top
+        anchors.topMargin: 10 * scale_height
         color:
         {
             if(isHovered && isActive)
@@ -196,18 +226,31 @@ Rectangle
         font.pixelSize: 15
         color:
         {
-            if(isHovered && isActive)
+            if( doc_status===1 )//success
             {
-                color_text_active_hovered
+                "#16570d"
             }
-            else if(isActive)
+            else if( doc_status===2 )//pending
             {
-                color_text_active
+                "#e67232"
             }
-            else
+            else if( doc_status===3 )//failed
             {
-                "#646464"
+                "#8b3d3d"
             }
+
+//            if(isHovered && isActive)
+//            {
+//                color_text_active_hovered
+//            }
+//            else if(isActive)
+//            {
+//                color_text_active
+//            }
+//            else
+//            {
+//                "#646464"
+//            }
         }
         visible: isFlag
     }

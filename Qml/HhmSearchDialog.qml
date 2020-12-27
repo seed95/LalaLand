@@ -28,6 +28,28 @@ Rectangle
             font.family: fontAwesomeSolid.name
             font.pixelSize: 15
             color: "#505050"
+
+            RotationAnimation on rotation
+            {
+                id: rotation_refresh
+                loops: Animation.Infinite
+                duration: 2000
+                from: 0
+                to: 360
+                running: false
+                onStopped:
+                {
+                    if(refresh.rotation!==360)
+                    {
+                        loops = 1
+                        running = true
+                    }
+                    else
+                    {
+                        running = false
+                    }
+                }
+            }
         }
 
         MouseArea
@@ -36,7 +58,9 @@ Rectangle
 
             onClicked:
             {
-                console.log("refresh clicked")
+                rotation_refresh.start()
+                rotation_refresh.loops = Animation.Infinite
+                root.syncButtonClicked()
             }
         }
 
@@ -110,6 +134,11 @@ Rectangle
 
         }
 
+    }
+
+    function finishSync()
+    {
+        rotation_refresh.stop()
     }
 
 }
