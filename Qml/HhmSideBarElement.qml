@@ -33,6 +33,7 @@ Rectangle
 
     property int    case_number: 1992
     property int    doc_status: 1
+    property int    id_email_in_emails_table: 0
     property string text_subject: "Subject"
     property string text_time: "7:17PM"
     property string text_name: "Cassie Hicks"

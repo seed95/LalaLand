@@ -6,8 +6,8 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
 
     connect(ui, SIGNAL(newButtonClicked()), this, SLOT(newBtnClicked()));
     connect(ui, SIGNAL(replyButtonClicked()), this, SLOT(replyBtnClicked()));
-    connect(ui, SIGNAL(forwardButtonClicked()), this, SLOT(forwardBtnClicked()));
-    connect(ui, SIGNAL(deleteButtonClicked()), this, SLOT(deleteBtnClicked()));
+    connect(ui, SIGNAL(approveButtonClicked(int)), this, SLOT(approveBtnClicked(int)));
+    connect(ui, SIGNAL(rejectButtonClicked(int)), this, SLOT(rejectBtnClicked(int)));
     connect(ui, SIGNAL(archiveButtonClicked()), this, SLOT(archiveBtnClicked()));
     connect(ui, SIGNAL(scanButtonClicked()), this, SLOT(scanBtnClicked()));
     connect(ui, SIGNAL(sendButtonClicked(int, QString)), this, SLOT(sendBtnClicked(int, QString)));
@@ -16,6 +16,7 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     connect(ui, SIGNAL(uploadFileClicked()), this, SLOT(uploadFileClicked()));
     connect(ui, SIGNAL(inboxClicked()), this, SLOT(inboxClicked()));
     connect(ui, SIGNAL(outboxClicked()), this, SLOT(outboxClicked()));
+    connect(ui, SIGNAL(openEmail(int)), this, SLOT(openEmail(int)));
 
     //Instance Database
     db = new HhmDatabase();
@@ -46,14 +47,14 @@ void HhmChapar::replyBtnClicked()
 //    db->update(2, "`lolo`='12daf'", "users");
 }
 
-void HhmChapar::forwardBtnClicked()
+void HhmChapar::approveBtnClicked(int caseNumber)
 {
-    qDebug() << "forwardBtnClicked";
+    qDebug() << "approveBtnClicked" << caseNumber;
 }
 
-void HhmChapar::deleteBtnClicked()
+void HhmChapar::rejectBtnClicked(int caseNumber)
 {
-    qDebug() << "deleteBtnClicked";
+    qDebug() << "rejectBtnClicked" << caseNumber;
 }
 
 void HhmChapar::archiveBtnClicked()
@@ -72,6 +73,10 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
     {
         int id_admin = db->getId("Admin");
         int id_user = user->getId();
+
+        //Check duplicate case number
+        QString condition1 = "`" + QString(HHM_DOCUMENTS_DOCID) + "`=" + QString::number(caseNumber);
+        QSqlQuery res1 = db->select("*", HHM_TABLE_DOCUMENTS, condition1);
 
         //Insert into HHM_TABLE_DOCUMENTS
         QString columns = "`" + QString(HHM_DOCUMENTS_FILEPATH) + "`, ";
@@ -173,7 +178,6 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
         {
             qDebug() << "no user return";
         }
-        mail->loadEmails(user->getUsername());
     }
     else
     {
@@ -214,4 +218,12 @@ void HhmChapar::inboxClicked()
 void HhmChapar::outboxClicked()
 {
     mail->loadOutboxEmails(user->getId());
+}
+
+void HhmChapar::openEmail(int idEmail)
+{
+    //Change State `opened` Email
+    QString condition = "`" + QString(HHM_EMAILS_ID) + "`=" + QString::number(idEmail);
+    QString value = "`" + QString(HHM_EMAILS_OPENED) + "`=" + QString::number(1);
+    db->update(condition, value, HHM_TABLE_EMAILS);
 }

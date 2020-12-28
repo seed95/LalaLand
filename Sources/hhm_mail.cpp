@@ -43,7 +43,7 @@ void HhmMail::showEmailInSidebar(QStringList emailIds)
             QString condition = "`" + QString(HHM_DOCUMENTS_ID) + "`=" + res.value(0).toString();
             res = db->select("*", HHM_TABLE_DOCUMENTS, condition);
 //            db->printQuery(res);
-            while(res.next())
+            if(res.next())
             {
                 QVariant data = res.value(HHM_DOCUMENTS_DOCID);
                 if(data.isValid())
@@ -75,6 +75,8 @@ void HhmMail::showEmailInSidebar(QStringList emailIds)
                     QString datetime = data.toDateTime().toString("hh:mmAP");
                     QQmlProperty::write(ui, "r_email_date", datetime);
                 }
+
+                QQmlProperty::write(ui, "id_email_in_emails_table", emailIds.at(i));
 
                 QMetaObject::invokeMethod(ui, "addToInbox");
 

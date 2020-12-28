@@ -7,6 +7,7 @@ Rectangle
     height: 50 * scale_height
     color: "#3d598b"
 
+    //Top Bar for Content Email Page
     HhmActionButton
     {
         id: action_new
@@ -22,24 +23,12 @@ Rectangle
 
     HhmActionButton
     {
-        id: action_back
-        height: parent.height
-        width: 100 * scale_width
-        anchors.left: parent.left
-        anchors.verticalCenter: parent.verticalCenter
-        visible: !action_new.visible
-        icon: "\uf104"
-        action: "Back"
-        onButtonClicked: root.showPageContentEmail()
-    }
-
-    HhmActionButton
-    {
         id: action_reply
         height: parent.height
         width: 100 * scale_width
         anchors.left: action_new.right
         anchors.verticalCenter: parent.verticalCenter
+        visible: !new_email.visible
         icon: "\uf3e5"
         action: "Reply"
         onButtonClicked: root.replyButtonClicked()
@@ -47,25 +36,28 @@ Rectangle
 
     HhmActionButton
     {
-        id: action_forward
+        id: action_approve
         height: parent.height
         width: 120 * scale_width
         anchors.left: action_reply.right
         anchors.verticalCenter: parent.verticalCenter
-        icon: "\uf14d"
-        action: "Forward"
+        visible: !new_email.visible
+        icon: "\uf00c"
+        action: "Approve"
+        onButtonClicked: root.approveButtonClicked()
     }
 
     HhmActionButton
     {
-        id: action_delete
+        id: action_reject
         height: parent.height
         width: 100 * scale_width
-        anchors.left: action_forward.right
+        anchors.left: action_approve.right
         anchors.verticalCenter: parent.verticalCenter
-        icon: "\uf1f8"
-        action: "Delete"
-        onButtonClicked: root.deleteButtonClicked()
+        visible: !new_email.visible
+        icon: "\uf00d"
+        action: "Reject"
+        onButtonClicked: root.rejectButtonClicked()
     }
 
     HhmActionButton
@@ -73,11 +65,26 @@ Rectangle
         id: action_archive
         height: parent.height
         width: 120 * scale_width
-        anchors.left: action_delete.right
+        anchors.left: action_reject.right
         anchors.verticalCenter: parent.verticalCenter
+        visible: !new_email.visible
         icon: "\uf187"
         action: "Archive"
         onButtonClicked: root.archiveButtonClicked()
+    }
+
+    //Top Bar for New Email Page
+    HhmActionButton
+    {
+        id: action_back
+        height: parent.height
+        width: 100 * scale_width
+        anchors.left: parent.left
+        anchors.verticalCenter: parent.verticalCenter
+        visible: new_email.visible
+        icon: "\uf060"
+        action: "Back"
+        onButtonClicked: root.showPageContentEmail()
     }
 
     HhmActionButton
@@ -85,8 +92,9 @@ Rectangle
         id: action_scan
         height: parent.height
         width: 100 * scale_width
-        anchors.left: action_archive.right
+        anchors.left: action_back.right
         anchors.verticalCenter: parent.verticalCenter
+        visible: new_email.visible
         icon: "\uf574"
         action: "Scan"
         onButtonClicked: root.scanButtonClicked()

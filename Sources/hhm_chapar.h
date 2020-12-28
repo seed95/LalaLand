@@ -19,8 +19,8 @@ public:
 private slots:
     void newBtnClicked();
     void replyBtnClicked();
-    void forwardBtnClicked();
-    void deleteBtnClicked();
+    void approveBtnClicked(int caseNumber);
+    void rejectBtnClicked(int caseNumber);
     void archiveBtnClicked();
     void scanBtnClicked();
     void sendBtnClicked(int caseNumber, QString subject);
@@ -29,6 +29,7 @@ private slots:
     void uploadFileClicked();
     void inboxClicked();
     void outboxClicked();
+    void openEmail(int idEmail);
 
 private:
     void addNewDocToDocuments();

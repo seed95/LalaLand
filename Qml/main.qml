@@ -13,17 +13,24 @@ Window
     property string subject: "Subject"
     property int    doc_status:  1//Success(1), Pending(2), Failed(3)
     property string r_email_date: "7:17PM" //Received email date
+    property int    id_email_in_emails_table: 1 //Save this value for change mode email(open)
 
     property string s_new_email_username: "Admin"//Sender email username
     property string r_new_email_username: "Admin"//Received email username
 
     property string selected_file_path: "path/to/file"//Sender email username
 
+    property int email_mode: con.id_EMAIL_MODE_INBOX
+    property int id_active_email: -1
+
+    property string error_msg:    ""//error message
+    property int    d_error_msg:  100//duration error message
+
     signal newButtonClicked()
     signal replyButtonClicked()
-    signal forwardButtonClicked()
-    signal deleteButtonClicked()
     signal archiveButtonClicked()
+    signal approveButtonClicked(int docId)
+    signal rejectButtonClicked(int docId)
     signal scanButtonClicked()
     signal sendButtonClicked(int docId, string subject)
     signal syncButtonClicked()
@@ -31,6 +38,20 @@ Window
     signal uploadFileClicked()
     signal inboxClicked()
     signal outboxClicked()
+    signal openEmail(int emailId)
+
+    onEmail_modeChanged:
+    {
+        sidebar.clearEmails()
+        if( email_mode===con.id_EMAIL_MODE_INBOX )
+        {
+            inboxClicked()
+        }
+        else if( email_mode===con.id_EMAIL_MODE_OUTBOX)
+        {
+            outboxClicked()
+        }
+    }
 
     visible: true
     width: 1280
@@ -142,6 +163,8 @@ Window
     HhmMessage
     {
         id: message
+        anchors.centerIn: parent
+        z: 10
     }
     
     function addToInbox()
@@ -158,7 +181,7 @@ Window
 
     function showPageContentEmail()
     {
-        if(sidebar.isEmailSelected())
+        if( root.id_active_email!==-1 )
         {
             email_content.visible = true
         }
@@ -189,7 +212,22 @@ Window
         {
             showPageContentEmail()
             sendButtonClicked(new_email.getCaseNumber(), new_email.getSubject())
+            if( email_mode===con.id_EMAIL_MODE_INBOX )
+            {
+                inboxClicked()
+            }
+            else if( email_mode===con.id_EMAIL_MODE_OUTBOX )
+            {
+                outboxClicked()
+            }
         }
+    }
+
+    //call this function when have a error and must be
+    //set properites `error_msg`, `d_error_msg`.
+    function showMessage()
+    {
+        message.showMessage(error_msg, d_error_msg)
     }
 
 }

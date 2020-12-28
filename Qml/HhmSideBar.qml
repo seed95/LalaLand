@@ -1,26 +1,10 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
+//import QtQuick.Controls.Styles 1.4
 
 Item
 {
     id: container
-
-    property int id_active_email: -1
-
-    property bool inboxActive: true
-
-    onInboxActiveChanged:
-    {
-        listmodel_sidebar.clear()
-        if(inboxActive)
-        {
-            root.inboxClicked()
-        }
-        else
-        {
-            root.outboxClicked()
-        }
-    }
 
     Rectangle
     {
@@ -68,7 +52,7 @@ Item
             font.pixelSize: 14
             color:
             {
-                if(container.inboxActive)
+                if( root.email_mode===con.id_EMAIL_MODE_INBOX )
                 {
                     "#3c598c"
                 }
@@ -102,7 +86,7 @@ Item
 
                 onClicked:
                 {
-                    container.inboxActive = true
+                    root.email_mode = con.id_EMAIL_MODE_INBOX
                 }
 
 
@@ -121,7 +105,7 @@ Item
             font.pixelSize: 14
             color:
             {
-                if(!container.inboxActive)
+                if( root.email_mode===con.id_EMAIL_MODE_OUTBOX )
                 {
                     "#3c598c"
                 }
@@ -155,7 +139,7 @@ Item
 
                 onClicked:
                 {
-                    container.inboxActive = false
+                    root.email_mode = con.id_EMAIL_MODE_OUTBOX
                 }
 
 
@@ -185,17 +169,36 @@ Item
             case_number: caseNumber
             doc_status: docStatus
             text_time: time
-            isActive: case_number === id_active_email
+            isActive: case_number===root.id_active_email
+            id_email_in_emails_table: idEmail
 
             onEmailClicked:
             {
-                id_active_email = case_number
+                root.id_active_email = case_number
                 root.showEmailContent(text_name, text_time, doc_status)
+                root.openEmail(id_email_in_emails_table)
             }
         }
 
         ScrollBar.vertical: ScrollBar
         {
+            background: Rectangle
+            {
+                width: 6
+                anchors.right: parent.right
+                anchors.top: parent.top
+                color: "#b4b4b4"
+            }
+
+            contentItem: Rectangle
+            {
+                anchors.right: parent.right
+                radius: 3
+                implicitWidth: 6
+                implicitHeight: 400
+                color: "#646464"
+            }
+
             policy: ScrollBar.AsNeeded
         }
 
@@ -207,17 +210,18 @@ Item
                                   "name" : root.sender_name,
                                   "caseNumber" : root.case_number,
                                   "docStatus" : root.doc_status,
-                                  "time" : root.r_email_date})
-    }
-
-    function isEmailSelected()
-    {
-        return id_active_email !== -1
+                                  "time" : root.r_email_date,
+                                  "idEmail" : root.id_email_in_emails_table})
     }
 
     function finishSync()
     {
         search.finishSync()
+    }
+
+    function clearEmails()
+    {
+        listmodel_sidebar.clear()
     }
 
 }

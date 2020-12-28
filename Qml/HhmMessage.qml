@@ -40,10 +40,6 @@ Rectangle
        targets: [container, label_message]
        properties: "opacity"
        duration: 700
-       onStopped:
-       {
-           root.showNextMessage()
-       }
     }
 
     Timer

@@ -181,9 +181,31 @@ Item
 
     function compeleteItems()
     {
-        return ( text_file_path!=="" &&
-                 subject_input_box.getInput() !== subject_input_box.text_input_box &&
-                 case_number_input_box.getInput() !== case_number_input_box.text_input_box)
+        if( text_file_path==="" )
+        {
+            root.error_msg = "Please choose a document"
+            root.d_error_msg = 2000
+            root.showMessage()
+            return false
+        }
+
+        if( subject_input_box.getInput()===subject_input_box.text_input_box )
+        {
+            root.error_msg = "Please write a subject"
+            root.d_error_msg = 2000
+            root.showMessage()
+            return false
+        }
+
+        if( case_number_input_box.getInput()===case_number_input_box.text_input_box )
+        {
+            root.error_msg = "Please write a case number"
+            root.d_error_msg = 2000
+            root.showMessage()
+            return false
+        }
+
+        return true
     }
 
 }
