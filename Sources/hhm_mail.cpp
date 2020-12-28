@@ -6,6 +6,16 @@ HhmMail::HhmMail(QObject *item, HhmDatabase *database, QObject *parent) : QObjec
     db = database;
 }
 
+void HhmMail::loadInboxEmails(int idUser)
+{
+    showEmailInSidebar(getIdSendEmails(idUser));
+}
+
+void HhmMail::loadOutboxEmails(int idUser)
+{
+    showEmailInSidebar(getIdReceivedEmails(idUser));
+}
+
 void HhmMail::loadEmails(QString username)
 {
     int id_user = db->getId(username);

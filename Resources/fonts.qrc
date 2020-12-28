@@ -9,5 +9,6 @@
         <file>Fonts/fa-regular-400.ttf</file>
         <file>Fonts/Roboto-Light.ttf</file>
         <file>Fonts/fasolid.ttf</file>
+        <file>Fonts/Roboto-Bold.ttf</file>
     </qresource>
 </RCC>

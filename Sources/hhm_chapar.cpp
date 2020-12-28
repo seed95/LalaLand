@@ -14,6 +14,8 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     connect(ui, SIGNAL(syncButtonClicked()), this, SLOT(syncBtnClicked()));
     connect(ui, SIGNAL(flagButtonClicked(int)), this, SLOT(flagBtnClicked(int)));
     connect(ui, SIGNAL(uploadFileClicked()), this, SLOT(uploadFileClicked()));
+    connect(ui, SIGNAL(inboxClicked()), this, SLOT(inboxClicked()));
+    connect(ui, SIGNAL(outboxClicked()), this, SLOT(outboxClicked()));
 
     //Instance Database
     db = new HhmDatabase();
@@ -24,7 +26,7 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
 
     //Instance Mail
     mail = new HhmMail(ui, db);
-    mail->loadEmails(user->getUsername());
+    mail->loadInboxEmails(user->getId());
 }
 
 void HhmChapar::newBtnClicked()
@@ -202,4 +204,14 @@ void HhmChapar::uploadFileClicked()
         QQmlProperty::write(ui, "selected_file_path", QFileInfo(upload_file).fileName());
         QMetaObject::invokeMethod(ui, "showSelectedFilePath");
     }
+}
+
+void HhmChapar::inboxClicked()
+{
+    mail->loadInboxEmails(user->getId());
+}
+
+void HhmChapar::outboxClicked()
+{
+    mail->loadOutboxEmails(user->getId());
 }

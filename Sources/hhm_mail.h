@@ -16,6 +16,8 @@ public:
     explicit HhmMail(QObject *item, HhmDatabase *database, QObject *parent = nullptr);
 
     void loadEmails(QString username);
+    void loadInboxEmails(int idUser);
+    void loadOutboxEmails(int idUser);
 
 private:
     QStringList getIdReceivedEmails(int userID);

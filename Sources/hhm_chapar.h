@@ -27,6 +27,8 @@ private slots:
     void syncBtnClicked();
     void flagBtnClicked(int id);
     void uploadFileClicked();
+    void inboxClicked();
+    void outboxClicked();
 
 private:
     void addNewDocToDocuments();

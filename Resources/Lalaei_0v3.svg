@@ -266,11 +266,11 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="891.12712"
-     inkscape:cy="339.24215"
+     inkscape:zoom="4"
+     inkscape:cx="117.99238"
+     inkscape:cy="604.01585"
      inkscape:document-units="px"
-     inkscape:current-layer="g5605"
+     inkscape:current-layer="layer9"
      showgrid="false"
      showguides="false"
      inkscape:window-width="1920"
@@ -539,8 +539,7 @@
      inkscape:groupmode="layer"
      id="layer19"
      inkscape:label="SideBar_Item"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <rect
        ry="4.3333335"
        rx="3.9999998"
@@ -1462,24 +1461,24 @@
        sodipodi:linespacing="0%"
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="38.663639"
-       y="145.48683"
+       x="38.437153"
+       y="145.18661"
        id="text4721"><tspan
          sodipodi:role="line"
          id="tspan4723"
-         x="38.663639"
-         y="145.48683"
+         x="38.437153"
+         y="145.18661"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:12.89062405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Bold';fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1">Inbox</tspan></text>
     <text
        id="text4725"
-       y="145.48683"
-       x="94.913643"
+       y="145.18661"
+       x="94.882271"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"
        sodipodi:linespacing="0%"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.89062405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1"
-         y="145.48683"
-         x="94.913643"
+         y="145.18661"
+         x="94.882271"
          id="tspan4727"
          sodipodi:role="line">Outbox</tspan></text>
     <text
@@ -1487,12 +1486,12 @@
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#6e6e6e;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="151.16364"
-       y="145.48683"
+       y="145.18661"
        id="text4729"><tspan
          sodipodi:role="line"
          id="tspan4731"
          x="151.16364"
-         y="145.48683"
+         y="145.18661"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.89062405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#6e6e6e;fill-opacity:1;stroke:none;stroke-opacity:1">Outbox</tspan></text>
   </g>
   <g
@@ -3316,8 +3315,7 @@
      id="layer9"
      inkscape:label="screen shot"
      style="display:inline;opacity:0.39291208"
-     transform="translate(0,-492.18747)"
-     sodipodi:insensitive="true">
+     transform="translate(0,-492.18747)">
     <flowRoot
        xml:space="preserve"
        id="flowRoot4930"

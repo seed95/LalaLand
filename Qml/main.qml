@@ -29,6 +29,8 @@ Window
     signal syncButtonClicked()
     signal flagButtonClicked(int id)
     signal uploadFileClicked()
+    signal inboxClicked()
+    signal outboxClicked()
 
     visible: true
     width: 1280
@@ -57,6 +59,11 @@ Window
         source: "qrc:/Fonts/fa-brands-400.ttf"
     }
 
+    FontLoader
+    {
+        id: fontRobotoBold
+        source: "qrc:/Fonts/Roboto-Bold.ttf"
+    }
     FontLoader
     {
         id: fontRobotoMedium
@@ -133,6 +140,9 @@ Window
     }
 
     HhmMessage
+    {
+        id: message
+    }
     
     function addToInbox()
     {

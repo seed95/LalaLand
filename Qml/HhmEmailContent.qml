@@ -81,7 +81,7 @@ Item
                 }
                 else if( doc_status===con.id_DOC_STATUS_FAILED )
                 {
-                    "#95f5f"
+                    "#b95f5f"
                 }
             }
         }
