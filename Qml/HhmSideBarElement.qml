@@ -228,15 +228,15 @@ Rectangle
         {
             if( doc_status===con.id_DOC_STATUS_SUCCESS )
             {
-                "#16570d"
+                "#508c57"
             }
             else if( doc_status===con.id_DOC_STATUS_PENDING )
             {
-                "#e67232"
+                "#a68536"
             }
             else if( doc_status===con.id_DOC_STATUS_FAILED )
             {
-                "#8b3d3d"
+                "#b95f5f"
             }
 
 //            if(isHovered && isActive)

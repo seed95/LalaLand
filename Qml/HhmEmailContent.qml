@@ -71,17 +71,17 @@ Item
             font.pixelSize: 17
             color:
             {
-                if( doc_status===1 )
+                if( doc_status===con.id_DOC_STATUS_SUCCESS )
                 {
-                    "#377d42"
+                    "#508c57"
                 }
-                else if( doc_status===2 )
+                else if( doc_status===con.id_DOC_STATUS_PENDING )
                 {
-                    "#5a5a5a"
+                    "#a68536"
                 }
-                else if( doc_status===3 )
+                else if( doc_status===con.id_DOC_STATUS_FAILED )
                 {
-                    "#cc3333"
+                    "#95f5f"
                 }
             }
         }
