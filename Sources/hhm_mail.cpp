@@ -11,8 +11,8 @@ void HhmMail::loadEmails(QString username)
     int id_user = db->getId(username);
     if( id_user!=-1 )
     {
-        showInSidebar(getIdReceivedEmails(id_user));
-        showInSidebar(getIdSendEmails(id_user));
+        showEmailInSidebar(getIdReceivedEmails(id_user));
+        showEmailInSidebar(getIdSendEmails(id_user));
     }
     else
     {
@@ -21,7 +21,7 @@ void HhmMail::loadEmails(QString username)
 }
 
 //input in csv format
-void HhmMail::showInSidebar(QStringList emailIds)
+void HhmMail::showEmailInSidebar(QStringList emailIds)
 {
     QString query = "";
     for(int i=0; i<emailIds.size(); i++)

@@ -11,5 +11,7 @@
         <file>HhmInputBox.qml</file>
         <file>HhmSearchDialog.qml</file>
         <file>HhmNews.qml</file>
+        <file>HhmConstants.qml</file>
+        <file>HhmMessage.qml</file>
     </qresource>
 </RCC>

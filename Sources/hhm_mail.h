@@ -20,8 +20,7 @@ public:
 private:
     QStringList getIdReceivedEmails(int userID);
     QStringList getIdSendEmails(int userID);
-    void showInSidebar(QStringList emailIds);//in csv format
-    void addNewDocument();
+    void showEmailInSidebar(QStringList emailIds);//emailsIds: csv format
 
 private:
     QObject *ui;

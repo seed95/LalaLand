@@ -116,18 +116,18 @@ Rectangle
 
     Text
     {
-        id: label_content
+        id: label_doc_status
         text:
         {
-            if( doc_status===1 )
+            if( doc_status===con.id_DOC_STATUS_SUCCESS )
             {
                 "Accept"
             }
-            else if( doc_status===2 )
+            else if( doc_status===con.id_DOC_STATUS_PENDING )
             {
                 "Waiting for approved"
             }
-            else if( doc_status===3 )
+            else if( doc_status===con.id_DOC_STATUS_FAILED )
             {
                 "Reject"
             }
@@ -139,7 +139,7 @@ Rectangle
         anchors.left: label_read_status.right
         anchors.leftMargin: 10 * scale_width
         anchors.top: label_case_number.bottom
-        anchors.topMargin: -1 * scale_height
+        anchors.topMargin: 5
         color:
         {
             if(isHovered && isActive)
@@ -226,15 +226,15 @@ Rectangle
         font.pixelSize: 15
         color:
         {
-            if( doc_status===1 )//success
+            if( doc_status===con.id_DOC_STATUS_SUCCESS )
             {
                 "#16570d"
             }
-            else if( doc_status===2 )//pending
+            else if( doc_status===con.id_DOC_STATUS_PENDING )
             {
                 "#e67232"
             }
-            else if( doc_status===3 )//failed
+            else if( doc_status===con.id_DOC_STATUS_FAILED )
             {
                 "#8b3d3d"
             }

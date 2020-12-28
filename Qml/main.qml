@@ -73,6 +73,11 @@ Window
         source: "qrc:/Fonts/Roboto-Light.ttf"
     }
 
+    HhmConstants
+    {
+        id: con
+    }
+
     HhmNews
     {
         id: news
@@ -127,6 +132,8 @@ Window
         anchors.left: parent.left
     }
 
+    HhmMessage
+    
     function addToInbox()
     {
         sidebar.addToInbox()
