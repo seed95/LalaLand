@@ -52,22 +52,40 @@ Rectangle
 
     Text
     {
-        id: label_read_status
+        id: label_read
         anchors.left: parent.left
         anchors.top: parent.top
-        anchors.leftMargin: 16 * scale_width
-        anchors.topMargin: 14 * scale_height
-        text:
+        anchors.leftMargin: 16
+        anchors.topMargin: 14
+        text: "\uf2b6"
+        font.family: fontAwesomeRegular.name
+        font.pixelSize: 15
+        color:
         {
-            if(isRead)
+            if(isHovered && isActive)
             {
-                "\uf2b6"
+                color_text_active_hovered
+            }
+            else if(isActive)
+            {
+                color_text_active
             }
             else
             {
-                "\uf0e0"
+                "#505050"
             }
         }
+        visible: isRead
+    }
+
+    Text
+    {
+        id: label_unread
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.leftMargin: 16
+        anchors.topMargin: 14
+        text: "\uf0e0"
         font.family: fontAwesomeSolid.name
         font.pixelSize: 15
         color:
@@ -82,9 +100,10 @@ Rectangle
             }
             else
             {
-                "#646464"
+                "#505050"
             }
         }
+        visible: !isRead
     }
 
     Text
@@ -94,7 +113,7 @@ Rectangle
         font.family: fontRobotoMedium.name
         font.weight: Font.Medium
         font.pixelSize: 18
-        anchors.left: label_read_status.right
+        anchors.left: label_read.right
         anchors.leftMargin: 10 * scale_width
         anchors.top: parent.top
         anchors.topMargin: 8 * scale_height
@@ -137,7 +156,7 @@ Rectangle
         font.family: fontRobotoRegular.name
         font.weight: Font.Normal
         font.pixelSize: 15
-        anchors.left: label_read_status.right
+        anchors.left: label_read.right
         anchors.leftMargin: 10 * scale_width
         anchors.top: label_case_number.bottom
         anchors.topMargin: 5

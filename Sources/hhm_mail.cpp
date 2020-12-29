@@ -36,53 +36,86 @@ void HhmMail::showEmailInSidebar(QStringList emailIds)
     QString query = "";
     for(int i=0; i<emailIds.size(); i++)
     {
-        QString condition = "`" + QString(HHM_EMAILS_ID) + "`=" + emailIds.at(i);
-        QSqlQuery res = db->select(HHM_EMAILS_DOCID, HHM_TABLE_EMAILS, condition);
+        HhmEmailTable email = getEmail(emailIds.at(i).toInt());
+
+        QString condition = "`" + QString(HHM_DOCUMENTS_ID) + "`=" + QString::number(email.documentId);
+        QSqlQuery res = db->select("*", HHM_TABLE_DOCUMENTS, condition);
         if(res.next())
         {
-            QString condition = "`" + QString(HHM_DOCUMENTS_ID) + "`=" + res.value(0).toString();
-            res = db->select("*", HHM_TABLE_DOCUMENTS, condition);
-//            db->printQuery(res);
-            if(res.next())
+            QVariant data = res.value(HHM_DOCUMENTS_DOCID);
+            if(data.isValid())
             {
-                QVariant data = res.value(HHM_DOCUMENTS_DOCID);
-                if(data.isValid())
-                {
-                    QQmlProperty::write(ui, "case_number", data.toInt());
-                }
-
-                data = res.value(HHM_DOCUMENTS_SENDER_NAME);
-                if(data.isValid())
-                {
-                    QQmlProperty::write(ui, "sender_name", data.toString());
-                }
-
-                data = res.value(HHM_DOCUMENTS_SUBJECT);
-                if(data.isValid())
-                {
-                    QQmlProperty::write(ui, "subject", data.toString());
-                }
-
-                data = res.value(HHM_DOCUMENTS_STATUS);
-                if(data.isValid())
-                {
-                    QQmlProperty::write(ui, "doc_status", data.toInt());
-                }
-
-                data = res.value(HHM_DOCUMENTS_DATE);
-                if(data.isValid())
-                {
-                    QString datetime = data.toDateTime().toString("hh:mmAP");
-                    QQmlProperty::write(ui, "r_email_date", datetime);
-                }
-
-                QQmlProperty::write(ui, "id_email_in_emails_table", emailIds.at(i));
-
-                QMetaObject::invokeMethod(ui, "addToInbox");
-
+                QQmlProperty::write(ui, "case_number", data.toInt());
             }
+
+            data = res.value(HHM_DOCUMENTS_SENDER_NAME);
+            if(data.isValid())
+            {
+                QQmlProperty::write(ui, "sender_name", data.toString());
+            }
+
+            data = res.value(HHM_DOCUMENTS_SUBJECT);
+            if(data.isValid())
+            {
+                QQmlProperty::write(ui, "subject", data.toString());
+            }
+
+            data = res.value(HHM_DOCUMENTS_STATUS);
+            if(data.isValid())
+            {
+                QQmlProperty::write(ui, "doc_status", data.toInt());
+            }
+
+            data = res.value(HHM_DOCUMENTS_DATE);
+            if(data.isValid())
+            {
+                QString datetime = data.toDateTime().toString("hh:mmAP");
+                QQmlProperty::write(ui, "r_email_date", datetime);
+            }
+
+            QQmlProperty::write(ui, "id_email_in_emails_table", emailIds.at(i));
+            QQmlProperty::write(ui, "email_opened", email.opened==1);
+
+            QMetaObject::invokeMethod(ui, "addToInbox");
+
         }
     }
+}
+
+HhmEmailTable HhmMail::getEmail(int idEmail)
+{
+    QString condition = "`" + QString(HHM_EMAILS_ID) + "`=" + QString::number(idEmail);
+    QSqlQuery res = db->select("*", HHM_TABLE_EMAILS, condition);
+    HhmEmailTable email;
+    if(res.next())
+    {
+        email.emailId = idEmail;
+        QVariant data = res.value(HHM_EMAILS_DOCID);
+        if(data.isValid())
+        {
+            email.documentId = data.toInt();
+        }
+
+        data = res.value(HHM_EMAILS_FLAG);
+        if(data.isValid())
+        {
+            email.flag = data.toInt();
+        }
+
+        data = res.value(HHM_EMAILS_OPENED);
+        if(data.isValid())
+        {
+            email.opened = data.toInt();
+        }
+
+        data = res.value(HHM_EMAILS_OPEN_TIME);
+        if(data.isValid())
+        {
+            email.date = data.toDateTime();
+        }
+
+    }
+    return email;
 }
 
 //return in csv format

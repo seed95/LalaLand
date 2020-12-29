@@ -8,12 +8,14 @@ Window
     property real scale_width: width/1280
     property real scale_height: height/800
 
+    //Document properties
     property int    case_number: 2 //Document id
     property string sender_name: "Cassie Hicks"
     property string subject: "Subject"
     property int    doc_status:  1//Success(1), Pending(2), Failed(3)
     property string r_email_date: "7:17PM" //Received email date
     property int    id_email_in_emails_table: 1 //Save this value for change mode email(open)
+    property bool   email_opened: false
 
     property string s_new_email_username: "Admin"//Sender email username
     property string r_new_email_username: "Admin"//Received email username
@@ -79,6 +81,12 @@ Window
         id: fontAwesomeBrand
         source: "qrc:/Fonts/fa-brands-400.ttf"
     }
+    FontLoader
+    {
+        id: fontAwesomeRegular
+        source: "qrc:/Fonts/fa-regular-brand.ttf"
+    }
+
 
     FontLoader
     {

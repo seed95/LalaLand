@@ -9,6 +9,17 @@
 #include "hhm_database.h"
 #include "hhm_user.h"
 
+typedef struct HhmEmailTable
+{
+    int emailId;
+    int documentId;
+    int flag;//0,1
+    int opened;//0,1
+    QDateTime date;
+    int sentEmail;//0,1
+    int receiveEmail;//0,1
+} HhmEmailTable;
+
 class HhmMail : public QObject
 {
     Q_OBJECT
@@ -23,6 +34,7 @@ private:
     QStringList getIdReceivedEmails(int userID);
     QStringList getIdSendEmails(int userID);
     void showEmailInSidebar(QStringList emailIds);//emailsIds: csv format
+    HhmEmailTable getEmail(int idEmail);
 
 private:
     QObject *ui;

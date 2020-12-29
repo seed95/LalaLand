@@ -171,12 +171,14 @@ Item
             text_time: time
             isActive: case_number===root.id_active_email
             id_email_in_emails_table: idEmail
+            isRead: emailOpened
 
             onEmailClicked:
             {
                 root.id_active_email = case_number
-                root.showEmailContent(text_name, text_time, doc_status)
-                root.openEmail(id_email_in_emails_table)
+                root.showEmailContent(name, time, docStatus)
+                emailOpened = true
+                root.openEmail(idEmail)
             }
         }
 
@@ -211,6 +213,7 @@ Item
                                   "caseNumber" : root.case_number,
                                   "docStatus" : root.doc_status,
                                   "time" : root.r_email_date,
+                                  "emailOpened" : root.email_opened,
                                   "idEmail" : root.id_email_in_emails_table})
     }
 
