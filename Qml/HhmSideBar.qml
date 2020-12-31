@@ -169,13 +169,13 @@ Item
             case_number: caseNumber
             doc_status: docStatus
             text_time: time
-            isActive: case_number===root.id_active_email
+            isActive: case_number===root.case_number_selected_doc
             id_email_in_emails_table: idEmail
             isRead: emailOpened
 
             onEmailClicked:
             {
-                root.id_active_email = case_number
+                root.case_number_selected_doc = case_number
                 root.showEmailContent(name, time, docStatus)
                 emailOpened = true
                 root.openEmail(idEmail)

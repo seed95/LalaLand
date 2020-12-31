@@ -8,12 +8,12 @@ HhmMail::HhmMail(QObject *item, HhmDatabase *database, QObject *parent) : QObjec
 
 void HhmMail::loadInboxEmails(int idUser)
 {
-    showEmailInSidebar(getIdSendEmails(idUser));
+    showEmailInSidebar(getIdReceivedEmails(idUser));
 }
 
 void HhmMail::loadOutboxEmails(int idUser)
 {
-    showEmailInSidebar(getIdReceivedEmails(idUser));
+    showEmailInSidebar(getIdSendEmails(idUser));
 }
 
 void HhmMail::loadEmails(QString username)
@@ -140,7 +140,7 @@ QStringList HhmMail::getIdSendEmails(int userID)
 {
     int month = (QDate::currentDate().year() - HHM_START_YEAR)*12 + QDate::currentDate().month();
     QString condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(userID);
-    condition += " AND `" + QString(HHM_UE_DATE) + "`=" + QString::number(month);
+//    condition += " AND `" + QString(HHM_UE_DATE) + "`=" + QString::number(month);
     QSqlQuery res = db->select(HHM_UE_SENT_EMAILS, HHM_TABLE_USER_EMAILS, condition);
     QStringList result;
     if(res.next())

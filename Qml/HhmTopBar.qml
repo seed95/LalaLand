@@ -44,7 +44,7 @@ Rectangle
         visible: !new_email.visible
         icon: "\uf00c"
         action: "Approve"
-        onButtonClicked: root.approveButtonClicked()
+        onButtonClicked: root.approveButtonClicked(root.case_number_selected_doc)
     }
 
     HhmActionButton
@@ -57,7 +57,7 @@ Rectangle
         visible: !new_email.visible
         icon: "\uf00d"
         action: "Reject"
-        onButtonClicked: root.rejectButtonClicked()
+        onButtonClicked: root.rejectButtonClicked(root.case_number_selected_doc)
     }
 
     HhmActionButton

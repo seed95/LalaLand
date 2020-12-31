@@ -2,6 +2,7 @@
 #include <QQmlApplicationEngine>
 #include <QDebug>
 #include "hhm_chapar.h"
+#include "backend.h"
 
 /*
 Compile mysql driver, https://doc.qt.io/qt-5/sql-driver.html#building-the-drivers
@@ -19,8 +20,11 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     engine.load(url);
+    QObject *mainItem = engine.rootObjects().first();
 
-    HhmChapar *chapar = new HhmChapar(engine.rootObjects().first());
+    setBackendUI(mainItem);
+
+    HhmChapar *chapar = new HhmChapar(mainItem);
 
     return app.exec();
 }

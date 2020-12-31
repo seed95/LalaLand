@@ -8,6 +8,9 @@ Window
     property real scale_width: width/1280
     property real scale_height: height/800
 
+    property string username: "Admin"
+    property string app_status: "Updated from server 12:20PM"
+
     //Document properties
     property int    case_number: 2 //Document id
     property string sender_name: "Cassie Hicks"
@@ -23,7 +26,7 @@ Window
     property string selected_file_path: "path/to/file"//Sender email username
 
     property int email_mode: con.id_EMAIL_MODE_INBOX
-    property int id_active_email: -1
+    property int case_number_selected_doc: -1
 
     property string error_msg:    ""//error message
     property int    d_error_msg:  100//duration error message
@@ -35,24 +38,15 @@ Window
     signal rejectButtonClicked(int docId)
     signal scanButtonClicked()
     signal sendButtonClicked(int docId, string subject)
-    signal syncButtonClicked()
     signal flagButtonClicked(int id)
     signal uploadFileClicked()
-    signal inboxClicked()
-    signal outboxClicked()
+    signal syncInbox()
+    signal syncOutbox()
     signal openEmail(int emailId)
 
     onEmail_modeChanged:
     {
-        sidebar.clearEmails()
-        if( email_mode===con.id_EMAIL_MODE_INBOX )
-        {
-            inboxClicked()
-        }
-        else if( email_mode===con.id_EMAIL_MODE_OUTBOX)
-        {
-            outboxClicked()
-        }
+        syncEmail()
     }
 
     visible: true
@@ -84,7 +78,7 @@ Window
     FontLoader
     {
         id: fontAwesomeRegular
-        source: "qrc:/Fonts/fa-regular-brand.ttf"
+        source: "qrc:/Fonts/fa-regular-400.ttf"
     }
 
 
@@ -166,6 +160,8 @@ Window
         width: parent.width
         anchors.bottom: parent.bottom
         anchors.left: parent.left
+        text_user: root.username
+        text_status: app_status
     }
 
     HhmMessage
@@ -175,9 +171,30 @@ Window
         z: 10
     }
     
+    /*** Call this function from cpp ***/
+
     function addToInbox()
     {
         sidebar.addToInbox()
+    }
+
+    function finishSync()
+    {
+        sidebar.finishSync()
+        bottombar.text_status = "Updated from server " + (Qt.formatTime(new Date(),"hh:mmAP"))
+    }
+
+    //call this function when have a error and must be
+    //set properites `error_msg`, `d_error_msg`.
+    function showMessage()
+    {
+        message.showMessage(error_msg, d_error_msg)
+    }
+
+    function sendEmailComplete()
+    {
+        showPageContentEmail()
+        syncEmail()
     }
 
     function showPageNewEmail()
@@ -189,7 +206,7 @@ Window
 
     function showPageContentEmail()
     {
-        if( root.id_active_email!==-1 )
+        if( root.case_number_selected_doc!==-1 )
         {
             email_content.visible = true
         }
@@ -209,33 +226,25 @@ Window
         new_email.showSelectedFile()
     }
 
-    function finishSync()
-    {
-        sidebar.finishSync()
-    }
-
     function sendEmail()
     {
         if(new_email.compeleteItems())
         {
-            showPageContentEmail()
             sendButtonClicked(new_email.getCaseNumber(), new_email.getSubject())
-            if( email_mode===con.id_EMAIL_MODE_INBOX )
-            {
-                inboxClicked()
-            }
-            else if( email_mode===con.id_EMAIL_MODE_OUTBOX )
-            {
-                outboxClicked()
-            }
         }
     }
 
-    //call this function when have a error and must be
-    //set properites `error_msg`, `d_error_msg`.
-    function showMessage()
+    function syncEmail()
     {
-        message.showMessage(error_msg, d_error_msg)
+        sidebar.clearEmails()
+        if( email_mode===con.id_EMAIL_MODE_INBOX )
+        {
+            syncInbox()
+        }
+        else if( email_mode===con.id_EMAIL_MODE_OUTBOX )
+        {
+            syncOutbox()
+        }
     }
 
 }

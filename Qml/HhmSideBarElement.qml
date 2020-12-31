@@ -59,6 +59,7 @@ Rectangle
         anchors.topMargin: 14
         text: "\uf2b6"
         font.family: fontAwesomeRegular.name
+        font.weight: Font.Normal
         font.pixelSize: 15
         color:
         {
@@ -113,7 +114,18 @@ Rectangle
         font.family: fontRobotoMedium.name
         font.weight: Font.Medium
         font.pixelSize: 18
-        anchors.left: label_read.right
+        anchors.left:
+        {
+            if(isRead)
+            {
+                label_read.right
+            }
+            else
+            {
+                label_unread.right
+            }
+
+        }
         anchors.leftMargin: 10 * scale_width
         anchors.top: parent.top
         anchors.topMargin: 8 * scale_height
@@ -156,8 +168,7 @@ Rectangle
         font.family: fontRobotoRegular.name
         font.weight: Font.Normal
         font.pixelSize: 15
-        anchors.left: label_read.right
-        anchors.leftMargin: 10 * scale_width
+        anchors.left: label_subject.left
         anchors.top: label_case_number.bottom
         anchors.topMargin: 5
         color:

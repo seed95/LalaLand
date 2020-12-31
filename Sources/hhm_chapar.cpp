@@ -11,11 +11,10 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     connect(ui, SIGNAL(archiveButtonClicked()), this, SLOT(archiveBtnClicked()));
     connect(ui, SIGNAL(scanButtonClicked()), this, SLOT(scanBtnClicked()));
     connect(ui, SIGNAL(sendButtonClicked(int, QString)), this, SLOT(sendBtnClicked(int, QString)));
-    connect(ui, SIGNAL(syncButtonClicked()), this, SLOT(syncBtnClicked()));
     connect(ui, SIGNAL(flagButtonClicked(int)), this, SLOT(flagBtnClicked(int)));
     connect(ui, SIGNAL(uploadFileClicked()), this, SLOT(uploadFileClicked()));
-    connect(ui, SIGNAL(inboxClicked()), this, SLOT(inboxClicked()));
-    connect(ui, SIGNAL(outboxClicked()), this, SLOT(outboxClicked()));
+    connect(ui, SIGNAL(syncInbox()), this, SLOT(syncInbox()));
+    connect(ui, SIGNAL(syncOutbox()), this, SLOT(syncOutbox()));
     connect(ui, SIGNAL(openEmail(int)), this, SLOT(openEmail(int)));
 
     //Instance Database
@@ -24,6 +23,7 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     //Instance User
     user = new HhmUser(this, db);
     user->loadUser(USER_NAME);
+    QQmlProperty::write(ui, "username", USER_NAME);
 
     //Instance Mail
     mail = new HhmMail(ui, db);
@@ -71,12 +71,21 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
 {
     if(!upload_file.isEmpty())
     {
-        int id_admin = db->getId("Admin");
         int id_user = user->getId();
+#ifdef HHM_USER_ADMIN
+        int id_receiver_user = db->getId("User");
+#else
+        int id_receiver_user = db->getId("Admin");
+#endif
 
         //Check duplicate case number
-        QString condition1 = "`" + QString(HHM_DOCUMENTS_DOCID) + "`=" + QString::number(caseNumber);
-        QSqlQuery res1 = db->select("*", HHM_TABLE_DOCUMENTS, condition1);
+        QString condition = "`" + QString(HHM_DOCUMENTS_DOCID) + "`=" + QString::number(caseNumber);
+        QSqlQuery res = db->select("*", HHM_TABLE_DOCUMENTS, condition);
+        if( res.size()!=0 )
+        {
+            hhm_showMessage("Case number already exist!", 2000);
+            return;
+        }
 
         //Insert into HHM_TABLE_DOCUMENTS
         QString columns = "`" + QString(HHM_DOCUMENTS_FILEPATH) + "`, ";
@@ -92,7 +101,7 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
 
         QString values = "'" + upload_file + "', ";
         values += "'" + QString::number(id_user) + "', ";
-        values += "'" + QString::number(id_admin) + "', ";
+        values += "'" + QString::number(id_receiver_user) + "', ";
         values += "'" + date + "', ";
         values += "'" + user->getName() + "', ";
         values += "'" + QString::number(caseNumber) + "', ";
@@ -101,7 +110,7 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
 
         //Get id document
         QString query = "SELECT LAST_INSERT_ID();";
-        QSqlQuery res = db->sendQuery(query);
+        res = db->sendQuery(query);
         int doc_id = 0;
         if(res.next())
         {
@@ -127,17 +136,17 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
         query = "SELECT MAX(" + QString(HHM_EMAILS_ID) + ") FROM `";
         query += QString(DATABASE_NAME) + "`.`" + QString(HHM_TABLE_EMAILS) + "`";
         res = db->sendQuery(query);
-        int email_id_sent = 0;
+        int email_id_sent = 1;
         int email_id_received = email_id_sent + 1;
         if(res.next())
         {
-            email_id_sent = res.value(0).toInt();
-            email_id_received = email_id_sent + 1;
+            email_id_received = res.value(0).toInt();
+            email_id_sent = email_id_received - 1;
         }
 
         //update sent emails for sender
         QString fields = QString(HHM_UE_SENT_EMAILS);
-        QString condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_user);
+        condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_user);
         res = db->select(fields, HHM_TABLE_USER_EMAILS, condition);
         if(res.next())
         {
@@ -157,7 +166,7 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
 
         //update received emails for receiver
         fields = QString(HHM_UE_RECEIVED_EMAILS);
-        condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_admin);
+        condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_receiver_user);
         res = db->select(fields, HHM_TABLE_USER_EMAILS, condition);
         if(res.next())
         {
@@ -170,7 +179,7 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
             {
                 received_emails += "," + QString::number(email_id_received);
             }
-            condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_admin);
+            condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_receiver_user);
             QString value = "`" + QString(HHM_UE_RECEIVED_EMAILS) + "`=\"" + received_emails + "\"";
             db->update(condition, value, HHM_TABLE_USER_EMAILS);
         }
@@ -178,17 +187,12 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
         {
             qDebug() << "no user return";
         }
+        QMetaObject::invokeMethod(ui, "sendEmailComplete");
     }
     else
     {
         qDebug() << "document is empty";
     }
-}
-
-void HhmChapar::syncBtnClicked()
-{
-    mail->loadEmails(user->getUsername());
-    QMetaObject::invokeMethod(ui, "finishSync");
 }
 
 void HhmChapar::flagBtnClicked(int id)
@@ -210,14 +214,16 @@ void HhmChapar::uploadFileClicked()
     }
 }
 
-void HhmChapar::inboxClicked()
+void HhmChapar::syncInbox()
 {
     mail->loadInboxEmails(user->getId());
+    QMetaObject::invokeMethod(ui, "finishSync");
 }
 
-void HhmChapar::outboxClicked()
+void HhmChapar::syncOutbox()
 {
     mail->loadOutboxEmails(user->getId());
+    QMetaObject::invokeMethod(ui, "finishSync");
 }
 
 void HhmChapar::openEmail(int idEmail)

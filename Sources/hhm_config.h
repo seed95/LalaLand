@@ -1,6 +1,9 @@
 #ifndef HHM_CONFIG_H
 #define HHM_CONFIG_H
 
+//Uncomment this line if app run for admi
+//#define HHM_USER_ADMIN
+
 #define HHM_START_YEAR 2020
 
 #ifdef HHM_USER_ADMIN
@@ -9,6 +12,8 @@
 #define USER_NAME "User"
 #endif
 
+#define HHM_MODE_INBOX  1
+#define HHM_MODE_OUTBOX 2
 
 /*****              DataBase Configs            *****/
 

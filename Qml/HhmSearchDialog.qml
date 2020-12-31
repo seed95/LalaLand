@@ -60,7 +60,7 @@ Rectangle
             {
                 rotation_refresh.start()
                 rotation_refresh.loops = Animation.Infinite
-                root.syncButtonClicked()
+                root.syncEmail()
             }
         }
 

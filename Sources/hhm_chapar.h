@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QDebug>
 #include <QFileDialog>
+#include <QQmlProperty>
 
 #include "hhm_config.h"
 #include "hhm_mail.h"
@@ -24,11 +25,11 @@ private slots:
     void archiveBtnClicked();
     void scanBtnClicked();
     void sendBtnClicked(int caseNumber, QString subject);
-    void syncBtnClicked();
+//    void syncBtnClicked(int emailMode);
     void flagBtnClicked(int id);
     void uploadFileClicked();
-    void inboxClicked();
-    void outboxClicked();
+    void syncInbox();
+    void syncOutbox();
     void openEmail(int idEmail);
 
 private:

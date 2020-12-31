@@ -2,8 +2,6 @@ QT += quick
 QT += sql
 QT += widgets
 
-DEFINES += HHM_USER_ADMIN
-
 RCC_DIR = Build/
 OBJECTS_DIR = Build/
 MOC_DIR = Build/

@@ -3,19 +3,31 @@ import QtQuick 2.0
 Rectangle
 {
     property string text_status: "Updated from server 10:43AM"
+    property string text_user: "Admin"
 
-    height: 25 * scale_height
+    height: 25
     color: "#2c374c"
 
     Text
     {
-        text: text_status
-        color: "#c3c5cd"
-        font.family: fontRobotoRegular.name
-        font.pixelSize: 15
         anchors.left: parent.left
         anchors.leftMargin: 25
         anchors.verticalCenter: parent.verticalCenter
+        text: text_status
+        font.family: fontRobotoRegular.name
+        font.pixelSize: 15
+        color: "#c3c5cd"
+    }
+
+    Text
+    {
+        anchors.right: parent.right
+        anchors.rightMargin: 25
+        anchors.verticalCenter: parent.verticalCenter
+        text: text_user
+        font.family: fontRobotoRegular.name
+        font.pixelSize: 15
+        color: "#c3c5cd"
     }
 
 }
