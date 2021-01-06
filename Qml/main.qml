@@ -1,5 +1,6 @@
 import QtQuick 2.10
 import QtQuick.Window 2.10
+import QtQuick.Controls 2.4
 
 Window
 {
@@ -8,7 +9,16 @@ Window
     property real scale_width: width/1280
     property real scale_height: height/800
 
-    property string username: "Admin"
+    //User properties
+    property int    idUser:     101
+    property string firstname:  "Cassie"
+    property string lastname:   "Hicks"
+    property string username:   "Admin"
+    property string lastlogin:  "2020/08/19 12:23:43"
+    property int    status:     0
+    property string bio:        "Bio"
+    property string image:      "Image"
+
     property string app_status: "Updated from server 12:20PM"
 
     //Document properties
@@ -28,9 +38,11 @@ Window
     property int email_mode: con.id_EMAIL_MODE_INBOX
     property int case_number_selected_doc: -1
 
+    //Message properties
     property string error_msg:    ""//error message
     property int    d_error_msg:  100//duration error message
 
+    signal loginUser(string username, string pass)
     signal newButtonClicked()
     signal replyButtonClicked()
     signal archiveButtonClicked()
@@ -81,7 +93,6 @@ Window
         source: "qrc:/Fonts/fa-regular-400.ttf"
     }
 
-
     FontLoader
     {
         id: fontRobotoBold
@@ -103,9 +114,36 @@ Window
         source: "qrc:/Fonts/Roboto-Light.ttf"
     }
 
+    //Animations:
+    NumberAnimation
+    {
+        id: animateHideLogin
+        target: login
+        property: "opacity"
+        from: 1
+        to: 0
+        duration: 1000
+        onStopped:
+        {
+            login.visible = false
+        }
+    }
+
+    //Main UI
     HhmConstants
     {
         id: con
+    }
+
+    HhmLogin
+    {
+        id: login
+        anchors.fill: parent
+        z: 1
+        onSignInUser:
+        {
+            root.loginUser(uname, pass)
+        }
     }
 
     HhmNews
@@ -171,6 +209,7 @@ Window
         z: 10
     }
     
+    //Functions
     /*** Call this function from cpp ***/
 
     function addToInbox()
@@ -182,6 +221,11 @@ Window
     {
         sidebar.finishSync()
         bottombar.text_status = "Updated from server " + (Qt.formatTime(new Date(),"hh:mmAP"))
+    }
+
+    function loginSuccessfuly()
+    {
+        animateHideLogin.start()
     }
 
     //call this function when have a error and must be
@@ -196,6 +240,8 @@ Window
         showPageContentEmail()
         syncEmail()
     }
+
+    /*** Call this function from qml ***/
 
     function showPageNewEmail()
     {

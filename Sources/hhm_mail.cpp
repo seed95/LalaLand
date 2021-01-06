@@ -39,7 +39,7 @@ void HhmMail::showEmailInSidebar(QStringList emailIds)
         HhmEmailTable email = getEmail(emailIds.at(i).toInt());
 
         QString condition = "`" + QString(HHM_DOCUMENTS_ID) + "`=" + QString::number(email.documentId);
-        QSqlQuery res = db->select("*", HHM_TABLE_DOCUMENTS, condition);
+        QSqlQuery res = db->select("*", HHM_TABLE_DOCUMENT, condition);
         if(res.next())
         {
             QVariant data = res.value(HHM_DOCUMENTS_DOCID);
@@ -85,7 +85,7 @@ void HhmMail::showEmailInSidebar(QStringList emailIds)
 HhmEmailTable HhmMail::getEmail(int idEmail)
 {
     QString condition = "`" + QString(HHM_EMAILS_ID) + "`=" + QString::number(idEmail);
-    QSqlQuery res = db->select("*", HHM_TABLE_EMAILS, condition);
+    QSqlQuery res = db->select("*", HHM_TABLE_EMAIL, condition);
     HhmEmailTable email;
     if(res.next())
     {
@@ -123,8 +123,8 @@ QStringList HhmMail::getIdReceivedEmails(int userID)
 {
     int month = (QDate::currentDate().year() - HHM_START_YEAR)*12 + QDate::currentDate().month();
     QString condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(userID);
-    condition += " AND `" + QString(HHM_UE_DATE) + "`=" + QString::number(month);
-    QSqlQuery res = db->select(HHM_UE_RECEIVED_EMAILS, HHM_TABLE_USER_EMAILS, condition);
+//    condition += " AND `" + QString(HHM_UE_DATE) + "`=" + QString::number(month);
+    QSqlQuery res = db->select(HHM_UE_RECEIVED_EMAILS, HHM_TABLE_USER_EMAIL, condition);
     QStringList result;
     if(res.next())
     {
@@ -141,7 +141,7 @@ QStringList HhmMail::getIdSendEmails(int userID)
     int month = (QDate::currentDate().year() - HHM_START_YEAR)*12 + QDate::currentDate().month();
     QString condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(userID);
 //    condition += " AND `" + QString(HHM_UE_DATE) + "`=" + QString::number(month);
-    QSqlQuery res = db->select(HHM_UE_SENT_EMAILS, HHM_TABLE_USER_EMAILS, condition);
+    QSqlQuery res = db->select(HHM_UE_SENT_EMAILS, HHM_TABLE_USER_EMAIL, condition);
     QStringList result;
     if(res.next())
     {

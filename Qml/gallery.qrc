@@ -13,5 +13,8 @@
         <file>HhmNews.qml</file>
         <file>HhmConstants.qml</file>
         <file>HhmMessage.qml</file>
+        <file>HhmLogin.qml</file>
+        <file>HhmLoginTextInput.qml</file>
+        <file>HhmLoginButton.qml</file>
     </qresource>
 </RCC>

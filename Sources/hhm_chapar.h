@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QFileDialog>
 #include <QQmlProperty>
+#include <QCryptographicHash>
 
 #include "hhm_config.h"
 #include "hhm_mail.h"
@@ -18,6 +19,7 @@ public:
     explicit HhmChapar(QObject *item, QObject *parent = nullptr);
 
 private slots:
+    void loginUser(QString uname, QString pass);
     void newBtnClicked();
     void replyBtnClicked();
     void approveBtnClicked(int caseNumber);
@@ -25,7 +27,6 @@ private slots:
     void archiveBtnClicked();
     void scanBtnClicked();
     void sendBtnClicked(int caseNumber, QString subject);
-//    void syncBtnClicked(int emailMode);
     void flagBtnClicked(int id);
     void uploadFileClicked();
     void syncInbox();

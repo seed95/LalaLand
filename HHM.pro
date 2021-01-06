@@ -1,6 +1,7 @@
 QT += quick
 QT += sql
 QT += widgets
+QT += core
 
 RCC_DIR = Build/
 OBJECTS_DIR = Build/

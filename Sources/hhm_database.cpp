@@ -142,7 +142,7 @@ QSqlQuery HhmDatabase::select(QString fields, QString table, QString condition)
 int HhmDatabase::getId(QString username)
 {
     QString condition = "`" + QString(HHM_USER_USERNAME) + "`='" + username + "'";
-    QSqlQuery res = select(HHM_USER_ID, HHM_TABLE_USERS, condition);
+    QSqlQuery res = select(HHM_USER_ID, HHM_TABLE_USER, condition);
     int result = -1;
     if(res.next())
     {

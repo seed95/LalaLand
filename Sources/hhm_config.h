@@ -1,16 +1,10 @@
 #ifndef HHM_CONFIG_H
 #define HHM_CONFIG_H
 
-//Uncomment this line if app run for admi
-//#define HHM_USER_ADMIN
+#define HHM_USERNAME_ADMIN  "Admin"
+#define HHM_USERNAME_USER   "User"
 
 #define HHM_START_YEAR 2020
-
-#ifdef HHM_USER_ADMIN
-#define USER_NAME "Admin"
-#else
-#define USER_NAME "User"
-#endif
 
 #define HHM_MODE_INBOX  1
 #define HHM_MODE_OUTBOX 2
@@ -24,12 +18,12 @@
 #define DATABASE_NAME   "hhm_db"
 
 //Tables
-#define HHM_TABLE_USERS         "users"
-#define HHM_TABLE_EMAILS        "emails"
-#define HHM_TABLE_DOCUMENTS     "documents"
-#define HHM_TABLE_USER_EMAILS   "user_emails"
+#define HHM_TABLE_USER         "user"
+#define HHM_TABLE_EMAIL        "email"
+#define HHM_TABLE_DOCUMENT     "document"
+#define HHM_TABLE_USER_EMAIL   "user_email"
 
-//Columns in Table 'HHM_TABLE_DOCUMENTS'
+//Columns in Table 'HHM_TABLE_DOCUMENT'
 #define HHM_DOCUMENTS_ID                "id"
 #define HHM_DOCUMENTS_SENDER_ID         "s_id"
 #define HHM_DOCUMENTS_RECEIVER_IDS      "r_ids"
@@ -40,20 +34,25 @@
 #define HHM_DOCUMENTS_DOCID             "case_num"
 #define HHM_DOCUMENTS_SUBJECT           "subject"
 
-//Columns in Table `HHM_TABLE_USER_EMAILS`
+//Columns in Table `HHM_TABLE_USER_EMAIL`
 #define HHM_UE_ID                   "id"
 #define HHM_UE_USER_ID              "user_id"
 #define HHM_UE_DATE                 "date"
 #define HHM_UE_SENT_EMAILS          "sent_emails"
 #define HHM_UE_RECEIVED_EMAILS      "received_emails"
 
-//Columns in Table `HHM_TABLE_USER_EMAILS`
+//Columns in Table `HHM_TABLE_USER_EMAIL`
 #define HHM_USER_ID             "id"
 #define HHM_USER_FIRSTNAME      "firstname"
 #define HHM_USER_LASTNAME       "lastname"
 #define HHM_USER_USERNAME       "username"
+#define HHM_USER_LASTLOGIN      "lastlogin"
+#define HHM_USER_STATUS         "status"
+#define HHM_USER_BIO            "bio"
+#define HHM_USER_IMAGE          "image"
+#define HHM_USER_PASSWORD       "password"
 
-//Columns in Table `HHM_TABLE_EMAILS`
+//Columns in Table `HHM_TABLE_EMAIL`
 #define HHM_EMAILS_ID                   "id"
 #define HHM_EMAILS_DOCID                "d_id"
 #define HHM_EMAILS_FLAG                 "flag"

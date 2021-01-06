@@ -2,6 +2,7 @@
 #define HHMUSER_H
 
 #include <QObject>
+#include <QDateTime>
 
 #include "hhm_database.h"
 #include "hhm_config.h"
@@ -12,21 +13,23 @@ class HhmUser : public QObject
 public:
     explicit HhmUser(QObject *item, HhmDatabase *database, QObject *parent = nullptr);
 
-    void loadUser(QString username);
-    QString getName() {return fname + " " + lname;}
-    QString getUsername() {return uname;}
-    int getId() {return id;}
-    QString getFirstname() {return fname;}
-    QString getLastname() {return lname;}
+    bool loadUser(QString username, QString password);
 
+    int         getId();
+    QString     getFirstname();
+    QString     getLastname();
+    QString     getName() {return getFirstname() + " " + getLastname();}
+    QString     getUsername();
+    QDateTime   getLastLogin();
+    int         getStatus();
+    QString     getBio();
+    QString     getImage();
+
+    void printUser();
 
 private:
-    QString fname;//first name
-    QString lname;//last name
-    QString uname;//user name
-    int id;
-
     HhmDatabase *db;
+    QObject *ui;
 };
 
 #endif // HHMUSER_H

@@ -4,6 +4,7 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
 {
     ui = item;
 
+    connect(ui, SIGNAL(loginUser(QString, QString)), this, SLOT(loginUser(QString, QString)));
     connect(ui, SIGNAL(newButtonClicked()), this, SLOT(newBtnClicked()));
     connect(ui, SIGNAL(replyButtonClicked()), this, SLOT(replyBtnClicked()));
     connect(ui, SIGNAL(approveButtonClicked(int)), this, SLOT(approveBtnClicked(int)));
@@ -21,22 +22,29 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     db = new HhmDatabase();
 
     //Instance User
-    user = new HhmUser(this, db);
-    user->loadUser(USER_NAME);
-    QQmlProperty::write(ui, "username", USER_NAME);
+    user = new HhmUser(ui, db);
 
     //Instance Mail
     mail = new HhmMail(ui, db);
-    mail->loadInboxEmails(user->getId());
+}
+
+void HhmChapar::loginUser(QString uname, QString pass)
+{
+    if(user->loadUser(uname, pass))
+    {
+        QMetaObject::invokeMethod(ui, "loginSuccessfuly");
+        mail->loadInboxEmails(user->getId());
+        QQmlProperty::write(ui, "username", user->getUsername());
+    }
 }
 
 void HhmChapar::newBtnClicked()
 {
-#ifdef HHM_USER_ADMIN
-    QString r_new_email_username = "User";
-#else
     QString r_new_email_username = "Admin";
-#endif
+    if(user->getUsername()=="Admin")
+    {
+        r_new_email_username = "User";
+    }
     QQmlProperty::write(ui, "s_new_email_username", user->getUsername());
     QQmlProperty::write(ui, "r_new_email_username", r_new_email_username);
 }
@@ -72,22 +80,23 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
     if(!upload_file.isEmpty())
     {
         int id_user = user->getId();
-#ifdef HHM_USER_ADMIN
-        int id_receiver_user = db->getId("User");
-#else
-        int id_receiver_user = db->getId("Admin");
-#endif
+
+        int id_receiver_user = db->getId(HHM_USERNAME_ADMIN);
+        if(user->getUsername()==HHM_USERNAME_ADMIN)
+        {
+            id_receiver_user = db->getId(HHM_USERNAME_USER);
+        }
 
         //Check duplicate case number
         QString condition = "`" + QString(HHM_DOCUMENTS_DOCID) + "`=" + QString::number(caseNumber);
-        QSqlQuery res = db->select("*", HHM_TABLE_DOCUMENTS, condition);
+        QSqlQuery res = db->select("*", HHM_TABLE_DOCUMENT, condition);
         if( res.size()!=0 )
         {
             hhm_showMessage("Case number already exist!", 2000);
             return;
         }
 
-        //Insert into HHM_TABLE_DOCUMENTS
+        //Insert into HHM_TABLE_DOCUMENT
         QString columns = "`" + QString(HHM_DOCUMENTS_FILEPATH) + "`, ";
         columns += "`" + QString(HHM_DOCUMENTS_SENDER_ID) + "`, ";
         columns += "`" + QString(HHM_DOCUMENTS_RECEIVER_IDS) + "`, ";
@@ -106,7 +115,7 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
         values += "'" + user->getName() + "', ";
         values += "'" + QString::number(caseNumber) + "', ";
         values += "'" + subject + "'";
-        db->insert(HHM_TABLE_DOCUMENTS, columns, values);
+        db->insert(HHM_TABLE_DOCUMENT, columns, values);
 
         //Get id document
         QString query = "SELECT LAST_INSERT_ID();";
@@ -124,17 +133,17 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
         values  = "'" + QString::number(doc_id) + "', ";
         values += "'" + QString::number(1) + "', ";
         values += "'" + QString::number(0) + "'";
-        db->insert(HHM_TABLE_EMAILS, columns, values);
+        db->insert(HHM_TABLE_EMAIL, columns, values);
 
         values  = "'" + QString::number(doc_id) + "', ";
         values += "'" + QString::number(0) + "', ";
         values += "'" + QString::number(1) + "'";
-        db->insert(HHM_TABLE_EMAILS, columns, values);
+        db->insert(HHM_TABLE_EMAIL, columns, values);
 
 
         //Get id emails
         query = "SELECT MAX(" + QString(HHM_EMAILS_ID) + ") FROM `";
-        query += QString(DATABASE_NAME) + "`.`" + QString(HHM_TABLE_EMAILS) + "`";
+        query += QString(DATABASE_NAME) + "`.`" + QString(HHM_TABLE_EMAIL) + "`";
         res = db->sendQuery(query);
         int email_id_sent = 1;
         int email_id_received = email_id_sent + 1;
@@ -147,7 +156,7 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
         //update sent emails for sender
         QString fields = QString(HHM_UE_SENT_EMAILS);
         condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_user);
-        res = db->select(fields, HHM_TABLE_USER_EMAILS, condition);
+        res = db->select(fields, HHM_TABLE_USER_EMAIL, condition);
         if(res.next())
         {
             QString sent_emails = res.value(0).toString();
@@ -161,13 +170,13 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
             }
             condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_user);
             QString value = "`" + QString(HHM_UE_SENT_EMAILS) + "`=\"" + sent_emails + "\"";
-            db->update(condition, value, HHM_TABLE_USER_EMAILS);
+            db->update(condition, value, HHM_TABLE_USER_EMAIL);
         }
 
         //update received emails for receiver
         fields = QString(HHM_UE_RECEIVED_EMAILS);
         condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_receiver_user);
-        res = db->select(fields, HHM_TABLE_USER_EMAILS, condition);
+        res = db->select(fields, HHM_TABLE_USER_EMAIL, condition);
         if(res.next())
         {
             QString received_emails = res.value(0).toString();
@@ -181,7 +190,7 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
             }
             condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_receiver_user);
             QString value = "`" + QString(HHM_UE_RECEIVED_EMAILS) + "`=\"" + received_emails + "\"";
-            db->update(condition, value, HHM_TABLE_USER_EMAILS);
+            db->update(condition, value, HHM_TABLE_USER_EMAIL);
         }
         else
         {
@@ -231,5 +240,5 @@ void HhmChapar::openEmail(int idEmail)
     //Change State `opened` Email
     QString condition = "`" + QString(HHM_EMAILS_ID) + "`=" + QString::number(idEmail);
     QString value = "`" + QString(HHM_EMAILS_OPENED) + "`=" + QString::number(1);
-    db->update(condition, value, HHM_TABLE_EMAILS);
+    db->update(condition, value, HHM_TABLE_EMAIL);
 }
