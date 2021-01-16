@@ -122,7 +122,7 @@ Window
         property: "opacity"
         from: 1
         to: 0
-        duration: 1000
+        duration: 500
         onStopped:
         {
             login.visible = false
