@@ -32,7 +32,7 @@ Rectangle
             width: 100
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-            visible: !new_email.visible
+            visible: !root.createNewEmail
             icon: "\uf067"
             action: "New"
             onButtonClicked: root.showPageNewEmail()
@@ -45,7 +45,7 @@ Rectangle
             width: 100
             anchors.left: action_new.right
             anchors.verticalCenter: parent.verticalCenter
-            visible: email_content.isActiveEmail()
+            visible: email_content.isActiveEmail() && !root.createNewEmail
             icon: "\uf3e5"
             action: "Reply"
             onButtonClicked: root.replyButtonClicked()
@@ -58,7 +58,7 @@ Rectangle
             width: 120
             anchors.left: action_reply.right
             anchors.verticalCenter: parent.verticalCenter
-            visible: root.isAdmin() && email_content.isActiveEmail()
+            visible: root.isAdmin() && email_content.isActiveEmail() && !root.createNewEmail
             icon: "\uf00c"
             action: "Approve"
             onButtonClicked:
@@ -75,7 +75,7 @@ Rectangle
             width: 100
             anchors.left: action_approve.right
             anchors.verticalCenter: parent.verticalCenter
-            visible: root.isAdmin() && email_content.isActiveEmail()
+            visible: root.isAdmin() && email_content.isActiveEmail() && !root.createNewEmail
             icon: "\uf00d"
             action: "Reject"
             onButtonClicked:
@@ -103,7 +103,7 @@ Rectangle
 
             }
             anchors.verticalCenter: parent.verticalCenter
-            visible: email_content.isActiveEmail()
+            visible: email_content.isActiveEmail() && !root.createNewEmail
             icon: "\uf187"
             action: "Archive"
             onButtonClicked: root.archiveButtonClicked()
@@ -117,7 +117,7 @@ Rectangle
             width: 100
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-            visible: new_email.visible
+            visible: root.createNewEmail
             icon: "\uf060"
             action: "Back"
             onButtonClicked: root.createNewEmail = false
@@ -130,7 +130,7 @@ Rectangle
             width: 100
             anchors.left: action_back.right
             anchors.verticalCenter: parent.verticalCenter
-            visible: new_email.visible
+            visible: root.createNewEmail
             icon: "\uf574"
             action: "Scan"
             onButtonClicked: root.scanButtonClicked()
@@ -143,7 +143,7 @@ Rectangle
             width: 100
             anchors.left: action_scan.right
             anchors.verticalCenter: parent.verticalCenter
-            visible: new_email.visible
+            visible: root.createNewEmail
             icon: "\uf1d8"
             action: "Send"
             onButtonClicked: root.sendEmail()

@@ -15,7 +15,7 @@
 
 /*****              DataBase Configs            *****/
 
-#define SERVER_ADDRESS "localhost"
+#define SERVER_ADDRESS "192.168.1.122"
 #define SERVER_PORT     3306
 #define SERVER_USER     "root"
 #define SERVER_PASS     "betoche"
