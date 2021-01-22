@@ -29,6 +29,8 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     mail = new HhmMail(ui, db);
 
     ftp = new HhmAttach();
+
+    qDebug() << hhm_getServerIP();
 }
 
 void HhmChapar::loginUser(QString uname, QString pass)

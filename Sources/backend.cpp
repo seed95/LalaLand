@@ -1,13 +1,14 @@
 #include "backend.h"
 
 QObject *ui;
+QString server_ip;
 
 void setBackendUI(QObject *item)
 {
     ui = item;
 }
 
-void setStatus(QString status)
+void hhm_setStatus(QString status)
 {
     QQmlProperty::write(ui, "app_status", status);
 }
@@ -28,4 +29,42 @@ void hhm_showMessage(QString msg, int interval)
     QQmlProperty::write(ui, "error_msg", msg);
     QQmlProperty::write(ui, "d_error_msg", interval);
     QMetaObject::invokeMethod(ui, "showMessage");
+}
+
+/*
+ * Load IP Server from `HHM_CONFIG_FILE`
+ * */
+QString hhm_getServerIP()
+{
+    if(server_ip.isEmpty())
+    {
+        QFile conf(HHM_CONFIG_FILE);
+        if(conf.open(QIODevice::ReadOnly))
+        {
+            QString data = conf.readAll();
+            if(data.isEmpty())
+            {
+               qDebug() << HHM_CONFIG_FILE << "is empty";
+               hhm_setStatus(QString(HHM_CONFIG_FILE) + "is empty");
+            }
+            else
+            {
+                if( data.split("\n").length()>0 )
+                {
+                    server_ip = data.split("\n")[0];
+                }
+                else
+                {
+                    qDebug() << "Server ip not found in" << HHM_CONFIG_FILE;
+                    hhm_setStatus("Server ip not found in" + QString(HHM_CONFIG_FILE));
+                }
+            }
+        }
+        else
+        {
+            qDebug() << "Cann't open" << HHM_CONFIG_FILE;
+            hhm_setStatus("Cann't open " + QString(HHM_CONFIG_FILE));
+        }
+    }
+    return server_ip;
 }

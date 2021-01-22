@@ -4,7 +4,7 @@
 HhmDatabase::HhmDatabase(QObject *parent) : QObject(parent)
 {
     db = QSqlDatabase::addDatabase("QMYSQL");
-    db.setHostName(SERVER_ADDRESS);
+    db.setHostName(hhm_getServerIP());
     db.setPort(SERVER_PORT);
     db.setDatabaseName(DATABASE_NAME);
     db.setUserName(SERVER_USER);
@@ -23,29 +23,29 @@ QSqlQuery HhmDatabase::sendQuery(QString query)
     if( err.type()==QSqlError::ConnectionError )
     {
         s_err = "Connection is not establish between server ";
-        s_err += QString(SERVER_ADDRESS) + " " + QString::number(SERVER_PORT);
-        setStatus(s_err);
+        s_err += QString(hhm_getServerIP()) + " " + QString::number(SERVER_PORT);
+        hhm_setStatus(s_err);
     }
     else if( err.type()==QSqlError::StatementError )
     {
         s_err = "Query " + query + " contains syntax error";
-        setStatus(s_err);
+        hhm_setStatus(s_err);
     }
     else if( err.type()==QSqlError::TransactionError )
     {
         s_err = "Query " + query + " executation time limit has been reached";
-        setStatus(s_err);
+        hhm_setStatus(s_err);
     }
     else if( err.type()==QSqlError::UnknownError )
     {
         s_err = "Query " + query + " results in unkown error";
-        s_err += " server: " + QString(SERVER_ADDRESS) + ":" + QString::number(SERVER_PORT);
-        setStatus(s_err);
+        s_err += " server: " + QString(hhm_getServerIP()) + ":" + QString::number(SERVER_PORT);
+        hhm_setStatus(s_err);
     }
     else if( res.size()==0 )
     {
         s_err = "Query retunr null result";
-        setStatus(s_err);
+        hhm_setStatus(s_err);
     }
 
     return res;
@@ -62,27 +62,27 @@ void HhmDatabase::update(QString condition, QString value, QString table)
     if( err.type()==QSqlError::ConnectionError )
     {
         s_err = "Connection is not establish between server ";
-        s_err += QString(SERVER_ADDRESS) + " " + QString::number(SERVER_PORT);
-        setStatus(s_err);
+        s_err += QString(hhm_getServerIP()) + " " + QString::number(SERVER_PORT);
+        hhm_setStatus(s_err);
         return;
     }
     else if( err.type()==QSqlError::StatementError )
     {
         s_err = "Query " + query + " contains syntax error";
-        setStatus(s_err);
+        hhm_setStatus(s_err);
         return;
     }
     else if( err.type()==QSqlError::TransactionError )
     {
         s_err = "Query " + query + " executation time limit has been reached";
-        setStatus(s_err);
+        hhm_setStatus(s_err);
         return;
     }
     else if( err.type()==QSqlError::UnknownError )
     {
         s_err = "Query " + query + " results in unkown error";
-        s_err += " server: " + QString(SERVER_ADDRESS) + ":" + QString::number(SERVER_PORT);
-        setStatus(s_err);
+        s_err += " server: " + QString(hhm_getServerIP()) + ":" + QString::number(SERVER_PORT);
+        hhm_setStatus(s_err);
         return;
     }
 
@@ -99,27 +99,27 @@ void HhmDatabase::insert(QString table, QString columns, QString values)
     if( err.type()==QSqlError::ConnectionError )
     {
         s_err = "Connection is not establish between server ";
-        s_err += QString(SERVER_ADDRESS) + " " + QString::number(SERVER_PORT);
-        setStatus(s_err);
+        s_err += QString(hhm_getServerIP()) + " " + QString::number(SERVER_PORT);
+        hhm_setStatus(s_err);
         return;
     }
     else if( err.type()==QSqlError::StatementError )
     {
         s_err = "Query " + query + " contains syntax error";
-        setStatus(s_err);
+        hhm_setStatus(s_err);
         return;
     }
     else if( err.type()==QSqlError::TransactionError )
     {
         s_err = "Query " + query + " executation time limit has been reached";
-        setStatus(s_err);
+        hhm_setStatus(s_err);
         return;
     }
     else if( err.type()==QSqlError::UnknownError )
     {
         s_err = "Query " + query + " results in unkown error";
-        s_err += " server: " + QString(SERVER_ADDRESS) + ":" + QString::number(SERVER_PORT);
-        setStatus(s_err);
+        s_err += " server: " + QString(hhm_getServerIP()) + ":" + QString::number(SERVER_PORT);
+        hhm_setStatus(s_err);
         return;
     }
 
@@ -158,27 +158,27 @@ void HhmDatabase::printQuery(QSqlQuery res)
     if( err.type()==QSqlError::ConnectionError )
     {
         s_err = "Connection is not establish between server ";
-        s_err += QString(SERVER_ADDRESS) + " " + QString::number(SERVER_PORT);
-        setStatus(s_err);
+        s_err += QString(hhm_getServerIP()) + " " + QString::number(SERVER_PORT);
+        hhm_setStatus(s_err);
         return;
     }
     else if( err.type()==QSqlError::StatementError )
     {
         s_err = "Query " + res.lastQuery() + " contains syntax error";
-        setStatus(s_err);
+        hhm_setStatus(s_err);
         return;
     }
     else if( err.type()==QSqlError::TransactionError )
     {
         s_err = "Query " + res.lastQuery() + " executation time limit has been reached";
-        setStatus(s_err);
+        hhm_setStatus(s_err);
         return;
     }
     else if( err.type()==QSqlError::UnknownError )
     {
         s_err = "Query " + res.lastQuery() + " results in unkown error";
-        s_err += " server: " + QString(SERVER_ADDRESS) + ":" + QString::number(SERVER_PORT);
-        setStatus(s_err);
+        s_err += " server: " + QString(hhm_getServerIP()) + ":" + QString::number(SERVER_PORT);
+        hhm_setStatus(s_err);
         return;
     }
 
