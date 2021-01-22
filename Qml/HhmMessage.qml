@@ -4,13 +4,13 @@ Rectangle
 {
     id: container
 
-    property color rect_bg_color: "#1e1e1e"
-    property color rect_border_color: "#9f9f29"
+    property color rect_bg_color: "#e8e8e8"
+    property color rect_border_color: "#274579"
     property int rect_radius: 10
     property int rect_border_width: 1
 
     property string text_message: "error message"
-    property color text_color: "#dbdb6f"
+    property color text_color: "#3c3c3c"
 
     property int timer_interval: 100
 

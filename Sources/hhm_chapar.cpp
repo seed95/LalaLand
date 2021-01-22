@@ -224,7 +224,7 @@ void HhmChapar::uploadFileClicked()
 void HhmChapar::downloadFileClicked(QString src)
 {
     QString dst = QFileDialog::getExistingDirectory(NULL,
-                                      "Save File",
+                                      "Choose folder for save file",
                                       QDir::currentPath());
     if(!dst.isEmpty())
     {

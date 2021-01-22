@@ -9,38 +9,29 @@ Rectangle
 
     signal signInClicked()
 
-    color: "transparent"
-
-    property color color_background:
+    color:
     {
         if(isHovered)
         {
-            "#e2d6de"
+            "#4d66b7"
         }
         else
         {
-            "#cbb4c4"
+            "#3d5298"
         }
     }
-
-    Rectangle
+    radius: 5
+    border.width: 1
+    border.color:
     {
-        id: rnd1
-        width: parent.width
-        height: parent.height * 0.33
-        anchors.top: parent.top
-        anchors.left: parent.left
-        color: color_background
-    }
-
-    Rectangle
-    {
-        id: rnd2
-        width: parent.width
-        height: parent.height * 0.88
-        anchors.bottom: parent.bottom
-        radius: 5
-        color: color_background
+        if(isHovered)
+        {
+            "#24242c"
+        }
+        else
+        {
+            "#09090b"
+        }
     }
 
     Text
@@ -51,7 +42,17 @@ Rectangle
         font.pixelSize: 15
         font.family: fontRobotoMedium.name
         font.weight: Font.Medium
-        color: "#333"
+        color:
+        {
+            if(isHovered)
+            {
+                "#ffffff"
+            }
+            else
+            {
+                "#c0c8d0"
+            }
+        }
     }
 
     MouseArea

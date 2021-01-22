@@ -49,7 +49,7 @@ Rectangle
         anchors.left: parent.left
         anchors.top: parent.top
         radius: 5
-        color: "#512DA8"
+        color: "#2d4aa8"
 
         Rectangle
         {
