@@ -14,14 +14,13 @@ class HhmAttach : public QObject
     Q_OBJECT
 
 public:
-    explicit HhmAttach(QObject *parent = 0);
+    explicit HhmAttach(QString server, QString username, QString password, QObject *parent = 0);
     ~HhmAttach();
 
     void uploadFile(QString srcFilename, QString dstFilename);
     void downloadFile(QString src, QString dst);
 
 private slots:
-//    void uploadFinished(QNetworkReply *reply);  // Upload finish slot
     void finishedRequest(QNetworkReply *reply);
 
 private:
@@ -30,6 +29,10 @@ private:
     // If you create a file object on the stack, the program will crash.
     QFile *m_file;
     QString dst_filepath;
+
+    QString ftp_server;
+    QString ftp_username;
+    QString ftp_password;
 
     bool downloading;
 };

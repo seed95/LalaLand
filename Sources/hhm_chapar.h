@@ -37,6 +37,7 @@ private slots:
 
 private:
     void addNewDocToDocuments();
+    QVariant getConfig(QString key);
 
 private:
     QObject *ui;
@@ -47,6 +48,7 @@ private:
     HhmAttach *ftp;
 
     QString upload_filepath;
+    QString last_directory;
 
 };
 

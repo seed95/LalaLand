@@ -171,7 +171,7 @@ Window
         anchors.top: topbar.bottom
         anchors.right: parent.right
         anchors.bottom: bottombar.top
-        visible: !new_email.visible && email_content.isActiveEmail()
+        visible: !createNewEmail && email_content.isActiveEmail()
     }
 
     HhmNewEmail

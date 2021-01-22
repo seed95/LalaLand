@@ -1,7 +1,11 @@
 #include "hhm_attach.h"
 
-HhmAttach::HhmAttach(QObject *parent) : QObject(parent)
+HhmAttach::HhmAttach(QString server, QString username, QString password, QObject *parent) : QObject(parent)
 {
+    ftp_server = server;
+    ftp_username = username;
+    ftp_password = password;
+
     m_manager = new QNetworkAccessManager(this);
     connect(m_manager, &QNetworkAccessManager::finished, this, &HhmAttach::finishedRequest);
 
@@ -21,9 +25,9 @@ void HhmAttach::uploadFile(QString srcFilename, QString dstFilename)
     m_file->setFileName(srcFilename);
     QFileInfo fileInfo(*m_file);
 
-    QUrl url(QString(FTP_SERVER) + dstFilename);
-    url.setUserName(FTP_USERNAME);
-    url.setPassword(FTP_PASSWORD);
+    QUrl url(ftp_server + dstFilename);
+    url.setUserName(ftp_username);
+    url.setPassword(ftp_password);
     url.setPort(21);
 
     if( m_file->open(QIODevice::ReadOnly) )
@@ -34,9 +38,9 @@ void HhmAttach::uploadFile(QString srcFilename, QString dstFilename)
 
 void HhmAttach::downloadFile(QString src, QString dst)
 {
-    QUrl url(QString(FTP_SERVER) + src);
-    url.setUserName(FTP_USERNAME);
-    url.setPassword(FTP_PASSWORD);
+    QUrl url(QString(ftp_server) + src);
+    url.setUserName(ftp_username);
+    url.setPassword(ftp_password);
     url.setPort(21);
     dst_filepath = dst;
     downloading = true;

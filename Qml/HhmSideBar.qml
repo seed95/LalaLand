@@ -175,6 +175,7 @@ Item
 
             onEmailClicked:
             {
+                root.createNewEmail = false
                 if( email_content.case_number===case_number )
                 {
                     email_content.case_number = con.id_NO_SELECTED_ITEM

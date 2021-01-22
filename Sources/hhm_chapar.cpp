@@ -3,6 +3,7 @@
 HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
 {
     ui = item;
+    last_directory = QDir::currentPath();
 
     connect(ui, SIGNAL(loginUser(QString, QString)), this, SLOT(loginUser(QString, QString)));
     connect(ui, SIGNAL(newButtonClicked()), this, SLOT(newBtnClicked()));
@@ -28,9 +29,29 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     //Instance Mail
     mail = new HhmMail(ui, db);
 
-    ftp = new HhmAttach();
+    //Instance Attach
+    QString ftp_server = "";
+    QVariant data = getConfig(HHM_FTP_SERVER);
+    if(data.isValid())
+    {
+        ftp_server = data.toString();
+    }
 
-    qDebug() << hhm_getServerIP();
+    QString ftp_username = "";
+    data = getConfig(HHM_FTP_USERNAME);
+    if(data.isValid())
+    {
+        ftp_username = data.toString();
+    }
+
+    QString ftp_password = "";
+    data = getConfig(HHM_FTP_PASSWORD);
+    if(data.isValid())
+    {
+        ftp_password = data.toString();
+    }
+
+    ftp = new HhmAttach(ftp_server, ftp_username, ftp_password);
 }
 
 void HhmChapar::loginUser(QString uname, QString pass)
@@ -213,11 +234,12 @@ void HhmChapar::uploadFileClicked()
 {
     QString file_path = QFileDialog::getOpenFileName( NULL,
                                                      "Choose Document File",
-                                                     QDir::currentPath(),
+                                                     last_directory,
                                                      "*");
     if(!file_path.isEmpty())
     {
         upload_filepath = file_path;
+        last_directory = QFileInfo(file_path).absolutePath();
         QQmlProperty::write(ui, "selected_file_path", QFileInfo(upload_filepath).fileName());
         QMetaObject::invokeMethod(ui, "showSelectedFilePath");
     }
@@ -227,9 +249,10 @@ void HhmChapar::downloadFileClicked(QString src)
 {
     QString dst = QFileDialog::getExistingDirectory(NULL,
                                       "Choose folder for save file",
-                                      QDir::currentPath());
+                                      last_directory);
     if(!dst.isEmpty())
     {
+        last_directory = QFileInfo(dst).absolutePath();
         QString src_filename = QFileInfo(src).fileName();
         if( src_filename.split("_").length()>0 )
         {
@@ -261,4 +284,17 @@ void HhmChapar::openEmail(int idEmail)
     QString condition = "`" + QString(HHM_EMAILS_ID) + "`=" + QString::number(idEmail);
     QString value = "`" + QString(HHM_EMAILS_OPENED) + "`=" + QString::number(1);
     db->update(condition, value, HHM_TABLE_EMAIL);
+}
+
+//Return Invalid Qvariant if not found key
+QVariant HhmChapar::getConfig(QString key)
+{
+    QString condition = "`" + QString(HHM_CONFIG_KEY) + "`=\"" + key + "\"";
+    QSqlQuery res = db->select("*", HHM_TABLE_CONFIG, condition);
+    if(res.next())
+    {
+        QVariant data = res.value(HHM_CONFIG_VALUE);
+        return data;
+    }
+    return QVariant();
 }

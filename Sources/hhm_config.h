@@ -9,10 +9,6 @@
 #define HHM_MODE_INBOX  1
 #define HHM_MODE_OUTBOX 2
 
-#define FTP_SERVER      "ftp://192.168.1.122/../../srv/ftp/hhm/"
-#define FTP_USERNAME    "bijan"
-#define FTP_PASSWORD    "betoche"
-
 #define HHM_CONFIG_FILE "db.conf"
 
 /*****              DataBase Configs            *****/
@@ -27,10 +23,40 @@
 #define HHM_DOC_STATUS_REJECT  3
 
 //Tables
+#define HHM_TABLE_CONFIG       "config"
 #define HHM_TABLE_USER         "user"
 #define HHM_TABLE_EMAIL        "email"
 #define HHM_TABLE_DOCUMENT     "document"
 #define HHM_TABLE_USER_EMAIL   "user_email"
+
+//Columns in Table `HHM_TABLE_CONFIG`
+#define HHM_CONFIG_KEY          "config_key"
+#define HHM_CONFIG_VALUE        "config_value"
+
+//Keys for column `HHM_CONFIG_KEY` in Table `HHM_TABLE_CONFIG`
+#define HHM_FTP_SERVER          "ftp_server"
+#define HHM_FTP_USERNAME        "ftp_username"
+#define HHM_FTP_PASSWORD        "ftp_password"
+
+//Columns in Table `HHM_TABLE_USER`
+#define HHM_USER_ID             "id"
+#define HHM_USER_FIRSTNAME      "firstname"
+#define HHM_USER_LASTNAME       "lastname"
+#define HHM_USER_USERNAME       "username"
+#define HHM_USER_LASTLOGIN      "lastlogin"
+#define HHM_USER_STATUS         "status"
+#define HHM_USER_BIO            "bio"
+#define HHM_USER_IMAGE          "image"
+#define HHM_USER_PASSWORD       "password"
+
+//Columns in Table `HHM_TABLE_EMAIL`
+#define HHM_EMAILS_ID                   "id"
+#define HHM_EMAILS_DOCID                "d_id"
+#define HHM_EMAILS_FLAG                 "flag"
+#define HHM_EMAILS_OPENED               "opened"
+#define HHM_EMAILS_OPEN_TIME            "open_time"
+#define HHM_EMAILS_SEND_REFERENCE       "s_email"
+#define HHM_EMAILS_RECEIVE_REFERENCE    "r_email"
 
 //Columns in Table 'HHM_TABLE_DOCUMENT'
 #define HHM_DOCUMENTS_ID                "id"
@@ -50,24 +76,5 @@
 #define HHM_UE_SENT_EMAILS          "sent_emails"
 #define HHM_UE_RECEIVED_EMAILS      "received_emails"
 
-//Columns in Table `HHM_TABLE_USER_EMAIL`
-#define HHM_USER_ID             "id"
-#define HHM_USER_FIRSTNAME      "firstname"
-#define HHM_USER_LASTNAME       "lastname"
-#define HHM_USER_USERNAME       "username"
-#define HHM_USER_LASTLOGIN      "lastlogin"
-#define HHM_USER_STATUS         "status"
-#define HHM_USER_BIO            "bio"
-#define HHM_USER_IMAGE          "image"
-#define HHM_USER_PASSWORD       "password"
-
-//Columns in Table `HHM_TABLE_EMAIL`
-#define HHM_EMAILS_ID                   "id"
-#define HHM_EMAILS_DOCID                "d_id"
-#define HHM_EMAILS_FLAG                 "flag"
-#define HHM_EMAILS_OPENED               "opened"
-#define HHM_EMAILS_OPEN_TIME            "open_time"
-#define HHM_EMAILS_SEND_REFERENCE       "s_email"
-#define HHM_EMAILS_RECEIVE_REFERENCE    "r_email"
 
 #endif // HHM_CONFIG_H

@@ -9,6 +9,11 @@ Item
     property string text_case_number: "1245"
     property string text_file_path: ""
 
+    onVisibleChanged:
+    {
+
+    }
+
     Rectangle
     {
         id: rect_input_box
@@ -136,17 +141,6 @@ Item
                 color: "#808080"
             }
 
-            MouseArea
-            {
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
-
-                onClicked:
-                {
-                    root.uploadFileClicked()
-                }
-            }
-
         }
 
         Text
@@ -158,6 +152,17 @@ Item
             color: "#808080"
             anchors.centerIn: parent
             visible: false
+        }
+
+        MouseArea
+        {
+            anchors.fill: parent
+            cursorShape: Qt.PointingHandCursor
+
+            onClicked:
+            {
+                root.uploadFileClicked()
+            }
         }
 
     }
