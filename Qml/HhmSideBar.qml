@@ -163,19 +163,30 @@ Item
         delegate: HhmSideBarElement
         {
             width: container.width
-            text_subject: subject
+            text_subject: docSubject
             text_name: name
             case_number: caseNumber
             doc_status: docStatus
             text_time: time
-            isActive: case_number===root.case_number_selected_doc
+            isActive: case_number===email_content.case_number
             id_email_in_emails_table: idEmail
             isRead: emailOpened
+            text_filepath: docFilepath
 
             onEmailClicked:
             {
-                root.case_number_selected_doc = case_number
-                root.showEmailContent(name, time, docStatus)
+                if( email_content.case_number===case_number )
+                {
+                    email_content.case_number = con.id_NO_SELECTED_ITEM
+                }
+                else
+                {
+                    email_content.case_number = case_number
+                    email_content.text_name = name
+                    email_content.text_time = time
+                    email_content.doc_status = docStatus
+                    email_content.download_filepath = docFilepath
+                }
                 emailOpened = true
                 root.openEmail(idEmail)
             }
@@ -205,13 +216,14 @@ Item
 
     }
 
-    function addToInbox()
+    function addToBox()
     {
-        listmodel_sidebar.append({"subject" : root.subject,
+        listmodel_sidebar.append({"docSubject" : root.subject,
                                   "name" : root.sender_name,
                                   "caseNumber" : root.case_number,
                                   "docStatus" : root.doc_status,
                                   "time" : root.r_email_date,
+                                  "docFilepath" : root.filepath,
                                   "emailOpened" : root.email_opened,
                                   "idEmail" : root.id_email_in_emails_table})
     }

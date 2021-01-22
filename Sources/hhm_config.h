@@ -9,6 +9,10 @@
 #define HHM_MODE_INBOX  1
 #define HHM_MODE_OUTBOX 2
 
+#define FTP_SERVER      "ftp://192.168.1.122/../../srv/ftp/hhm/"
+#define FTP_USERNAME    "bijan"
+#define FTP_PASSWORD    "betoche"
+
 /*****              DataBase Configs            *****/
 
 #define SERVER_ADDRESS "localhost"
@@ -16,6 +20,10 @@
 #define SERVER_USER     "root"
 #define SERVER_PASS     "betoche"
 #define DATABASE_NAME   "hhm_db"
+
+#define HHM_DOC_STATUS_SUCCESS 1
+#define HHM_DOC_STATUS_PENDING 2
+#define HHM_DOC_STATUS_REJECT  3
 
 //Tables
 #define HHM_TABLE_USER         "user"

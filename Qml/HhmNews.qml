@@ -8,9 +8,6 @@ Rectangle
 
     color: "#274579"
 
-    width: 980
-    height: 50
-
     Text
     {
         id: office1

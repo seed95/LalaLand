@@ -14,6 +14,7 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     connect(ui, SIGNAL(sendButtonClicked(int, QString)), this, SLOT(sendBtnClicked(int, QString)));
     connect(ui, SIGNAL(flagButtonClicked(int)), this, SLOT(flagBtnClicked(int)));
     connect(ui, SIGNAL(uploadFileClicked()), this, SLOT(uploadFileClicked()));
+    connect(ui, SIGNAL(downloadFileClicked(QString)), this, SLOT(downloadFileClicked(QString)));
     connect(ui, SIGNAL(syncInbox()), this, SLOT(syncInbox()));
     connect(ui, SIGNAL(syncOutbox()), this, SLOT(syncOutbox()));
     connect(ui, SIGNAL(openEmail(int)), this, SLOT(openEmail(int)));
@@ -26,6 +27,8 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
 
     //Instance Mail
     mail = new HhmMail(ui, db);
+
+    ftp = new HhmAttach();
 }
 
 void HhmChapar::loginUser(QString uname, QString pass)
@@ -34,35 +37,26 @@ void HhmChapar::loginUser(QString uname, QString pass)
     {
         QMetaObject::invokeMethod(ui, "loginSuccessfuly");
         mail->loadInboxEmails(user->getId());
-        QQmlProperty::write(ui, "username", user->getUsername());
     }
 }
 
 void HhmChapar::newBtnClicked()
 {
-    QString r_new_email_username = "Admin";
-    if(user->getUsername()=="Admin")
-    {
-        r_new_email_username = "User";
-    }
-    QQmlProperty::write(ui, "s_new_email_username", user->getUsername());
-    QQmlProperty::write(ui, "r_new_email_username", r_new_email_username);
 }
 
 void HhmChapar::replyBtnClicked()
 {
     qDebug() << "replyBtnClicked";
-//    db->update(2, "`lolo`='12daf'", "users");
 }
 
 void HhmChapar::approveBtnClicked(int caseNumber)
 {
-    qDebug() << "approveBtnClicked" << caseNumber;
+    mail->approveDoc(caseNumber);
 }
 
 void HhmChapar::rejectBtnClicked(int caseNumber)
 {
-    qDebug() << "rejectBtnClicked" << caseNumber;
+    mail->rejectDoc(caseNumber);
 }
 
 void HhmChapar::archiveBtnClicked()
@@ -77,7 +71,7 @@ void HhmChapar::scanBtnClicked()
 
 void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
 {
-    if(!upload_file.isEmpty())
+    if(!upload_filepath.isEmpty())
     {
         int id_user = user->getId();
 
@@ -108,7 +102,9 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
         QLocale locale(QLocale::English);
         QString date = locale.toString(QDateTime::currentDateTime(), "yyyy-MM-dd hh:mm:ss");
 
-        QString values = "'" + upload_file + "', ";
+        QFileInfo file_info(upload_filepath);
+        QString dst_filename = QString::number(caseNumber) + "_" + file_info.fileName();
+        QString values = "'" + dst_filename + "', ";
         values += "'" + QString::number(id_user) + "', ";
         values += "'" + QString::number(id_receiver_user) + "', ";
         values += "'" + date + "', ";
@@ -140,6 +136,8 @@ void HhmChapar::sendBtnClicked(int caseNumber, QString subject)
         values += "'" + QString::number(1) + "'";
         db->insert(HHM_TABLE_EMAIL, columns, values);
 
+        //Upload file in fpt server
+        ftp->uploadFile(upload_filepath, dst_filename);
 
         //Get id emails
         query = "SELECT MAX(" + QString(HHM_EMAILS_ID) + ") FROM `";
@@ -217,9 +215,29 @@ void HhmChapar::uploadFileClicked()
                                                      "*");
     if(!file_path.isEmpty())
     {
-        upload_file = file_path;
-        QQmlProperty::write(ui, "selected_file_path", QFileInfo(upload_file).fileName());
+        upload_filepath = file_path;
+        QQmlProperty::write(ui, "selected_file_path", QFileInfo(upload_filepath).fileName());
         QMetaObject::invokeMethod(ui, "showSelectedFilePath");
+    }
+}
+
+void HhmChapar::downloadFileClicked(QString src)
+{
+    QString dst = QFileDialog::getExistingDirectory(NULL,
+                                      "Save File",
+                                      QDir::currentPath());
+    if(!dst.isEmpty())
+    {
+        QString src_filename = QFileInfo(src).fileName();
+        if( src_filename.split("_").length()>0 )
+        {
+            dst += "/" + src_filename.split("_")[1];
+            ftp->downloadFile(src, dst);
+        }
+        else
+        {
+            qDebug() << "source filename dont contain casenumber";
+        }
     }
 }
 

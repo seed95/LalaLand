@@ -30,6 +30,9 @@ public:
     void loadInboxEmails(int idUser);
     void loadOutboxEmails(int idUser);
 
+    void approveDoc(int caseNumber);
+    void rejectDoc(int caseNumber);
+
 private:
     QStringList getIdReceivedEmails(int userID);
     QStringList getIdSendEmails(int userID);

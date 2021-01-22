@@ -11,6 +11,7 @@
 #include "hhm_mail.h"
 #include "hhm_database.h"
 #include "hhm_user.h"
+#include "hhm_attach.h"
 
 class HhmChapar : public QObject
 {
@@ -29,6 +30,7 @@ private slots:
     void sendBtnClicked(int caseNumber, QString subject);
     void flagBtnClicked(int id);
     void uploadFileClicked();
+    void downloadFileClicked(QString src);
     void syncInbox();
     void syncOutbox();
     void openEmail(int idEmail);
@@ -42,9 +44,9 @@ private:
     HhmMail *mail;
     HhmDatabase *db;
     HhmUser *user;
+    HhmAttach *ftp;
 
-
-    QString upload_file;
+    QString upload_filepath;
 
 };
 

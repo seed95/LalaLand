@@ -2,6 +2,7 @@ QT += quick
 QT += sql
 QT += widgets
 QT += core
+QT += network
 
 RCC_DIR = Build/
 OBJECTS_DIR = Build/
@@ -12,12 +13,14 @@ CONFIG += c++11
 
 SOURCES += Sources/main.cpp \
            Sources/backend.cpp \
+           Sources/hhm_attach.cpp \
            Sources/hhm_chapar.cpp \
            Sources/hhm_database.cpp \
            Sources/hhm_mail.cpp \
            Sources/hhm_user.cpp
 
 HEADERS += Sources/backend.h \
+           Sources/hhm_attach.h \
            Sources/hhm_chapar.h \
            Sources/hhm_config.h \
            Sources/hhm_database.h \

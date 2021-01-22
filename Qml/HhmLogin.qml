@@ -14,7 +14,7 @@ Item
     Image
     {
         anchors.fill: parent
-        source: "qrc:/login.png"
+        source: "qrc:/login_bg.jpg"
     }
 
     Rectangle
@@ -34,7 +34,7 @@ Item
             anchors.top: parent.top
             text_placeholder: "Username"
             text_icon: "\uf007"
-            Keys.onReturnPressed: signInClicked()
+            Keys.onReturnPressed: signing()
         }
 
         HhmLoginTextInput
@@ -48,7 +48,7 @@ Item
             text_placeholder: "Password"
             text_icon: "\uf30d"
             password_type: true
-            Keys.onReturnPressed: signInClicked()
+            Keys.onReturnPressed: signing()
         }
 
         HhmLoginButton
@@ -59,7 +59,7 @@ Item
             anchors.left: parent.left
             anchors.top: password.bottom
             anchors.topMargin: 10
-            onSignInClicked: signInClicked()
+            onSignInClicked: signing()
         }
 
     }
@@ -76,7 +76,7 @@ Item
 
     }
 
-    function signInClicked()
+    function signing()
     {
         var isComplete = true
         if( username.getText().length===0 )

@@ -21,7 +21,7 @@ Window
 
     property string app_status: "Updated from server 12:20PM"
 
-    //Document properties
+    //Document properties for inbox or outbox items
     property int    case_number: 2 //Document id
     property string sender_name: "Cassie Hicks"
     property string subject: "Subject"
@@ -29,11 +29,11 @@ Window
     property string r_email_date: "7:17PM" //Received email date
     property int    id_email_in_emails_table: 1 //Save this value for change mode email(open)
     property bool   email_opened: false
+    property string filepath: ""
 
-    property string s_new_email_username: "Admin"//Sender email username
-    property string r_new_email_username: "Admin"//Received email username
+    property bool createNewEmail: false //When click on new button to create new email
 
-    property string selected_file_path: "path/to/file"//Sender email username
+    property string selected_file_path: "path/to/file"
 
     property int email_mode: con.id_EMAIL_MODE_INBOX
     property int case_number_selected_doc: -1
@@ -52,6 +52,7 @@ Window
     signal sendButtonClicked(int docId, string subject)
     signal flagButtonClicked(int id)
     signal uploadFileClicked()
+    signal downloadFileClicked(string src)
     signal syncInbox()
     signal syncOutbox()
     signal openEmail(int emailId)
@@ -146,24 +147,17 @@ Window
         }
     }
 
-    HhmNews
-    {
-        id: news
-        anchors.right: parent.right
-        anchors.top: parent.top
-    }
-
     HhmTopBar
     {
         id: topbar
-        anchors.right: parent.right
-        anchors.top: news.bottom
+        anchors.left: sidebar.right
+        anchors.top: parent.top
     }
 
     HhmSideBar
     {
         id: sidebar
-        width: 300 * scale_width
+        width: 300
         height: parent.height
         anchors.top: parent.top
         anchors.left: parent.left
@@ -177,7 +171,7 @@ Window
         anchors.top: topbar.bottom
         anchors.right: parent.right
         anchors.bottom: bottombar.top
-        visible: false
+        visible: !new_email.visible && email_content.isActiveEmail()
     }
 
     HhmNewEmail
@@ -187,9 +181,7 @@ Window
         anchors.top: topbar.bottom
         anchors.right: parent.right
         anchors.bottom: bottombar.top
-        visible: false
-        text_from: s_new_email_username
-        text_to: r_new_email_username
+        visible: createNewEmail
     }
 
     HhmBottomBar
@@ -212,9 +204,18 @@ Window
     //Functions
     /*** Call this function from cpp ***/
 
-    function addToInbox()
+    function addToBox()
     {
-        sidebar.addToInbox()
+        if( email_content.case_number===root.case_number )
+        {
+            email_content.case_number = root.case_number
+            email_content.text_name = root.sender_name
+            email_content.text_time = root.r_email_date
+            email_content.doc_status = root.doc_status
+            email_content.download_filepath = root.filepath
+        }
+
+        sidebar.addToBox()
     }
 
     function finishSync()
@@ -237,7 +238,7 @@ Window
 
     function sendEmailComplete()
     {
-        showPageContentEmail()
+        createNewEmail = false
         syncEmail()
     }
 
@@ -245,26 +246,16 @@ Window
 
     function showPageNewEmail()
     {
-        email_content.visible = false
-        new_email.visible = true
-        newButtonClicked()
-    }
-
-    function showPageContentEmail()
-    {
-        if( root.case_number_selected_doc!==-1 )
+        createNewEmail = true
+        new_email.text_from = root.username
+        if( root.username==="Admin" )
         {
-            email_content.visible = true
+            new_email.text_to = "User"
         }
-        new_email.visible = false
-    }
-
-    function showEmailContent(name, time, status)
-    {
-        showPageContentEmail()
-        email_content.text_name = name
-        email_content.text_time = time
-        email_content.doc_status = status
+        else
+        {
+            new_email.text_to = "Admin"
+        }
     }
 
     function showSelectedFilePath()
@@ -291,6 +282,12 @@ Window
         {
             syncOutbox()
         }
+    }
+
+
+    function isAdmin()
+    {
+        return root.username==="Admin"
     }
 
 }

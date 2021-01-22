@@ -3,6 +3,7 @@ import QtQuick 2.0
 Item
 {
 
+    property int case_number: con.id_NO_SELECTED_ITEM
     property string text_name: "Cassie Hicks"
     property int    doc_status: 1
     property string text_user: "User #1"
@@ -10,6 +11,7 @@ Item
     property string text_email: "amy.alberts@lolo.com"
     property string text_time: "12:15PM"
     property string text_to: "April Robegan, Jamie Reading"
+    property string download_filepath: ""
 
     Text
     {
@@ -141,7 +143,7 @@ Item
     Rectangle
     {
         id: rect_username
-        height: 90 * scale_height
+        height: 90
         anchors.left: rect_user.right
         anchors.right: split_line.right
         anchors.top: split_line.bottom
@@ -152,9 +154,9 @@ Item
             id: label_username
             text: text_username
             anchors.left: parent.left
-            anchors.leftMargin: 34 * scale_width
+            anchors.leftMargin: 34
             anchors.top: parent.top
-            anchors.topMargin: 9 * scale_height
+            anchors.topMargin: 9
             font.family: fontRobotoRegular.name
             font.pixelSize: 25
             color: "#5a5a5a"
@@ -165,9 +167,9 @@ Item
             id: label_email
             text: "(" +  text_email + ")"
             anchors.left: label_username.right
-            anchors.leftMargin: 6 * scale_width
+            anchors.leftMargin: 6
             anchors.top: parent.top
-            anchors.topMargin: 9 * scale_height
+            anchors.topMargin: 9
             font.family: fontRobotoRegular.name
             font.pixelSize: 25
             color: "#5a5a5a"
@@ -178,9 +180,9 @@ Item
             id: label_time
             text: text_time
             anchors.top: parent.top
-            anchors.topMargin: 19 * scale_height
+            anchors.topMargin: 19
             anchors.right: parent.right
-            anchors.rightMargin: 169 * scale_width
+            anchors.rightMargin: 169
             font.family: fontRobotoRegular.name
             font.pixelSize: 12
             color: "#646464"
@@ -192,7 +194,7 @@ Item
             width: childrenRect.width
             height: childrenRect.height
             anchors.right: parent.right
-            anchors.rightMargin: 25 * scale_width
+            anchors.rightMargin: 25
             anchors.top: label_time.top
             color: "transparent"
 
@@ -212,9 +214,9 @@ Item
             {
                 id: icon_download
                 anchors.left: label_download.right
-                anchors.leftMargin: 7 * scale_width
+                anchors.leftMargin: 7
                 anchors.top: parent.top
-                anchors.topMargin: 2 * scale_height
+                anchors.topMargin: 2
                 text: "\uf078"
                 font.family: fontAwesomeSolid.name
                 font.pixelSize: 12
@@ -228,7 +230,7 @@ Item
 
                 onClicked:
                 {
-                    console.log("Download pdf")
+                    root.downloadFileClicked(download_filepath)
                 }
             }
 
@@ -240,12 +242,17 @@ Item
             text: "To: " + text_to
             anchors.left: label_username.left
             anchors.top: label_username.bottom
-            anchors.topMargin: 4 * scale_height
+            anchors.topMargin: 4
             font.family: fontRobotoRegular.name
             font.pixelSize: 18
             color: "#646464"
         }
 
+    }
+
+    function isActiveEmail()
+    {
+        return case_number!==con.id_NO_SELECTED_ITEM
     }
 
 }

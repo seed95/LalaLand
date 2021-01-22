@@ -30,6 +30,20 @@ void HhmMail::loadEmails(QString username)
     }
 }
 
+void HhmMail::approveDoc(int caseNumber)
+{
+    QString condition = "`" + QString(HHM_DOCUMENTS_DOCID) + "`=" + QString::number(caseNumber);
+    QString value = "`" + QString(HHM_DOCUMENTS_STATUS) + "`=\"" + QString::number(HHM_DOC_STATUS_SUCCESS) + "\"";
+    db->update(condition, value, HHM_TABLE_DOCUMENT);
+}
+
+void HhmMail::rejectDoc(int caseNumber)
+{
+    QString condition = "`" + QString(HHM_DOCUMENTS_DOCID) + "`=" + QString::number(caseNumber);
+    QString value = "`" + QString(HHM_DOCUMENTS_STATUS) + "`=\"" + QString::number(HHM_DOC_STATUS_REJECT) + "\"";
+    db->update(condition, value, HHM_TABLE_DOCUMENT);
+}
+
 //input in csv format
 void HhmMail::showEmailInSidebar(QStringList emailIds)
 {
@@ -60,6 +74,12 @@ void HhmMail::showEmailInSidebar(QStringList emailIds)
                 QQmlProperty::write(ui, "subject", data.toString());
             }
 
+            data = res.value(HHM_DOCUMENTS_FILEPATH);
+            if(data.isValid())
+            {
+                QQmlProperty::write(ui, "filepath", data.toString());
+            }
+
             data = res.value(HHM_DOCUMENTS_STATUS);
             if(data.isValid())
             {
@@ -76,7 +96,7 @@ void HhmMail::showEmailInSidebar(QStringList emailIds)
             QQmlProperty::write(ui, "id_email_in_emails_table", emailIds.at(i));
             QQmlProperty::write(ui, "email_opened", email.opened==1);
 
-            QMetaObject::invokeMethod(ui, "addToInbox");
+            QMetaObject::invokeMethod(ui, "addToBox");
 
         }
     }
