@@ -10,6 +10,8 @@ HhmAttach::HhmAttach(QString server, QString username, QString password, QObject
     connect(m_manager, &QNetworkAccessManager::finished, this, &HhmAttach::finishedRequest);
 
     m_file = new QFile();
+
+    hhm_log("Ftp --> server: " + server + ", username: " + username);
 }
 
 HhmAttach::~HhmAttach()
@@ -49,9 +51,8 @@ void HhmAttach::downloadFile(QString src, QString dst)
 
 void HhmAttach::finishedRequest(QNetworkReply *reply)
 {
-    if (!reply->error())
+    if( !reply->error() )
     {
-        qDebug() << "Finish request with out error";
         if(downloading)
         {
             QString src = reply->url().url();
@@ -61,14 +62,17 @@ void HhmAttach::finishedRequest(QNetworkReply *reply)
                 m_file->resize(0);
                 m_file->write(reply->readAll());
                 m_file->close();
+                hhm_log("Download successfully from url: " + reply->url().toString());
             }
             else
             {
-                qDebug() << "Cannot open" << dst_filepath;
+                hhm_log("Cannot open file " + dst_filepath +
+                        ", failed download from url: " + reply->url().toString());
             }
         }
         else
         {
+            hhm_log("Upload successfully from url: " + reply->url().toString());
             if( m_file->isOpen() )
             {
                 m_file->close();
@@ -77,7 +81,8 @@ void HhmAttach::finishedRequest(QNetworkReply *reply)
     }
     else
     {
-        qDebug() << "Finish request with error" << reply->errorString();
+        hhm_log("Error: finish request with error: " + reply->errorString() +
+                ", for url: " + reply->url().toString());
     }
 }
 

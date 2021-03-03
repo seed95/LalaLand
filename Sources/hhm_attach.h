@@ -8,6 +8,7 @@
 #include <QFileDialog>
 
 #include "hhm_config.h"
+#include "backend.h"
 
 class HhmAttach : public QObject
 {

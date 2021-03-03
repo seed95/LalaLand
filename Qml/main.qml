@@ -52,7 +52,7 @@ Window
     signal sendButtonClicked(int docId, string subject)
     signal flagButtonClicked(int id)
     signal uploadFileClicked()
-    signal downloadFileClicked(string src)
+    signal downloadFileClicked(string src, int docId)
     signal syncInbox()
     signal syncOutbox()
     signal openEmail(int emailId)

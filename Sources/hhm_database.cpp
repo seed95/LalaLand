@@ -1,5 +1,4 @@
 #include "hhm_database.h"
-#include <QDebug>
 
 HhmDatabase::HhmDatabase(QObject *parent) : QObject(parent)
 {
@@ -9,8 +8,15 @@ HhmDatabase::HhmDatabase(QObject *parent) : QObject(parent)
     db.setDatabaseName(DATABASE_NAME);
     db.setUserName(SERVER_USER);
     db.setPassword(SERVER_PASS);
-    bool ok = db.open();
-    qDebug() << ok;
+
+    if( db.open() )
+    {
+        hhm_log("Open successfully database");
+    }
+    else
+    {
+        hhm_log("Open failed database username: " SERVER_USER ", dbName: " DATABASE_NAME);
+    }
 }
 
 QSqlQuery HhmDatabase::sendQuery(QString query)

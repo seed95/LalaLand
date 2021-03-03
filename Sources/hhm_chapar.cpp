@@ -15,7 +15,7 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     connect(ui, SIGNAL(sendButtonClicked(int, QString)), this, SLOT(sendBtnClicked(int, QString)));
     connect(ui, SIGNAL(flagButtonClicked(int)), this, SLOT(flagBtnClicked(int)));
     connect(ui, SIGNAL(uploadFileClicked()), this, SLOT(uploadFileClicked()));
-    connect(ui, SIGNAL(downloadFileClicked(QString)), this, SLOT(downloadFileClicked(QString)));
+    connect(ui, SIGNAL(downloadFileClicked(QString, int)), this, SLOT(downloadFileClicked(QString, int)));
     connect(ui, SIGNAL(syncInbox()), this, SLOT(syncInbox()));
     connect(ui, SIGNAL(syncOutbox()), this, SLOT(syncOutbox()));
     connect(ui, SIGNAL(openEmail(int)), this, SLOT(openEmail(int)));
@@ -245,7 +245,7 @@ void HhmChapar::uploadFileClicked()
     }
 }
 
-void HhmChapar::downloadFileClicked(QString src)
+void HhmChapar::downloadFileClicked(QString src, int caseNumber)
 {
     QString dst = QFileDialog::getExistingDirectory(NULL,
                                       "Choose folder for save file",
@@ -254,15 +254,9 @@ void HhmChapar::downloadFileClicked(QString src)
     {
         last_directory = QFileInfo(dst).absolutePath();
         QString src_filename = QFileInfo(src).fileName();
-        if( src_filename.split("_").length()>0 )
-        {
-            dst += "/" + src_filename.split("_")[1];
-            ftp->downloadFile(src, dst);
-        }
-        else
-        {
-            qDebug() << "source filename dont contain casenumber";
-        }
+        dst += "/" + src_filename.replace(QString::number(caseNumber) + "_", "");
+        qDebug() << src_filename << dst;
+        ftp->downloadFile(src, dst);
     }
 }
 

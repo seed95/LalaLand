@@ -30,7 +30,7 @@ private slots:
     void sendBtnClicked(int caseNumber, QString subject);
     void flagBtnClicked(int id);
     void uploadFileClicked();
-    void downloadFileClicked(QString src);
+    void downloadFileClicked(QString src, int caseNumber);
     void syncInbox();
     void syncOutbox();
     void openEmail(int idEmail);

@@ -7,6 +7,8 @@
 #include <QSqlResult>
 #include <QSqlError>
 #include <QSqlRecord>
+#include <QDebug>
+
 #include "hhm_config.h"
 #include "backend.h"
 

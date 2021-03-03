@@ -10,6 +10,7 @@
 #define HHM_MODE_OUTBOX 2
 
 #define HHM_CONFIG_FILE "db.conf"
+#define HHM_LOG_FILE    "hhm.log"
 
 /*****              DataBase Configs            *****/
 

@@ -3,3 +3,4 @@ Makefile
 .qmake.stash
 HHM
 Build/*
+hhm.log

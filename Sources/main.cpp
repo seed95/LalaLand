@@ -22,7 +22,8 @@ int main(int argc, char *argv[])
     engine.load(url);
     QObject *mainItem = engine.rootObjects().first();
 
-    setBackendUI(mainItem);
+    hhm_log("-------------------------Start Document Manager-------------------------");
+    hhm_setBackendUI(mainItem);
 
     HhmChapar *chapar = new HhmChapar(mainItem);
 

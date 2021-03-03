@@ -230,7 +230,7 @@ Item
 
                 onClicked:
                 {
-                    root.downloadFileClicked(download_filepath)
+                    root.downloadFileClicked(download_filepath, case_number)
                 }
             }
 

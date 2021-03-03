@@ -3,7 +3,7 @@
 QObject *ui;
 QString server_ip;
 
-void setBackendUI(QObject *item)
+void hhm_setBackendUI(QObject *item)
 {
     ui = item;
 }
@@ -11,6 +11,7 @@ void setBackendUI(QObject *item)
 void hhm_setStatus(QString status)
 {
     QQmlProperty::write(ui, "app_status", status);
+    hhm_log("status --> " + status);
 }
 
 /*
@@ -29,6 +30,7 @@ void hhm_showMessage(QString msg, int interval)
     QQmlProperty::write(ui, "error_msg", msg);
     QQmlProperty::write(ui, "d_error_msg", interval);
     QMetaObject::invokeMethod(ui, "showMessage");
+    hhm_log("Error Message --> " + msg);
 }
 
 /*
@@ -44,7 +46,6 @@ QString hhm_getServerIP()
             QString data = conf.readAll();
             if(data.isEmpty())
             {
-               qDebug() << HHM_CONFIG_FILE << "is empty";
                hhm_setStatus(QString(HHM_CONFIG_FILE) + "is empty");
             }
             else
@@ -55,16 +56,34 @@ QString hhm_getServerIP()
                 }
                 else
                 {
-                    qDebug() << "Server ip not found in" << HHM_CONFIG_FILE;
                     hhm_setStatus("Server ip not found in" + QString(HHM_CONFIG_FILE));
                 }
             }
         }
         else
         {
-            qDebug() << "Cann't open" << HHM_CONFIG_FILE;
             hhm_setStatus("Cann't open " + QString(HHM_CONFIG_FILE));
         }
     }
     return server_ip;
+}
+
+//Print in qDebug and LOG_FILE
+void hhm_log(QString msg)
+{
+    qDebug() << msg;
+
+    QLocale en_localce(QLocale::English);
+    QString date = en_localce.toString(QDateTime::currentDateTime(), "(dd/MM hh:mm:ss) : ");
+    QFile log_file(HHM_LOG_FILE);
+    if( log_file.open(QIODevice::Append) )
+    {
+        QTextStream out(&log_file);
+        out << date << msg << "\n";
+        log_file.close();
+    }
+    else
+    {
+        qDebug() << "Cannot open" << log_file.fileName();
+    }
 }
