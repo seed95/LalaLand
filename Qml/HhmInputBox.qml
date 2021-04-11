@@ -2,7 +2,7 @@ import QtQuick 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 
-Rectangle
+Item
 {
 
     property color color_background_enabled: "#f0f0f0"
@@ -36,40 +36,41 @@ Rectangle
     property bool isEnabled: false
     property bool isNumber:  false
 
-    color: "transparent "
-
     Text
     {
-        id: label_input_box
-        anchors.left: parent.left
+        id: label_input_box_rtl
+        anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         text: text_label
         font.family: font_name_label
         font.weight: font_weight_label
         font.pixelSize: font_size_label
         color: "#646464"
+        visible: root.rtl
     }
 
     Rectangle
     {
-        id: rect_input
+        id: rect_input_rtl
         width: width_box
         height: height_box
-        anchors.left: label_input_box.right
-        anchors.leftMargin: left_margin
+        anchors.right: label_input_box_rtl.left
+        anchors.rightMargin: left_margin
         anchors.verticalCenter: parent.verticalCenter
         color: color_background
         border.width: 1
         border.color: "#aaaaaa"
         radius: 5
+        visible: root.rtl
 
         TextField
         {
-            id: input
+            id: input_rtl
             anchors.verticalCenter: parent.verticalCenter
             anchors.verticalCenterOffset: 1
             anchors.left: parent.left
-            anchors.leftMargin: 5
+            anchors.right: parent.right
+            anchors.rightMargin: 5
             text: text_input_box
             font.family: font_name_input_box
             font.pixelSize: font_size_input_box
@@ -86,16 +87,104 @@ Rectangle
                 }
 
             }
-//            validator : RegExpValidator
-//            {
-//                regExp :
-//                {
-//                    if(isNumber)
-//                    {
-//                        /^[0-9]{5}$/
-//                    }
-//                }
-//            }
+
+            style: TextFieldStyle
+            {
+                background: Rectangle
+                {
+                    color: "transparent"
+                }
+                selectedTextColor: "#222"
+                selectionColor: "#888"
+            }
+            readOnly: !isEnabled
+
+            onFocusChanged:
+            {
+                if( isEnabled )
+                {
+                    if(focus)
+                    {
+                        if(text===text_input_box)
+                        {
+                            text = ""
+                        }
+                    }
+                    else
+                    {
+                        if(text==="")
+                        {
+                            text = text_input_box
+                        }
+                    }
+                }
+            }
+
+            onAccepted:
+            {
+                focus = false
+            }
+
+            Keys.onEscapePressed:
+            {
+                focus = false
+            }
+
+        }
+
+    }
+
+    Text
+    {
+        id: label_input_box
+        anchors.left: parent.left
+        anchors.verticalCenter: parent.verticalCenter
+        text: text_label
+        font.family: font_name_label
+        font.weight: font_weight_label
+        font.pixelSize: font_size_label
+        color: "#646464"
+        visible: !root.rtl
+    }
+
+    Rectangle
+    {
+        id: rect_input
+        width: width_box
+        height: height_box
+        anchors.left: label_input_box.right
+        anchors.leftMargin: left_margin
+        anchors.verticalCenter: parent.verticalCenter
+        color: color_background
+        border.width: 1
+        border.color: "#aaaaaa"
+        radius: 5
+        visible: !root.rtl
+
+        TextField
+        {
+            id: input
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.verticalCenterOffset: 1
+            anchors.left: parent.left
+            anchors.leftMargin: 5
+            anchors.right: parent.right
+            text: text_input_box
+            font.family: font_name_input_box
+            font.pixelSize: font_size_input_box
+            selectByMouse: true
+            textColor:
+            {
+                if(text===text_input_box)
+                {
+                    "#828282"
+                }
+                else
+                {
+                    "#464646"
+                }
+
+            }
 
             style: TextFieldStyle
             {
@@ -142,7 +231,12 @@ Rectangle
 
     function getInput()
     {
-        return input.text
+        var obj = input
+        if( root.rtl )
+        {
+            obj = input_rtl
+        }
+        return obj.text
     }
 
 }

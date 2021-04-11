@@ -19,8 +19,6 @@ Window
     property string bio:        "Bio"
     property string image:      "Image"
 
-    property string app_status: "Updated from server 12:20PM"
-
     //Document properties for inbox or outbox items
     property int    case_number: 2 //Document id
     property string sender_name: "Cassie Hicks"
@@ -31,7 +29,9 @@ Window
     property bool   email_opened: false
     property string filepath: ""
 
-    property bool createNewEmail: false //When click on new button to create new email
+    property bool   createNewEmail: false //When click on new button to create new email
+    property string app_status:     "Updated from server 12:20PM"
+    property bool   rtl:            true //Right to Left
 
     property string selected_file_path: "path/to/file"
 
@@ -49,7 +49,7 @@ Window
     signal approveButtonClicked(int docId)
     signal rejectButtonClicked(int docId)
     signal scanButtonClicked()
-    signal sendButtonClicked(int docId, string subject)
+    signal sendButtonClicked(string docId, string subject)
     signal flagButtonClicked(int id)
     signal uploadFileClicked()
     signal downloadFileClicked(string src, int docId)
@@ -147,41 +147,100 @@ Window
         }
     }
 
-    HhmTopBar
+    Item
     {
-        id: topbar
-        anchors.left: sidebar.right
+        id: main_rtl
+        width: parent.width
         anchors.top: parent.top
+        anchors.bottom: bottombar.top
+        visible: root.rtl
+
+        HhmTopBar
+        {
+            id: topbar_rtl
+            anchors.left: parent.left
+            anchors.right: sidebar_rtl.left
+            anchors.top: parent.top
+        }
+
+        HhmSideBar
+        {
+            id: sidebar_rtl
+            width: 300
+            height: parent.height
+            anchors.top: parent.top
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+        }
+
+        HhmEmailContent
+        {
+            id: email_content_rtl
+            anchors.left: parent.left
+            anchors.right: sidebar_rtl.left
+            anchors.top: topbar_rtl.bottom
+            anchors.bottom: parent.bottom
+            visible: !createNewEmail && email_content_rtl.isActiveEmail()
+        }
+
+        HhmNewEmail
+        {
+            id: new_email_rtl
+            anchors.left: parent.left
+            anchors.right: sidebar_rtl.left
+            anchors.top: topbar_rtl.bottom
+            anchors.bottom: parent.bottom
+            visible: createNewEmail
+        }
+
     }
 
-    HhmSideBar
+    Item
     {
-        id: sidebar
-        width: 300
-        height: parent.height
+        id: main_ltr
+        width: parent.width
         anchors.top: parent.top
-        anchors.left: parent.left
         anchors.bottom: bottombar.top
-    }
+        visible: !root.rtl
 
-    HhmEmailContent
-    {
-        id: email_content
-        anchors.left: sidebar.right
-        anchors.top: topbar.bottom
-        anchors.right: parent.right
-        anchors.bottom: bottombar.top
-        visible: !createNewEmail && email_content.isActiveEmail()
-    }
+        HhmTopBar
+        {
+            id: topbar
+            anchors.left: sidebar.right
+            anchors.right: parent.right
+            anchors.top: parent.top
+        }
 
-    HhmNewEmail
-    {
-        id: new_email
-        anchors.left: sidebar.right
-        anchors.top: topbar.bottom
-        anchors.right: parent.right
-        anchors.bottom: bottombar.top
-        visible: createNewEmail
+        HhmSideBar
+        {
+            id: sidebar
+            width: 300
+            height: parent.height
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
+        }
+
+        HhmEmailContent
+        {
+            id: email_content
+            anchors.left: sidebar.right
+            anchors.right: parent.right
+            anchors.top: topbar.bottom
+            anchors.bottom: parent.bottom
+            visible: !createNewEmail && email_content.isActiveEmail()
+        }
+
+        HhmNewEmail
+        {
+            id: new_email
+            anchors.left: sidebar.right
+            anchors.top: topbar.bottom
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+            visible: createNewEmail
+        }
+
     }
 
     HhmBottomBar
@@ -191,7 +250,7 @@ Window
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         text_user: root.username
-        text_status: app_status
+        text_status: root.app_status
     }
 
     HhmMessage
@@ -206,22 +265,39 @@ Window
 
     function addToBox()
     {
-        if( email_content.case_number===root.case_number )
+        var obj = email_content
+        if( root.rtl )
         {
-            email_content.case_number = root.case_number
-            email_content.text_name = root.sender_name
-            email_content.text_time = root.r_email_date
-            email_content.doc_status = root.doc_status
-            email_content.download_filepath = root.filepath
+            obj = email_content_rtl
         }
 
-        sidebar.addToBox()
+        if( obj.case_number===root.case_number )
+        {
+            obj.case_number = root.case_number
+            obj.text_name = root.sender_name
+            obj.text_time = root.r_email_date
+            obj.doc_status = root.doc_status
+            obj.download_filepath = root.filepath
+        }
+
+        obj = sidebar
+        if( root.rtl )
+        {
+            obj = sidebar_rtl
+        }
+        obj.addToBox()
     }
 
     function finishSync()
     {
-        sidebar.finishSync()
-        bottombar.text_status = "Updated from server " + (Qt.formatTime(new Date(),"hh:mmAP"))
+        var obj = sidebar
+        if( root.rtl )
+        {
+            obj = sidebar_rtl
+        }
+
+        obj.finishSync()
+        root.app_status = "Updated from server " + (Qt.formatTime(new Date(),"hh:mmAP"))
     }
 
     function loginSuccessfuly()
@@ -247,33 +323,57 @@ Window
     function showPageNewEmail()
     {
         createNewEmail = true
-        new_email.text_from = root.username
-        if( root.username==="Admin" )
+        var obj = new_email
+        if( root.rtl )
         {
-            new_email.text_to = "User"
+            obj = new_email_rtl
+        }
+
+        obj.text_from = root.username
+        if( isAdmin() )
+        {
+            obj.text_to = "User"
         }
         else
         {
-            new_email.text_to = "Admin"
+            obj.text_to = "Admin"
         }
     }
 
     function showSelectedFilePath()
     {
-        new_email.showSelectedFile()
+        var obj = new_email
+        if( root.rtl )
+        {
+            obj = new_email_rtl
+        }
+
+        obj.showSelectedFile()
     }
 
     function sendEmail()
     {
-        if(new_email.compeleteItems())
+        var obj = new_email
+        if( root.rtl )
         {
-            sendButtonClicked(new_email.getCaseNumber(), new_email.getSubject())
+            obj = new_email_rtl
+        }
+
+        if( obj.compeleteItems() )
+        {
+            sendButtonClicked(obj.getCaseNumber(), obj.getSubject())
         }
     }
 
     function syncEmail()
     {
-        sidebar.clearEmails()
+        var obj = sidebar
+        if( root.rtl )
+        {
+            obj = sidebar_rtl
+        }
+
+        obj.clearEmails()
         if( email_mode===con.id_EMAIL_MODE_INBOX )
         {
             syncInbox()
@@ -284,10 +384,9 @@ Window
         }
     }
 
-
     function isAdmin()
     {
-        return root.username==="Admin"
+        return root.username==="Admin" || root.username==="Ad"
     }
 
 }

@@ -38,7 +38,7 @@ void hhm_showMessage(QString msg, int interval)
  * */
 QString hhm_getServerIP()
 {
-    if(server_ip.isEmpty())
+    if( server_ip.isEmpty() )
     {
         QFile conf(HHM_CONFIG_FILE);
         if(conf.open(QIODevice::ReadOnly))
@@ -66,6 +66,16 @@ QString hhm_getServerIP()
         }
     }
     return server_ip;
+}
+
+
+/*
+ * Convert persian and arabic number to english
+ * */
+QString convertNumber(QString number)
+{
+    qDebug() << number.toInt();
+    return number;
 }
 
 //Print in qDebug and LOG_FILE

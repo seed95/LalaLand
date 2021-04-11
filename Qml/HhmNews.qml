@@ -34,8 +34,6 @@ Rectangle
         color: color_text
     }
 
-
-
     Text
     {
         id: office2
@@ -60,6 +58,5 @@ Rectangle
         font.pixelSize: 12
         color: color_text
     }
-
 
 }

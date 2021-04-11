@@ -16,5 +16,6 @@
         <file>HhmLogin.qml</file>
         <file>HhmLoginTextInput.qml</file>
         <file>HhmLoginButton.qml</file>
+        <file>HhmActionBox.qml</file>
     </qresource>
 </RCC>

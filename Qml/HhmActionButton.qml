@@ -38,14 +38,50 @@ Rectangle
 
     Rectangle
     {
+        id: rect_rtl
         height: parent.height
         width: childrenRect.width
         anchors.centerIn: parent
         color: "transparent"
+        visible: root.rtl
 
         Text
         {
-            id: label_icon
+            id: label_icon_rtl
+            text: icon
+            anchors.left: label_action_rtl.right
+            anchors.leftMargin: 7
+            anchors.verticalCenter: parent.verticalCenter
+            font.family: fontAwesomeSolid.name
+            font.pixelSize: 14
+            color: color_label
+        }
+
+        Text
+        {
+            id: label_action_rtl
+            text: action
+            anchors.left: parent.left
+            anchors.verticalCenter: parent.verticalCenter
+            font.family: fontRobotoMedium.name
+            font.weight: Font.Medium
+            font.pixelSize: 17
+            color: color_label
+        }
+    }
+
+    Rectangle
+    {
+        id: rect_ltr
+        height: parent.height
+        width: childrenRect.width
+        anchors.centerIn: parent
+        color: "transparent"
+        visible: !root.rtl
+
+        Text
+        {
+            id: label_icon_ltr
             text: icon
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
@@ -56,10 +92,10 @@ Rectangle
 
         Text
         {
-            id: label_action
+            id: label_action_ltr
             text: action
-            anchors.left: label_icon.right
-            anchors.leftMargin: 7 * scale_width
+            anchors.left: label_icon_ltr.right
+            anchors.leftMargin: 7
             anchors.verticalCenter: parent.verticalCenter
             font.family: fontRobotoMedium.name
             font.weight: Font.Medium

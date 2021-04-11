@@ -12,124 +12,269 @@ Rectangle
 
     Rectangle
     {
-        id: rect_refresh
-        height: parent.height
-        width: 30
-        anchors.right: parent.right
-        anchors.rightMargin: 2
-        anchors.verticalCenter: parent.verticalCenter
+        id: rect_rtl
+        anchors.fill: parent
         color: "transparent"
+        visible: root.rtl
 
-        Text
+        Rectangle
         {
-            id: refresh
-            anchors.centerIn: parent
-            text: "\uf2f1"
-            font.family: fontAwesomeSolid.name
-            font.pixelSize: 15
-            color: "#505050"
+            id: rect_refresh_rtl
+            height: parent.height
+            width: 30
+            anchors.left: parent.left
+            anchors.leftMargin: 2
+            anchors.verticalCenter: parent.verticalCenter
+            color: "transparent"
 
-            RotationAnimation on rotation
+            Text
             {
-                id: rotation_refresh
-                loops: Animation.Infinite
-                duration: 2000
-                from: 0
-                to: 360
-                running: false
-                onStopped:
+                id: refresh_rtl
+                anchors.centerIn: parent
+                text: "\uf2f1"
+                font.family: fontAwesomeSolid.name
+                font.pixelSize: 15
+                color: "#505050"
+
+                RotationAnimation on rotation
                 {
-                    if(refresh.rotation!==360)
+                    id: rotation_refresh_rtl
+                    loops: Animation.Infinite
+                    duration: 2000
+                    from: 0
+                    to: 360
+                    running: false
+                    onStopped:
                     {
-                        loops = 1
-                        running = true
+                        if(refresh_rtl.rotation!==360)
+                        {
+                            loops = 1
+                            running = true
+                        }
+                        else
+                        {
+                            running = false
+                        }
+                    }
+                }
+
+            }
+
+            MouseArea
+            {
+                anchors.fill: parent
+
+                onClicked:
+                {
+                    rotation_refresh_rtl.start()
+                    rotation_refresh_rtl.loops = Animation.Infinite
+                    root.syncEmail()
+                }
+            }
+
+        }
+
+        Rectangle
+        {
+            id: rect_search_rtl
+            width: 251
+            height: 26
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.right: parent.right
+            anchors.rightMargin: 13
+            color: "#f0f0f0"
+            border.width: 1
+            border.color: "#aaaaaa"
+            radius: 4
+
+            Text
+            {
+                id: icon_search_rtl
+                text: "\uf002"
+                color: "#969696"
+                font.family: fontAwesomeSolid.name
+                font.pixelSize: 12
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: 15
+            }
+
+            TextField
+            {
+                id: text_search_rtl
+                anchors.right: icon_search_rtl.left
+                anchors.rightMargin: 4
+                font.family: fontRobotoRegular.name
+                font.pixelSize: 11
+                text: hint_search
+                textColor: "#969696"
+                style: TextFieldStyle
+                {
+                    background: Rectangle
+                    {
+                        color: "transparent"
+                    }
+                    selectedTextColor: "#222"
+                    selectionColor: "#888"
+                }
+
+                property string hint_search: "جستجوی پرونده"
+
+                onFocusChanged:
+                {
+                    if(focus)
+                    {
+                        text = ""
                     }
                     else
                     {
-                        running = false
+                        if( text==="" )
+                        {
+                            text = hint_search
+                        }
                     }
                 }
-            }
-        }
 
-        MouseArea
-        {
-            anchors.fill: parent
+                Keys.onEscapePressed:
+                {
+                    focus = false
+                }
 
-            onClicked:
-            {
-                rotation_refresh.start()
-                rotation_refresh.loops = Animation.Infinite
-                root.syncEmail()
             }
+
         }
 
     }
 
     Rectangle
     {
-        id: rect_search
-        width: 251
-        height: 26
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.leftMargin: 13
-        color: "#f0f0f0"
-        border.width: 1
-        border.color: "#aaaaaa"
-        radius: 4
+        id: rect_ltr
+        anchors.fill: parent
+        color: "transparent"
+        visible: !root.rtl
 
-        Text
+        Rectangle
         {
-            id: icon_search
-            text: "\uf002"
-            color: "#969696"
-            font.family: fontAwesomeSolid.name
-            font.pixelSize: 12
+            id: rect_refresh
+            height: parent.height
+            width: 30
+            anchors.right: parent.right
+            anchors.rightMargin: 2
             anchors.verticalCenter: parent.verticalCenter
-            anchors.left: parent.left
-            anchors.leftMargin: 15
-        }
+            color: "transparent"
 
-        TextField
-        {
-            id: text_search
-            anchors.left: icon_search.right
-            anchors.leftMargin: 4
-            font.family: fontRobotoRegular.name
-            font.pixelSize: 11
-            text: hint_search
-            textColor: "#969696"
-            style: TextFieldStyle
+            Text
             {
-                background: Rectangle
-                {
-                    color: "transparent"
-                }
-                selectedTextColor: "#222"
-                selectionColor: "#888"
-            }
+                id: refresh
+                anchors.centerIn: parent
+                text: "\uf2f1"
+                font.family: fontAwesomeSolid.name
+                font.pixelSize: 15
+                color: "#505050"
 
-            property string hint_search: "Search a document id"
-
-            onFocusChanged:
-            {
-                if(focus)
+                RotationAnimation on rotation
                 {
-                    text = ""
-                }
-                else
-                {
-                    if( text==="" )
+                    id: rotation_refresh
+                    loops: Animation.Infinite
+                    duration: 2000
+                    from: 0
+                    to: 360
+                    running: false
+                    onStopped:
                     {
-                        text = hint_search
+                        if(refresh.rotation!==360)
+                        {
+                            loops = 1
+                            running = true
+                        }
+                        else
+                        {
+                            running = false
+                        }
                     }
                 }
             }
 
-            Keys.onEscapePressed:
+            MouseArea
             {
-                focus = false
+                anchors.fill: parent
+
+                onClicked:
+                {
+                    rotation_refresh.start()
+                    rotation_refresh.loops = Animation.Infinite
+                    root.syncEmail()
+                }
+            }
+
+        }
+
+        Rectangle
+        {
+            id: rect_search
+            width: 251
+            height: 26
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.left: parent.left
+            anchors.leftMargin: 13
+            color: "#f0f0f0"
+            border.width: 1
+            border.color: "#aaaaaa"
+            radius: 4
+
+            Text
+            {
+                id: icon_search
+                text: "\uf002"
+                color: "#969696"
+                font.family: fontAwesomeSolid.name
+                font.pixelSize: 12
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                anchors.leftMargin: 15
+            }
+
+            TextField
+            {
+                id: text_search
+                anchors.left: icon_search.right
+                anchors.leftMargin: 4
+                font.family: fontRobotoRegular.name
+                font.pixelSize: 11
+                text: hint_search
+                textColor: "#969696"
+                style: TextFieldStyle
+                {
+                    background: Rectangle
+                    {
+                        color: "transparent"
+                    }
+                    selectedTextColor: "#222"
+                    selectionColor: "#888"
+                }
+
+                property string hint_search: "Search a document id"
+
+                onFocusChanged:
+                {
+                    if(focus)
+                    {
+                        text = ""
+                    }
+                    else
+                    {
+                        if( text==="" )
+                        {
+                            text = hint_search
+                        }
+                    }
+                }
+
+                Keys.onEscapePressed:
+                {
+                    focus = false
+                }
+
             }
 
         }
@@ -138,7 +283,16 @@ Rectangle
 
     function finishSync()
     {
-        rotation_refresh.stop()
+        var obj
+        if( root.rtl )
+        {
+            obj = rotation_refresh_rtl
+        }
+        else
+        {
+            obj = rotation_refresh
+        }
+        obj.stop()
     }
 
 }

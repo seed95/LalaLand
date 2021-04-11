@@ -11,11 +11,11 @@ HhmDatabase::HhmDatabase(QObject *parent) : QObject(parent)
 
     if( db.open() )
     {
-        hhm_log("Open successfully database");
+        hhm_log("Open database successfully");
     }
     else
     {
-        hhm_log("Open failed database username: " SERVER_USER ", dbName: " DATABASE_NAME);
+        hhm_log("Open database failed with username: " SERVER_USER ", dbName: " DATABASE_NAME);
     }
 }
 

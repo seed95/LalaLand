@@ -32,12 +32,129 @@ Item
 
     Rectangle
     {
+        id: inbox_outbox_rtl
+        height: 20
+        width: 300
+        anchors.top: search.bottom
+        anchors.left: parent.left
+        color: "#c8c8c8"
+        visible: root.rtl
+
+        Text
+        {
+            id: inbox_rtl
+            text: "دریافتی"
+            anchors.right: parent.right
+            anchors.rightMargin: 41
+            anchors.verticalCenter: parent.verticalCenter
+            font.family: fontRobotoBold.name
+            font.weight: Font.Bold
+            font.pixelSize: 14
+            color:
+            {
+                if( root.email_mode===con.id_EMAIL_MODE_INBOX )
+                {
+                    "#3c598c"
+                }
+                else if( inbox_rtl.isHovered )
+                {
+                    "#6e6e6e"
+                }
+                else
+                {
+                    "#505050"
+                }
+            }
+
+            property bool isHovered: false
+
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    inbox_rtl.isHovered = true
+                }
+
+                onExited:
+                {
+                    inbox_rtl.isHovered = false
+                }
+
+                onClicked:
+                {
+                    root.email_mode = con.id_EMAIL_MODE_INBOX
+                }
+
+            }
+        }
+
+        Text
+        {
+            id: outbox_rtl
+            text: "ارسالی"
+            anchors.right: inbox_rtl.left
+            anchors.rightMargin: 25
+            anchors.verticalCenter: parent.verticalCenter
+            font.family: fontRobotoBold.name
+            font.weight: Font.Bold
+            font.pixelSize: 14
+            color:
+            {
+                if( root.email_mode===con.id_EMAIL_MODE_OUTBOX )
+                {
+                    "#3c598c"
+                }
+                else if( outbox_rtl.isHovered )
+                {
+                    "#6e6e6e"
+                }
+                else
+                {
+                    "#505050"
+                }
+            }
+
+            property bool isHovered: false
+
+            MouseArea
+            {
+                anchors.fill: parent
+                hoverEnabled: true
+                cursorShape: Qt.PointingHandCursor
+
+                onEntered:
+                {
+                    outbox_rtl.isHovered = true
+                }
+
+                onExited:
+                {
+                    outbox_rtl.isHovered = false
+                }
+
+                onClicked:
+                {
+                    root.email_mode = con.id_EMAIL_MODE_OUTBOX
+                }
+
+            }
+        }
+
+    }
+
+    Rectangle
+    {
         id: inbox_outbox
         height: 20
         width: 300
         anchors.top: search.bottom
         anchors.left: parent.left
         color: "#c8c8c8"
+        visible: !root.rtl
 
         Text
         {
@@ -152,7 +269,17 @@ Item
         id: listview_sidebar
         width: parent.width
         anchors.left: parent.left
-        anchors.top: inbox_outbox.bottom
+        anchors.top:
+        {
+            if( root.rtl )
+            {
+                inbox_outbox_rtl.bottom
+            }
+            else
+            {
+                inbox_outbox.bottom
+            }
+        }
         anchors.bottom: parent.bottom
         model: ListModel
         {
@@ -168,7 +295,7 @@ Item
             case_number: caseNumber
             doc_status: docStatus
             text_time: time
-            isActive: case_number===email_content.case_number
+            isActive: case_number===email_content.case_number || case_number===email_content_rtl.case_number
             id_email_in_emails_table: idEmail
             isRead: emailOpened
             text_filepath: docFilepath
@@ -176,17 +303,23 @@ Item
             onEmailClicked:
             {
                 root.createNewEmail = false
-                if( email_content.case_number===case_number )
+                var obj = email_content
+                if( root.rtl )
                 {
-                    email_content.case_number = con.id_NO_SELECTED_ITEM
+                    obj = email_content_rtl
+                }
+
+                if( obj.case_number===case_number )
+                {
+                    obj.case_number = con.id_NO_SELECTED_ITEM
                 }
                 else
                 {
-                    email_content.case_number = case_number
-                    email_content.text_name = name
-                    email_content.text_time = time
-                    email_content.doc_status = docStatus
-                    email_content.download_filepath = docFilepath
+                    obj.case_number = case_number
+                    obj.text_name = name
+                    obj.text_time = time
+                    obj.doc_status = docStatus
+                    obj.download_filepath = docFilepath
                 }
                 emailOpened = true
                 root.openEmail(idEmail)
