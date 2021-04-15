@@ -24,7 +24,7 @@ int main(int argc, char *argv[])
     QObject *mainItem = engine.rootObjects().first();
 
     QTranslator *translator = new QTranslator();
-    translator->load(":/HHM_ar.qm");
+    translator->load(":/Translators/HHM_ar.qm");
     QCoreApplication::instance()->installTranslator(translator);
     engine.retranslate();
 
