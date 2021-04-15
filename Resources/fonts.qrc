@@ -10,5 +10,9 @@
         <file>Fonts/Roboto-Light.ttf</file>
         <file>Fonts/fasolid.ttf</file>
         <file>Fonts/Roboto-Bold.ttf</file>
+        <file>Fonts/IranSans-Regular.ttf</file>
+        <file>Fonts/IranSans-Bold.ttf</file>
+        <file>Fonts/IranSans-Light.ttf</file>
+        <file>Fonts/IranSans-UltraLight.ttf</file>
     </qresource>
 </RCC>

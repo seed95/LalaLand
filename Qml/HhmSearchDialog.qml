@@ -104,10 +104,12 @@ Rectangle
                 id: text_search_rtl
                 anchors.right: icon_search_rtl.left
                 anchors.rightMargin: 4
-                font.family: fontRobotoRegular.name
-                font.pixelSize: 11
+                font.family: fontSansRegular.name
+                font.weight: Font.Normal
+                font.pixelSize: 13
                 text: hint_search
                 textColor: "#969696"
+                horizontalAlignment: TextInput.AlignRight
                 style: TextFieldStyle
                 {
                     background: Rectangle
@@ -118,7 +120,7 @@ Rectangle
                     selectionColor: "#888"
                 }
 
-                property string hint_search: "جستجوی پرونده"
+                property string hint_search: qsTr("جستجوی پرونده")
 
                 onFocusChanged:
                 {

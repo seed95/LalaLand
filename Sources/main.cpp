@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QDebug>
+#include <QTranslator>
 #include "hhm_chapar.h"
 #include "backend.h"
 
@@ -21,6 +22,11 @@ int main(int argc, char *argv[])
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     engine.load(url);
     QObject *mainItem = engine.rootObjects().first();
+
+    QTranslator *translator = new QTranslator();
+    translator->load(":/HHM_ar.qm");
+    QCoreApplication::instance()->installTranslator(translator);
+    engine.retranslate();
 
     hhm_log("-------------------------Start Document Manager-------------------------");
     hhm_setBackendUI(mainItem);

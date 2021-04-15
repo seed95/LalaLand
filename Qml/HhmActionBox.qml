@@ -23,7 +23,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: !root.createNewEmail
             icon: "\uf067"
-            action: "جدید"
+            action: qsTr("جدید")
             onButtonClicked: root.showPageNewEmail()
         }
 
@@ -36,7 +36,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: email_content_rtl.isActiveEmail() && !root.createNewEmail
             icon: "\uf3e5"
-            action: "پاسخ"
+            action: qsTr("پاسخ")
             onButtonClicked: root.replyButtonClicked()
         }
 
@@ -49,7 +49,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: root.isAdmin() && email_content_rtl.isActiveEmail() && !root.createNewEmail
             icon: "\uf00c"
-            action: "تایید"
+            action: qsTr("تایید")
             onButtonClicked:
             {
                 root.approveButtonClicked(email_content_rtl.case_number)
@@ -66,7 +66,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: root.isAdmin() && email_content_rtl.isActiveEmail() && !root.createNewEmail
             icon: "\uf00d"
-            action: "لغو"
+            action: qsTr("لغو")
             onButtonClicked:
             {
                 root.rejectButtonClicked(email_content_rtl.case_number)
@@ -93,7 +93,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: email_content_rtl.isActiveEmail() && !root.createNewEmail
             icon: "\uf187"
-            action: "آرشیو"
+            action: qsTr("آرشیو")
             onButtonClicked: root.archiveButtonClicked()
         }
 
@@ -107,7 +107,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: root.createNewEmail
             icon: "\uf060"
-            action: "بازگشت"
+            action: qsTr("بازگشت")
             onButtonClicked: root.createNewEmail = false
         }
 
@@ -120,7 +120,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: root.createNewEmail
             icon: "\uf574"
-            action: "اسکن"
+            action: qsTr("اسکن")
             onButtonClicked: root.scanButtonClicked()
         }
 
@@ -133,7 +133,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: root.createNewEmail
             icon: "\uf1d8"
-            action: "ارسال"
+            action: qsTr("ارسال")
             onButtonClicked: root.sendEmail()
         }
 
@@ -158,9 +158,9 @@ Rectangle
             anchors.rightMargin: 16
             anchors.topMargin: 5
             color: "#c8c8c8"
-            font.family: fontRobotoMedium.name
-            font.weight: Font.Medium
-            font.pixelSize: 15
+            font.family: fontSansRegular.name
+            font.weight: Font.Bold
+            font.pixelSize: 14
         }
 
         Text
@@ -171,9 +171,9 @@ Rectangle
             anchors.top: department_rtl.bottom
             anchors.rightMargin: 16
             color: "#c8c8c8"
-            font.family: fontRobotoLight.name
-            font.weight: Font.Light
-            font.pixelSize: 11
+            font.family: fontSansRegular.name
+            font.weight: Font.Normal
+            font.pixelSize: 12
         }
 
     }

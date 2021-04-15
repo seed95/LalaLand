@@ -4,3 +4,6 @@ Makefile
 HHM
 Build/*
 hhm.log
+HHM_ar.qm
+HHM_ar.ts
+HHM_en.ts

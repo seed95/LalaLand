@@ -1,15 +1,16 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
 
-Item
+Rectangle
 {
     id: container
+    color: "#d7d7d7"
 
     Rectangle
     {
         id: rect_logo
         width: parent.width
-        height: 100 * scale_height
+        height: 100
         color: "#243554"
         anchors.left: parent.left
         anchors.top: parent.top
@@ -43,11 +44,11 @@ Item
         Text
         {
             id: inbox_rtl
-            text: "دریافتی"
+            text: qsTr("دریافتی")
             anchors.right: parent.right
             anchors.rightMargin: 41
             anchors.verticalCenter: parent.verticalCenter
-            font.family: fontRobotoBold.name
+            font.family: fontSansRegular.name
             font.weight: Font.Bold
             font.pixelSize: 14
             color:
@@ -95,11 +96,11 @@ Item
         Text
         {
             id: outbox_rtl
-            text: "ارسالی"
+            text: qsTr("ارسالی")
             anchors.right: inbox_rtl.left
             anchors.rightMargin: 25
             anchors.verticalCenter: parent.verticalCenter
-            font.family: fontRobotoBold.name
+            font.family: fontSansRegular.name
             font.weight: Font.Bold
             font.pixelSize: 14
             color:

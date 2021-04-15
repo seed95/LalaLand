@@ -4,9 +4,9 @@ Rectangle
 {
     id: container
 
-    property color color_background_normal: "#d7d7d7"
-    property color color_background_hovered: "#e5e5e5"
-    property color color_background_active: "#545f88"
+    property color color_background_normal:         "#d7d7d7"
+    property color color_background_hovered:        "#e5e5e5"
+    property color color_background_active:         "#545f88"
     property color color_background_active_hovered: "#6179cb"
     property color color_background:
     {
@@ -28,273 +28,498 @@ Rectangle
         }
     }
 
-    property color color_text_active: "#d7d7d7"
-    property color color_text_active_hovered: "#e6e6e6"
+    property color color_text_active:           "#d7d7d7"
+    property color color_text_active_hovered:   "#e6e6e6"
 
-    property int    case_number: 1992
-    property int    doc_status: 1
-    property int    id_email_in_emails_table: 0
-    property string text_subject: "Subject"
-    property string text_time: "7:17PM"
-    property string text_name: "Cassie Hicks"
-    property string text_username: "Admin"
-    property string text_filepath: "Filename.pdf"
+    property int    case_number:                1992
+    property int    doc_status:                 1
+    property int    id_email_in_emails_table:   0
+    property string text_subject:               "Subject"
+    property string text_time:                  "7:17PM"
+    property string text_name:                  "Cassie Hicks"
+    property string text_username:              "Admin"
+    property string text_filepath:              "Filename.pdf"
 
-    property bool isHovered: false
-    property bool isActive: false
-    property bool isRead: false
-    property bool isFlag: true
+    property bool isHovered:    false
+    property bool isActive:     false
+    property bool isRead:       false
+    property bool isFlag:       true
 
     signal emailClicked()
 
     color: color_background
-    height: 60 * scale_height
+    height: 60
 
-    Text
+    Item
     {
-        id: label_read
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.leftMargin: 16
-        anchors.topMargin: 14
-        text: "\uf2b6"
-        font.family: fontAwesomeRegular.name
-        font.weight: Font.Normal
-        font.pixelSize: 15
-        color:
+        anchors.fill: parent
+        visible: root.rtl
+
+        Text
         {
-            if(isHovered && isActive)
+            id: label_read_rtl
+            anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.rightMargin: 16
+            anchors.topMargin: 14
+            text:
             {
-                color_text_active_hovered
+                if( isRead )
+                {
+                    "\uf2b6"
+                }
+                else
+                {
+                    "\uf0e0"
+                }
             }
-            else if(isActive)
+
+            font.family:
             {
-                color_text_active
+                if( isRead )
+                {
+                    fontAwesomeRegular.name
+                }
+                else
+                {
+                    fontAwesomeSolid.name
+                }
             }
-            else
+            font.weight:
             {
-                "#505050"
+                if( isRead )
+                {
+                    Font.Normal
+                }
+                else
+                {
+                    Font.Bold
+                }
+            }
+            font.pixelSize: 15
+            color:
+            {
+                if(isHovered && isActive)
+                {
+                    color_text_active_hovered
+                }
+                else if(isActive)
+                {
+                    color_text_active
+                }
+                else
+                {
+                    "#505050"
+                }
             }
         }
-        visible: isRead
+
+        Text
+        {
+            id: label_subject_rtl
+            text: text_subject
+            font.family: fontRobotoMedium.name
+            font.weight: Font.Medium
+            font.pixelSize: 18
+            anchors.right: label_read_rtl.left
+            anchors.rightMargin: 10
+            anchors.top: parent.top
+            anchors.topMargin: 8
+            color:
+            {
+                if(isHovered && isActive)
+                {
+                    color_text_active_hovered
+                }
+                else if(isActive)
+                {
+                    color_text_active
+                }
+                else
+                {
+                    "#3c3c3c"
+                }
+            }
+        }
+
+        Text
+        {
+            id: label_doc_status_rtl
+            text:
+            {
+                if( doc_status===con.id_DOC_STATUS_SUCCESS )
+                {
+                    "تایید"
+                }
+                else if( doc_status===con.id_DOC_STATUS_PENDING )
+                {
+                    "در انتظار تایید"
+                }
+                else if( doc_status===con.id_DOC_STATUS_FAILED )
+                {
+                    "لغو"
+                }
+            }
+            font.family: fontRobotoRegular.name
+            font.weight: Font.Normal
+            font.pixelSize: 15
+            anchors.right: label_subject_rtl.right
+            anchors.top: label_case_number_rtl.bottom
+            anchors.topMargin: 5
+            color:
+            {
+                if(isHovered && isActive)
+                {
+                    color_text_active_hovered
+                }
+                else if(isActive)
+                {
+                    color_text_active
+                }
+                else
+                {
+                    "#3c598c"
+                }
+            }
+        }
+
+        Text
+        {
+            id: label_time_rtl
+            text: text_time
+            font.family: fontRobotoRegular.name
+            font.weight: Font.Normal
+            font.pixelSize: 13
+            anchors.left: split_line_rtl.left
+            anchors.leftMargin: 1
+            anchors.top: parent.top
+            anchors.topMargin: 10
+            visible: false
+            color:
+            {
+                if(isHovered && isActive)
+                {
+                    color_text_active_hovered
+                }
+                else if(isActive)
+                {
+                    color_text_active
+                }
+                else
+                {
+                    "#646464"
+                }
+            }
+        }
+
+        Text
+        {
+            id: label_case_number_rtl
+            text: "#" + root.en2ar(case_number)
+            font.family: fontRobotoRegular.name
+            font.weight: Font.Normal
+            font.pixelSize: 13
+            anchors.left: split_line_rtl.left
+            anchors.leftMargin: 1
+            anchors.top: parent.top
+            anchors.topMargin: 10
+            color:
+            {
+                if(isHovered && isActive)
+                {
+                    color_text_active_hovered
+                }
+                else if(isActive)
+                {
+                    color_text_active
+                }
+                else
+                {
+                    "#646464"
+                }
+            }
+        }
+
+        Text
+        {
+            id: label_flag_rtl
+            text: "\uf024"
+            anchors.top: label_time_rtl.bottom
+            anchors.left: split_line_rtl.left
+            anchors.leftMargin: 2
+            anchors.topMargin: 3
+            font.family: fontAwesomeSolid.name
+            font.pixelSize: 15
+            color:
+            {
+                if( doc_status===con.id_DOC_STATUS_SUCCESS )
+                {
+                    "#508c57"
+                }
+                else if( doc_status===con.id_DOC_STATUS_PENDING )
+                {
+                    "#a68536"
+                }
+                else if( doc_status===con.id_DOC_STATUS_FAILED )
+                {
+                    "#b95f5f"
+                }
+            }
+            visible: isFlag
+        }
+
+        Rectangle
+        {
+            id: split_line_rtl
+            width: 260
+            height: 1
+            anchors.right: parent.right
+            anchors.rightMargin: 14
+            anchors.bottom: parent.bottom
+            color: "#969696"
+        }
+
     }
 
-    Text
+    Item
     {
-        id: label_unread
-        anchors.left: parent.left
-        anchors.top: parent.top
-        anchors.leftMargin: 16
-        anchors.topMargin: 14
-        text: "\uf0e0"
-        font.family: fontAwesomeSolid.name
-        font.pixelSize: 15
-        color:
-        {
-            if(isHovered && isActive)
-            {
-                color_text_active_hovered
-            }
-            else if(isActive)
-            {
-                color_text_active
-            }
-            else
-            {
-                "#505050"
-            }
-        }
-        visible: !isRead
-    }
+        anchors.fill: parent
+        visible: !root.rtl
 
-    Text
-    {
-        id: label_subject
-        text: text_subject
-        font.family: fontRobotoMedium.name
-        font.weight: Font.Medium
-        font.pixelSize: 18
-        anchors.left:
+        Text
         {
-            if(isRead)
+            id: label_read
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.leftMargin: 16
+            anchors.topMargin: 14
+            text: "\uf2b6"
+            font.family: fontAwesomeRegular.name
+            font.weight: Font.Normal
+            font.pixelSize: 15
+            color:
             {
-                label_read.right
+                if(isHovered && isActive)
+                {
+                    color_text_active_hovered
+                }
+                else if(isActive)
+                {
+                    color_text_active
+                }
+                else
+                {
+                    "#505050"
+                }
             }
-            else
-            {
-                label_unread.right
-            }
-
-        }
-        anchors.leftMargin: 10 * scale_width
-        anchors.top: parent.top
-        anchors.topMargin: 8 * scale_height
-        color:
-        {
-            if(isHovered && isActive)
-            {
-                color_text_active_hovered
-            }
-            else if(isActive)
-            {
-                color_text_active
-            }
-            else
-            {
-                "#3c3c3c"
-            }
-        }
-    }
-
-    Text
-    {
-        id: label_doc_status
-        text:
-        {
-            if( doc_status===con.id_DOC_STATUS_SUCCESS )
-            {
-                "Accept"
-            }
-            else if( doc_status===con.id_DOC_STATUS_PENDING )
-            {
-                "Waiting for approved"
-            }
-            else if( doc_status===con.id_DOC_STATUS_FAILED )
-            {
-                "Reject"
-            }
+            visible: isRead
         }
 
-        font.family: fontRobotoRegular.name
-        font.weight: Font.Normal
-        font.pixelSize: 15
-        anchors.left: label_subject.left
-        anchors.top: label_case_number.bottom
-        anchors.topMargin: 5
-        color:
+        Text
         {
-            if(isHovered && isActive)
+            id: label_unread
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.leftMargin: 16
+            anchors.topMargin: 14
+            text: "\uf0e0"
+            font.family: fontAwesomeSolid.name
+            font.pixelSize: 15
+            color:
             {
-                color_text_active_hovered
+                if(isHovered && isActive)
+                {
+                    color_text_active_hovered
+                }
+                else if(isActive)
+                {
+                    color_text_active
+                }
+                else
+                {
+                    "#505050"
+                }
             }
-            else if(isActive)
+            visible: !isRead
+        }
+
+        Text
+        {
+            id: label_subject
+            text: text_subject
+            font.family: fontRobotoMedium.name
+            font.weight: Font.Medium
+            font.pixelSize: 18
+            anchors.left:
             {
-                color_text_active
+                if(isRead)
+                {
+                    label_read.right
+                }
+                else
+                {
+                    label_unread.right
+                }
+
             }
-            else
+            anchors.leftMargin: 10
+            anchors.top: parent.top
+            anchors.topMargin: 8
+            color:
             {
-                "#3c598c"
+                if(isHovered && isActive)
+                {
+                    color_text_active_hovered
+                }
+                else if(isActive)
+                {
+                    color_text_active
+                }
+                else
+                {
+                    "#3c3c3c"
+                }
             }
         }
-    }
 
-    Text
-    {
-        id: label_time
-        text: text_time
-        font.family: fontRobotoRegular.name
-        font.weight: Font.Normal
-        font.pixelSize: 13
-        anchors.right: split_line.right
-        anchors.rightMargin: 1 * scale_width
-        anchors.top: parent.top
-        anchors.topMargin: 10 * scale_height
-        visible: false
-        color:
+        Text
         {
-            if(isHovered && isActive)
+            id: label_doc_status
+            text:
             {
-                color_text_active_hovered
+                if( doc_status===con.id_DOC_STATUS_SUCCESS )
+                {
+                    "Accept"
+                }
+                else if( doc_status===con.id_DOC_STATUS_PENDING )
+                {
+                    "Waiting for approved"
+                }
+                else if( doc_status===con.id_DOC_STATUS_FAILED )
+                {
+                    "Reject"
+                }
             }
-            else if(isActive)
+
+            font.family: fontRobotoRegular.name
+            font.weight: Font.Normal
+            font.pixelSize: 15
+            anchors.left: label_subject.left
+            anchors.top: label_case_number.bottom
+            anchors.topMargin: 5
+            color:
             {
-                color_text_active
-            }
-            else
-            {
-                "#646464"
+                if(isHovered && isActive)
+                {
+                    color_text_active_hovered
+                }
+                else if(isActive)
+                {
+                    color_text_active
+                }
+                else
+                {
+                    "#3c598c"
+                }
             }
         }
-    }
 
-    Text
-    {
-        id: label_case_number
-        text: "#" + case_number
-        font.family: fontRobotoRegular.name
-        font.weight: Font.Normal
-        font.pixelSize: 13
-        anchors.right: split_line.right
-        anchors.rightMargin: 1 * scale_width
-        anchors.top: parent.top
-        anchors.topMargin: 10 * scale_height
-        color:
+        Text
         {
-            if(isHovered && isActive)
+            id: label_time
+            text: text_time
+            font.family: fontRobotoRegular.name
+            font.weight: Font.Normal
+            font.pixelSize: 13
+            anchors.right: split_line.right
+            anchors.rightMargin: 1
+            anchors.top: parent.top
+            anchors.topMargin: 10
+            visible: false
+            color:
             {
-                color_text_active_hovered
-            }
-            else if(isActive)
-            {
-                color_text_active
-            }
-            else
-            {
-                "#646464"
+                if(isHovered && isActive)
+                {
+                    color_text_active_hovered
+                }
+                else if(isActive)
+                {
+                    color_text_active
+                }
+                else
+                {
+                    "#646464"
+                }
             }
         }
-    }
 
-    Text
-    {
-        id: label_flag
-        text: "\uf024"
-        anchors.top: label_time.bottom
-        anchors.right: split_line.right
-        anchors.rightMargin: 2 * scale_width
-        anchors.topMargin: 3 * scale_height
-        font.family: fontAwesomeSolid.name
-        font.pixelSize: 15
-        color:
+        Text
         {
-            if( doc_status===con.id_DOC_STATUS_SUCCESS )
+            id: label_case_number
+            text: "#" + case_number
+            font.family: fontRobotoRegular.name
+            font.weight: Font.Normal
+            font.pixelSize: 13
+            anchors.right: split_line.right
+            anchors.rightMargin: 1
+            anchors.top: parent.top
+            anchors.topMargin: 10
+            color:
             {
-                "#508c57"
+                if(isHovered && isActive)
+                {
+                    color_text_active_hovered
+                }
+                else if(isActive)
+                {
+                    color_text_active
+                }
+                else
+                {
+                    "#646464"
+                }
             }
-            else if( doc_status===con.id_DOC_STATUS_PENDING )
-            {
-                "#a68536"
-            }
-            else if( doc_status===con.id_DOC_STATUS_FAILED )
-            {
-                "#b95f5f"
-            }
-
-//            if(isHovered && isActive)
-//            {
-//                color_text_active_hovered
-//            }
-//            else if(isActive)
-//            {
-//                color_text_active
-//            }
-//            else
-//            {
-//                "#646464"
-//            }
         }
-        visible: isFlag
-    }
 
-    Rectangle
-    {
-        id: split_line
-        width: 260 * scale_width
-        height: 1 * scale_height
-        anchors.left: parent.left
-        anchors.leftMargin: 14 * scale_width
-        anchors.bottom: parent.bottom
-        color: "#969696"
+        Text
+        {
+            id: label_flag
+            text: "\uf024"
+            anchors.top: label_time.bottom
+            anchors.right: split_line.right
+            anchors.rightMargin: 2
+            anchors.topMargin: 3
+            font.family: fontAwesomeSolid.name
+            font.pixelSize: 15
+            color:
+            {
+                if( doc_status===con.id_DOC_STATUS_SUCCESS )
+                {
+                    "#508c57"
+                }
+                else if( doc_status===con.id_DOC_STATUS_PENDING )
+                {
+                    "#a68536"
+                }
+                else if( doc_status===con.id_DOC_STATUS_FAILED )
+                {
+                    "#b95f5f"
+                }
+            }
+            visible: isFlag
+        }
+
+        Rectangle
+        {
+            id: split_line
+            width: 260
+            height: 1
+            anchors.left: parent.left
+            anchors.leftMargin: 14
+            anchors.bottom: parent.bottom
+            color: "#969696"
+        }
+
     }
 
     MouseArea

@@ -6,8 +6,7 @@ Window
 {
     id: root
 
-    property real scale_width: width/1280
-    property real scale_height: height/800
+    property bool rtl: true //Right to Left
 
     //User properties
     property int    idUser:     101
@@ -31,8 +30,8 @@ Window
 
     property bool   createNewEmail: false //When click on new button to create new email
     property string app_status:     "Updated from server 12:20PM"
-    property bool   rtl:            true //Right to Left
 
+    //Selected file path for upload file
     property string selected_file_path: "path/to/file"
 
     property int email_mode: con.id_EMAIL_MODE_INBOX
@@ -49,7 +48,7 @@ Window
     signal approveButtonClicked(int docId)
     signal rejectButtonClicked(int docId)
     signal scanButtonClicked()
-    signal sendButtonClicked(string docId, string subject)
+    signal sendButtonClicked(string docId, string subject, string filepath)
     signal flagButtonClicked(int id)
     signal uploadFileClicked()
     signal downloadFileClicked(string src, int docId)
@@ -114,6 +113,29 @@ Window
         id: fontRobotoLight
         source: "qrc:/Fonts/Roboto-Light.ttf"
     }
+
+
+//    FontLoader
+//    {
+//        id: fontSansBold
+//        source: "qrc:/Fonts/IranSans-Bold.ttf"
+//    }
+    FontLoader
+    {
+        id: fontSansRegular
+        source: "qrc:/Fonts/IranSans-Regular.ttf"
+    }
+    FontLoader
+    {
+        id: fontSansLight
+        source: "qrc:/Fonts/IranSans-Light.ttf"
+    }
+    FontLoader
+    {
+        id: fontSansUltraLight
+        source: "qrc:/Fonts/IranSans-UltraLight.ttf"
+    }
+
 
     //Animations:
     NumberAnimation
@@ -361,7 +383,7 @@ Window
 
         if( obj.compeleteItems() )
         {
-            sendButtonClicked(obj.getCaseNumber(), obj.getSubject())
+            sendButtonClicked(obj.getCaseNumber(), obj.getSubject(), selected_file_path)
         }
     }
 
@@ -389,4 +411,30 @@ Window
         return root.username==="Admin" || root.username==="Ad"
     }
 
+
+    //Convert english number to arabic number
+    function en2ar(number)
+    {
+        number = number.toString()
+        //FIXME: change persian number to arabic
+        var arabic_numbers  = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹']
+        var english_numbers  = [/0/g, /1/g, /2/g, /3/g, /4/g, /5/g, /6/g, /7/g, /8/g, /9/g]
+        for(var i=0; i<10; i++)
+        {
+            var ar_number = number.replace(i, arabic_numbers[i])
+        }
+        return ar_number
+    }
+
+    //Convert arabic(persian) number to english number
+    function ar2en(number)
+    {
+        var persian_numbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g]
+        var arabic_numbers  = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g]
+        for(var i=0; i<10; i++)
+        {
+            var en_number = number.replace(persian_numbers[i], i).replace(arabic_numbers[i], i)
+        }
+        return en_number
+    }
 }

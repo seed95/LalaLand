@@ -12,6 +12,8 @@
 #define HHM_CONFIG_FILE "db.conf"
 #define HHM_LOG_FILE    "hhm.log"
 
+#define HHM_FAILED_CONVERT "NaN"
+
 /*****              DataBase Configs            *****/
 
 #define SERVER_PORT     3306

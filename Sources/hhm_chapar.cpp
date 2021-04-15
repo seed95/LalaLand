@@ -12,7 +12,7 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     connect(ui, SIGNAL(rejectButtonClicked(int)), this, SLOT(rejectBtnClicked(int)));
     connect(ui, SIGNAL(archiveButtonClicked()), this, SLOT(archiveBtnClicked()));
     connect(ui, SIGNAL(scanButtonClicked()), this, SLOT(scanBtnClicked()));
-    connect(ui, SIGNAL(sendButtonClicked(QString, QString)), this, SLOT(sendBtnClicked(QString, QString)));
+    connect(ui, SIGNAL(sendButtonClicked(QString, QString, QString)), this, SLOT(sendBtnClicked(QString, QString, QString)));
     connect(ui, SIGNAL(flagButtonClicked(int)), this, SLOT(flagBtnClicked(int)));
     connect(ui, SIGNAL(uploadFileClicked()), this, SLOT(uploadFileClicked()));
     connect(ui, SIGNAL(downloadFileClicked(QString, int)), this, SLOT(downloadFileClicked(QString, int)));
@@ -52,13 +52,6 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     }
 
     ftp = new HhmAttach(ftp_server, ftp_username, ftp_password);
-
-//    QLocale::setDefault(QLocale::Iran);
-//    QLocale::setDefault(QLocale::Persian);
-    QLocale arabicLocale = QLocale::Arabic;
-    QLocale persianLocale = QLocale::Persian;
-    qDebug() << QString("۱۲۳").toInt() << arabicLocale.toInt("۱۲۳") << persianLocale.toInt("۱۲۳");
-//    convertNumber("۱۲۳");
 }
 
 void HhmChapar::loginUser(QString uname, QString pass)
@@ -99,138 +92,39 @@ void HhmChapar::scanBtnClicked()
     qDebug() << "scanBtnClicked";
 }
 
-void HhmChapar::sendBtnClicked(QString caseNumber, QString subject)
+void HhmChapar::sendBtnClicked(QString caseNumber, QString subject, QString filepath)
 {
-//    if( !upload_filepath.isEmpty() )
-//    {
-//        int id_user = user->getId();
+    if( !filepath.isEmpty() )
+    {
+        caseNumber = convertNumber(caseNumber);
+        if( mail->checkCaseNumber(caseNumber) )
+        {
+            hhm_showMessage("Case number already exist!", 2000);
+            return;
+        }
 
-//        int id_receiver_user = db->getId(HHM_USERNAME_ADMIN);
-//        if( user->getUsername()==HHM_USERNAME_ADMIN )
-//        {
-//            id_receiver_user = db->getId(HHM_USERNAME_USER);
-//        }
+        int id_user = user->getId();
 
-//        //Check duplicate case number
-//        QString condition = "`" + QString(HHM_DOCUMENTS_DOCID) + "`=" + QString::number(caseNumber);
-//        QSqlQuery res = db->select("*", HHM_TABLE_DOCUMENT, condition);
-//        if( res.size()!=0 )
-//        {
-//            hhm_showMessage("Case number already exist!", 2000);
-//            return;
-//        }
+        int id_receiver_user = db->getId(HHM_USERNAME_ADMIN);
+        if( user->getUsername()==HHM_USERNAME_ADMIN )
+        {
+            id_receiver_user = db->getId(HHM_USERNAME_USER);
+        }
 
-//        //Insert into HHM_TABLE_DOCUMENT
-//        QString columns = "`" + QString(HHM_DOCUMENTS_FILEPATH) + "`, ";
-//        columns += "`" + QString(HHM_DOCUMENTS_SENDER_ID) + "`, ";
-//        columns += "`" + QString(HHM_DOCUMENTS_RECEIVER_IDS) + "`, ";
-//        columns += "`" + QString(HHM_DOCUMENTS_DATE) + "`, ";
-//        columns += "`" + QString(HHM_DOCUMENTS_SENDER_NAME) + "`, ";
-//        columns += "`" + QString(HHM_DOCUMENTS_DOCID) + "`, ";
-//        columns += "`" + QString(HHM_DOCUMENTS_SUBJECT) + "`";
+        QString dst_filename = caseNumber + "_" + QFileInfo(filepath).fileName();
+        mail->sendNewEmail(caseNumber, subject,
+                           id_user, id_receiver_user,
+                           dst_filename, user->getName());
 
-//        QLocale locale(QLocale::English);
-//        QString date = locale.toString(QDateTime::currentDateTime(), "yyyy-MM-dd hh:mm:ss");
+        //Upload file in fpt server
+        ftp->uploadFile(filepath, dst_filename);
 
-//        QFileInfo file_info(upload_filepath);
-
-//        QString dst_filename = QString::number(caseNumber) + "_" + file_info.fileName();
-//        QString values = "'" + dst_filename + "', ";
-//        values += "'" + QString::number(id_user) + "', ";
-//        values += "'" + QString::number(id_receiver_user) + "', ";
-//        values += "'" + date + "', ";
-//        values += "'" + user->getName() + "', ";
-//        values += "'" + QString::number(caseNumber) + "', ";
-//        values += "'" + subject + "'";
-//        db->insert(HHM_TABLE_DOCUMENT, columns, values);
-
-//        //Get id document
-//        QString query = "SELECT LAST_INSERT_ID();";
-//        res = db->sendQuery(query);
-//        int doc_id = 0;
-//        if(res.next())
-//        {
-//            doc_id = res.value(0).toInt();
-//        }
-
-//        columns  = "`" + QString(HHM_EMAILS_DOCID) + "`, ";
-//        columns += "`" + QString(HHM_EMAILS_SEND_REFERENCE) + "`, ";
-//        columns += "`" + QString(HHM_EMAILS_RECEIVE_REFERENCE) + "`";
-
-//        values  = "'" + QString::number(doc_id) + "', ";
-//        values += "'" + QString::number(1) + "', ";
-//        values += "'" + QString::number(0) + "'";
-//        db->insert(HHM_TABLE_EMAIL, columns, values);
-
-//        values  = "'" + QString::number(doc_id) + "', ";
-//        values += "'" + QString::number(0) + "', ";
-//        values += "'" + QString::number(1) + "'";
-//        db->insert(HHM_TABLE_EMAIL, columns, values);
-
-//        //Upload file in fpt server
-//        ftp->uploadFile(upload_filepath, dst_filename);
-
-//        //Get id emails
-//        query = "SELECT MAX(" + QString(HHM_EMAILS_ID) + ") FROM `";
-//        query += QString(DATABASE_NAME) + "`.`" + QString(HHM_TABLE_EMAIL) + "`";
-//        res = db->sendQuery(query);
-//        int email_id_sent = 1;
-//        int email_id_received = email_id_sent + 1;
-//        if(res.next())
-//        {
-//            email_id_received = res.value(0).toInt();
-//            email_id_sent = email_id_received - 1;
-//        }
-
-//        //update sent emails for sender
-//        QString fields = QString(HHM_UE_SENT_EMAILS);
-//        condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_user);
-//        res = db->select(fields, HHM_TABLE_USER_EMAIL, condition);
-//        if(res.next())
-//        {
-//            QString sent_emails = res.value(0).toString();
-//            if(sent_emails.isEmpty())
-//            {
-//                sent_emails = QString::number(email_id_sent);
-//            }
-//            else
-//            {
-//                sent_emails += "," + QString::number(email_id_sent);
-//            }
-//            condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_user);
-//            QString value = "`" + QString(HHM_UE_SENT_EMAILS) + "`=\"" + sent_emails + "\"";
-//            db->update(condition, value, HHM_TABLE_USER_EMAIL);
-//        }
-
-//        //update received emails for receiver
-//        fields = QString(HHM_UE_RECEIVED_EMAILS);
-//        condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_receiver_user);
-//        res = db->select(fields, HHM_TABLE_USER_EMAIL, condition);
-//        if(res.next())
-//        {
-//            QString received_emails = res.value(0).toString();
-//            if(received_emails.isEmpty())
-//            {
-//                received_emails = QString::number(email_id_received);
-//            }
-//            else
-//            {
-//                received_emails += "," + QString::number(email_id_received);
-//            }
-//            condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(id_receiver_user);
-//            QString value = "`" + QString(HHM_UE_RECEIVED_EMAILS) + "`=\"" + received_emails + "\"";
-//            db->update(condition, value, HHM_TABLE_USER_EMAIL);
-//        }
-//        else
-//        {
-//            qDebug() << "no user return";
-//        }
-//        QMetaObject::invokeMethod(ui, "sendEmailComplete");
-//    }
-//    else
-//    {
-//        qDebug() << "document is empty";
-//    }
+        QMetaObject::invokeMethod(ui, "sendEmailComplete");
+    }
+    else
+    {
+        qDebug() << "document is empty";
+    }
 }
 
 void HhmChapar::flagBtnClicked(int id)
@@ -246,24 +140,28 @@ void HhmChapar::uploadFileClicked()
                                                      "*");
     if(!file_path.isEmpty())
     {
-        upload_filepath = file_path;
         last_directory = QFileInfo(file_path).absolutePath();
-        QQmlProperty::write(ui, "selected_file_path", QFileInfo(upload_filepath).fileName());
+        QQmlProperty::write(ui, "selected_file_path", QFileInfo(file_path).fileName());
         QMetaObject::invokeMethod(ui, "showSelectedFilePath");
     }
 }
 
 void HhmChapar::downloadFileClicked(QString src, int caseNumber)
 {
-    QString dst = QFileDialog::getExistingDirectory(NULL,
-                                      "Choose folder for save file",
-                                      last_directory);
-    if(!dst.isEmpty())
+    QFileDialog dialog(NULL,
+                       "Choose folder for save file",
+                       last_directory);
+    dialog.setAcceptMode(QFileDialog::AcceptSave);
+    dialog.setFileMode(QFileDialog::AnyFile);
+    QString src_filename = QFileInfo(src).fileName().replace(QString::number(caseNumber) + "_", "");
+    dialog.selectFile(src_filename);
+
+    int ret = dialog.exec();
+    if( ret==QDialog::Accepted )
     {
-        last_directory = QFileInfo(dst).absolutePath();
-        QString src_filename = QFileInfo(src).fileName();
-        dst += "/" + src_filename.replace(QString::number(caseNumber) + "_", "");
-        qDebug() << src_filename << dst;
+        last_directory = QFileInfo(dialog.selectedFiles().first()).absolutePath();
+        QString dst = dialog.selectedFiles().first();
+        hhm_log("Start download: " + src_filename + " --> " + dst);
         ftp->downloadFile(src, dst);
     }
 }

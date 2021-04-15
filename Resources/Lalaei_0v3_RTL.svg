@@ -13,7 +13,7 @@
    viewBox="0 0 1200 750"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="Lalaei_0v3_RTL.svg"
    inkscape:export-filename="/home/esi/Projects/PNA_UI/Resources/images/background_main.png"
    inkscape:export-xdpi="90"
@@ -34,11 +34,11 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="721.51126"
-     inkscape:cy="608.44281"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="615.41638"
+     inkscape:cy="430.19658"
      inkscape:document-units="px"
-     inkscape:current-layer="layer10"
+     inkscape:current-layer="layer5"
      showgrid="false"
      showguides="false"
      inkscape:window-width="1920"
@@ -56,7 +56,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -102,8 +102,7 @@
      inkscape:groupmode="layer"
      id="layer19"
      inkscape:label="SideBar_Item"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <rect
        y="150.09045"
        x="-1200"
@@ -114,7 +113,7 @@
        transform="scale(-1,1)" />
     <path
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1186.8749,205.87176 -243.75002,0"
+       d="M 1186.8749,205.87176 H 943.12488"
        id="path5173"
        inkscape:connector-curvature="0" />
     <text
@@ -122,8 +121,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1160.6438"
        y="171.10751"
-       id="text5142"
-       sodipodi:linespacing="0%"><tspan
+       id="text5142"><tspan
          sodipodi:role="line"
          id="tspan5144"
          x="1160.6438"
@@ -134,8 +132,7 @@
        y="189.4847"
        x="1159.0153"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1"
          y="189.4847"
          x="1159.0153"
@@ -146,8 +143,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="945.02826"
        y="169.45959"
-       id="text5156"
-       sodipodi:linespacing="0%"><tspan
+       id="text5156"><tspan
          sodipodi:role="line"
          id="tspan5158"
          x="945.02826"
@@ -155,11 +151,10 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.89062405px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1">7:17</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        x="952.28015"
        y="192.49313"
-       id="text4487"
-       sodipodi:linespacing="0%"><tspan
+       id="text4487"><tspan
          sodipodi:role="line"
          id="tspan4489"
          x="952.28015"
@@ -169,9 +164,8 @@
        id="text5195"
        y="172.81844"
        x="1177.4999"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001"
          y="172.81844"
          x="1177.4999"
@@ -185,7 +179,6 @@
        x="918.74994"
        y="131.34079" />
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1139.062"
@@ -201,15 +194,13 @@
        y="142.72766"
        x="1094.2573"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1"
          y="142.72766"
          x="1094.2573"
          id="tspan4727"
          sodipodi:role="line">ارسالی</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#6e6e6e;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1051.1636"
@@ -238,10 +229,9 @@
     <path
        inkscape:connector-curvature="0"
        id="path4443"
-       d="m 1186.8749,262.12176 -243.75002,0"
+       d="M 1186.8749,262.12176 H 943.12488"
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <text
-       sodipodi:linespacing="0%"
        id="text4445"
        y="227.35751"
        x="1160.6438"
@@ -253,7 +243,6 @@
          id="tspan4447"
          sodipodi:role="line">عمو علیرضا</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1159.0153"
@@ -265,7 +254,6 @@
          y="245.7347"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-opacity:1">بریم قهوه رو بزنیم؟</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text4453"
        y="225.70959"
        x="945.02826"
@@ -277,11 +265,10 @@
          id="tspan4455"
          sodipodi:role="line">7:17</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text4457"
        y="248.74313"
        x="952.28015"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#e6e6e6;fill-opacity:1;stroke-width:1.97060001"
          y="248.74313"
@@ -289,9 +276,8 @@
          id="tspan4459"
          sodipodi:role="line"></tspan></text>
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#e6e6e6;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        x="1177.4999"
        y="229.06844"
        id="text4461"><tspan
@@ -310,7 +296,7 @@
        transform="scale(-1,1)" />
     <path
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1186.8749,318.37176 -243.75002,0"
+       d="M 1186.8749,318.37176 H 943.12488"
        id="path4467"
        inkscape:connector-curvature="0" />
     <text
@@ -318,8 +304,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1160.6438"
        y="283.60751"
-       id="text4469"
-       sodipodi:linespacing="0%"><tspan
+       id="text4469"><tspan
          sodipodi:role="line"
          id="tspan4471"
          x="1160.6438"
@@ -330,8 +315,7 @@
        y="301.98468"
        x="1159.0153"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1"
          y="301.98468"
          x="1159.0153"
@@ -342,8 +326,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="945.02826"
        y="281.95959"
-       id="text4477"
-       sodipodi:linespacing="0%"><tspan
+       id="text4477"><tspan
          sodipodi:role="line"
          id="tspan4479"
          x="945.02826"
@@ -351,11 +334,10 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.89062405px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1">7:17</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        x="952.28015"
        y="304.99313"
-       id="text4481"
-       sodipodi:linespacing="0%"><tspan
+       id="text4481"><tspan
          sodipodi:role="line"
          id="tspan4483"
          x="952.28015"
@@ -365,9 +347,8 @@
        id="text4485"
        y="285.31842"
        x="1177.4999"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001"
          y="285.31842"
          x="1177.4999"
@@ -384,10 +365,9 @@
     <path
        inkscape:connector-curvature="0"
        id="path4491"
-       d="m 1186.8749,374.62176 -243.75002,0"
+       d="M 1186.8749,374.62176 H 943.12488"
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <text
-       sodipodi:linespacing="0%"
        id="text4493"
        y="339.85751"
        x="1160.6438"
@@ -399,7 +379,6 @@
          id="tspan4495"
          sodipodi:role="line">عمو علیرضا</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1159.0153"
@@ -411,7 +390,6 @@
          y="358.23468"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1">بریم قهوه رو بزنیم؟</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text4501"
        y="338.20959"
        x="945.02826"
@@ -423,11 +401,10 @@
          id="tspan4503"
          sodipodi:role="line">7:17</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text4505"
        y="361.24313"
        x="952.28015"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001"
          y="361.24313"
@@ -435,9 +412,8 @@
          id="tspan4507"
          sodipodi:role="line"></tspan></text>
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        x="1177.4999"
        y="341.56842"
        id="text4509"><tspan
@@ -456,7 +432,7 @@
        transform="scale(-1,1)" />
     <path
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1186.8749,430.87176 -243.75002,0"
+       d="M 1186.8749,430.87176 H 943.12488"
        id="path4515"
        inkscape:connector-curvature="0" />
     <text
@@ -464,8 +440,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1160.6438"
        y="396.10751"
-       id="text4517"
-       sodipodi:linespacing="0%"><tspan
+       id="text4517"><tspan
          sodipodi:role="line"
          id="tspan4519"
          x="1160.6438"
@@ -476,8 +451,7 @@
        y="414.48468"
        x="1159.0153"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1"
          y="414.48468"
          x="1159.0153"
@@ -488,8 +462,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="945.02826"
        y="394.45959"
-       id="text4525"
-       sodipodi:linespacing="0%"><tspan
+       id="text4525"><tspan
          sodipodi:role="line"
          id="tspan4527"
          x="945.02826"
@@ -497,11 +470,10 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.89062405px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1">7:17</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        x="952.28015"
        y="417.49313"
-       id="text4529"
-       sodipodi:linespacing="0%"><tspan
+       id="text4529"><tspan
          sodipodi:role="line"
          id="tspan4531"
          x="952.28015"
@@ -511,9 +483,8 @@
        id="text4533"
        y="397.81842"
        x="1177.4999"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001"
          y="397.81842"
          x="1177.4999"
@@ -530,10 +501,9 @@
     <path
        inkscape:connector-curvature="0"
        id="path4539"
-       d="m 1186.8749,487.12176 -243.75002,0"
+       d="M 1186.8749,487.12176 H 943.12488"
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <text
-       sodipodi:linespacing="0%"
        id="text4541"
        y="452.35751"
        x="1160.6438"
@@ -545,7 +515,6 @@
          id="tspan4543"
          sodipodi:role="line">عمو علیرضا</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1159.0153"
@@ -557,7 +526,6 @@
          y="470.73468"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1">بریم قهوه رو بزنیم؟</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text4549"
        y="450.70959"
        x="945.02826"
@@ -569,11 +537,10 @@
          id="tspan4551"
          sodipodi:role="line">7:17</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text4553"
        y="473.74313"
        x="952.28015"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001"
          y="473.74313"
@@ -581,9 +548,8 @@
          id="tspan4555"
          sodipodi:role="line"></tspan></text>
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        x="1177.4999"
        y="454.06842"
        id="text4557"><tspan
@@ -602,7 +568,7 @@
        transform="scale(-1,1)" />
     <path
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1186.8749,543.37176 -243.75002,0"
+       d="M 1186.8749,543.37176 H 943.12488"
        id="path4563"
        inkscape:connector-curvature="0" />
     <text
@@ -610,8 +576,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1160.6438"
        y="508.60751"
-       id="text4565"
-       sodipodi:linespacing="0%"><tspan
+       id="text4565"><tspan
          sodipodi:role="line"
          id="tspan4567"
          x="1160.6438"
@@ -622,8 +587,7 @@
        y="526.98468"
        x="1159.0153"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1"
          y="526.98468"
          x="1159.0153"
@@ -634,8 +598,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="945.02826"
        y="506.95959"
-       id="text4573"
-       sodipodi:linespacing="0%"><tspan
+       id="text4573"><tspan
          sodipodi:role="line"
          id="tspan4575"
          x="945.02826"
@@ -643,11 +606,10 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.89062405px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1">7:17</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        x="952.28015"
        y="529.9931"
-       id="text4577"
-       sodipodi:linespacing="0%"><tspan
+       id="text4577"><tspan
          sodipodi:role="line"
          id="tspan4579"
          x="952.28015"
@@ -657,9 +619,8 @@
        id="text4581"
        y="510.31842"
        x="1177.4999"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001"
          y="510.31842"
          x="1177.4999"
@@ -676,10 +637,9 @@
     <path
        inkscape:connector-curvature="0"
        id="path4587"
-       d="m 1186.8749,599.62176 -243.75002,0"
+       d="M 1186.8749,599.62176 H 943.12488"
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <text
-       sodipodi:linespacing="0%"
        id="text4589"
        y="564.85748"
        x="1160.6438"
@@ -691,7 +651,6 @@
          id="tspan4591"
          sodipodi:role="line">عمو علیرضا</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1159.0153"
@@ -703,7 +662,6 @@
          y="583.23468"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1">بریم قهوه رو بزنیم؟</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text4597"
        y="563.20959"
        x="945.02826"
@@ -715,11 +673,10 @@
          id="tspan4599"
          sodipodi:role="line">7:17</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text4601"
        y="586.2431"
        x="952.28015"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001"
          y="586.2431"
@@ -727,9 +684,8 @@
          id="tspan4603"
          sodipodi:role="line"></tspan></text>
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        x="1177.4999"
        y="566.56842"
        id="text4605"><tspan
@@ -748,7 +704,7 @@
        transform="scale(-1,1)" />
     <path
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1186.8749,655.87176 -243.75002,0"
+       d="M 1186.8749,655.87176 H 943.12488"
        id="path4611"
        inkscape:connector-curvature="0" />
     <text
@@ -756,8 +712,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1160.6438"
        y="621.10748"
-       id="text4613"
-       sodipodi:linespacing="0%"><tspan
+       id="text4613"><tspan
          sodipodi:role="line"
          id="tspan4615"
          x="1160.6438"
@@ -768,8 +723,7 @@
        y="639.48468"
        x="1159.0153"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1"
          y="639.48468"
          x="1159.0153"
@@ -780,8 +734,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="945.02826"
        y="619.45959"
-       id="text4621"
-       sodipodi:linespacing="0%"><tspan
+       id="text4621"><tspan
          sodipodi:role="line"
          id="tspan4623"
          x="945.02826"
@@ -789,11 +742,10 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12.89062405px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';fill:#505050;fill-opacity:1;stroke:none;stroke-opacity:1">7:17</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        x="952.28015"
        y="642.4931"
-       id="text4625"
-       sodipodi:linespacing="0%"><tspan
+       id="text4625"><tspan
          sodipodi:role="line"
          id="tspan4627"
          x="952.28015"
@@ -803,9 +755,8 @@
        id="text4629"
        y="622.81842"
        x="1177.4999"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001"
          y="622.81842"
          x="1177.4999"
@@ -822,10 +773,9 @@
     <path
        inkscape:connector-curvature="0"
        id="path4635"
-       d="m 1186.8749,655.87176 -243.75002,0"
+       d="M 1186.8749,655.87176 H 943.12488"
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <text
-       sodipodi:linespacing="0%"
        id="text4637"
        y="621.10748"
        x="1160.6438"
@@ -837,7 +787,6 @@
          id="tspan4639"
          sodipodi:role="line">عمو علیرضا</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1159.0153"
@@ -849,7 +798,6 @@
          y="639.48468"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1">بریم قهوه رو بزنیم؟</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text4645"
        y="619.45959"
        x="945.02826"
@@ -861,11 +809,10 @@
          id="tspan4647"
          sodipodi:role="line">7:17</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text4649"
        y="642.4931"
        x="952.28015"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001"
          y="642.4931"
@@ -873,9 +820,8 @@
          id="tspan4651"
          sodipodi:role="line"></tspan></text>
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        x="1177.4999"
        y="622.81842"
        id="text4653"><tspan
@@ -895,10 +841,9 @@
     <path
        inkscape:connector-curvature="0"
        id="path4659"
-       d="m 1186.8749,712.12176 -243.75002,0"
+       d="M 1186.8749,712.12176 H 943.12488"
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <text
-       sodipodi:linespacing="0%"
        id="text4661"
        y="677.35748"
        x="1160.6438"
@@ -910,7 +855,6 @@
          id="tspan4663"
          sodipodi:role="line">عمو علیرضا</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1159.0153"
@@ -922,7 +866,6 @@
          y="695.73468"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#3c598c;fill-opacity:1;stroke:none;stroke-opacity:1">بریم قهوه رو بزنیم؟</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text4669"
        y="675.70959"
        x="945.02826"
@@ -934,11 +877,10 @@
          id="tspan4671"
          sodipodi:role="line">7:17</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text4673"
        y="698.7431"
        x="952.28015"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001"
          y="698.7431"
@@ -947,15 +889,14 @@
          sodipodi:role="line"></tspan></text>
     <path
        style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.9375px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1186.8749,712.12176 -243.75002,0"
+       d="M 1186.8749,712.12176 H 943.12488"
        id="path4681"
        inkscape:connector-curvature="0" />
     <text
-       sodipodi:linespacing="0%"
        id="text4703"
        y="679.06842"
        x="1177.4999"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001"
          y="679.06842"
@@ -967,14 +908,12 @@
      inkscape:groupmode="layer"
      id="layer8"
      inkscape:label="SideBar_Search"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <text
-       sodipodi:linespacing="0%"
        id="text5684"
        y="117.49313"
        x="937.39008"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#505050;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#505050;fill-opacity:1;stroke-width:1.97060001"
          y="117.49313"
@@ -991,11 +930,10 @@
        rx="3.2608697"
        ry="3.409091" />
     <text
-       sodipodi:linespacing="0%"
        id="text5378"
        y="116.45509"
        x="1175.5151"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:8.203125px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#969696;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#969696;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:10.54687405px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#969696;fill-opacity:1;stroke-width:1.97060001"
          y="116.45509"
@@ -1003,11 +941,10 @@
          id="tspan5380"
          sodipodi:role="line"></tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text5384"
        y="113.66445"
        x="1163.014"
-       style="font-style:normal;font-weight:normal;font-size:10.54687405px;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#969696;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#969696;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71874905px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#969696;fill-opacity:1;stroke:none;stroke-opacity:1"
          y="113.66445"
@@ -1076,8 +1013,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="896.46649"
        y="133.00031"
-       id="text6799"
-       sodipodi:linespacing="0%"><tspan
+       id="text6799"><tspan
          sodipodi:role="line"
          id="tspan6801"
          x="896.46649"
@@ -1097,11 +1033,10 @@
        y="155.37074"
        transform="scale(-1,1)" />
     <text
-       sodipodi:linespacing="0%"
        id="text6805"
        y="212.58109"
        x="844.16064"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:46.875px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#646464;fill-opacity:1;stroke-width:1.97060001"
          y="212.58109"
@@ -1109,7 +1044,6 @@
          id="tspan6807"
          sodipodi:role="line"></tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text6809"
        y="242.11792"
        x="863.56012"
@@ -1125,8 +1059,7 @@
        y="189.25031"
        x="652.44397"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.4375px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;text-align:end;text-anchor:end;fill:#5a5a5a;fill-opacity:1;stroke:none;stroke-opacity:1"
          y="189.25031"
          x="652.44397"
@@ -1137,8 +1070,7 @@
        y="186.39561"
        x="302.27948"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';fill:#646464;fill-opacity:1;stroke:none;stroke-opacity:1"
          y="186.39561"
          x="302.27948"
@@ -1149,8 +1081,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="516.82928"
        y="217.33229"
-       id="text6829"
-       sodipodi:linespacing="0%"><tspan
+       id="text6829"><tspan
          sodipodi:role="line"
          id="tspan6831"
          x="516.82928"
@@ -1161,8 +1092,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="90.339272"
        y="185.28439"
-       id="text6833"
-       sodipodi:linespacing="0%"><tspan
+       id="text6833"><tspan
          sodipodi:role="line"
          id="tspan6835"
          x="90.339272"
@@ -1172,9 +1102,8 @@
        id="text6837"
        y="186.91974"
        x="43.125061"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:11.71870041px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#3c598c;fill-opacity:1;stroke-width:1.97060001"
          y="186.91974"
          x="43.125061"
@@ -1214,7 +1143,6 @@
        ry="2.3560021"
        transform="scale(-1,1)" />
     <text
-       sodipodi:linespacing="0%"
        id="text5597"
        y="132.27843"
        x="114.5929"
@@ -1230,15 +1158,13 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="101.55586"
        y="133.01085"
-       id="text5601"
-       sodipodi:linespacing="0%"><tspan
+       id="text5601"><tspan
          sodipodi:role="line"
          id="tspan5603"
          x="101.55586"
          y="133.01085"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74999809px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#377d42;fill-opacity:1;stroke:none;stroke-opacity:1">خاتمه یافته</tspan></text>
     <text
-       sodipodi:linespacing="0%"
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="760.60944"
@@ -1268,9 +1194,8 @@
        id="text1474"
        y="826.69788"
        x="326.71838"
-       style="font-style:normal;font-weight:normal;font-size:37.5px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"
-       sodipodi:linespacing="0%"><tspan
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Medium';fill:#808080;fill-opacity:1;stroke:none;stroke-opacity:1"
          y="826.69788"
          x="326.71838"
@@ -1278,11 +1203,10 @@
          sodipodi:role="line">Upload File</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        x="427.5"
        y="775.87097"
-       id="text1478"
-       sodipodi:linespacing="0%"><tspan
+       id="text1478"><tspan
          sodipodi:role="line"
          id="tspan1476"
          x="427.5"
@@ -1293,8 +1217,7 @@
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="TopBar"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <rect
        y="46.728516"
        x="-918.74994"
@@ -1312,11 +1235,10 @@
        y="46.728512"
        transform="scale(-1,1)" />
     <text
-       sodipodi:linespacing="0%"
        id="text6669"
        y="75.439453"
        x="887.6499"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke-width:1.97060001"
          y="75.439453"
@@ -1324,7 +1246,6 @@
          id="tspan6671"
          sodipodi:role="line"></tspan></text>
     <text
-       sodipodi:linespacing="0%"
        id="text6665"
        y="71.959877"
        x="878.09155"
@@ -1350,9 +1271,8 @@
          id="text6693"
          y="75.439445"
          x="800.99548"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+         xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#d8dbe0;fill-opacity:1;stroke-width:1.97060001"
            y="75.439445"
            x="800.99548"
@@ -1363,8 +1283,7 @@
          y="72.62915"
          x="789.06769"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
+         xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74999809px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-opacity:1"
            y="72.62915"
            x="789.06769"
@@ -1381,14 +1300,13 @@
        transform="scale(-1,1)" />
     <g
        id="g4735"
-       transform="translate(-6.9013953,-3.1664968e-7)">
+       transform="translate(-6.9013953)">
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1.97060001"
          x="706.75977"
          y="75.439445"
-         id="text6713"
-         sodipodi:linespacing="0%"><tspan
+         id="text6713"><tspan
            sodipodi:role="line"
            id="tspan6715"
            x="706.75977"
@@ -1396,11 +1314,10 @@
            style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#d8dbe0;fill-opacity:1;stroke-width:1.97060001"></tspan></text>
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74999809px;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          x="694.05768"
          y="73.278801"
-         id="text6717"
-         sodipodi:linespacing="0%"><tspan
+         id="text6717"><tspan
            sodipodi:role="line"
            id="tspan6719"
            x="694.05768"
@@ -1417,14 +1334,13 @@
        transform="scale(-1,1)" />
     <g
        id="g4745"
-       transform="translate(-13.174787,-2.9150397e-7)">
+       transform="translate(-13.174787)">
       <text
          id="text6723"
          y="75.439445"
          x="616.90308"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1.97060001"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+         xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.0625px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#d8dbe0;fill-opacity:1;stroke-width:1.97060001"
            y="75.439445"
            x="616.90308"
@@ -1435,8 +1351,7 @@
          y="73.031609"
          x="602.11816"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
+         xml:space="preserve"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74999809px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-opacity:1"
            y="73.031609"
            x="602.11816"
@@ -1456,11 +1371,10 @@
        transform="translate(26.009798,-2.0622257)">
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1.97060001"
          x="498.80231"
          y="77.501671"
-         id="text6733"
-         sodipodi:linespacing="0%"><tspan
+         id="text6733"><tspan
            sodipodi:role="line"
            id="tspan6735"
            x="498.80231"
@@ -1471,8 +1385,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#d8dbe0;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          x="486.10025"
          y="75.917809"
-         id="text6737"
-         sodipodi:linespacing="0%"><tspan
+         id="text6737"><tspan
            sodipodi:role="line"
            id="tspan6739"
            x="486.10025"
@@ -1484,8 +1397,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#969696;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="136.12872"
        y="64.170425"
-       id="text5390"
-       sodipodi:linespacing="0%"><tspan
+       id="text5390"><tspan
          sodipodi:role="line"
          id="tspan5392"
          x="136.12872"
@@ -1493,7 +1405,7 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.40625px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans Bold';text-align:end;text-anchor:end;fill:#c8c8c8;fill-opacity:1;stroke:none;stroke-opacity:1">قوه قضاییه عراق</tspan><tspan
          sodipodi:role="line"
          x="136.12872"
-         y="82.755692"
+         y="83.519958"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#c8c8c8;fill-opacity:1;stroke:none;stroke-opacity:1"
          id="tspan5402">دفتر استراتژیک و برنامه ریزی</tspan></text>
   </g>
@@ -1518,8 +1430,7 @@
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#969696;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          x="294.91272"
          y="36.051289"
-         id="text5520"
-         sodipodi:linespacing="0%"><tspan
+         id="text5520"><tspan
            sodipodi:role="line"
            x="294.91272"
            y="36.051289"
@@ -1528,7 +1439,6 @@
    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:roboto;-inkscape-font-specification:roboto"
    id="tspan5541">Office of Public Affairs:</tspan> Justice Department Announces Additional Distribution of more than $488 Million to Victims of Madoff Ponzi Scheme (Thursday, December 3, 2020)</tspan></text>
       <text
-         sodipodi:linespacing="0%"
          id="text5531"
          y="19.176292"
          x="294.91272"
@@ -1562,8 +1472,7 @@
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#c3c5cd;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="1172.3917"
        y="1163.5035"
-       id="text6657"
-       sodipodi:linespacing="0%"><tspan
+       id="text6657"><tspan
          sodipodi:role="line"
          id="tspan6659"
          x="1172.3917"
@@ -1589,8 +1498,7 @@
        style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:0%;font-family:Roboto;-inkscape-font-specification:'Roboto Light';letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="400.31586"
        y="380.76782"
-       id="text5654"
-       sodipodi:linespacing="0%"><tspan
+       id="text5654"><tspan
          sodipodi:role="line"
          id="tspan5656"
          x="400.31586"
@@ -1602,8 +1510,7 @@
      id="layer9"
      inkscape:label="screen shot"
      style="display:inline;opacity:0.39291208"
-     transform="translate(0,-492.18747)"
-     sodipodi:insensitive="true">
+     transform="translate(0,-492.18747)">
     <flowRoot
        xml:space="preserve"
        id="flowRoot4930"
@@ -1618,11 +1525,11 @@
          style="font-size:40px;line-height:1.25"> </flowPara></flowRoot>    <text
        xml:space="preserve"
        id="text2353"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.75px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;white-space:pre;fill:#000000;fill-opacity:1;stroke:none" />
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.75px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;white-space:pre;fill:#000000;fill-opacity:1;stroke:none" />
     <flowRoot
        xml:space="preserve"
        id="flowRoot4808"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="font-style:normal;font-weight:normal;line-height:0.01%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        transform="matrix(0.93749995,0,0,0.93749995,0,492.18747)"><flowRegion
          id="flowRegion4810"><rect
            id="rect4812"
@@ -1630,5 +1537,16 @@
            height="150"
            x="440"
            y="187" /></flowRegion><flowPara
-         id="flowPara4814" /></flowRoot>  </g>
+         id="flowPara4814"
+         style="font-size:40px;line-height:1.25"> </flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot279"
+       style="font-family:Roboto;font-size:20px;line-height:1.25;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:Roboto"><flowRegion
+         id="flowRegion281"><rect
+           id="rect283"
+           width="138.5"
+           height="41"
+           x="1121"
+           y="152" /></flowRegion><flowPara
+         id="flowPara285"></flowPara></flowRoot>  </g>
 </svg>

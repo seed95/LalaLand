@@ -348,10 +348,10 @@ Item
         {
             id: split_line
             anchors.left: label_name.left
-            anchors.leftMargin: 3 * scale_width
+            anchors.leftMargin: 3
             anchors.top: label_name.bottom
-            anchors.topMargin: 13 * scale_height
-            width: 940 * scale_width
+            anchors.topMargin: 13
+            width: 940
             height: 1
             color: "#646464"
         }
@@ -359,12 +359,12 @@ Item
         Rectangle
         {
             id: rect_user
-            width: 111 * scale_width
+            width: 111
             height: width
             anchors.left: label_name.left
-            anchors.leftMargin: 3 * scale_width
+            anchors.leftMargin: 3
             anchors.top: split_line.bottom
-            anchors.topMargin: -1 * scale_height
+            anchors.topMargin: -1
             color: "#c8c8c8"
             border.width: 1
             border.color: "#bebebe"
@@ -373,7 +373,7 @@ Item
             {
                 id: icon_user
                 anchors.top: parent.top
-                anchors.topMargin: 16 * scale_height
+                anchors.topMargin: 16
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: "\uf4fb"
                 font.family: fontAwesomeSolid.name
@@ -385,7 +385,7 @@ Item
             {
                 id: label_user
                 anchors.bottom: parent.bottom
-                anchors.bottomMargin: 12 * scale_height
+                anchors.bottomMargin: 12
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: text_user
                 font.family: fontRobotoRegular.name

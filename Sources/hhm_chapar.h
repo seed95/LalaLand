@@ -27,7 +27,7 @@ private slots:
     void rejectBtnClicked(int caseNumber);
     void archiveBtnClicked();
     void scanBtnClicked();
-    void sendBtnClicked(QString caseNumber, QString subject);
+    void sendBtnClicked(QString caseNumber, QString subject, QString filepath);
     void flagBtnClicked(int id);
     void uploadFileClicked();
     void downloadFileClicked(QString src, int caseNumber);
@@ -47,9 +47,7 @@ private:
     HhmUser *user;
     HhmAttach *ftp;
 
-    QString upload_filepath;
     QString last_directory;
-
 };
 
 #endif // HHM_CHAPAR_H

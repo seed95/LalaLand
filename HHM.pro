@@ -29,7 +29,8 @@ HEADERS += Sources/backend.h \
 
 RESOURCES += Qml/gallery.qrc \
              Resources/fonts.qrc \
-             Resources/images.qrc
+             Resources/images.qrc \
+             Resources/translator.qrc
 
 OTHER_FILES += Qml/*.qml
 

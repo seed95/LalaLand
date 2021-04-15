@@ -20,9 +20,19 @@ Item
     }
 
     property string text_label: "From"
-    property string font_name_label: fontRobotoRegular.name
+    property string font_name_label:
+    {
+        if( root.rtl )
+        {
+            fontSansRegular.name
+        }
+        else
+        {
+            fontRobotoRegular.name
+        }
+    }
     property int    font_weight_label: Font.Normal
-    property int    font_size_label: 18
+    property int    font_size_label: 22
 
     property string text_input_box: "User"
     property string font_name_input_box: fontRobotoRegular.name
@@ -75,6 +85,7 @@ Item
             font.family: font_name_input_box
             font.pixelSize: font_size_input_box
             selectByMouse: true
+            horizontalAlignment: TextInput.AlignRight
             textColor:
             {
                 if(text===text_input_box)
@@ -237,6 +248,12 @@ Item
             obj = input_rtl
         }
         return obj.text
+    }
+
+    function setInput(text)
+    {
+        input_rtl.text = text
+        input.text = text
     }
 
 }

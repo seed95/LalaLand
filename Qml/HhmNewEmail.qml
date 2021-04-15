@@ -5,10 +5,24 @@ Item
 
     property string text_from: "User"
     property string text_to: "Admin"
-    property string text_subject: "Subject"
-    property string text_case_number: "1245"
+    property string text_subject: root.rtl ? qsTr("موضوع") : "Subject"
+    property string text_case_number: root.rtl ? "۱۲۴۵" : "1245"
     property string text_file_path: ""
 
+    onVisibleChanged:
+    {
+        case_number_input_box.setInput(root.rtl ? "۱۲۴۵" : "1245")
+        case_number_input_box_rtl.setInput(root.rtl ? "۱۲۴۵" : "1245")
+        subject_input_box.setInput(text_subject)
+        subject_input_box_rtl.setInput(text_subject)
+        root.selected_file_path = ""
+        rect_upload.visible = true
+        label_file.visible = false
+        case_number_input_box.focus = false
+        case_number_input_box_rtl.focus = false
+        subject_input_box.focus = false
+        subject_input_box_rtl.focus = false
+    }
 
     Item
     {
@@ -29,9 +43,9 @@ Item
             anchors.top: parent.top
             anchors.topMargin: 18
             width_box: 500
-            text_label: "از:"
+            text_label: qsTr("از:")
             text_input_box: text_from
-            left_margin: 50
+            left_margin: 48
         }
 
         HhmInputBox
@@ -43,9 +57,9 @@ Item
             anchors.rightMargin: 50
             anchors.top: from_input_box_rtl.bottom
             width_box: 500
-            text_label: "به:"
+            text_label: qsTr("به:")
             text_input_box: text_to
-            left_margin: 50
+            left_margin: 46
         }
 
         HhmInputBox
@@ -59,7 +73,7 @@ Item
             width_box: 150
             isEnabled: true
             isNumber: true
-            text_label: "شماره پرونده:"
+            text_label: qsTr("شماره پرونده:")
             text_input_box: text_case_number
             left_margin: 15
         }
@@ -72,9 +86,9 @@ Item
             anchors.top: to_input_box_rtl.bottom
             anchors.right: parent.right
             anchors.rightMargin: 50
-            width_box: 820
+            width_box: 808
             isEnabled: true
-            text_label: "موضوع:"
+            text_label: text_subject + ":"
             text_input_box: text_subject
             left_margin: 10
         }
@@ -152,14 +166,17 @@ Item
 
     }
 
+    ///FIXME: two canvas for rtl, ltr
     Canvas
     {
         id: canvas_upload
         width: 702
         height: 502
-        anchors.top: rect_input_box.bottom
-        anchors.left: parent.left
-        anchors.leftMargin: 181
+        anchors.top: rect_input_box_rtl.bottom
+//        anchors.left: parent.left
+//        anchors.leftMargin: 181
+        anchors.right: parent.right
+        anchors.rightMargin: 170
 
         onPaint:
         {
@@ -243,14 +260,8 @@ Item
         }
 
         var case_number_text = obj.getInput()
-        var persian_numbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g]
-        var arabic_numbers  = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g]
-        for(var i=0; i<10; i++)
-        {
-            case_number_text = case_number_text.replace(persian_numbers[i], i).replace(arabic_numbers[i], i)
-        }
-
-        return case_number_text
+//        return root.ar2en(case_number_text)
+        return obj.getInput()
     }
 
     function getSubject()

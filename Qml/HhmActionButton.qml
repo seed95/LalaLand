@@ -53,6 +53,7 @@ Rectangle
             anchors.leftMargin: 7
             anchors.verticalCenter: parent.verticalCenter
             font.family: fontAwesomeSolid.name
+            font.weight: Font.Bold
             font.pixelSize: 14
             color: color_label
         }
@@ -63,8 +64,8 @@ Rectangle
             text: action
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-            font.family: fontRobotoMedium.name
-            font.weight: Font.Medium
+            font.family: fontSansRegular.name
+            font.weight: Font.Normal
             font.pixelSize: 17
             color: color_label
         }

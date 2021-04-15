@@ -71,11 +71,31 @@ QString hhm_getServerIP()
 
 /*
  * Convert persian and arabic number to english
+ * if number is not persian or arabic or english return HHM_FAILED_CONVERT
  * */
 QString convertNumber(QString number)
 {
-    qDebug() << number.toInt();
-    return number;
+    QLocale englishLocale = QLocale::English;
+    bool ok;
+    int i_number = englishLocale.toInt(number, &ok);
+    if( ok )
+    {
+        return QString::number(i_number);
+    }
+
+    QLocale arabicLocale = QLocale::Arabic;
+    i_number = arabicLocale.toInt(number, &ok);
+    if( ok )
+    {
+        return QString::number(i_number);
+    }
+    QLocale persianLocale = QLocale::Persian;
+    i_number = persianLocale.toInt(number, &ok);
+    if( ok )
+    {
+        return QString::number(i_number);
+    }
+    return HHM_FAILED_CONVERT;
 }
 
 //Print in qDebug and LOG_FILE
