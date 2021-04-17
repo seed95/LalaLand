@@ -11,6 +11,7 @@
 
 void hhm_setBackendUI(QObject *item);
 
+void hhm_setServerStatus(QString status);
 void hhm_setStatus(QString status);
 void hhm_showMessage(QString msg, int interval=1000);
 

@@ -8,8 +8,24 @@ void hhm_setBackendUI(QObject *item)
     ui = item;
 }
 
+void hhm_setServerStatus(QString status)
+{
+    if( ui==NULL )
+    {
+        hhm_log("UI is null, server status: " + status);
+        return;
+    }
+    QQmlProperty::write(ui, "login_status", status);
+    hhm_log("Server Status --> " + status);
+}
+
 void hhm_setStatus(QString status)
 {
+    if( ui==NULL )
+    {
+        hhm_log("UI is null, status: " + status);
+        return;
+    }
     QQmlProperty::write(ui, "app_status", status);
     hhm_log("status --> " + status);
 }
@@ -24,6 +40,7 @@ void hhm_showMessage(QString msg, int interval)
 {
     if( ui==NULL )
     {
+        hhm_log("UI is null, message: " + msg);
         return;
     }
 
@@ -67,7 +84,6 @@ QString hhm_getServerIP()
     }
     return server_ip;
 }
-
 
 /*
  * Convert persian and arabic number to english

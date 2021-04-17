@@ -32,15 +32,15 @@ void HhmMail::loadEmails(QString username)
 
 void HhmMail::approveDoc(int caseNumber)
 {
-    QString condition = "`" + QString(HHM_DOCUMENTS_DOCID) + "`=" + QString::number(caseNumber);
-    QString value = "`" + QString(HHM_DOCUMENTS_STATUS) + "`=\"" + QString::number(HHM_DOC_STATUS_SUCCESS) + "\"";
+    QString condition = "`" + QString(HHM_DOCUMENT_CASENUMBER) + "`=" + QString::number(caseNumber);
+    QString value = "`" + QString(HHM_DOCUMENT_STATUS) + "`=\"" + QString::number(HHM_DOC_STATUS_SUCCESS) + "\"";
     db->update(condition, value, HHM_TABLE_DOCUMENT);
 }
 
 void HhmMail::rejectDoc(int caseNumber)
 {
-    QString condition = "`" + QString(HHM_DOCUMENTS_DOCID) + "`=" + QString::number(caseNumber);
-    QString value = "`" + QString(HHM_DOCUMENTS_STATUS) + "`=\"" + QString::number(HHM_DOC_STATUS_REJECT) + "\"";
+    QString condition = "`" + QString(HHM_DOCUMENT_CASENUMBER) + "`=" + QString::number(caseNumber);
+    QString value = "`" + QString(HHM_DOCUMENT_STATUS) + "`=\"" + QString::number(HHM_DOC_STATUS_REJECT) + "\"";
     db->update(condition, value, HHM_TABLE_DOCUMENT);
 }
 
@@ -48,29 +48,23 @@ void HhmMail::sendNewEmail(QString caseNumber, QString subject,
                            int senderId, int receiverId,
                            QString filepath, QString senderName)
 {
-    if( !filepath.isEmpty() )
+
+    updateDocument(caseNumber, filepath,
+                   senderId, receiverId,
+                   subject, senderName);
+
+    int received_email_id = addNewEmail(caseNumber);
+    int sent_email_id = received_email_id - 1;
+
+    if( !updateEmail(HHM_UE_SENT_EMAILS, senderId, sent_email_id) )
     {
-        int doc_id = addNewDocument(caseNumber, filepath,
-                                    senderId, receiverId,
-                                    subject, senderName);
-
-        int received_email_id = addNewEmail(doc_id);
-        int sent_email_id = received_email_id - 1;
-
-        if( !updateEmail(HHM_UE_SENT_EMAILS, senderId, sent_email_id) )
-        {
-            hhm_log("Error: error for updating sent emails in table " HHM_TABLE_USER_EMAIL);
-        }
-        if( !updateEmail(HHM_UE_RECEIVED_EMAILS, receiverId, received_email_id) )
-        {
-            hhm_log("Error: error for updating received mails in table " HHM_TABLE_USER_EMAIL);
-        }
-
+        hhm_log("Error: error for updating sent emails in table " HHM_TABLE_USER_EMAIL);
     }
-    else
+    if( !updateEmail(HHM_UE_RECEIVED_EMAILS, receiverId, received_email_id) )
     {
-        qDebug() << "document is empty";
+        hhm_log("Error: error for updating received mails in table " HHM_TABLE_USER_EMAIL);
     }
+
 }
 
 //input in csv format
@@ -81,41 +75,41 @@ void HhmMail::showEmailInSidebar(QStringList emailIds)
     {
         HhmEmailTable email = getEmail(emailIds.at(i).toInt());
 
-        QString condition = "`" + QString(HHM_DOCUMENTS_ID) + "`=" + QString::number(email.documentId);
+        QString condition = "`" + QString(HHM_DOCUMENT_CASENUMBER) + "`=" + QString::number(email.docCasenumber);
         QSqlQuery res = db->select("*", HHM_TABLE_DOCUMENT, condition);
         if(res.next())
         {
-            QVariant data = res.value(HHM_DOCUMENTS_DOCID);
+            QVariant data = res.value(HHM_DOCUMENT_CASENUMBER);
             if(data.isValid())
             {
                 QQmlProperty::write(ui, "case_number", data.toInt());
             }
 
-            data = res.value(HHM_DOCUMENTS_SENDER_NAME);
+            data = res.value(HHM_DOCUMENT_SENDER_NAME);
             if(data.isValid())
             {
                 QQmlProperty::write(ui, "sender_name", data.toString());
             }
 
-            data = res.value(HHM_DOCUMENTS_SUBJECT);
+            data = res.value(HHM_DOCUMENT_SUBJECT);
             if(data.isValid())
             {
                 QQmlProperty::write(ui, "subject", data.toString());
             }
 
-            data = res.value(HHM_DOCUMENTS_FILEPATH);
+            data = res.value(HHM_DOCUMENT_FILEPATH);
             if(data.isValid())
             {
                 QQmlProperty::write(ui, "filepath", data.toString());
             }
 
-            data = res.value(HHM_DOCUMENTS_STATUS);
+            data = res.value(HHM_DOCUMENT_STATUS);
             if(data.isValid())
             {
                 QQmlProperty::write(ui, "doc_status", data.toInt());
             }
 
-            data = res.value(HHM_DOCUMENTS_DATE);
+            data = res.value(HHM_DOCUMENT_DATE);
             if(data.isValid())
             {
                 QString datetime = data.toDateTime().toString("hh:mmAP");
@@ -133,31 +127,31 @@ void HhmMail::showEmailInSidebar(QStringList emailIds)
 
 HhmEmailTable HhmMail::getEmail(int idEmail)
 {
-    QString condition = "`" + QString(HHM_EMAILS_ID) + "`=" + QString::number(idEmail);
+    QString condition = "`" + QString(HHM_EMAIL_ID) + "`=" + QString::number(idEmail);
     QSqlQuery res = db->select("*", HHM_TABLE_EMAIL, condition);
     HhmEmailTable email;
-    if(res.next())
+    if( res.next() )
     {
         email.emailId = idEmail;
-        QVariant data = res.value(HHM_EMAILS_DOCID);
+        QVariant data = res.value(HHM_EMAIL_DOC_CASENUMBER);
         if(data.isValid())
         {
-            email.documentId = data.toInt();
+            email.docCasenumber = data.toInt();
         }
 
-        data = res.value(HHM_EMAILS_FLAG);
+        data = res.value(HHM_EMAIL_FLAG);
         if(data.isValid())
         {
             email.flag = data.toInt();
         }
 
-        data = res.value(HHM_EMAILS_OPENED);
+        data = res.value(HHM_EMAIL_OPENED);
         if(data.isValid())
         {
             email.opened = data.toInt();
         }
 
-        data = res.value(HHM_EMAILS_OPEN_TIME);
+        data = res.value(HHM_EMAIL_OPEN_TIME);
         if(data.isValid())
         {
             email.date = data.toDateTime();
@@ -201,73 +195,43 @@ QStringList HhmMail::getIdSendEmails(int userID)
     return result;
 }
 
-//return true if case number already exist
-bool HhmMail::checkCaseNumber(QString caseNumber)
-{
-    ///FIXME:check case number arabic qstring
-    QString condition = "`" + QString(HHM_DOCUMENTS_DOCID) + "`=" + caseNumber;
-    QSqlQuery res = db->select("*", HHM_TABLE_DOCUMENT, condition);
-    return res.size()!=0;
-}
-
-//Insert new document into HHM_TABLE_DOCUMENT
-//and return document id
-int HhmMail::addNewDocument(QString caseNumber, QString filepath,
+void HhmMail::updateDocument(QString caseNumber, QString filepath,
                             int senderId, int receiverId,
                             QString subject, QString senderName)
 {
-    QString columns = "`" + QString(HHM_DOCUMENTS_FILEPATH) + "`, ";
-    columns += "`" + QString(HHM_DOCUMENTS_SENDER_ID) + "`, ";
-    columns += "`" + QString(HHM_DOCUMENTS_RECEIVER_IDS) + "`, ";
-    columns += "`" + QString(HHM_DOCUMENTS_DATE) + "`, ";
-    columns += "`" + QString(HHM_DOCUMENTS_SENDER_NAME) + "`, ";
-    columns += "`" + QString(HHM_DOCUMENTS_DOCID) + "`, ";
-    columns += "`" + QString(HHM_DOCUMENTS_SUBJECT) + "`";
-
     QLocale locale(QLocale::English);
     QString date = locale.toString(QDateTime::currentDateTime(), "yyyy-MM-dd hh:mm:ss");
 
-    QString values = "'" + filepath + "', ";
-    values += "'" + QString::number(senderId) + "', ";
-    values += "'" + QString::number(receiverId) + "', ";
-    values += "'" + date + "', ";
-    values += "'" + senderName + "', ";
-    ///FIXME:check case number arabic qstring
-    values += "'" + caseNumber + "', ";
-    values += "'" + subject + "'";
-    db->insert(HHM_TABLE_DOCUMENT, columns, values);
-
-    //Get id document
-    QString query = "SELECT LAST_INSERT_ID();";
-    QSqlQuery res = db->sendQuery(query);
-    int doc_id = 0;
-    if( res.next() )
-    {
-        doc_id = res.value(0).toInt();
-    }
-    return doc_id;
+    QString condition = "`" + QString(HHM_DOCUMENT_CASENUMBER) + "`='" + caseNumber + "'";
+    QString values = "`" + QString(HHM_DOCUMENT_FILEPATH) + "`='" + filepath + "'";
+    values += ", `" + QString(HHM_DOCUMENT_SENDER_ID) + "`='" + QString::number(senderId) + "'";
+    values += ", `" + QString(HHM_DOCUMENT_RECEIVER_IDS) + "`='" + QString::number(receiverId) + "'";
+    values += ", `" + QString(HHM_DOCUMENT_DATE) + "`='" + date + "'";
+    values += ", `" + QString(HHM_DOCUMENT_SENDER_NAME) + "`='" + senderName + "'";
+    values += ", `" + QString(HHM_DOCUMENT_SUBJECT) + "`='" + subject + "'";
+    db->update(condition, values, HHM_TABLE_DOCUMENT);
 }
 
 //Insert new mail into HHM_TABLE_EMAIL
 //and return received mail id
-int HhmMail::addNewEmail(int docId)
+int HhmMail::addNewEmail(QString caseNumber)
 {
-    QString columns  = "`" + QString(HHM_EMAILS_DOCID) + "`, ";
-    columns += "`" + QString(HHM_EMAILS_SEND_REFERENCE) + "`, ";
-    columns += "`" + QString(HHM_EMAILS_RECEIVE_REFERENCE) + "`";
+    QString columns  = "`" + QString(HHM_EMAIL_DOC_CASENUMBER) + "`, ";
+    columns += "`" + QString(HHM_EMAIL_SEND_REFERENCE) + "`, ";
+    columns += "`" + QString(HHM_EMAIL_RECEIVE_REFERENCE) + "`";
 
-    QString values  = "'" + QString::number(docId) + "', ";
+    QString values  = "'" + caseNumber + "', ";
     values += "'" + QString::number(1) + "', ";
     values += "'" + QString::number(0) + "'";
     db->insert(HHM_TABLE_EMAIL, columns, values);
 
-    values  = "'" + QString::number(docId) + "', ";
+    values  = "'" + caseNumber + "', ";
     values += "'" + QString::number(0) + "', ";
     values += "'" + QString::number(1) + "'";
     db->insert(HHM_TABLE_EMAIL, columns, values);
 
     //Get id emails
-    QString query = "SELECT MAX(" + QString(HHM_EMAILS_ID) + ") FROM `";
+    QString query = "SELECT MAX(" + QString(HHM_EMAIL_ID) + ") FROM `";
     query += QString(DATABASE_NAME) + "`.`" + QString(HHM_TABLE_EMAIL) + "`";
     QSqlQuery res = db->sendQuery(query);
     //first sent email id is 1, so first received email id is 2
@@ -284,23 +248,21 @@ int HhmMail::addNewEmail(int docId)
 //return true if successfully update emails
 bool HhmMail::updateEmail(QString field, int userId, int emailId)
 {
-    //update sent emails for sender
-    QString fields = field;
     QString condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(userId);
-    QSqlQuery res = db->select(fields, HHM_TABLE_USER_EMAIL, condition);
+    QSqlQuery res = db->select(field, HHM_TABLE_USER_EMAIL, condition);
     if( res.next() )
     {
-        QString sent_emails = res.value(0).toString();
-        if( sent_emails.isEmpty() )
+        QString emails = res.value(0).toString();
+        if( emails.isEmpty() )
         {
-            sent_emails = QString::number(emailId);
+            emails = QString::number(emailId);
         }
         else
         {
-            sent_emails += "," + QString::number(emailId);
+            emails += "," + QString::number(emailId);
         }
         condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(userId);
-        QString value = "`" + QString(HHM_UE_SENT_EMAILS) + "`=\"" + sent_emails + "\"";
+        QString value = "`" + QString(field) + "`='" + emails + "'";
         db->update(condition, value, HHM_TABLE_USER_EMAIL);
         return true;
     }

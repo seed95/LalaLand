@@ -13,7 +13,7 @@
 typedef struct HhmEmailTable
 {
     int emailId;
-    int documentId;
+    int docCasenumber;
     int flag;//0,1
     int opened;//0,1
     QDateTime date;
@@ -35,15 +35,15 @@ public:
     void rejectDoc(int caseNumber);
 
     void sendNewEmail(QString caseNumber, QString subject, int senderId, int receiverId, QString filepath, QString senderName);
-    bool checkCaseNumber(QString caseNumber);
+//    bool checkCaseNumber(QString caseNumber);
 
 private:
     QStringList getIdReceivedEmails(int userID);
     QStringList getIdSendEmails(int userID);
     void showEmailInSidebar(QStringList emailIds);//emailsIds: csv format
     HhmEmailTable getEmail(int idEmail);
-    int addNewDocument(QString caseNumber, QString filepath, int senderId, int receiverId, QString subject, QString senderName);
-    int addNewEmail(int docId);
+    void updateDocument(QString caseNumber, QString filepath, int senderId, int receiverId, QString subject, QString senderName);
+    int addNewEmail(QString caseNumber);
     bool updateEmail(QString field, int userId, int emailId);
 
 private:

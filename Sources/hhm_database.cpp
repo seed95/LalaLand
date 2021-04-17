@@ -11,11 +11,11 @@ HhmDatabase::HhmDatabase(QObject *parent) : QObject(parent)
 
     if( db.open() )
     {
-        hhm_log("Open database successfully");
+        hhm_setServerStatus("Connected to " + hhm_getServerIP() + ":" + QString::number(SERVER_PORT));
     }
     else
     {
-        hhm_log("Open database failed with username: " SERVER_USER ", dbName: " DATABASE_NAME);
+        hhm_setServerStatus("Not connected to " + hhm_getServerIP() + ":" + QString::number(SERVER_PORT));
     }
 }
 

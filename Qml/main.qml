@@ -8,6 +8,13 @@ Window
 
     property bool rtl: true //Right to Left
 
+    property string app_status:     "Updated from server 12:20PM"
+    property string login_status:   "Server connected"
+
+    //Message properties
+    property string error_msg:    ""//error message
+    property int    d_error_msg:  100//duration error message
+
     //User properties
     property int    idUser:     101
     property string firstname:  "Cassie"
@@ -18,28 +25,27 @@ Window
     property string bio:        "Bio"
     property string image:      "Image"
 
+    property string domain: "lolo.com"
+    property string base_id: "lolo.com"
+
     //Document properties for inbox or outbox items
-    property int    case_number: 2 //Document id
-    property string sender_name: "Cassie Hicks"
-    property string subject: "Subject"
-    property int    doc_status:  1//Success(1), Pending(2), Failed(3)
-    property string r_email_date: "7:17PM" //Received email date
-    property int    id_email_in_emails_table: 1 //Save this value for change mode email(open)
-    property bool   email_opened: false
-    property string filepath: ""
+    property int    case_number:                2 //Document id
+    property string sender_name:                "Cassie Hicks"
+    property string subject:                    "Subject"
+    property int    doc_status:                 1//Success(1), Pending(2), Failed(3)
+    property string r_email_date:               "7:17PM" //Received email date
+    property int    id_email_in_emails_table:   1 //Save this value for change mode email(open)
+    property bool   email_opened:               false
+    property string filepath:                   ""
 
-    property bool   createNewEmail: false //When click on new button to create new email
-    property string app_status:     "Updated from server 12:20PM"
+    //Properties for new email
+    property bool   createNewEmail:     false           //When click on new button to create new email
+    property int    new_case_number:    0               //When click on new button to create new email get new case number from data base
+    property int    receiver_id:        1               //id user for received email
+    property string selected_file_path: "path/to/file"  //Selected file path for upload file
 
-    //Selected file path for upload file
-    property string selected_file_path: "path/to/file"
-
-    property int email_mode: con.id_EMAIL_MODE_INBOX
-    property int case_number_selected_doc: -1
-
-    //Message properties
-    property string error_msg:    ""//error message
-    property int    d_error_msg:  100//duration error message
+    property int email_mode:                con.id_EMAIL_MODE_INBOX
+    property int case_number_selected_doc:  -1
 
     signal loginUser(string username, string pass)
     signal newButtonClicked()
@@ -48,13 +54,14 @@ Window
     signal approveButtonClicked(int docId)
     signal rejectButtonClicked(int docId)
     signal scanButtonClicked()
-    signal sendButtonClicked(string docId, string subject, string filepath)
+    signal sendButtonClicked(int receiverId, int caseNumber, string subject, string filepath)
     signal flagButtonClicked(int id)
     signal uploadFileClicked()
     signal downloadFileClicked(string src, int docId)
     signal syncInbox()
     signal syncOutbox()
     signal openEmail(int emailId)
+    signal checkUsername(string username)
 
     onEmail_modeChanged:
     {
@@ -77,11 +84,6 @@ Window
         id: fontAwesomeSolid
         source: "qrc:/Fonts/fa-solid.ttf"
     }
-//    FontLoader
-//    {
-//        id: fontAwesomeSolid
-//        source: "qrc:/Fonts/fasolid.ttf"
-//    }
     FontLoader
     {
         id: fontAwesomeBrand
@@ -345,21 +347,7 @@ Window
     function showPageNewEmail()
     {
         createNewEmail = true
-        var obj = new_email
-        if( root.rtl )
-        {
-            obj = new_email_rtl
-        }
-
-        obj.text_from = root.username
-        if( isAdmin() )
-        {
-            obj.text_to = "User"
-        }
-        else
-        {
-            obj.text_to = "Admin"
-        }
+        newButtonClicked()
     }
 
     function showSelectedFilePath()
@@ -381,10 +369,7 @@ Window
             obj = new_email_rtl
         }
 
-        if( obj.compeleteItems() )
-        {
-            sendButtonClicked(obj.getCaseNumber(), obj.getSubject(), selected_file_path)
-        }
+        sendButtonClicked(root.receiver_id, root.new_case_number, obj.getSubject(), selected_file_path)
     }
 
     function syncEmail()
@@ -408,9 +393,8 @@ Window
 
     function isAdmin()
     {
-        return root.username==="Admin" || root.username==="Ad"
+        return root.username.toLowerCase()==="admin"
     }
-
 
     //Convert english number to arabic number
     function en2ar(number)
@@ -421,20 +405,22 @@ Window
         var english_numbers  = [/0/g, /1/g, /2/g, /3/g, /4/g, /5/g, /6/g, /7/g, /8/g, /9/g]
         for(var i=0; i<10; i++)
         {
-            var ar_number = number.replace(i, arabic_numbers[i])
+            number = number.replace(english_numbers[i], arabic_numbers[i])
         }
-        return ar_number
+        return number
     }
 
     //Convert arabic(persian) number to english number
     function ar2en(number)
     {
+        number = number.toString()
         var persian_numbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g]
         var arabic_numbers  = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g]
+        var en_number
         for(var i=0; i<10; i++)
         {
-            var en_number = number.replace(persian_numbers[i], i).replace(arabic_numbers[i], i)
+            number = number.replace(persian_numbers[i], i).replace(arabic_numbers[i], i)
         }
-        return en_number
+        return number
     }
 }

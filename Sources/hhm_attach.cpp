@@ -36,6 +36,11 @@ void HhmAttach::uploadFile(QString srcFilename, QString dstFilename)
     {
         m_manager->put(QNetworkRequest(url), m_file);
     }
+    else
+    {
+        hhm_log("Upload failed " + url.toString() + ", cannot open file " + m_file->fileName());
+        qDebug() << m_file->permissions();
+    }
 }
 
 void HhmAttach::downloadFile(QString src, QString dst)

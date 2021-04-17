@@ -34,11 +34,11 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="577.5101"
-     inkscape:cy="428.09262"
+     inkscape:zoom="1.0000001"
+     inkscape:cx="618.51153"
+     inkscape:cy="399.64434"
      inkscape:document-units="px"
-     inkscape:current-layer="layer3"
+     inkscape:current-layer="layer9"
      showgrid="false"
      showguides="false"
      inkscape:window-width="1920"
@@ -86,80 +86,113 @@
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer1"
-     inkscape:label="Username"
-     style="opacity:1">
+     id="layer5"
+     inkscape:label="BackgroundDialog"
+     style="display:inline">
     <rect
-       style="opacity:1;fill:#a2b7cc;fill-opacity:1;stroke:#2d4aa8;stroke-width:0.9375;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect4487"
-       width="336.56247"
-       height="36.562496"
-       x="431.71869"
-       y="303.97037"
-       rx="5"
-       ry="5" />
+       style="display:inline;opacity:1;fill:#97aabd;fill-opacity:1;stroke:none;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:1.8749999, 1.8749999;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4183"
+       width="374.99997"
+       height="234.37498"
+       x="412.49997"
+       y="257.8125"
+       rx="15"
+       ry="15" />
+    <rect
+       y="445.3125"
+       x="412.49997"
+       height="46.874996"
+       width="374.99997"
+       id="rect4185"
+       style="display:inline;opacity:1;fill:#7496b8;fill-opacity:1;stroke:none;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:1.8749999, 1.8749999;stroke-dashoffset:0;stroke-opacity:1"
+       rx="15"
+       ry="15" />
+    <rect
+       style="display:inline;opacity:1;fill:#7496b8;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:2, 2;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4231"
+       width="374.99997"
+       height="14.062499"
+       x="412.49997"
+       y="445.32535" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:37.49999619px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#e1e1e1;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="487.88077"
+       y="473.68536"
+       id="text4179"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4181"
+         x="487.88077"
+         y="473.68536"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15.23437405px;font-family:Roboto;-inkscape-font-specification:'Roboto Medium';fill:#e1e1e1;fill-opacity:1">Connected to 172.16.0.181:3306</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Signin"
+     style="display:inline">
+    <rect
+       ry="3.3671753"
+       rx="4.7403808"
+       y="384.62335"
+       x="806.24994"
+       height="37.499996"
+       width="337.49997"
+       id="rect5495"
+       style="opacity:1;fill:#4d66b7;fill-opacity:1;stroke:#24242c;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5497"
+       y="407.34189"
+       x="951.78387"
+       style="font-style:normal;font-weight:normal;font-size:37.49999619px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15.23437405px;font-family:Roboto;-inkscape-font-specification:'Roboto Medium';fill:#ffffff;fill-opacity:1"
+         y="407.34189"
+         x="951.78387"
+         id="tspan5499"
+         sodipodi:role="line">Sign In</tspan></text>
+    <rect
+       style="display:inline;opacity:1;fill:#3d5298;fill-opacity:1;stroke:#09090b;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect5369"
+       width="337.49997"
+       height="37.499996"
+       x="431.24997"
+       y="384.62335"
+       rx="4.7403808"
+       ry="3.3671753" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:37.49999619px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;fill:#d7dce1;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="576.78387"
+       y="407.32788"
+       id="text5377"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5379"
+         x="576.78387"
+         y="407.32788"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15.23437405px;font-family:Roboto;-inkscape-font-specification:'Roboto Medium';fill:#d7dce1;fill-opacity:1">Sign In</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="Password"
-     style="opacity:1">
-    <g
-       id="g5473"
-       style="">
-      <rect
-         ry="5"
-         rx="5"
-         y="303.97034"
-         x="431.71869"
-         height="36.5625"
-         width="36.5625"
-         id="rect5311"
-         style="opacity:1;fill:#2d4aa8;fill-opacity:1;stroke:none;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-      <rect
-         y="303.50162"
-         x="459.37494"
-         height="37.499996"
-         width="9.374999"
-         id="rect5313"
-         style="opacity:1;fill:#2d4aa8;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-    </g>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:37.49999619px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="443.56927"
-       y="327.96451"
-       id="text5319"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan5321"
-         x="443.56927"
-         y="327.96451"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:15.23437405px;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';fill:#cccccc;fill-opacity:1"></tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:37.49999619px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#5a5b65;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="484.72537"
-       y="327.59256"
-       id="text5323"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan5325"
-         x="484.72537"
-         y="327.59256"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15.23437405px;font-family:Roboto;-inkscape-font-specification:'Roboto Medium'">Username</tspan></text>
+     style="display:inline;opacity:1">
     <rect
        ry="5"
        rx="5"
-       y="352.72037"
-       x="431.71869"
+       y="328.34537"
+       x="431.71872"
        height="36.562496"
        width="336.56247"
        id="rect5344"
-       style="opacity:1;fill:#a2b7cc;fill-opacity:1;stroke:#2d4aa8;stroke-width:0.9375;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       style="display:inline;opacity:1;fill:#a2b7cc;fill-opacity:1;stroke:#2d4aa8;stroke-width:0.9375;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <g
+       style="display:inline;opacity:1"
        id="g5479"
-       style="">
+       transform="translate(3.0517578e-5,-24.374999)">
       <rect
          style="opacity:1;fill:#2d4aa8;fill-opacity:1;stroke:none;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect5348"
@@ -180,74 +213,87 @@
     <text
        sodipodi:linespacing="125%"
        id="text5352"
-       y="376.71451"
-       x="443.56927"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:37.49999619px;line-height:125%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       y="352.33951"
+       x="443.56931"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:37.49999619px;line-height:125%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:15.23437405px;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';fill:#cccccc;fill-opacity:1"
-         y="376.71451"
-         x="443.56927"
+         y="352.33951"
+         x="443.56931"
          id="tspan5354"
          sodipodi:role="line"></tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text5356"
-       y="376.34256"
-       x="484.72537"
-       style="font-style:normal;font-weight:normal;font-size:37.49999619px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#5a5b65;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       y="351.96756"
+       x="484.7254"
+       style="font-style:normal;font-weight:normal;font-size:37.49999619px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;fill:#5a5b65;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        xml:space="preserve"><tspan
          style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15.23437405px;font-family:Roboto;-inkscape-font-specification:'Roboto Medium'"
-         y="376.34256"
-         x="484.72537"
+         y="351.96756"
+         x="484.7254"
          id="tspan5358"
          sodipodi:role="line">Password</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
-     id="layer4"
-     inkscape:label="Signin">
+     id="layer1"
+     inkscape:label="Username"
+     style="display:inline;opacity:1">
     <rect
-       style="opacity:1;fill:#3d5298;fill-opacity:1;stroke:#09090b;stroke-width:0.93749995;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="rect5369"
-       width="337.49997"
-       height="37.499996"
-       x="431.24994"
-       y="408.99835"
-       rx="4.7403808"
-       ry="3.3671753" />
+       style="display:inline;opacity:1;fill:#a2b7cc;fill-opacity:1;stroke:#2d4aa8;stroke-width:0.9375;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect4487"
+       width="336.56247"
+       height="36.562496"
+       x="431.71872"
+       y="279.59537"
+       rx="5"
+       ry="5" />
+    <g
+       style="display:inline;opacity:1"
+       id="g5473"
+       transform="translate(3.0517578e-5,-24.374999)">
+      <rect
+         ry="5"
+         rx="5"
+         y="303.97034"
+         x="431.71869"
+         height="36.5625"
+         width="36.5625"
+         id="rect5311"
+         style="opacity:1;fill:#2d4aa8;fill-opacity:1;stroke:none;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="303.50162"
+         x="459.37494"
+         height="37.499996"
+         width="9.374999"
+         id="rect5313"
+         style="opacity:1;fill:#2d4aa8;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:37.49999619px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#c0c8d0;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="576.78387"
-       y="431.70288"
-       id="text5377"
+       style="font-style:normal;font-weight:normal;font-size:37.49999619px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="443.56931"
+       y="303.58951"
+       id="text5319"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan5379"
-         x="576.78387"
-         y="431.70288"
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15.23437405px;font-family:Roboto;-inkscape-font-specification:'Roboto Medium';fill:#c0c8d0;fill-opacity:1;">Sign In</tspan></text>
-    <rect
-       ry="3.3671753"
-       rx="4.7403808"
-       y="465.24835"
-       x="431.24994"
-       height="37.499996"
-       width="337.49997"
-       id="rect5495"
-       style="opacity:1;fill:#4d66b7;fill-opacity:1;stroke:#24242c;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         id="tspan5321"
+         x="443.56931"
+         y="303.58951"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:15.23437405px;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';fill:#cccccc;fill-opacity:1"></tspan></text>
     <text
-       sodipodi:linespacing="125%"
-       id="text5497"
-       y="487.95288"
-       x="576.78387"
-       style="font-style:normal;font-weight:normal;font-size:37.49999619px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15.23437405px;font-family:Roboto;-inkscape-font-specification:'Roboto Medium';fill:#ffffff;fill-opacity:1;"
-         y="487.95288"
-         x="576.78387"
-         id="tspan5499"
-         sodipodi:role="line">Sign In</tspan></text>
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:37.49999619px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;opacity:1;fill:#5a5b65;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="484.7254"
+       y="303.21756"
+       id="text5323"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5325"
+         x="484.7254"
+         y="303.21756"
+         style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:15.23437405px;font-family:Roboto;-inkscape-font-specification:'Roboto Medium'">Username</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"

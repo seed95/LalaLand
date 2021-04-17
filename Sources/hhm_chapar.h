@@ -27,13 +27,14 @@ private slots:
     void rejectBtnClicked(int caseNumber);
     void archiveBtnClicked();
     void scanBtnClicked();
-    void sendBtnClicked(QString caseNumber, QString subject, QString filepath);
+    void sendBtnClicked(int receiverId, int caseNumber, QString subject, QString filepath);
     void flagBtnClicked(int id);
     void uploadFileClicked();
     void downloadFileClicked(QString src, int caseNumber);
     void syncInbox();
     void syncOutbox();
     void openEmail(int idEmail);
+    void checkUsername(QString username);
 
 private:
     void addNewDocToDocuments();

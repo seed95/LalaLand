@@ -1,6 +1,7 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
+//import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
+import QtQuick.Controls 2.5
 
 Item
 {
@@ -43,8 +44,13 @@ Item
     property int    width_box: 500
     property int    height_box: 30
 
+    property string auto_complete_text: ""
+    property int    textAlign: TextInput.AlignLeft
+
     property bool isEnabled: false
     property bool isNumber:  false
+
+    signal inputChanged(string text)
 
     Text
     {
@@ -80,15 +86,40 @@ Item
             anchors.verticalCenterOffset: 1
             anchors.left: parent.left
             anchors.right: parent.right
-            anchors.rightMargin: 5
-            text: text_input_box
+            anchors.rightMargin:
+            {
+                if( textAlign===TextInput.AlignLeft )
+                {
+                    0
+                }
+                else
+                {
+                    5
+                }
+            }
+            anchors.leftMargin:
+            {
+                if( textAlign===TextInput.AlignLeft )
+                {
+                    5
+                }
+                else
+                {
+                    0
+                }
+            }
             font.family: font_name_input_box
             font.pixelSize: font_size_input_box
             selectByMouse: true
-            horizontalAlignment: TextInput.AlignRight
-            textColor:
+            text: text_input_box
+            horizontalAlignment: textAlign
+            background: Rectangle
             {
-                if(text===text_input_box)
+                color: "transparent"
+            }
+            color:
+            {
+                if( text===text_input_box )
                 {
                     "#828282"
                 }
@@ -96,50 +127,97 @@ Item
                 {
                     "#464646"
                 }
-
             }
-
-            style: TextFieldStyle
-            {
-                background: Rectangle
-                {
-                    color: "transparent"
-                }
-                selectedTextColor: "#222"
-                selectionColor: "#888"
-            }
+            selectedTextColor: "#222"
+            selectionColor: "#888"
             readOnly: !isEnabled
-
-            onFocusChanged:
-            {
-                if( isEnabled )
-                {
-                    if(focus)
-                    {
-                        if(text===text_input_box)
-                        {
-                            text = ""
-                        }
-                    }
-                    else
-                    {
-                        if(text==="")
-                        {
-                            text = text_input_box
-                        }
-                    }
-                }
-            }
 
             onAccepted:
             {
                 focus = false
             }
 
+            onFocusChanged:
+            {
+                if( !focus )
+                {
+                    if( text==="" )
+                    {
+                        text = text_input_box
+                    }
+                    else if( text!==text_input_box )
+                    {
+                        completeText()
+                        inputChanged(input_rtl.text)
+                    }
+                }
+                else if( text===text_input_box )
+                {
+                    text = ""
+                }
+            }
+
             Keys.onEscapePressed:
             {
                 focus = false
             }
+
+            Keys.onTabPressed:
+            {
+                completeText()
+            }
+
+//            Label
+//            {
+//                id: typed_text
+//                anchors.left: parent.left
+//                anchors.top: parent.top
+//                text: input_rtl.text
+//                font.family: font_name_input_box
+//                font.pixelSize: font_size_input_box
+//                color: "transparent"
+//            }
+
+//            Label
+//            {
+//                id: suggestion_text
+//                anchors.right: parent.right
+////                anchors.left: typed_text.right
+////                anchors.leftMargin: 10
+//                anchors.verticalCenter: parent.verticalCenter
+//                text: auto_complete_text
+//                font.family: font_name_input_box
+//                font.pixelSize: font_size_input_box
+//                color: "#999"
+//                visible: input_rtl.focus && input_rtl.text!=="" && !input_rtl.text.includes(auto_complete_text) &&
+//                         !input_rtl.checkUnicode()
+//            }
+
+            function completeText()
+            {
+                if( text!=="" )
+                {
+                    var index_atsign = text.indexOf("@");
+                    if( index_atsign!==-1 )
+                    {
+                        text = text.slice(0, index_atsign)
+                    }
+                    text = text + auto_complete_text
+                }
+            }
+
+//            //return true if text contains letters other than English
+//            function checkUnicode()
+//            {
+//                for(var i=0; i<input_rtl.text.length; i++)
+//                {
+//                    if( input_rtl.text.charCodeAt(i)>255 )
+//                    {
+//                        return true
+//                    }
+//                }
+//                return false
+//            }
 
         }
 
@@ -158,6 +236,8 @@ Item
         visible: !root.rtl
     }
 
+
+    ///FIXME: update this segment from rtl segment
     Rectangle
     {
         id: rect_input
@@ -184,28 +264,16 @@ Item
             font.family: font_name_input_box
             font.pixelSize: font_size_input_box
             selectByMouse: true
-            textColor:
+            placeholderText: text_input_box
+            placeholderTextColor: "#828282"
+            horizontalAlignment: TextInput.AlignRight
+            background: Rectangle
             {
-                if(text===text_input_box)
-                {
-                    "#828282"
-                }
-                else
-                {
-                    "#464646"
-                }
-
+                color: "transparent"
             }
-
-            style: TextFieldStyle
-            {
-                background: Rectangle
-                {
-                    color: "transparent"
-                }
-                selectedTextColor: "#222"
-                selectionColor: "#888"
-            }
+            color: "#464646"
+            selectedTextColor: "#222"
+            selectionColor: "#888"
             readOnly: !isEnabled
 
             onFocusChanged:

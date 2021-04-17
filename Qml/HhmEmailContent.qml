@@ -8,7 +8,7 @@ Item
     property int    doc_status: 1
     property string text_user: "User #1"
     property string text_username: "Amy E. Alberts."
-    property string text_email: "amy.alberts@lolo.com"
+    property string text_email: text_username + "@" + root.domain
     property string text_time: "12:15PM"
     property string text_to: "April Robegan, Jamie Reading"
     property string download_filepath: ""

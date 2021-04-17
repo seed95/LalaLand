@@ -1,8 +1,8 @@
 #ifndef HHM_CONFIG_H
 #define HHM_CONFIG_H
 
-#define HHM_USERNAME_ADMIN  "Admin"
-#define HHM_USERNAME_USER   "User"
+//#define HHM_USERNAME_ADMIN  "Admin"
+//#define HHM_USERNAME_USER   "User"
 
 #define HHM_START_YEAR 2020
 
@@ -37,9 +37,11 @@
 #define HHM_CONFIG_VALUE        "config_value"
 
 //Keys for column `HHM_CONFIG_KEY` in Table `HHM_TABLE_CONFIG`
-#define HHM_FTP_SERVER          "ftp_server"
-#define HHM_FTP_USERNAME        "ftp_username"
-#define HHM_FTP_PASSWORD        "ftp_password"
+#define HHM_CONFIG_FTP_SERVER          "ftp_server"
+#define HHM_CONFIG_FTP_USERNAME        "ftp_username"
+#define HHM_CONFIG_FTP_PASSWORD        "ftp_password"
+#define HHM_CONFIG_DOMAIN              "domain"
+#define HHM_CONFIG_DOCUMENT_BASE_ID    "doc_base_id"
 
 //Columns in Table `HHM_TABLE_USER`
 #define HHM_USER_ID             "id"
@@ -53,24 +55,24 @@
 #define HHM_USER_PASSWORD       "password"
 
 //Columns in Table `HHM_TABLE_EMAIL`
-#define HHM_EMAILS_ID                   "id"
-#define HHM_EMAILS_DOCID                "d_id"
-#define HHM_EMAILS_FLAG                 "flag"
-#define HHM_EMAILS_OPENED               "opened"
-#define HHM_EMAILS_OPEN_TIME            "open_time"
-#define HHM_EMAILS_SEND_REFERENCE       "s_email"
-#define HHM_EMAILS_RECEIVE_REFERENCE    "r_email"
+#define HHM_EMAIL_ID                   "id"
+#define HHM_EMAIL_DOC_CASENUMBER       "d_case_number"
+#define HHM_EMAIL_FLAG                 "flag"
+#define HHM_EMAIL_OPENED               "opened"
+#define HHM_EMAIL_OPEN_TIME            "open_time"
+#define HHM_EMAIL_SEND_REFERENCE       "s_email"
+#define HHM_EMAIL_RECEIVE_REFERENCE    "r_email"
 
 //Columns in Table 'HHM_TABLE_DOCUMENT'
-#define HHM_DOCUMENTS_ID                "id"
-#define HHM_DOCUMENTS_SENDER_ID         "s_id"
-#define HHM_DOCUMENTS_RECEIVER_IDS      "r_ids"
-#define HHM_DOCUMENTS_DATE              "date"
-#define HHM_DOCUMENTS_SENDER_NAME       "s_name"
-#define HHM_DOCUMENTS_FILEPATH          "filepath"
-#define HHM_DOCUMENTS_STATUS            "status"
-#define HHM_DOCUMENTS_DOCID             "case_num"
-#define HHM_DOCUMENTS_SUBJECT           "subject"
+//#define HHM_DOCUMENTS_ID                "id"
+#define HHM_DOCUMENT_CASENUMBER        "case_num"
+#define HHM_DOCUMENT_SENDER_ID         "s_id"
+#define HHM_DOCUMENT_RECEIVER_IDS      "r_ids"
+#define HHM_DOCUMENT_DATE              "date"
+#define HHM_DOCUMENT_SENDER_NAME       "s_name"
+#define HHM_DOCUMENT_FILEPATH          "filepath"
+#define HHM_DOCUMENT_STATUS            "status"
+#define HHM_DOCUMENT_SUBJECT           "subject"
 
 //Columns in Table `HHM_TABLE_USER_EMAIL`
 #define HHM_UE_ID                   "id"

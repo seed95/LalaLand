@@ -13,7 +13,7 @@
    viewBox="0 0 1200 750"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="Lalaei_0v3_RTL.svg"
    inkscape:export-filename="/home/esi/Projects/PNA_UI/Resources/images/background_main.png"
    inkscape:export-xdpi="90"
@@ -34,11 +34,11 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="615.41638"
-     inkscape:cy="430.19658"
+     inkscape:zoom="1"
+     inkscape:cx="631.89154"
+     inkscape:cy="435.36757"
      inkscape:document-units="px"
-     inkscape:current-layer="layer5"
+     inkscape:current-layer="layer8"
      showgrid="false"
      showguides="false"
      inkscape:window-width="1920"
@@ -942,12 +942,13 @@
          sodipodi:role="line"></tspan></text>
     <text
        id="text5384"
-       y="113.66445"
+       y="113.66446"
        x="1163.014"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#969696;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       sodipodi:linespacing="0%"><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71874905px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#969696;fill-opacity:1;stroke:none;stroke-opacity:1"
-         y="113.66445"
+         y="113.66446"
          x="1163.014"
          id="tspan5386"
          sodipodi:role="line">جستجوی پرونده</tspan></text>
@@ -1046,25 +1047,27 @@
     <text
        id="text6809"
        y="242.11792"
-       x="863.56012"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.09374809px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#5a5a5a;fill-opacity:1;stroke:none;stroke-opacity:1"
+       x="846.08661"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       xml:space="preserve"
+       sodipodi:linespacing="0%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74999902px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:center;text-anchor:middle;fill:#5a5a5a;fill-opacity:1;stroke:none;stroke-opacity:1"
          y="242.11792"
-         x="863.56012"
+         x="879.4267"
          id="tspan6811"
-         sodipodi:role="line">کاربر ۱</tspan></text>
+         sodipodi:role="line">alireza</tspan></text>
     <text
        id="text6821"
-       y="189.25031"
-       x="652.44397"
+       y="185.36171"
+       x="663.69397"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.4375px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;text-align:end;text-anchor:end;fill:#5a5a5a;fill-opacity:1;stroke:none;stroke-opacity:1"
-         y="189.25031"
-         x="652.44397"
+       xml:space="preserve"
+       sodipodi:linespacing="0%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40625px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;text-align:end;text-anchor:end;fill:#5a5a5a;fill-opacity:1;stroke:none;stroke-opacity:1"
+         y="185.36171"
+         x="663.69397"
          id="tspan6823"
-         sodipodi:role="line">(amy.alberts@lolo.com)</tspan></text>
+         sodipodi:role="line">(alireza@lolo.com)</tspan></text>
     <text
        id="text6825"
        y="186.39561"
@@ -1079,14 +1082,15 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#646464;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="516.82928"
-       y="217.33229"
-       id="text6829"><tspan
+       x="575.23132"
+       y="213.58229"
+       id="text6829"
+       sodipodi:linespacing="0%"><tspan
          sodipodi:role="line"
          id="tspan6831"
-         x="516.82928"
-         y="217.33229"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#646464;fill-opacity:1;stroke:none;stroke-opacity:1">To: April Robegan, Jamie Reading</tspan></text>
+         x="575.23132"
+         y="213.58229"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40625px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';fill:#646464;fill-opacity:1;stroke:none;stroke-opacity:1">به: خاله مریم، عمو حسن، خاله فرزانه</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c598c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -1181,7 +1185,8 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-302.36222)"
-     style="display:inline">
+     style="display:none"
+     sodipodi:insensitive="true">
     <rect
        style="display:inline;fill:none;stroke:#666666;stroke-width:1.875;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:7.5, 7.5;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
        id="rect1470"
@@ -1195,7 +1200,8 @@
        y="826.69788"
        x="326.71838"
        style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       sodipodi:linespacing="0%"><tspan
          style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:37.5px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Medium';fill:#808080;fill-opacity:1;stroke:none;stroke-opacity:1"
          y="826.69788"
          x="326.71838"
@@ -1203,10 +1209,11 @@
          sodipodi:role="line">Upload File</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;opacity:1;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.97060001"
+       style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;opacity:1;fill:#808080;fill-opacity:1;stroke:none;stroke-width:1.97060001"
        x="427.5"
        y="775.87097"
-       id="text1478"><tspan
+       id="text1478"
+       sodipodi:linespacing="0%"><tspan
          sodipodi:role="line"
          id="tspan1476"
          x="427.5"
@@ -1422,36 +1429,34 @@
        x="-918.86713"
        y="-0.11718612"
        transform="scale(-1,1)" />
-    <g
-       id="g5553"
-       transform="translate(-265.32129,-0.96897014)">
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#969696;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="294.91272"
-         y="36.051289"
-         id="text5520"><tspan
-           sodipodi:role="line"
-           x="294.91272"
-           y="36.051289"
-           style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:11.71874905px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Light';text-align:start;text-anchor:start;fill:#c8c8c8;fill-opacity:1;stroke:none;stroke-opacity:1"
-           id="tspan5524"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:roboto;-inkscape-font-specification:roboto"
-   id="tspan5541">Office of Public Affairs:</tspan> Justice Department Announces Additional Distribution of more than $488 Million to Victims of Madoff Ponzi Scheme (Thursday, December 3, 2020)</tspan></text>
-      <text
-         id="text5531"
-         y="19.176292"
-         x="294.91272"
-         style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#969696;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           id="tspan5533"
-           style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;font-size:11.71874905px;line-height:1.25;font-family:roboto;-inkscape-font-specification:'roboto Light';text-align:start;text-anchor:start;fill:#c8c8c8;fill-opacity:1;stroke:none;stroke-opacity:1"
-           y="19.176292"
-           x="294.91272"
-           sodipodi:role="line"><tspan
-   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:roboto;-inkscape-font-specification:roboto"
-   id="tspan5543">Health Care Fraud: </tspan>Pain Clinic Medical Providers Sentenced for Their Roles in Operating Pill Mills in Tennessee  (Thursday, December 10, 2020)</tspan></text>
-    </g>
+    <text
+       sodipodi:linespacing="0%"
+       id="text5520"
+       y="35.082317"
+       x="903.73688"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#969696;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         id="tspan5524"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71874905px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#c8c8c8;fill-opacity:1;stroke:none;stroke-opacity:1"
+         y="35.082317"
+         x="903.73688"
+         sodipodi:role="line"><tspan
+   style="font-weight:bold"
+   id="tspan4419">کنایه معاون سپاه به دولت روحانی</tspan>: تحریم‌ها ناکارآمد شده؛ بخاطر همین دنبال احیای برجام هستند (شنبه، ۲۵ فروردین، ۱۴۰۰)</tspan></text>
+    <text
+       sodipodi:linespacing="0%"
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#969696;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="904.00812"
+       y="18.207323"
+       id="text5531"><tspan
+         sodipodi:role="line"
+         x="904.00812"
+         y="18.207323"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71874905px;line-height:1.25;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;text-anchor:end;fill:#c8c8c8;fill-opacity:1;stroke:none;stroke-opacity:1"
+         id="tspan5533"><tspan
+   style="font-weight:bold"
+   id="tspan4417">روحانی</tspan>: هفته سختی در پیش رو داریم! باید سبک زندگی عوض شود (سه شنبه، ۲۸ فروردین، ۱۴۰۰)</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -1483,7 +1488,8 @@
      inkscape:groupmode="layer"
      id="layer13"
      inkscape:label="Message"
-     style="display:inline">
+     style="display:none"
+     sodipodi:insensitive="true">
     <rect
        style="display:inline;opacity:1;fill:#e8e8e8;fill-opacity:1;stroke:#274579;stroke-width:0.93749988;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect5652"
@@ -1498,7 +1504,8 @@
        style="font-style:normal;font-variant:normal;font-weight:300;font-stretch:normal;line-height:0%;font-family:Roboto;-inkscape-font-specification:'Roboto Light';letter-spacing:0px;word-spacing:0px;display:inline;fill:#3c3c3c;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="400.31586"
        y="380.76782"
-       id="text5654"><tspan
+       id="text5654"
+       sodipodi:linespacing="0%"><tspan
          sodipodi:role="line"
          id="tspan5656"
          x="400.31586"
@@ -1548,5 +1555,5 @@
            height="41"
            x="1121"
            y="152" /></flowRegion><flowPara
-         id="flowPara285"></flowPara></flowRoot>  </g>
+         id="flowPara285" /></flowRoot>  </g>
 </svg>

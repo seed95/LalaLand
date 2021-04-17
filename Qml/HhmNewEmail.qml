@@ -2,26 +2,26 @@ import QtQuick 2.0
 
 Item
 {
-
-    property string text_from: "User"
-    property string text_to: "Admin"
-    property string text_subject: root.rtl ? qsTr("موضوع") : "Subject"
-    property string text_case_number: root.rtl ? "۱۲۴۵" : "1245"
+    property string text_to:        "username@" + root.domain
+    property string text_subject:   root.rtl ? qsTr("موضوع") : "Subject"
     property string text_file_path: ""
 
     onVisibleChanged:
     {
-        case_number_input_box.setInput(root.rtl ? "۱۲۴۵" : "1245")
-        case_number_input_box_rtl.setInput(root.rtl ? "۱۲۴۵" : "1245")
+//        case_number_input_box.setInput(root.rtl ? "۱۲۴۵" : "1245")
+//        case_number_input_box_rtl.setInput(root.rtl ? "۱۲۴۵" : "1245")
         subject_input_box.setInput(text_subject)
         subject_input_box_rtl.setInput(text_subject)
-        root.selected_file_path = ""
+        to_input_box.setInput(text_to)
+        to_input_box_rtl.setInput(text_to)
         rect_upload.visible = true
         label_file.visible = false
-        case_number_input_box.focus = false
-        case_number_input_box_rtl.focus = false
+//        case_number_input_box.focus = false
+//        case_number_input_box_rtl.focus = false
         subject_input_box.focus = false
         subject_input_box_rtl.focus = false
+        root.selected_file_path = ""
+        root.receiver_id = 0
     }
 
     Item
@@ -44,7 +44,7 @@ Item
             anchors.topMargin: 18
             width_box: 500
             text_label: qsTr("از:")
-            text_input_box: text_from
+            text_input_box: root.username + "@" + root.domain
             left_margin: 48
         }
 
@@ -60,6 +60,12 @@ Item
             text_label: qsTr("به:")
             text_input_box: text_to
             left_margin: 46
+            isEnabled: true
+            auto_complete_text: "@" + root.domain
+            onInputChanged:
+            {
+                root.checkUsername(text.replace(auto_complete_text, ""))
+            }
         }
 
         HhmInputBox
@@ -71,11 +77,10 @@ Item
             anchors.right: to_input_box_rtl.left
             anchors.rightMargin: 60
             width_box: 150
-            isEnabled: true
-            isNumber: true
             text_label: qsTr("شماره پرونده:")
-            text_input_box: text_case_number
+            text_input_box: root.en2ar(root.new_case_number)
             left_margin: 15
+            textAlign: TextInput.AlignRight
         }
 
         HhmInputBox
@@ -91,6 +96,7 @@ Item
             text_label: text_subject + ":"
             text_input_box: text_subject
             left_margin: 10
+            textAlign: TextInput.AlignRight
         }
 
     }
@@ -115,7 +121,7 @@ Item
             anchors.topMargin: 18
             width_box: 500
             text_label: "From:"
-            text_input_box: text_from
+            text_input_box: root.username + "@" + root.domain
             left_margin: 29
         }
 
@@ -131,6 +137,7 @@ Item
             text_label: "To:"
             text_input_box: text_to
             left_margin: 50
+            auto_complete_text: "@" + root.domain
         }
 
         HhmInputBox
@@ -142,10 +149,8 @@ Item
             anchors.top: to_input_box.top
             anchors.leftMargin: 60
             width_box: 150
-            isEnabled: true
-            isNumber: true
             text_label: "Case Number:"
-            text_input_box: text_case_number
+            text_input_box: root.new_case_number
             left_margin: 15
         }
 
@@ -160,7 +165,7 @@ Item
             width_box: 820
             isEnabled: true
             text_label: "Subject:"
-            text_input_box: text_subject
+            text_input_box: "Subject"
             left_margin: 10
         }
 
@@ -245,24 +250,13 @@ Item
 
             onClicked:
             {
+                canvas_upload.forceActiveFocus()
                 root.uploadFileClicked()
             }
         }
 
     }
 
-    function getCaseNumber()
-    {
-        var obj = case_number_input_box
-        if( root.rtl )
-        {
-            obj = case_number_input_box_rtl
-        }
-
-        var case_number_text = obj.getInput()
-//        return root.ar2en(case_number_text)
-        return obj.getInput()
-    }
 
     function getSubject()
     {
@@ -281,33 +275,25 @@ Item
         text_file_path = root.selected_file_path
     }
 
-    function compeleteItems()
-    {
-        if( text_file_path==="" )
-        {
-            root.error_msg = "Please choose a document"
-            root.d_error_msg = 2000
-            root.showMessage()
-            return false
-        }
+//    function compeleteItems()
+//    {
+//        if( text_file_path==="" )
+//        {
+//            root.error_msg = "Please choose a document"
+//            root.d_error_msg = 2000
+//            root.showMessage()
+//            return false
+//        }
 
-        if( getSubject()===text_subject )
-        {
-            root.error_msg = "Please write a subject"
-            root.d_error_msg = 2000
-            root.showMessage()
-            return false
-        }
+//        if( getSubject()===text_subject )
+//        {
+//            root.error_msg = "Please write a subject"
+//            root.d_error_msg = 2000
+//            root.showMessage()
+//            return false
+//        }
 
-        if( getCaseNumber()===text_case_number )
-        {
-            root.error_msg = "Please write a case number"
-            root.d_error_msg = 2000
-            root.showMessage()
-            return false
-        }
-
-        return true
-    }
+//        return true
+//    }
 
 }

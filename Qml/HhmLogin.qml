@@ -21,17 +21,19 @@ Item
     {
         id: rect_login
         width: 400
-        height: childrenRect.height
+        height: 250
         anchors.centerIn: parent
-        color: "transparent"
+        color: "#97aabd"
+        radius: 15
 
         HhmLoginTextInput
         {
             id: username
             width: 360
             height: 40
-            x: 0
+            anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: parent.top
+            anchors.topMargin: 22
             text_placeholder: "Username"
             text_icon: "\uf007"
             Keys.onReturnPressed: signing()
@@ -42,9 +44,9 @@ Item
             id: password
             width: 360
             height: 40
-            x: 0
+            anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: username.bottom
-            anchors.topMargin: 10
+            anchors.topMargin: 12
             text_placeholder: "Password"
             text_icon: "\uf30d"
             password_type: true
@@ -56,10 +58,52 @@ Item
             id: signIn
             width: 360
             height: 40
-            anchors.left: parent.left
+            anchors.horizontalCenter: parent.horizontalCenter
             anchors.top: password.bottom
-            anchors.topMargin: 10
+            anchors.topMargin: 20
             onSignInClicked: signing()
+        }
+
+        Item
+        {
+            id: server_status
+            width: 400
+            height: 50
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+
+            Rectangle
+            {
+                id: rect1
+                width: 400
+                height: 15
+                anchors.top: parent.top
+                anchors.left: parent.left
+                color: "#7496b8"
+            }
+
+            Rectangle
+            {
+                id: rect2
+                anchors.top: parent.top
+                anchors.left: parent.left
+                width: 400
+                height: 50
+                color: "#7496b8"
+                radius: 15
+            }
+
+            Text
+            {
+                id: label_status
+                text: root.login_status
+                anchors.centerIn: parent
+                font.family: fontRobotoMedium.name
+                font.weight: Font.Medium
+                font.pixelSize: 19
+                color: "#e1e1e1"
+            }
+
         }
 
     }
