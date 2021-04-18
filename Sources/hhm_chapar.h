@@ -5,13 +5,13 @@
 #include <QDebug>
 #include <QFileDialog>
 #include <QQmlProperty>
-#include <QCryptographicHash>
 
 #include "hhm_config.h"
 #include "hhm_mail.h"
 #include "hhm_database.h"
 #include "hhm_user.h"
 #include "hhm_attach.h"
+#include "hhm_news.h"
 
 class HhmChapar : public QObject
 {
@@ -20,6 +20,7 @@ public:
     explicit HhmChapar(QObject *item, QObject *parent = nullptr);
 
 private slots:
+    //Ui slots
     void loginUser(QString uname, QString pass);
     void newBtnClicked();
     void replyBtnClicked();
@@ -42,13 +43,14 @@ private:
 
 private:
     QObject *ui;
-
-    HhmMail *mail;
+    HhmMail     *mail;
     HhmDatabase *db;
-    HhmUser *user;
-    HhmAttach *ftp;
+    HhmUser     *user;
+    HhmAttach   *ftp;
+    HhmNews     *news;
 
     QString last_directory;
+    int doc_base_id;
 };
 
 #endif // HHM_CHAPAR_H

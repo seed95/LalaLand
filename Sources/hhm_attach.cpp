@@ -7,7 +7,6 @@ HhmAttach::HhmAttach(QString server, QString username, QString password, QObject
     ftp_password = password;
 
     m_manager = new QNetworkAccessManager(this);
-    connect(m_manager, &QNetworkAccessManager::finished, this, &HhmAttach::finishedRequest);
 
     m_file = new QFile();
 
@@ -19,13 +18,12 @@ HhmAttach::~HhmAttach()
     m_file->close();
     delete m_file;
     delete m_manager;
+    delete m_response;
 }
 
 void HhmAttach::uploadFile(QString srcFilename, QString dstFilename)
 {
-    downloading = false;
     m_file->setFileName(srcFilename);
-    QFileInfo fileInfo(*m_file);
 
     QUrl url(ftp_server + dstFilename);
     url.setUserName(ftp_username);
@@ -34,12 +32,14 @@ void HhmAttach::uploadFile(QString srcFilename, QString dstFilename)
 
     if( m_file->open(QIODevice::ReadOnly) )
     {
-        m_manager->put(QNetworkRequest(url), m_file);
+        m_response = m_manager->put(QNetworkRequest(url), m_file);
+        connect(m_response, SIGNAL(finished()), this, SLOT(uploadFinished()));
+        connect(m_response, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(uploadError(QNetworkReply::NetworkError)));
     }
     else
     {
-        hhm_log("Upload failed " + url.toString() + ", cannot open file " + m_file->fileName());
-        qDebug() << m_file->permissions();
+        hhm_showMessage("Upload failed " + url.toString(), 3000);
+        hhm_log("Cannot open file " + m_file->fileName());
     }
 }
 
@@ -49,45 +49,56 @@ void HhmAttach::downloadFile(QString src, QString dst)
     url.setUserName(ftp_username);
     url.setPassword(ftp_password);
     url.setPort(21);
-    dst_filepath = dst;
-    downloading = true;
-    m_manager->get(QNetworkRequest(url));
+    d_file.setFileName(dst);
+
+    if( d_file.exists() )
+    {
+        d_file.setPermissions(d_file.permissions() |
+                              QFileDevice::ReadOwner |
+                              QFileDevice::WriteOwner |
+                              QFileDevice::ReadGroup |
+                              QFileDevice::WriteGroup);
+    }
+
+    if( !d_file.open(QIODevice::ReadWrite) )//if file not exist create new file
+    {
+        hhm_showMessage("Download file failed", 3000);
+        hhm_log("Cannot open file " + d_file.fileName());
+        return;
+    }
+    m_response = m_manager->get(QNetworkRequest(url));
+    connect(m_response, SIGNAL(readyRead()), this, SLOT(downloadReady()));
+    connect(m_response, SIGNAL(finished()), this, SLOT(downloadFinished()));
+    connect(m_response, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(downloadError(QNetworkReply::NetworkError)));
 }
 
-void HhmAttach::finishedRequest(QNetworkReply *reply)
+void HhmAttach::downloadReady()
 {
-    if( !reply->error() )
-    {
-        if(downloading)
-        {
-            QString src = reply->url().url();
-            m_file->setFileName(dst_filepath);
-            if( m_file->open(QIODevice::WriteOnly) )
-            {
-                m_file->resize(0);
-                m_file->write(reply->readAll());
-                m_file->close();
-                hhm_log("Download successfully from url: " + reply->url().toString());
-            }
-            else
-            {
-                hhm_log("Cannot open file " + dst_filepath +
-                        ", failed download from url: " + reply->url().toString());
-            }
-        }
-        else
-        {
-            hhm_log("Upload successfully from url: " + reply->url().toString());
-            if( m_file->isOpen() )
-            {
-                m_file->close();
-            }
-        }
-    }
-    else
-    {
-        hhm_log("Error: finish request with error: " + reply->errorString() +
-                ", for url: " + reply->url().toString());
-    }
+    d_file.write(m_response->readAll());
 }
 
+void HhmAttach::downloadFinished()
+{
+    d_file.write(m_response->readAll());
+    d_file.close();
+    hhm_showMessage("File successfully downloaded", 3000);
+    hhm_log("Download successfully from url: " + m_response->url().toString());
+}
+
+void HhmAttach::downloadError(QNetworkReply::NetworkError error)
+{
+    hhm_showMessage("Download from " + m_response->url().toString() + " failed", 3000);
+    hhm_log("Download error: " + QString(error) + ", url: " + m_response->url().toString());
+}
+
+void HhmAttach::uploadFinished()
+{
+    hhm_showMessage("File successfully uploaded", 3000);
+    hhm_log("Upload successfully from url: " + m_response->url().toString());
+}
+
+void HhmAttach::uploadError(QNetworkReply::NetworkError error)
+{
+    hhm_showMessage("Upload failed " + m_response->url().toString(), 3000);
+    hhm_log("Upload error: " + QString(error) + ", url: " + m_response->url().toString());
+}

@@ -1,19 +1,11 @@
 #ifndef HHM_CONFIG_H
 #define HHM_CONFIG_H
 
-//#define HHM_USERNAME_ADMIN  "Admin"
-//#define HHM_USERNAME_USER   "User"
-
-#define HHM_START_YEAR 2020
-
-#define HHM_MODE_INBOX  1
-#define HHM_MODE_OUTBOX 2
-
 #define HHM_CONFIG_FILE "db.conf"
 #define HHM_LOG_FILE    "hhm.log"
 
-#define HHM_FAILED_CONVERT "NaN"
-
+#define HHM_START_YEAR          2020
+#define HHM_DEFAULT_NEWS_TIMER  10000//ms
 /*****              DataBase Configs            *****/
 
 #define SERVER_PORT     3306
@@ -31,6 +23,7 @@
 #define HHM_TABLE_EMAIL        "email"
 #define HHM_TABLE_DOCUMENT     "document"
 #define HHM_TABLE_USER_EMAIL   "user_email"
+#define HHM_TABLE_NEWS         "news"
 
 //Columns in Table `HHM_TABLE_CONFIG`
 #define HHM_CONFIG_KEY          "config_key"
@@ -42,6 +35,7 @@
 #define HHM_CONFIG_FTP_PASSWORD        "ftp_password"
 #define HHM_CONFIG_DOMAIN              "domain"
 #define HHM_CONFIG_DOCUMENT_BASE_ID    "doc_base_id"
+#define HHM_CONFIG_NEWS_TIMER          "news_timer"
 
 //Columns in Table `HHM_TABLE_USER`
 #define HHM_USER_ID             "id"
@@ -81,5 +75,10 @@
 #define HHM_UE_SENT_EMAILS          "sent_emails"
 #define HHM_UE_RECEIVED_EMAILS      "received_emails"
 
+//Columns in Table `HHM_TABLE_NEWS`
+#define HHM_NEWS_ID                 "id"
+#define HHM_NEWS_TITLE              "title"
+#define HHM_NEWS_CONTENT            "content"
+#define HHM_NEWS_DATE               "date"
 
 #endif // HHM_CONFIG_H

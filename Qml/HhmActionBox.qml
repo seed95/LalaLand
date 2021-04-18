@@ -34,7 +34,7 @@ Rectangle
             width: 100
             anchors.right: action_new_rtl.left
             anchors.verticalCenter: parent.verticalCenter
-            visible: email_content_rtl.isActiveEmail() && !root.createNewEmail
+            visible: root.isDocSelected() && !root.createNewEmail
             icon: "\uf3e5"
             action: qsTr("پاسخ")
             onButtonClicked: root.replyButtonClicked()
@@ -47,7 +47,7 @@ Rectangle
             width: 120
             anchors.right: action_reply_rtl.left
             anchors.verticalCenter: parent.verticalCenter
-            visible: root.isAdmin() && email_content_rtl.isActiveEmail() && !root.createNewEmail
+            visible: root.isDocSelected() && !root.createNewEmail && root.email_mode===con.id_EMAIL_MODE_INBOX
             icon: "\uf00c"
             action: qsTr("تایید")
             onButtonClicked:
@@ -64,7 +64,7 @@ Rectangle
             width: 100
             anchors.right: action_approve_rtl.left
             anchors.verticalCenter: parent.verticalCenter
-            visible: root.isAdmin() && email_content_rtl.isActiveEmail() && !root.createNewEmail
+            visible: root.isDocSelected() && !root.createNewEmail && root.email_mode===con.id_EMAIL_MODE_INBOX
             icon: "\uf00d"
             action: qsTr("لغو")
             onButtonClicked:
@@ -91,7 +91,7 @@ Rectangle
                 }
             }
             anchors.verticalCenter: parent.verticalCenter
-            visible: email_content_rtl.isActiveEmail() && !root.createNewEmail
+            visible: root.isDocSelected() && !root.createNewEmail
             icon: "\uf187"
             action: qsTr("آرشیو")
             onButtonClicked: root.archiveButtonClicked()
@@ -207,7 +207,7 @@ Rectangle
             width: 100
             anchors.left: action_new.right
             anchors.verticalCenter: parent.verticalCenter
-            visible: email_content.isActiveEmail() && !root.createNewEmail
+            visible: root.isDocSelected() && !root.createNewEmail
             icon: "\uf3e5"
             action: "Reply"
             onButtonClicked: root.replyButtonClicked()
@@ -220,7 +220,7 @@ Rectangle
             width: 120
             anchors.left: action_reply.right
             anchors.verticalCenter: parent.verticalCenter
-            visible: root.isAdmin() && email_content.isActiveEmail() && !root.createNewEmail
+            visible: root.isDocSelected() && !root.createNewEmail && root.email_mode===con.id_EMAIL_MODE_INBOX
             icon: "\uf00c"
             action: "Approve"
             onButtonClicked:
@@ -237,7 +237,7 @@ Rectangle
             width: 100
             anchors.left: action_approve.right
             anchors.verticalCenter: parent.verticalCenter
-            visible: root.isAdmin() && email_content.isActiveEmail() && !root.createNewEmail
+            visible: root.isDocSelected() && !root.createNewEmail && root.email_mode===con.id_EMAIL_MODE_INBOX
             icon: "\uf00d"
             action: "Reject"
             onButtonClicked:
@@ -265,7 +265,7 @@ Rectangle
 
             }
             anchors.verticalCenter: parent.verticalCenter
-            visible: email_content.isActiveEmail() && !root.createNewEmail
+            visible: root.isDocSelected() && !root.createNewEmail
             icon: "\uf187"
             action: "Archive"
             onButtonClicked: root.archiveButtonClicked()

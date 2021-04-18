@@ -507,9 +507,4 @@ Item
 
     }
 
-    function isActiveEmail()
-    {
-        return case_number!==con.id_NO_SELECTED_ITEM
-    }
-
 }

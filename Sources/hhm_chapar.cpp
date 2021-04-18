@@ -66,7 +66,16 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
 
     ftp = new HhmAttach(ftp_server, ftp_username, ftp_password);
 
-    QString domain = "";
+    //Instance News
+    data = getConfig(HHM_CONFIG_NEWS_TIMER);
+    int interval = HHM_DEFAULT_NEWS_TIMER;
+    if( data.isValid() )
+    {
+        interval = data.toInt();
+    }
+    news = new HhmNews(ui, db, interval);
+
+    //Set domain
     data = getConfig(HHM_CONFIG_DOMAIN);
     if( data.isValid() )
     {
@@ -75,6 +84,17 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     else
     {
         hhm_log("Not set domain in config table");
+    }
+
+    //Set document base id
+    data = getConfig(HHM_CONFIG_DOCUMENT_BASE_ID);
+    if( data.isValid() )
+    {
+        doc_base_id = data.toInt();
+    }
+    else
+    {
+        hhm_log("Not set " + QString(HHM_CONFIG_DOCUMENT_BASE_ID) + " in " + QString(HHM_TABLE_CONFIG));
     }
 
 }
@@ -90,20 +110,32 @@ void HhmChapar::loginUser(QString uname, QString pass)
 
 void HhmChapar::newBtnClicked()
 {
-    db->insert(HHM_TABLE_DOCUMENT, "", "");
-    //Get new case number
+    int new_case_number = 0;
+    //Get max case number
     QString query = "SELECT MAX(" + QString(HHM_DOCUMENT_CASENUMBER) + ") FROM ";
     query += "`" + QString(DATABASE_NAME) + "`.`" + QString(HHM_TABLE_DOCUMENT) + "`";
     QSqlQuery res = db->sendQuery(query);
-    //first sent email id is 1, so first received email id is 2
     if( res.next() )
     {
-        QQmlProperty::write(ui, "new_case_number", res.value(0).toInt());
+        int max_case_number = res.value(0).toInt();
+        if( max_case_number>=doc_base_id )
+        {
+            new_case_number = max_case_number + 1;//auto increment case number
+        }
+        else
+        {
+            new_case_number = doc_base_id;
+        }
     }
     else
     {
-        hhm_log("Error in geting new case number from database");
+        hhm_log("Table " + QString(HHM_TABLE_DOCUMENT) + " is empty");
+        new_case_number = doc_base_id;
     }
+    QString columns = "`" + QString(HHM_DOCUMENT_CASENUMBER) + "`";
+    QString values  = "'" + QString::number(new_case_number) + "'";
+    db->insert(HHM_TABLE_DOCUMENT, columns, values);
+    QQmlProperty::write(ui, "new_case_number", new_case_number);
 }
 
 void HhmChapar::replyBtnClicked()
@@ -145,7 +177,7 @@ void HhmChapar::sendBtnClicked(int receiverId, int caseNumber, QString subject, 
         return;
     }
 
-    if( subject=="" )
+    if( subject.isEmpty() )
     {
         hhm_showMessage("Please write a subject", 2000);
         return;
@@ -160,6 +192,7 @@ void HhmChapar::sendBtnClicked(int receiverId, int caseNumber, QString subject, 
                        dst_filename, user->getName());
 
     //Upload file in fpt server
+    hhm_log("Start upload file: " + filepath + " --> " + dst_filename);
     ftp->uploadFile(filepath, dst_filename);
 
     QMetaObject::invokeMethod(ui, "sendEmailComplete");
@@ -200,7 +233,7 @@ void HhmChapar::downloadFileClicked(QString src, int caseNumber)
     {
         last_directory = QFileInfo(dialog.selectedFiles().first()).absolutePath();
         QString dst = dialog.selectedFiles().first();
-        hhm_log("Start download: " + src_filename + " --> " + dst);
+        hhm_log("Start download file: " + src_filename + " --> " + dst);
         ftp->downloadFile(src, dst);
     }
 }
@@ -250,7 +283,7 @@ void HhmChapar::checkUsername(QString username)
 //Return Invalid Qvariant if not found key
 QVariant HhmChapar::getConfig(QString key)
 {
-    QString condition = "`" + QString(HHM_CONFIG_KEY) + "`=\"" + key + "\"";
+    QString condition = "`" + QString(HHM_CONFIG_KEY) + "`='" + key + "'";
     QSqlQuery res = db->select("*", HHM_TABLE_CONFIG, condition);
     if(res.next())
     {

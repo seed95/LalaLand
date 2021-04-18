@@ -11,6 +11,9 @@ Window
     property string app_status:     "Updated from server 12:20PM"
     property string login_status:   "Server connected"
 
+    property int email_mode:                con.id_EMAIL_MODE_INBOX
+    property int selected_doc_case_number:  con.id_NO_SELECTED_ITEM
+
     //Message properties
     property string error_msg:    ""//error message
     property int    d_error_msg:  100//duration error message
@@ -44,8 +47,13 @@ Window
     property int    receiver_id:        1               //id user for received email
     property string selected_file_path: "path/to/file"  //Selected file path for upload file
 
-    property int email_mode:                con.id_EMAIL_MODE_INBOX
-    property int case_number_selected_doc:  -1
+    //Properties for news
+    property string news_title1:     ""
+    property string news_content1:   ""
+    property string news_date1:      ""
+    property string news_title2:     ""
+    property string news_content2:   ""
+    property string news_date2:      ""
 
     signal loginUser(string username, string pass)
     signal newButtonClicked()
@@ -204,7 +212,7 @@ Window
             anchors.right: sidebar_rtl.left
             anchors.top: topbar_rtl.bottom
             anchors.bottom: parent.bottom
-            visible: !createNewEmail && email_content_rtl.isActiveEmail()
+            visible: !createNewEmail && root.isDocSelected()
         }
 
         HhmNewEmail
@@ -252,7 +260,7 @@ Window
             anchors.right: parent.right
             anchors.top: topbar.bottom
             anchors.bottom: parent.bottom
-            visible: !createNewEmail && email_content.isActiveEmail()
+            visible: !createNewEmail && root.isDocSelected()
         }
 
         HhmNewEmail
@@ -391,9 +399,9 @@ Window
         }
     }
 
-    function isAdmin()
+    function isDocSelected()
     {
-        return root.username.toLowerCase()==="admin"
+        return root.selected_doc_case_number!==con.id_NO_SELECTED_ITEM
     }
 
     //Convert english number to arabic number

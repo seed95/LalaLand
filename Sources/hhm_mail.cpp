@@ -33,7 +33,7 @@ void HhmMail::loadEmails(QString username)
 void HhmMail::approveDoc(int caseNumber)
 {
     QString condition = "`" + QString(HHM_DOCUMENT_CASENUMBER) + "`=" + QString::number(caseNumber);
-    QString value = "`" + QString(HHM_DOCUMENT_STATUS) + "`=\"" + QString::number(HHM_DOC_STATUS_SUCCESS) + "\"";
+    QString value = "`" + QString(HHM_DOCUMENT_STATUS) + "`='" + QString::number(HHM_DOC_STATUS_SUCCESS) + "'";
     db->update(condition, value, HHM_TABLE_DOCUMENT);
 }
 

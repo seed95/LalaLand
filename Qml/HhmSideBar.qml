@@ -87,7 +87,11 @@ Rectangle
 
                 onClicked:
                 {
-                    root.email_mode = con.id_EMAIL_MODE_INBOX
+                    if( root.email_mode!==con.id_EMAIL_MODE_INBOX )
+                    {
+                        root.email_mode = con.id_EMAIL_MODE_INBOX
+                        root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
+                    }
                 }
 
             }
@@ -139,7 +143,11 @@ Rectangle
 
                 onClicked:
                 {
-                    root.email_mode = con.id_EMAIL_MODE_OUTBOX
+                    if( root.email_mode!==con.id_EMAIL_MODE_OUTBOX )
+                    {
+                        root.email_mode = con.id_EMAIL_MODE_OUTBOX
+                        root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
+                    }
                 }
 
             }
@@ -203,7 +211,11 @@ Rectangle
 
                 onClicked:
                 {
-                    root.email_mode = con.id_EMAIL_MODE_INBOX
+                    if( root.email_mode!==con.id_EMAIL_MODE_INBOX )
+                    {
+                        root.email_mode = con.id_EMAIL_MODE_INBOX
+                        root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
+                    }
                 }
 
 
@@ -256,9 +268,12 @@ Rectangle
 
                 onClicked:
                 {
-                    root.email_mode = con.id_EMAIL_MODE_OUTBOX
+                    if( root.email_mode!==con.id_EMAIL_MODE_OUTBOX )
+                    {
+                        root.email_mode = con.id_EMAIL_MODE_OUTBOX
+                        root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
+                    }
                 }
-
 
             }
         }
@@ -296,7 +311,7 @@ Rectangle
             case_number: caseNumber
             doc_status: docStatus
             text_time: time
-            isActive: case_number===email_content.case_number || case_number===email_content_rtl.case_number
+            isActive: root.selected_doc_case_number===case_number
             id_email_in_emails_table: idEmail
             isRead: emailOpened
             text_filepath: docFilepath
@@ -304,26 +319,34 @@ Rectangle
             onEmailClicked:
             {
                 root.createNewEmail = false
-                var obj = email_content
-                if( root.rtl )
+                if( root.selected_doc_case_number===case_number )
                 {
-                    obj = email_content_rtl
-                }
-
-                if( obj.case_number===case_number )
-                {
-                    obj.case_number = con.id_NO_SELECTED_ITEM
+                    root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
                 }
                 else
                 {
+                    root.selected_doc_case_number = case_number
+
+                    var obj = email_content
+                    if( root.rtl )
+                    {
+                        obj = email_content_rtl
+                    }
+
                     obj.case_number = case_number
                     obj.text_name = name
                     obj.text_time = time
                     obj.doc_status = docStatus
                     obj.download_filepath = docFilepath
+
+                    if( !emailOpened )
+                    {
+                        emailOpened = true
+                        root.openEmail(idEmail)
+                    }
+
                 }
-                emailOpened = true
-                root.openEmail(idEmail)
+
             }
         }
 
@@ -355,6 +378,20 @@ Rectangle
     {
         for(var i=0; i<listmodel_sidebar.count; i++)
         {
+            //Document exist
+            if( root.case_number===listmodel_sidebar.get(i).caseNumber )
+            {
+                console.log("Update document with case number " + root.case_number)
+                listmodel_sidebar.get(i).docSubject = root.subject
+                listmodel_sidebar.get(i).name = root.sender_name
+                listmodel_sidebar.get(i).docStatus = root.doc_status
+                listmodel_sidebar.get(i).time = root.r_email_date
+                listmodel_sidebar.get(i).docFilepath = root.filepath
+                listmodel_sidebar.get(i).emailOpened = root.email_opened
+                listmodel_sidebar.get(i).idEmail = root.id_email_in_emails_table
+                return
+            }
+
             if( root.case_number>listmodel_sidebar.get(i).caseNumber )
             {
                 listmodel_sidebar.insert(i, {"docSubject" : root.subject,

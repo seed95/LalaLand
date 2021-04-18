@@ -17,8 +17,6 @@ void hhm_showMessage(QString msg, int interval=1000);
 
 QString hhm_getServerIP();
 
-QString convertNumber(QString number);
-
 void hhm_log(QString msg);
 
 #endif // BACKEND_H

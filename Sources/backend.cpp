@@ -47,7 +47,7 @@ void hhm_showMessage(QString msg, int interval)
     QQmlProperty::write(ui, "error_msg", msg);
     QQmlProperty::write(ui, "d_error_msg", interval);
     QMetaObject::invokeMethod(ui, "showMessage");
-    hhm_log("Error Message --> " + msg);
+    hhm_log("Message --> " + msg);
 }
 
 /*
@@ -83,35 +83,6 @@ QString hhm_getServerIP()
         }
     }
     return server_ip;
-}
-
-/*
- * Convert persian and arabic number to english
- * if number is not persian or arabic or english return HHM_FAILED_CONVERT
- * */
-QString convertNumber(QString number)
-{
-    QLocale englishLocale = QLocale::English;
-    bool ok;
-    int i_number = englishLocale.toInt(number, &ok);
-    if( ok )
-    {
-        return QString::number(i_number);
-    }
-
-    QLocale arabicLocale = QLocale::Arabic;
-    i_number = arabicLocale.toInt(number, &ok);
-    if( ok )
-    {
-        return QString::number(i_number);
-    }
-    QLocale persianLocale = QLocale::Persian;
-    i_number = persianLocale.toInt(number, &ok);
-    if( ok )
-    {
-        return QString::number(i_number);
-    }
-    return HHM_FAILED_CONVERT;
 }
 
 //Print in qDebug and LOG_FILE
