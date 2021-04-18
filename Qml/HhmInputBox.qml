@@ -1,5 +1,4 @@
 import QtQuick 2.0
-//import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Controls 2.5
 
@@ -110,7 +109,7 @@ Item
             }
             font.family: font_name_input_box
             font.pixelSize: font_size_input_box
-            selectByMouse: true
+            selectByMouse: !isEnabled
             text: text_input_box
             horizontalAlignment: textAlign
             background: Rectangle
@@ -130,7 +129,8 @@ Item
             }
             selectedTextColor: "#222"
             selectionColor: "#888"
-            readOnly: !isEnabled
+//            readOnly: !isEnabled
+            activeFocusOnPress: isEnabled
 
             onAccepted:
             {

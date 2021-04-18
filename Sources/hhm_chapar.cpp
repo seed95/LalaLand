@@ -81,7 +81,7 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
 
 void HhmChapar::loginUser(QString uname, QString pass)
 {
-    if(user->loadUser(uname, pass))
+    if( user->loadUser(uname, pass) )
     {
         QMetaObject::invokeMethod(ui, "loginSuccessfuly");
         mail->loadInboxEmails(user->getId());

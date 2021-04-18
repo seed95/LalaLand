@@ -353,6 +353,21 @@ Rectangle
 
     function addToBox()
     {
+        for(var i=0; i<listmodel_sidebar.count; i++)
+        {
+            if( root.case_number>listmodel_sidebar.get(i).caseNumber )
+            {
+                listmodel_sidebar.insert(i, {"docSubject" : root.subject,
+                                             "name" : root.sender_name,
+                                             "caseNumber" : root.case_number,
+                                             "docStatus" : root.doc_status,
+                                             "time" : root.r_email_date,
+                                             "docFilepath" : root.filepath,
+                                             "emailOpened" : root.email_opened,
+                                             "idEmail" : root.id_email_in_emails_table})
+                return
+            }
+        }
         listmodel_sidebar.append({"docSubject" : root.subject,
                                   "name" : root.sender_name,
                                   "caseNumber" : root.case_number,

@@ -2,6 +2,7 @@ import QtQuick 2.0
 
 Rectangle
 {
+    id: container
 
     property string icon: "\uf024"
     property string action: "New"
@@ -123,6 +124,7 @@ Rectangle
 
         onClicked:
         {
+            container.forceActiveFocus()
             buttonClicked()
         }
     }

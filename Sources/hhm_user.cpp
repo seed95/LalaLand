@@ -8,19 +8,12 @@ HhmUser::HhmUser(QObject *item, HhmDatabase *database, QObject *parent) : QObjec
 
 bool HhmUser::loadUser(QString username, QString password)
 {
-    //Check duplicate case number
     QString condition = "`" + QString(HHM_USER_PASSWORD) + "`=BINARY\"" + password + "\"";//Add BINARY for case sensitive comparisons
     condition += " AND `" + QString(HHM_USER_USERNAME) + "`=\"" + username + "\"";
     QSqlQuery res = db->select("*", HHM_TABLE_USER, condition);
-    if( res.size()==0 )
+    if( !res.next() )
     {
         hhm_showMessage("Username or Password is wrong", 2000);
-        return false;
-    }
-
-    if(!res.next())
-    {
-        qDebug() << "Can't load user" << username;
         return false;
     }
 
@@ -31,7 +24,7 @@ bool HhmUser::loadUser(QString username, QString password)
     }
     else
     {
-        qDebug() << "id is not valid";
+        hhm_log("id is not valid");
     }
 
     data = res.value(HHM_USER_FIRSTNAME);
@@ -41,7 +34,7 @@ bool HhmUser::loadUser(QString username, QString password)
     }
     else
     {
-        qDebug() << "First name is not valid";
+        hhm_log("First name is not valid");
     }
 
     data = res.value(HHM_USER_LASTNAME);
@@ -51,7 +44,7 @@ bool HhmUser::loadUser(QString username, QString password)
     }
     else
     {
-        qDebug() << "Last name is not valid";
+        hhm_log("Last name is not valid");
     }
 
     data = res.value(HHM_USER_USERNAME);
@@ -61,7 +54,7 @@ bool HhmUser::loadUser(QString username, QString password)
     }
     else
     {
-        qDebug() << "Username is not valid";
+        hhm_log("Username is not valid");
     }
 
     data = res.value(HHM_USER_LASTLOGIN);
@@ -71,7 +64,7 @@ bool HhmUser::loadUser(QString username, QString password)
     }
     else
     {
-        qDebug() << "Last login time is not valid";
+        hhm_log("Last login time is not valid");
     }
 
     data = res.value(HHM_USER_STATUS);
@@ -81,7 +74,7 @@ bool HhmUser::loadUser(QString username, QString password)
     }
     else
     {
-        qDebug() << "Status is not valid";
+        hhm_log("Status is not valid");
     }
 
     data = res.value(HHM_USER_BIO);
@@ -91,7 +84,7 @@ bool HhmUser::loadUser(QString username, QString password)
     }
     else
     {
-        qDebug() << "bio is not valid";
+        hhm_log("bio is not valid");
     }
 
     data = res.value(HHM_USER_IMAGE);
@@ -101,7 +94,18 @@ bool HhmUser::loadUser(QString username, QString password)
     }
     else
     {
-        qDebug() << "image is not valid";
+        hhm_log("image is not valid");
+    }
+
+    //Check HHM_TABLE_USER_EMAIL for this id
+    condition = "`" + QString(HHM_UE_USER_ID) + "`='" + QString::number(getId()) + "'";
+    res = db->select("*", HHM_TABLE_USER_EMAIL, condition);
+    if( !res.next() )//User not exist in table HHM_TABLE_USER_EMAIL
+    {
+        hhm_log("Add user with id " + QString::number(getId()) + " in table " + HHM_TABLE_USER_EMAIL);
+        QString columns  = "`" + QString(HHM_UE_USER_ID) + "`";
+        QString values  = "'" + QString::number(getId()) + "'";
+        db->insert(HHM_TABLE_USER_EMAIL, columns, values);
     }
 
     printUser();

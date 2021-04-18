@@ -259,7 +259,7 @@ bool HhmMail::updateEmail(QString field, int userId, int emailId)
         }
         else
         {
-            emails += "," + QString::number(emailId);
+            emails = QString::number(emailId) + "," + emails;
         }
         condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(userId);
         QString value = "`" + QString(field) + "`='" + emails + "'";
