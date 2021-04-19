@@ -16,6 +16,7 @@ void hhm_setStatus(QString status);
 void hhm_showMessage(QString msg, int interval=1000);
 
 QString hhm_getServerIP();
+bool hhm_rtlIsEnable();
 
 void hhm_log(QString msg);
 

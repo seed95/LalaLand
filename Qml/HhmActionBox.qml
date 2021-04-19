@@ -3,7 +3,7 @@ import QtQuick 2.0
 Rectangle
 {
 
-    color: "#3d598b"
+    color: "#365488"
 
     Item
     {
@@ -143,7 +143,7 @@ Rectangle
     {
         id: rtl_rect_text
         height: parent.height
-        width: 130
+        width: 144
         anchors.left: parent.left
         anchors.top: parent.top
         color: "transparent"
@@ -155,12 +155,10 @@ Rectangle
             text: "قوه قضاییه عراق"
             anchors.right: parent.right
             anchors.top: parent.top
-            anchors.rightMargin: 16
-            anchors.topMargin: 5
+            anchors.topMargin: 8
             color: "#c8c8c8"
-            font.family: fontSansRegular.name
-            font.weight: Font.Bold
-            font.pixelSize: 14
+            font.family: fontSansBold.name
+            font.pixelSize: 17
         }
 
         Text
@@ -169,18 +167,17 @@ Rectangle
             text: "دفتر استراتژیک و برنامه ریزی"
             anchors.right: parent.right
             anchors.top: department_rtl.bottom
-            anchors.rightMargin: 16
             color: "#c8c8c8"
             font.family: fontSansRegular.name
             font.weight: Font.Normal
-            font.pixelSize: 12
+            font.pixelSize: 15
         }
 
     }
 
     Item
     {
-        id: ltr_action_box
+        id: action_box
         anchors.fill: parent
         anchors.left: parent.left
         anchors.top: parent.top
@@ -315,7 +312,7 @@ Rectangle
 
     Rectangle
     {
-        id: ltr_rect_text
+        id: rect_text
         height: parent.height
         width: 130
         anchors.right: parent.right

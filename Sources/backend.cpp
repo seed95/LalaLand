@@ -85,6 +85,16 @@ QString hhm_getServerIP()
     return server_ip;
 }
 
+bool hhm_rtlIsEnable()
+{
+    QVariant data = QQmlProperty::read(ui, "rtl");
+    if( data.isValid() )
+    {
+        return data.toInt();
+    }
+    return false;
+}
+
 //Print in qDebug and LOG_FILE
 void hhm_log(QString msg)
 {

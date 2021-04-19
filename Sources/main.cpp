@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     QTranslator *translator = new QTranslator();
     translator->load(":/Translators/HHM_ar.qm");
     QCoreApplication::instance()->installTranslator(translator);
-    engine.retranslate();
+//    engine.retranslate();
 
     hhm_log("-------------------------Start Document Manager-------------------------");
     hhm_setBackendUI(mainItem);

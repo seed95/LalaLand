@@ -23,10 +23,9 @@ Rectangle
             id: title1_rtl
             anchors.right: parent.right
             anchors.top: parent.top
-            anchors.topMargin: 6
+            anchors.topMargin: 10
             text: root.news_title1 + ": "
-            font.family: fontSansRegular.name
-            font.weight: Font.Bold
+            font.family: fontSansBold.name
             font.pixelSize: 13
             color: color_text
         }
@@ -36,10 +35,9 @@ Rectangle
             id: content1_rtl
             anchors.right: title1_rtl.left
             anchors.top: parent.top
-            anchors.topMargin: 2
+            anchors.topMargin: 6
             text: root.news_content1
             font.family: fontSansRegular.name
-            font.weight: Font.Normal
             font.pixelSize: 13
             color: color_text
         }
@@ -48,11 +46,9 @@ Rectangle
         {
             id: date1_rtl
             anchors.right: content1_rtl.left
-            anchors.top: parent.top
-            anchors.topMargin: 2
+            anchors.top: content1_rtl.top
             text: " (" + root.news_date1 + ")"
             font.family: fontSansRegular.name
-            font.weight: Font.Normal
             font.pixelSize: 13
             color: color_text
         }
@@ -64,8 +60,7 @@ Rectangle
             anchors.top: title1_rtl.bottom
             anchors.topMargin: 6
             text: root.news_title2 + ": "
-            font.family: fontSansRegular.name
-            font.weight: Font.Bold
+            font.family: fontSansBold.name
             font.pixelSize: 13
             color: color_text
         }

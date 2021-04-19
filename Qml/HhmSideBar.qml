@@ -46,10 +46,9 @@ Rectangle
             id: inbox_rtl
             text: qsTr("دریافتی")
             anchors.right: parent.right
-            anchors.rightMargin: 41
+            anchors.rightMargin: 28
             anchors.verticalCenter: parent.verticalCenter
-            font.family: fontSansRegular.name
-            font.weight: Font.Bold
+            font.family: fontSansBold.name
             font.pixelSize: 14
             color:
             {
@@ -102,10 +101,9 @@ Rectangle
             id: outbox_rtl
             text: qsTr("ارسالی")
             anchors.right: inbox_rtl.left
-            anchors.rightMargin: 25
+            anchors.rightMargin: 20
             anchors.verticalCenter: parent.verticalCenter
-            font.family: fontSansRegular.name
-            font.weight: Font.Bold
+            font.family: fontSansBold.name
             font.pixelSize: 14
             color:
             {
@@ -306,6 +304,7 @@ Rectangle
         delegate: HhmSideBarElement
         {
             width: container.width
+            text_username: senderUsername
             text_subject: docSubject
             text_name: name
             case_number: caseNumber
@@ -315,6 +314,7 @@ Rectangle
             id_email_in_emails_table: idEmail
             isRead: emailOpened
             text_filepath: docFilepath
+            receiver_names: receiverNames
 
             onEmailClicked:
             {
@@ -338,6 +338,9 @@ Rectangle
                     obj.text_time = time
                     obj.doc_status = docStatus
                     obj.download_filepath = docFilepath
+                    obj.text_subject = docSubject
+                    obj.text_username = senderUsername
+                    obj.text_to = receiverNames
 
                     if( !emailOpened )
                     {
@@ -383,10 +386,12 @@ Rectangle
             {
                 console.log("Update document with case number " + root.case_number)
                 listmodel_sidebar.get(i).docSubject = root.subject
+                listmodel_sidebar.get(i).senderUsername = root.sender_username
                 listmodel_sidebar.get(i).name = root.sender_name
                 listmodel_sidebar.get(i).docStatus = root.doc_status
                 listmodel_sidebar.get(i).time = root.r_email_date
                 listmodel_sidebar.get(i).docFilepath = root.filepath
+                listmodel_sidebar.get(i).receiverNames = root.receiver_names
                 listmodel_sidebar.get(i).emailOpened = root.email_opened
                 listmodel_sidebar.get(i).idEmail = root.id_email_in_emails_table
                 return
@@ -395,22 +400,26 @@ Rectangle
             if( root.case_number>listmodel_sidebar.get(i).caseNumber )
             {
                 listmodel_sidebar.insert(i, {"docSubject" : root.subject,
+                                             "senderUsername": root.sender_username,
                                              "name" : root.sender_name,
                                              "caseNumber" : root.case_number,
                                              "docStatus" : root.doc_status,
                                              "time" : root.r_email_date,
                                              "docFilepath" : root.filepath,
+                                             "receiverNames" : root.receiver_names,
                                              "emailOpened" : root.email_opened,
                                              "idEmail" : root.id_email_in_emails_table})
                 return
             }
         }
         listmodel_sidebar.append({"docSubject" : root.subject,
+                                  "senderUsername": root.sender_username,
                                   "name" : root.sender_name,
                                   "caseNumber" : root.case_number,
                                   "docStatus" : root.doc_status,
                                   "time" : root.r_email_date,
                                   "docFilepath" : root.filepath,
+                                  "receiverNames" : root.receiver_names,
                                   "emailOpened" : root.email_opened,
                                   "idEmail" : root.id_email_in_emails_table})
     }

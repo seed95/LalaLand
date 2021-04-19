@@ -10,11 +10,10 @@ Rectangle
     height: 40
     color: "#e1e1e1"
 
-    Rectangle
+    Item
     {
         id: rect_rtl
         anchors.fill: parent
-        color: "transparent"
         visible: root.rtl
 
         Rectangle
@@ -23,7 +22,7 @@ Rectangle
             height: parent.height
             width: 30
             anchors.left: parent.left
-            anchors.leftMargin: 2
+            anchors.leftMargin: 5
             anchors.verticalCenter: parent.verticalCenter
             color: "transparent"
 
@@ -90,20 +89,20 @@ Rectangle
             Text
             {
                 id: icon_search_rtl
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
+                anchors.rightMargin: 7
                 text: "\uf002"
                 color: "#969696"
                 font.family: fontAwesomeSolid.name
                 font.pixelSize: 12
-                anchors.verticalCenter: parent.verticalCenter
-                anchors.right: parent.right
-                anchors.rightMargin: 15
             }
 
             TextField
             {
                 id: text_search_rtl
                 anchors.right: icon_search_rtl.left
-                anchors.rightMargin: 4
+                anchors.rightMargin: 2
                 font.family: fontSansRegular.name
                 font.weight: Font.Normal
                 font.pixelSize: 13
@@ -150,7 +149,6 @@ Rectangle
 
     Rectangle
     {
-        id: rect_ltr
         anchors.fill: parent
         color: "transparent"
         visible: !root.rtl

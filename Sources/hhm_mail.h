@@ -21,6 +21,14 @@ typedef struct HhmEmailTable
     int receiveEmail;//0,1
 } HhmEmailTable;
 
+typedef struct HhmUserTable
+{
+    int userId;
+    QString firstname;
+    QString lastname;//0,1
+    QString username;//0,1
+} HhmUserTable;
+
 class HhmMail : public QObject
 {
     Q_OBJECT
@@ -45,6 +53,7 @@ private:
     void updateDocument(QString caseNumber, QString filepath, int senderId, int receiverId, QString subject, QString senderName);
     int addNewEmail(QString caseNumber);
     bool updateEmail(QString field, int userId, int emailId);
+    HhmUserTable getUser(int idUser);
 
 private:
     QObject *ui;

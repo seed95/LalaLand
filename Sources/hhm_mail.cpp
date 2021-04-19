@@ -80,40 +80,75 @@ void HhmMail::showEmailInSidebar(QStringList emailIds)
         if(res.next())
         {
             QVariant data = res.value(HHM_DOCUMENT_CASENUMBER);
-            if(data.isValid())
+            if( data.isValid() )
             {
                 QQmlProperty::write(ui, "case_number", data.toInt());
             }
 
             data = res.value(HHM_DOCUMENT_SENDER_NAME);
-            if(data.isValid())
+            if( data.isValid() )
             {
                 QQmlProperty::write(ui, "sender_name", data.toString());
             }
 
             data = res.value(HHM_DOCUMENT_SUBJECT);
-            if(data.isValid())
+            if( data.isValid() )
             {
                 QQmlProperty::write(ui, "subject", data.toString());
             }
 
             data = res.value(HHM_DOCUMENT_FILEPATH);
-            if(data.isValid())
+            if( data.isValid() )
             {
                 QQmlProperty::write(ui, "filepath", data.toString());
             }
 
             data = res.value(HHM_DOCUMENT_STATUS);
-            if(data.isValid())
+            if( data.isValid() )
             {
                 QQmlProperty::write(ui, "doc_status", data.toInt());
             }
 
             data = res.value(HHM_DOCUMENT_DATE);
-            if(data.isValid())
+            if( data.isValid() )
             {
-                QString datetime = data.toDateTime().toString("hh:mmAP");
-                QQmlProperty::write(ui, "r_email_date", datetime);
+                QString date;
+                if( hhm_rtlIsEnable() )
+                {
+                    QLocale ar_localce(QLocale::Arabic);
+                    date = ar_localce.toString(data.toDateTime(), "hh:mm");
+                }
+                else
+                {
+                    date = data.toDateTime().toString("hh:mmAP");
+                }
+                QQmlProperty::write(ui, "r_email_date", date);
+            }
+
+            data = res.value(HHM_DOCUMENT_SENDER_ID);
+            if( data.isValid() )
+            {
+                HhmUserTable sender_user = getUser(data.toInt());
+                QQmlProperty::write(ui, "sender_username", sender_user.username);
+            }
+
+            data = res.value(HHM_DOCUMENT_RECEIVER_IDS);
+            if( data.isValid() )
+            {
+                QStringList receiver_names;
+                QStringList receiver_ids = data.toString().split(",", QString::SkipEmptyParts);
+                for(int i=0; i<receiver_ids.length(); i++)
+                {
+                    HhmUserTable receiver_user = getUser(receiver_ids[i].toInt());
+
+                    receiver_names.append(receiver_user.firstname + " " + receiver_user.lastname);
+                }
+                QString separator = ",";
+                if( hhm_rtlIsEnable() )
+                {
+                    separator = "،";
+                }
+                QQmlProperty::write(ui, "receiver_names", receiver_names.join(separator));
             }
 
             QQmlProperty::write(ui, "id_email_in_emails_table", emailIds.at(i));
@@ -159,6 +194,36 @@ HhmEmailTable HhmMail::getEmail(int idEmail)
 
     }
     return email;
+}
+
+HhmUserTable HhmMail::getUser(int idUser)
+{
+    QString condition = "`" + QString(HHM_USER_ID) + "`=" + QString::number(idUser);
+    QSqlQuery res = db->select("*", HHM_TABLE_USER, condition);
+    HhmUserTable user;
+    if( res.next() )
+    {
+        user.userId = idUser;
+        QVariant data = res.value(HHM_USER_FIRSTNAME);
+        if( data.isValid() )
+        {
+            user.firstname = data.toString();
+        }
+
+        data = res.value(HHM_USER_LASTNAME);
+        if( data.isValid() )
+        {
+            user.lastname = data.toString();
+        }
+
+        data = res.value(HHM_USER_USERNAME);
+        if( data.isValid() )
+        {
+            user.username = data.toString();
+        }
+
+    }
+    return user;
 }
 
 //return in csv format

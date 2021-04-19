@@ -40,6 +40,8 @@ Window
     property int    id_email_in_emails_table:   1 //Save this value for change mode email(open)
     property bool   email_opened:               false
     property string filepath:                   ""
+    property string sender_username:            ""
+    property string receiver_names:             ""
 
     //Properties for new email
     property bool   createNewEmail:     false           //When click on new button to create new email
@@ -124,12 +126,11 @@ Window
         source: "qrc:/Fonts/Roboto-Light.ttf"
     }
 
-
-//    FontLoader
-//    {
-//        id: fontSansBold
-//        source: "qrc:/Fonts/IranSans-Bold.ttf"
-//    }
+    FontLoader
+    {
+        id: fontSansBold
+        source: "qrc:/Fonts/BijanSans.ttf"
+    }
     FontLoader
     {
         id: fontSansRegular

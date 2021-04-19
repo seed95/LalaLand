@@ -3,7 +3,7 @@ import QtQuick 2.0
 Item
 {
 
-    property int case_number: con.id_NO_SELECTED_ITEM
+    property int    case_number: con.id_NO_SELECTED_ITEM
     property string text_name: "Cassie Hicks"
     property int    doc_status: 1
     property string text_user: "User #1"
@@ -11,6 +11,7 @@ Item
     property string text_email: text_username + "@" + root.domain
     property string text_time: "12:15PM"
     property string text_to: "April Robegan, Jamie Reading"
+    property string text_subject: ""
     property string download_filepath: ""
 
     Item
@@ -23,26 +24,26 @@ Item
 
         Text
         {
-            id: label_name_rtl
-            text: text_name
-            font.family: fontRobotoRegular.name
-            font.pixelSize: 36
+            id: label_subject_rtl
+            text: text_subject
             anchors.right: parent.right
-            anchors.rightMargin: 22
-            anchors.topMargin: 4
+            anchors.rightMargin: 24
+            anchors.topMargin: 18
             anchors.top: parent.top
+            font.family: fontSansBold.name
+            font.pixelSize: 40
             color: "#5a5a5a"
         }
 
         Rectangle
         {
             id: rect_status_rtl
-            width: 220
+            width: 200
             height: 30
             anchors.left: parent.left
-            anchors.leftMargin: 45
+            anchors.leftMargin: 16
             anchors.top: parent.top
-            anchors.topMargin: 20
+            anchors.topMargin: 22
             color: "transparent"
 
             Text
@@ -50,9 +51,9 @@ Item
                 id: label_status_rtl
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                text: "وضعیت پرونده: "
-                font.family: fontRobotoMedium.name
-                font.weight: Font.Medium
+                text: qsTr("وضعیت پرونده: ")
+                font.family: fontSansRegular.name
+                font.weight: Font.Normal
                 font.pixelSize: 20
                 color: "#5a5a5a"
             }
@@ -61,24 +62,23 @@ Item
             {
                 anchors.right: label_status_rtl.left
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.verticalCenterOffset: 2
                 text:
                 {
                     if( doc_status===con.id_DOC_STATUS_SUCCESS )
                     {
-                        "تایید شده"
+                        con.hhm_TEXT_DOC_STATUS_SUCCESS
                     }
                     else if( doc_status===con.id_DOC_STATUS_PENDING )
                     {
-                        "در انتظار تایید"
+                        con.hhm_TEXT_DOC_STATUS_PENDING
                     }
                     else if( doc_status===con.id_DOC_STATUS_FAILED )
                     {
-                        "لغو شده"
+                        con.hhm_TEXT_DOC_STATUS_FAILED
                     }
                 }
-                font.family: fontRobotoRegular.name
-                font.pixelSize: 17
+                font.family: fontSansRegular.name
+                font.pixelSize: 20
                 color:
                 {
                     if( doc_status===con.id_DOC_STATUS_SUCCESS )
@@ -100,12 +100,11 @@ Item
         Rectangle
         {
             id: split_line_rtl
-            anchors.right: label_name_rtl.right
-            anchors.rightMargin: 3
-            anchors.top: label_name_rtl.bottom
-            anchors.topMargin: 13
             width: 940
             height: 1
+            anchors.right: label_subject_rtl.right
+            anchors.top: label_subject_rtl.bottom
+            anchors.topMargin: 8
             color: "#646464"
         }
 
@@ -114,8 +113,7 @@ Item
             id: rect_user_rtl
             width: 111
             height: width
-            anchors.right: label_name_rtl.right
-            anchors.rightMargin: 3
+            anchors.right: label_subject_rtl.right
             anchors.top: split_line_rtl.bottom
             anchors.topMargin: -1
             color: "#c8c8c8"
@@ -140,9 +138,9 @@ Item
                 anchors.bottom: parent.bottom
                 anchors.bottomMargin: 12
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: text_user
+                text: text_username
                 font.family: fontRobotoRegular.name
-                font.pixelSize: 20
+                font.pixelSize: 22
                 color: "#5a5a5a"
             }
 
@@ -159,27 +157,28 @@ Item
 
             Text
             {
-                id: label_username_rtl
-                text: text_username
+                id: label_name_rtl
+                text: text_name
                 anchors.right: parent.right
                 anchors.rightMargin: 34
                 anchors.top: parent.top
-                anchors.topMargin: 9
-                font.family: fontRobotoRegular.name
-                font.pixelSize: 25
+                anchors.topMargin: 7
+                font.family: fontSansRegular.name
+                font.weight: Font.Normal
+                font.pixelSize: 27
                 color: "#5a5a5a"
             }
 
             Text
             {
                 id: label_email_rtl
-                text: "(" +  text_email + ")"
-                anchors.right: label_username_rtl.left
+                text: "(" +  text_username + "@" + root.domain + ")"
+                anchors.right: label_name_rtl.left
                 anchors.rightMargin: 6
                 anchors.top: parent.top
-                anchors.topMargin: 9
+                anchors.topMargin: 13
                 font.family: fontRobotoRegular.name
-                font.pixelSize: 25
+                font.pixelSize: 18
                 color: "#5a5a5a"
             }
 
@@ -188,11 +187,12 @@ Item
                 id: label_time_rtl
                 text: text_time
                 anchors.top: parent.top
-                anchors.topMargin: 19
+                anchors.topMargin: 17
                 anchors.left: parent.left
-                anchors.leftMargin: 169
-                font.family: fontRobotoRegular.name
-                font.pixelSize: 12
+                anchors.leftMargin: 306
+                font.family: fontSansRegular.name
+                font.weight: Font.Normal
+                font.pixelSize: 16
                 color: "#646464"
             }
 
@@ -202,7 +202,7 @@ Item
                 width: 60
                 height: childrenRect.height
                 anchors.left: parent.left
-                anchors.leftMargin: 25
+                anchors.leftMargin: 20
                 anchors.top: label_time_rtl.top
                 color: "transparent"
 
@@ -211,9 +211,9 @@ Item
                     id: label_download_rtl
                     anchors.right: parent.right
                     anchors.top: parent.top
-                    text: "دانلود"
-                    font.family: fontRobotoRegular.name
-                    font.pixelSize: 12
+                    text: qsTr("دانلود")
+                    font.family: fontSansBold.name
+                    font.pixelSize: 17
                     color: "#3c598c"
 
                 }
@@ -222,7 +222,7 @@ Item
                 {
                     id: icon_download_rtl
                     anchors.right: label_download_rtl.left
-                    anchors.rightMargin: 7
+                    anchors.rightMargin: 13
                     anchors.top: parent.top
                     anchors.topMargin: 2
                     text: "\uf078"
@@ -247,11 +247,12 @@ Item
             Text
             {
                 id: label_to_rtl
-                text: "To: " + text_to
-                anchors.right: label_username_rtl.right
-                anchors.top: label_username_rtl.bottom
-                anchors.topMargin: 4
-                font.family: fontRobotoRegular.name
+                text: qsTr("به: ") + text_to
+                anchors.right: label_name_rtl.right
+                anchors.top: label_name_rtl.bottom
+                anchors.topMargin: -2
+                font.family: fontSansRegular.name
+                font.weight: Font.Normal
                 font.pixelSize: 18
                 color: "#646464"
             }

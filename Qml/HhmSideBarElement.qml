@@ -39,6 +39,7 @@ Rectangle
     property string text_name:                  "Cassie Hicks"
     property string text_username:              "Admin"
     property string text_filepath:              "Filename.pdf"
+    property string receiver_names: value
 
     property bool isHovered:    false
     property bool isActive:     false
@@ -47,8 +48,8 @@ Rectangle
 
     signal emailClicked()
 
-    color: color_background
     height: 60
+    color: color_background
 
     Item
     {
@@ -73,7 +74,6 @@ Rectangle
                     "\uf0e0"
                 }
             }
-
             font.family:
             {
                 if( isRead )
@@ -118,8 +118,8 @@ Rectangle
         {
             id: label_subject_rtl
             text: text_subject
-            font.family: fontRobotoMedium.name
-            font.weight: Font.Medium
+            font.family: fontSansRegular.name
+            font.weight: Font.Normal
             font.pixelSize: 18
             anchors.right: label_read_rtl.left
             anchors.rightMargin: 10
@@ -149,18 +149,18 @@ Rectangle
             {
                 if( doc_status===con.id_DOC_STATUS_SUCCESS )
                 {
-                    "تایید"
+                    con.hhm_TEXT_DOC_STATUS_SUCCESS
                 }
                 else if( doc_status===con.id_DOC_STATUS_PENDING )
                 {
-                    "در انتظار تایید"
+                    con.hhm_TEXT_DOC_STATUS_PENDING
                 }
                 else if( doc_status===con.id_DOC_STATUS_FAILED )
                 {
-                    "لغو"
+                    con.hhm_TEXT_DOC_STATUS_FAILED
                 }
             }
-            font.family: fontRobotoRegular.name
+            font.family: fontSansRegular.name
             font.weight: Font.Normal
             font.pixelSize: 15
             anchors.right: label_subject_rtl.right

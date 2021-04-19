@@ -12,4 +12,9 @@ Item
     property int id_EMAIL_MODE_INBOX :  1
     property int id_EMAIL_MODE_OUTBOX:  2
 
+
+    property string hhm_TEXT_DOC_STATUS_SUCCESS: qsTr("خاتمه یافته")
+    property string hhm_TEXT_DOC_STATUS_PENDING: qsTr("در انتظار تایید")
+    property string hhm_TEXT_DOC_STATUS_FAILED:  qsTr("لغو شده")
+
 }

@@ -15,7 +15,7 @@ HhmDatabase::HhmDatabase(QObject *parent) : QObject(parent)
     }
     else
     {
-        hhm_setServerStatus("Not connected to " + hhm_getServerIP() + ":" + QString::number(SERVER_PORT));
+        hhm_setServerStatus("Cannot connect to " + hhm_getServerIP() + ":" + QString::number(SERVER_PORT));
     }
 }
 
