@@ -117,7 +117,7 @@ Rectangle
         Text
         {
             id: label_subject_rtl
-            text: text_subject
+            text: root.sliceString(text_subject, 20)
             font.family: fontSansRegular.name
             font.weight: Font.Normal
             font.pixelSize: 18
@@ -346,7 +346,7 @@ Rectangle
         Text
         {
             id: label_subject
-            text: text_subject
+            text: root.sliceString(text_subject, 20)
             font.family: fontRobotoMedium.name
             font.weight: Font.Medium
             font.pixelSize: 18

@@ -63,7 +63,7 @@ QString hhm_getServerIP()
             QString data = conf.readAll();
             if(data.isEmpty())
             {
-               hhm_setStatus(QString(HHM_CONFIG_FILE) + "is empty");
+               hhm_setStatus(QString(HHM_CONFIG_FILE) + QObject::tr("is empty"));
             }
             else
             {
@@ -73,13 +73,13 @@ QString hhm_getServerIP()
                 }
                 else
                 {
-                    hhm_setStatus("Server ip not found in" + QString(HHM_CONFIG_FILE));
+                    hhm_setStatus(QObject::tr("Server ip not found in") + QString(HHM_CONFIG_FILE));
                 }
             }
         }
         else
         {
-            hhm_setStatus("Cann't open " + QString(HHM_CONFIG_FILE));
+            hhm_setStatus(QObject::tr("Cann't open ") + QString(HHM_CONFIG_FILE));
         }
     }
     return server_ip;

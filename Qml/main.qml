@@ -7,6 +7,7 @@ Window
     id: root
 
     property bool rtl: true //Right to Left
+    property bool fontOffset: false
 
     property string app_status:     "Updated from server 12:20PM"
     property string login_status:   "Server connected"
@@ -129,7 +130,7 @@ Window
     FontLoader
     {
         id: fontSansBold
-        source: "qrc:/Fonts/BijanSans.ttf"
+        source: "qrc:/Fonts/BijanSans.otf"
     }
     FontLoader
     {
@@ -330,7 +331,7 @@ Window
         }
 
         obj.finishSync()
-        root.app_status = "Updated from server " + (Qt.formatTime(new Date(),"hh:mmAP"))
+        root.app_status = qsTr("Updated from server ") + (Qt.formatTime(new Date(),"hh:mmAP"))
     }
 
     function loginSuccessfuly()
@@ -349,6 +350,17 @@ Window
     {
         createNewEmail = false
         syncEmail()
+    }
+
+    function usernameNotFound()
+    {
+        var obj = new_email
+        if( root.rtl )
+        {
+            obj = new_email_rtl
+        }
+
+        obj.receiverUsernameNotFound()
     }
 
     /*** Call this function from qml ***/
@@ -403,6 +415,19 @@ Window
     function isDocSelected()
     {
         return root.selected_doc_case_number!==con.id_NO_SELECTED_ITEM
+    }
+
+    /*** Utilities functions ***/
+
+    //Slice string from 0 with amount len
+    //and add '...' to end text
+    function sliceString(text, len)
+    {
+        if( text.length>len )
+        {
+            return text.slice(0, len) + "..."
+        }
+        return text
     }
 
     //Convert english number to arabic number

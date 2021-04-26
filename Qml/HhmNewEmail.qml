@@ -3,7 +3,7 @@ import QtQuick 2.0
 Item
 {
     property string text_to:        "username@" + root.domain
-    property string text_subject:   root.rtl ? qsTr("موضوع") : "Subject"
+    property string text_subject:   root.rtl ? qsTr("الموضوع") : "Subject"
     property string text_file_path: ""
 
     onVisibleChanged:
@@ -43,7 +43,7 @@ Item
             anchors.top: parent.top
             anchors.topMargin: 18
             width_box: 500
-            text_label: qsTr("از:")
+            text_label: qsTr("من:")
             text_input_box: root.username + "@" + root.domain
             left_margin: 48
         }
@@ -57,7 +57,7 @@ Item
             anchors.rightMargin: 50
             anchors.top: from_input_box_rtl.bottom
             width_box: 500
-            text_label: qsTr("به:")
+            text_label: qsTr("الى:")
             text_input_box: text_to
             left_margin: 46
             isEnabled: true
@@ -75,9 +75,9 @@ Item
             height: 40
             anchors.top: to_input_box_rtl.top
             anchors.right: to_input_box_rtl.left
-            anchors.rightMargin: 60
+            anchors.rightMargin: 86
             width_box: 150
-            text_label: qsTr("شماره پرونده:")
+            text_label: qsTr("رقم لسجل:")
             text_input_box: root.en2ar(root.new_case_number)
             left_margin: 15
             textAlign: TextInput.AlignRight
@@ -257,7 +257,6 @@ Item
 
     }
 
-
     function getSubject()
     {
         var obj = subject_input_box
@@ -272,28 +271,13 @@ Item
     {
         rect_upload.visible = false
         label_file.visible = true
-        text_file_path = root.selected_file_path
+        text_file_path = root.selected_file_path.replace(/^.*[\\\/]/, '')//show file name from full path
     }
 
-//    function compeleteItems()
-//    {
-//        if( text_file_path==="" )
-//        {
-//            root.error_msg = "Please choose a document"
-//            root.d_error_msg = 2000
-//            root.showMessage()
-//            return false
-//        }
-
-//        if( getSubject()===text_subject )
-//        {
-//            root.error_msg = "Please write a subject"
-//            root.d_error_msg = 2000
-//            root.showMessage()
-//            return false
-//        }
-
-//        return true
-//    }
+    function receiverUsernameNotFound()
+    {
+        to_input_box_rtl.isError = true
+        to_input_box.isError = true
+    }
 
 }

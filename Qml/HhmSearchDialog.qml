@@ -1,6 +1,5 @@
 import QtQuick 2.0
-import QtQuick.Controls 1.4
-import QtQuick.Controls.Styles 1.4
+import QtQuick.Controls 2.5
 
 Rectangle
 {
@@ -9,6 +8,9 @@ Rectangle
     width: 300
     height: 40
     color: "#e1e1e1"
+
+    signal searchCasenumber(string caseNumber)
+    signal changedFocus(string text)
 
     Item
     {
@@ -103,36 +105,68 @@ Rectangle
                 id: text_search_rtl
                 anchors.right: icon_search_rtl.left
                 anchors.rightMargin: 2
-                font.family: fontSansRegular.name
-                font.weight: Font.Normal
-                font.pixelSize: 13
+                anchors.left: parent.left
+                anchors.verticalCenter: parent.verticalCenter
                 text: hint_search
-                textColor: "#969696"
+                font.family: fontSansRegular.name
+                font.pixelSize: 13
                 horizontalAlignment: TextInput.AlignRight
-                style: TextFieldStyle
+                selectByMouse: true
+                color:
                 {
-                    background: Rectangle
+                    if( text===hint_search )
                     {
-                        color: "transparent"
+                        "#969696"
                     }
-                    selectedTextColor: "#222"
-                    selectionColor: "#888"
+                    else
+                    {
+                        "#464646"
+                    }
                 }
+                selectedTextColor: "#222"
+                selectionColor: "#888"
+                background: Rectangle
+                {
+                    color: "transparent"
+                }
+                validator: RegExpValidator { regExp: /\d+/ }
 
-                property string hint_search: qsTr("جستجوی پرونده")
+                property string hint_search: qsTr("البحث السجلات")
 
                 onFocusChanged:
                 {
-                    if(focus)
-                    {
-                        text = ""
-                    }
-                    else
+                    if( !focus )
                     {
                         if( text==="" )
                         {
                             text = hint_search
                         }
+
+                        if( text===hint_search )
+                        {
+                            changedFocus("")
+                        }
+                        else
+                        {
+                            changedFocus(text)
+                        }
+                    }
+                    else if( text===hint_search )
+                    {
+                        text = ""
+                    }
+                }
+
+                onAccepted:
+                {
+                    focus = false
+                }
+
+                onTextChanged:
+                {
+                    if( text!==hint_search )
+                    {
+                        searchCasenumber(text)
                     }
                 }
 
@@ -239,34 +273,68 @@ Rectangle
                 id: text_search
                 anchors.left: icon_search.right
                 anchors.leftMargin: 4
+                anchors.right: parent.right
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.verticalCenterOffset: 1
+                text: hint_search
                 font.family: fontRobotoRegular.name
                 font.pixelSize: 11
-                text: hint_search
-                textColor: "#969696"
-                style: TextFieldStyle
+                selectByMouse: true
+                color:
                 {
-                    background: Rectangle
+                    if( text===hint_search )
                     {
-                        color: "transparent"
+                        "#969696"
                     }
-                    selectedTextColor: "#222"
-                    selectionColor: "#888"
+                    else
+                    {
+                        "#464646"
+                    }
                 }
+                selectedTextColor: "#222"
+                selectionColor: "#888"
+                background: Rectangle
+                {
+                    color: "transparent"
+                }
+                validator: RegExpValidator { regExp: /\d+/ }
 
                 property string hint_search: "Search a document id"
 
                 onFocusChanged:
                 {
-                    if(focus)
-                    {
-                        text = ""
-                    }
-                    else
+                    if( !focus )
                     {
                         if( text==="" )
                         {
                             text = hint_search
                         }
+
+                        if( text===hint_search )
+                        {
+                            changedFocus("")
+                        }
+                        else
+                        {
+                            changedFocus(text)
+                        }
+                    }
+                    else if( text===hint_search )
+                    {
+                        text = ""
+                    }
+                }
+
+                onAccepted:
+                {
+                    focus = false
+                }
+
+                onTextChanged:
+                {
+                    if( text!==hint_search )
+                    {
+                        searchCasenumber(text)
                     }
                 }
 

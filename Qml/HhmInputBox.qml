@@ -1,5 +1,4 @@
 import QtQuick 2.0
-import QtQuick.Controls.Styles 1.4
 import QtQuick.Controls 2.5
 
 Item
@@ -46,8 +45,8 @@ Item
     property string auto_complete_text: ""
     property int    textAlign: TextInput.AlignLeft
 
-    property bool isEnabled: false
-    property bool isNumber:  false
+    property bool isEnabled:    false
+    property bool isError:      false
 
     signal inputChanged(string text)
 
@@ -74,7 +73,17 @@ Item
         anchors.verticalCenter: parent.verticalCenter
         color: color_background
         border.width: 1
-        border.color: "#aaaaaa"
+        border.color:
+        {
+            if( isError )
+            {
+                "red"
+            }
+            else
+            {
+                "#aaaaaa"
+            }
+        }
         radius: 5
         visible: root.rtl
 
@@ -109,7 +118,8 @@ Item
             }
             font.family: font_name_input_box
             font.pixelSize: font_size_input_box
-            selectByMouse: !isEnabled
+            selectByMouse: true
+            enabled: isEnabled
             text: text_input_box
             horizontalAlignment: textAlign
             background: Rectangle
@@ -118,7 +128,11 @@ Item
             }
             color:
             {
-                if( text===text_input_box )
+                if( isError )
+                {
+                    "red"
+                }
+                else if( text===text_input_box )
                 {
                     "#828282"
                 }
@@ -129,8 +143,6 @@ Item
             }
             selectedTextColor: "#222"
             selectionColor: "#888"
-//            readOnly: !isEnabled
-            activeFocusOnPress: isEnabled
 
             onAccepted:
             {
@@ -139,6 +151,7 @@ Item
 
             onFocusChanged:
             {
+                isError = false
                 if( !focus )
                 {
                     if( text==="" )

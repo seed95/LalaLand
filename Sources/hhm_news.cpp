@@ -7,6 +7,8 @@ HhmNews::HhmNews(QObject *item, HhmDatabase *database, int interval, QObject *pa
     news_ids = QList<int>();
     last_news_index = -1;
 
+    updateNews();
+
     //Instance timer
     hhm_log("Interval for news timer: " + QString::number(interval));
     timer = new QTimer();

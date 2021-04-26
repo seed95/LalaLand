@@ -13,7 +13,7 @@ bool HhmUser::loadUser(QString username, QString password)
     QSqlQuery res = db->select("*", HHM_TABLE_USER, condition);
     if( !res.next() )
     {
-        hhm_showMessage("Username or Password is wrong", 2000);
+        hhm_showMessage(tr("Username or Password is wrong"), 3000);
         return false;
     }
 

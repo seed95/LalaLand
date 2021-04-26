@@ -15,5 +15,6 @@
         <file>Fonts/IranSans-Light.ttf</file>
         <file>Fonts/IranSans-UltraLight.ttf</file>
         <file>Fonts/BijanSans.ttf</file>
+        <file>Fonts/BijanSans.otf</file>
     </qresource>
 </RCC>

@@ -25,10 +25,20 @@ Item
         Text
         {
             id: label_subject_rtl
-            text: text_subject
+            text: root.sliceString(text_subject, 40)
             anchors.right: parent.right
             anchors.rightMargin: 24
-            anchors.topMargin: 18
+            anchors.topMargin:
+            {
+                if( root.fontOffset )
+                {
+                    8
+                }
+                else
+                {
+                    18
+                }
+            }
             anchors.top: parent.top
             font.family: fontSansBold.name
             font.pixelSize: 40
@@ -104,7 +114,17 @@ Item
             height: 1
             anchors.right: label_subject_rtl.right
             anchors.top: label_subject_rtl.bottom
-            anchors.topMargin: 8
+            anchors.topMargin:
+            {
+                if( root.fontOffset )
+                {
+                    2
+                }
+                else
+                {
+                    8
+                }
+            }
             color: "#646464"
         }
 
@@ -162,7 +182,17 @@ Item
                 anchors.right: parent.right
                 anchors.rightMargin: 34
                 anchors.top: parent.top
-                anchors.topMargin: 7
+                anchors.topMargin:
+                {
+                    if( root.fontOffset )
+                    {
+                        3
+                    }
+                    else
+                    {
+                        7
+                    }
+                }
                 font.family: fontSansRegular.name
                 font.weight: Font.Normal
                 font.pixelSize: 27
@@ -200,7 +230,7 @@ Item
             {
                 id: rect_download_rtl
                 width: 60
-                height: childrenRect.height
+                height: 30
                 anchors.left: parent.left
                 anchors.leftMargin: 20
                 anchors.top: label_time_rtl.top
@@ -211,11 +241,21 @@ Item
                     id: label_download_rtl
                     anchors.right: parent.right
                     anchors.top: parent.top
+                    anchors.topMargin:
+                    {
+                        if( root.fontOffset )
+                        {
+                           0
+                        }
+                        else
+                        {
+                            0
+                        }
+                    }
                     text: qsTr("دانلود")
                     font.family: fontSansBold.name
                     font.pixelSize: 17
                     color: "#3c598c"
-
                 }
 
                 Text
@@ -224,7 +264,17 @@ Item
                     anchors.right: label_download_rtl.left
                     anchors.rightMargin: 13
                     anchors.top: parent.top
-                    anchors.topMargin: 2
+                    anchors.topMargin:
+                    {
+                        if( root.fontOffset )
+                        {
+                            6
+                        }
+                        else
+                        {
+                            2
+                        }
+                    }
                     text: "\uf078"
                     font.family: fontAwesomeSolid.name
                     font.pixelSize: 12
@@ -247,7 +297,7 @@ Item
             Text
             {
                 id: label_to_rtl
-                text: qsTr("به: ") + text_to
+                text: qsTr("الى: ") + text_to
                 anchors.right: label_name_rtl.right
                 anchors.top: label_name_rtl.bottom
                 anchors.topMargin: -2

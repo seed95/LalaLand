@@ -6,6 +6,7 @@
 #include <QQmlProperty>
 #include <QFile>
 #include <QDateTime>
+#include <QTranslator>
 
 #include "hhm_config.h"
 

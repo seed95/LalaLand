@@ -23,7 +23,17 @@ Rectangle
             id: title1_rtl
             anchors.right: parent.right
             anchors.top: parent.top
-            anchors.topMargin: 10
+            anchors.topMargin:
+            {
+                if( root.fontOffset )
+                {
+                    6
+                }
+                else
+                {
+                    10
+                }
+            }
             text: root.news_title1 + ": "
             font.family: fontSansBold.name
             font.pixelSize: 13
@@ -58,7 +68,17 @@ Rectangle
             id: title2_rtl
             anchors.right: parent.right
             anchors.top: title1_rtl.bottom
-            anchors.topMargin: 6
+            anchors.topMargin:
+            {
+                if( root.fontOffset )
+                {
+                    2
+                }
+                else
+                {
+                    6
+                }
+            }
             text: root.news_title2 + ": "
             font.family: fontSansBold.name
             font.pixelSize: 13
