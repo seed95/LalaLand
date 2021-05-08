@@ -7,7 +7,7 @@ HhmAttach::HhmAttach(QString server, QString username, QString password, QObject
     ftp_password = password;
 
     m_manager = new QNetworkAccessManager(this);
-    connect(m_manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishedRequest()));
+//    connect(m_manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(finishedRequest()));
 
     m_file = new QFile();
 
@@ -129,7 +129,7 @@ void HhmAttach::uploadError(QNetworkReply::NetworkError error)
     hhm_log("Upload error: " + m_response->errorString() + ", url: " + m_response->url().toString());
 }
 
-void HhmAttach::finishedRequest()
-{
-    qDebug() << "$$$$$$$$$$$";
-}
+//void HhmAttach::finishedRequest()
+//{
+//    qDebug() << "$$$$$$$$$$$";
+//}

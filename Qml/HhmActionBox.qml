@@ -137,6 +137,33 @@ Rectangle
             onButtonClicked: root.sendEmail()
         }
 
+        HhmActionButton
+        {
+            id: action_signout_rtl
+            height: parent.height
+            width: 100
+            anchors.right:
+            {
+                if( root.createNewEmail )
+                {
+
+                    action_send_rtl.left
+                }
+                else if( root.isDocSelected() )
+                {
+                    action_archive_rtl.left
+                }
+                else
+                {
+                    action_new_rtl.left
+                }
+            }
+            anchors.verticalCenter: parent.verticalCenter
+            icon: "\uf2f5"
+            action: qsTr("الخروج")
+            onButtonClicked: root.signOut()
+        }
+
     }
 
     Rectangle

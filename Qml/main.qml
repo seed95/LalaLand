@@ -164,6 +164,16 @@ Window
         }
     }
 
+    NumberAnimation
+    {
+        id: animateShowLogin
+        target: login
+        property: "opacity"
+        from: 0
+        to: 1
+        duration: 500
+    }
+
     //Main UI
     HhmConstants
     {
@@ -415,6 +425,16 @@ Window
     function isDocSelected()
     {
         return root.selected_doc_case_number!==con.id_NO_SELECTED_ITEM
+    }
+
+    function signOut()
+    {
+        login.visible = true
+        animateShowLogin.start()
+        root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
+        root.email_mode = con.id_EMAIL_MODE_INBOX
+        root.createNewEmail = false
+        root.selected_file_path = ""
     }
 
     /*** Utilities functions ***/
