@@ -1,10 +1,13 @@
 import QtQuick 2.0
+import QtQuick.Controls.Styles 1.4
+import QtQuick.Controls 2.5
 
 Item
 {
     property string text_to:        "username@" + root.domain
     property string text_subject:   root.rtl ? qsTr("الموضوع") : "Subject"
     property string text_file_path: ""
+    property bool input_visible: true
 
     onVisibleChanged:
     {
@@ -75,9 +78,9 @@ Item
             height: 40
             anchors.top: to_input_box_rtl.top
             anchors.right: to_input_box_rtl.left
-            anchors.rightMargin: 86
+            anchors.rightMargin: 60
             width_box: 150
-            text_label: qsTr("رقم لسجل:")
+            text_label: qsTr("رقم الارسال:")
             text_input_box: root.en2ar(root.new_case_number)
             left_margin: 15
             textAlign: TextInput.AlignRight
@@ -224,7 +227,7 @@ Item
             {
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.top: icon_upload.bottom
-                text: "Upload File"
+                text: "ارسال المستند"
                 font.family: fontRobotoMedium.name
                 font.pixelSize: 40
                 color: "#808080"
@@ -254,6 +257,235 @@ Item
                 root.uploadFileClicked()
             }
         }
+
+    }
+
+
+    Rectangle
+    {
+        id: rect_table
+        width: 650
+        height: 180
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.horizontalCenterOffset: -30
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 20
+        color: "transparent"
+        visible: input_visible
+
+        Item
+        {
+            id: row1
+            anchors.top: parent.top
+            anchors.left: parent.left
+            height: parent.height/4
+            width: parent.width
+
+            TextField
+            {
+                id: input1
+                width: parent.width/2
+                height: parent.height
+                anchors.top: parent.top
+                anchors.right: parent.right
+                selectByMouse: true
+                text: "Text1"
+                horizontalAlignment: TextInput.AlignRight
+                background: Rectangle
+                {
+                    color: "transparent"
+                    border.color: "#111"
+                    border.width: 1
+                }
+                color: "#464646"
+                selectedTextColor: "#222"
+                selectionColor: "#888"
+            }
+
+            TextField
+            {
+                id: input2
+                width: parent.width/2
+                height: parent.height
+                anchors.top: parent.top
+                anchors.right: input1.left
+                anchors.rightMargin:1
+                selectByMouse: true
+                text: "Text2"
+                horizontalAlignment: TextInput.AlignRight
+                background: Rectangle
+                {
+                    color: "transparent"
+                    border.color: "#111"
+                    border.width: 1
+                }
+                color: "#464646"
+                selectedTextColor: "#222"
+                selectionColor: "#888"
+            }
+
+        }
+
+        Item
+        {
+            id: row2
+            anchors.top: row1.bottom
+            anchors.left: parent.left
+            height: parent.height/4
+            width: parent.width
+
+            TextField
+            {
+                id: input3
+                width: parent.width/2
+                height: parent.height
+                anchors.top: parent.top
+                anchors.right: parent.right
+                selectByMouse: true
+                text: "Text3"
+                horizontalAlignment: TextInput.AlignRight
+                background: Rectangle
+                {
+                    color: "transparent"
+                    border.color: "#111"
+                    border.width: 1
+                }
+                color: "#464646"
+                selectedTextColor: "#222"
+                selectionColor: "#888"
+            }
+
+            TextField
+            {
+                id: input4
+                width: parent.width/2
+                height: parent.height
+                anchors.top: parent.top
+                anchors.right: input3.left
+                anchors.rightMargin:1
+                selectByMouse: true
+                text: "Text4"
+                horizontalAlignment: TextInput.AlignRight
+                background: Rectangle
+                {
+                    color: "transparent"
+                    border.color: "#111"
+                    border.width: 1
+                }
+                color: "#464646"
+                selectedTextColor: "#222"
+                selectionColor: "#888"
+            }
+
+        }
+
+        Item
+        {
+            id: row3
+            anchors.top: row2.bottom
+            anchors.left: parent.left
+            height: parent.height/4
+            width: parent.width
+
+            TextField
+            {
+                id: input5
+                width: parent.width/2
+                height: parent.height
+                anchors.top: parent.top
+                anchors.right: parent.right
+                selectByMouse: true
+                text: "Text5"
+                horizontalAlignment: TextInput.AlignRight
+                background: Rectangle
+                {
+                    color: "transparent"
+                    border.color: "#111"
+                    border.width: 1
+                }
+                color: "#464646"
+                selectedTextColor: "#222"
+                selectionColor: "#888"
+            }
+
+            TextField
+            {
+                id: input6
+                width: parent.width/2
+                height: parent.height
+                anchors.top: parent.top
+                anchors.right: input5.left
+                anchors.rightMargin:1
+                selectByMouse: true
+                text: "Text6"
+                horizontalAlignment: TextInput.AlignRight
+                background: Rectangle
+                {
+                    color: "transparent"
+                    border.color: "#111"
+                    border.width: 1
+                }
+                color: "#464646"
+                selectedTextColor: "#222"
+                selectionColor: "#888"
+            }
+
+        }
+
+
+        Item
+        {
+            id: row4
+            anchors.top: row3.bottom
+            anchors.left: parent.left
+            height: parent.height/4
+            width: parent.width
+
+            TextField
+            {
+                id: input7
+                width: parent.width/2
+                height: parent.height
+                anchors.top: parent.top
+                anchors.right: parent.right
+                selectByMouse: true
+                text: "Text7"
+                horizontalAlignment: TextInput.AlignRight
+                background: Rectangle
+                {
+                    color: "transparent"
+                    border.color: "#111"
+                    border.width: 1
+                }
+                color: "#464646"
+                selectedTextColor: "#222"
+                selectionColor: "#888"
+            }
+
+            TextField
+            {
+                id: input8
+                width: parent.width/2
+                height: parent.height
+                anchors.top: parent.top
+                anchors.right: input7.left
+                anchors.rightMargin:1
+                selectByMouse: true
+                text: "Text8"
+                horizontalAlignment: TextInput.AlignRight
+                background: Rectangle
+                {
+                    color: "transparent"
+                    border.color: "#111"
+                    border.width: 1
+                }
+                color: "#464646"
+                selectedTextColor: "#222"
+                selectionColor: "#888"
+            }
+
+        }
+
 
     }
 

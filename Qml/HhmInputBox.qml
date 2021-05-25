@@ -23,7 +23,7 @@ Item
     {
         if( root.rtl )
         {
-            fontSansRegular.name
+            fontArialRegular.name
         }
         else
         {

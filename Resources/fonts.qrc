@@ -16,5 +16,10 @@
         <file>Fonts/IranSans-UltraLight.ttf</file>
         <file>Fonts/BijanSans.ttf</file>
         <file>Fonts/BijanSans.otf</file>
+        <file>Fonts/Arial-Black.ttf</file>
+        <file>Fonts/Arial-Bold.ttf</file>
+        <file>Fonts/Arial-BoldItalic.ttf</file>
+        <file>Fonts/Arial-Regular.ttf</file>
+        <file>Fonts/Arial-Light.ttf</file>
     </qresource>
 </RCC>

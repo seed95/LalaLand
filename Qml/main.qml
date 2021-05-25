@@ -7,7 +7,7 @@ Window
     id: root
 
     property bool rtl: true //Right to Left
-    property bool fontOffset: false
+    property bool fontOffset: true
 
     property string app_status:     "Updated from server 12:20PM"
     property string login_status:   "Server connected"
@@ -129,23 +129,28 @@ Window
 
     FontLoader
     {
-        id: fontSansBold
-        source: "qrc:/Fonts/BijanSans.otf"
+        id: fontArialBlack
+        source: "qrc:/Fonts/Arial-Bold.ttf"
     }
     FontLoader
     {
-        id: fontSansRegular
-        source: "qrc:/Fonts/IranSans-Regular.ttf"
+        id: fontArialRegular
+        source: "qrc:/Fonts/Arial-Regular.ttf"
     }
     FontLoader
     {
-        id: fontSansLight
-        source: "qrc:/Fonts/IranSans-Light.ttf"
+        id: fontArialLight
+        source: "qrc:/Fonts/Arial-Light.ttf"
     }
     FontLoader
     {
-        id: fontSansUltraLight
-        source: "qrc:/Fonts/IranSans-UltraLight.ttf"
+        id: fontArialBold
+        source: "qrc:/Fonts/Arial-Black.ttf"
+    }
+    FontLoader
+    {
+        id: fontArialBoldItalic
+        source: "qrc:/Fonts/Arial-BoldItalic.ttf"
     }
 
 

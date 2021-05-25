@@ -108,7 +108,7 @@ Rectangle
                 anchors.left: parent.left
                 anchors.verticalCenter: parent.verticalCenter
                 text: hint_search
-                font.family: fontSansRegular.name
+                font.family: fontArialRegular.name
                 font.pixelSize: 13
                 horizontalAlignment: TextInput.AlignRight
                 selectByMouse: true

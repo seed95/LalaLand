@@ -40,7 +40,7 @@ Item
                 }
             }
             anchors.top: parent.top
-            font.family: fontSansBold.name
+            font.family: fontArialBold.name
             font.pixelSize: 40
             color: "#5a5a5a"
         }
@@ -61,8 +61,8 @@ Item
                 id: label_status_rtl
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                text: qsTr("وضعیت پرونده: ")
-                font.family: fontSansRegular.name
+                text: qsTr("حالة المستند: ")
+                font.family: fontArialRegular.name
                 font.weight: Font.Normal
                 font.pixelSize: 20
                 color: "#5a5a5a"
@@ -87,7 +87,7 @@ Item
                         con.hhm_TEXT_DOC_STATUS_FAILED
                     }
                 }
-                font.family: fontSansRegular.name
+                font.family: fontArialRegular.name
                 font.pixelSize: 20
                 color:
                 {
@@ -193,7 +193,7 @@ Item
                         7
                     }
                 }
-                font.family: fontSansRegular.name
+                font.family: fontArialRegular.name
                 font.weight: Font.Normal
                 font.pixelSize: 27
                 color: "#5a5a5a"
@@ -220,7 +220,7 @@ Item
                 anchors.topMargin: 17
                 anchors.left: parent.left
                 anchors.leftMargin: 306
-                font.family: fontSansRegular.name
+                font.family: fontArialRegular.name
                 font.weight: Font.Normal
                 font.pixelSize: 16
                 color: "#646464"
@@ -252,8 +252,8 @@ Item
                             0
                         }
                     }
-                    text: qsTr("دانلود")
-                    font.family: fontSansBold.name
+                    text: qsTr("تحميل")
+                    font.family: fontArialBold.name
                     font.pixelSize: 17
                     color: "#3c598c"
                 }
@@ -301,7 +301,7 @@ Item
                 anchors.right: label_name_rtl.right
                 anchors.top: label_name_rtl.bottom
                 anchors.topMargin: -2
-                font.family: fontSansRegular.name
+                font.family: fontArialRegular.name
                 font.weight: Font.Normal
                 font.pixelSize: 18
                 color: "#646464"

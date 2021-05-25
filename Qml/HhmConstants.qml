@@ -13,8 +13,8 @@ Item
     property int id_EMAIL_MODE_OUTBOX:  2
 
 
-    property string hhm_TEXT_DOC_STATUS_SUCCESS: qsTr("خاتمه یافته")
-    property string hhm_TEXT_DOC_STATUS_PENDING: qsTr("در انتظار تایید")
-    property string hhm_TEXT_DOC_STATUS_FAILED:  qsTr("لغو شده")
+    property string hhm_TEXT_DOC_STATUS_SUCCESS: qsTr("تمت بنجاح")
+    property string hhm_TEXT_DOC_STATUS_PENDING: qsTr("غير مقروءة")
+    property string hhm_TEXT_DOC_STATUS_FAILED:  qsTr("رفض")
 
 }

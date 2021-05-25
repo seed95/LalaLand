@@ -49,7 +49,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: root.isDocSelected() && !root.createNewEmail && root.email_mode===con.id_EMAIL_MODE_INBOX
             icon: "\uf00c"
-            action: qsTr("تایید")
+            action: qsTr("تأیید المستند")
             onButtonClicked:
             {
                 root.approveButtonClicked(email_content_rtl.case_number)
@@ -179,7 +179,7 @@ Rectangle
         Text
         {
             id: department_rtl
-            text: qsTr("قوه قضاییه عراق")
+            text: qsTr("جمهورية العراق")
             anchors.right: parent.right
             anchors.top: parent.top
             anchors.topMargin:
@@ -194,14 +194,14 @@ Rectangle
                 }
             }
             color: "#c8c8c8"
-            font.family: fontSansBold.name
+            font.family: fontArialBold.name
             font.pixelSize: 17
         }
 
         Text
         {
             id: office_rtl
-            text: qsTr("دفتر استراتژیک و برنامه ریزی")
+            text: qsTr("ديوان محافظة البصرة")
             anchors.right: parent.right
             anchors.top: department_rtl.bottom
             anchors.topMargin:
@@ -216,7 +216,7 @@ Rectangle
                 }
             }
             color: "#c8c8c8"
-            font.family: fontSansRegular.name
+            font.family: fontArialRegular.name
             font.weight: Font.Normal
             font.pixelSize: 15
         }

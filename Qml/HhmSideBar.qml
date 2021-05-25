@@ -79,7 +79,7 @@ Rectangle
             anchors.right: parent.right
             anchors.rightMargin: 28
             anchors.verticalCenter: parent.verticalCenter
-            font.family: fontSansBold.name
+            font.family: fontArialBold.name
             font.pixelSize: 14
             color:
             {
@@ -135,7 +135,7 @@ Rectangle
             anchors.right: inbox_rtl.left
             anchors.rightMargin: 20
             anchors.verticalCenter: parent.verticalCenter
-            font.family: fontSansBold.name
+            font.family: fontArialBold.name
             font.pixelSize: 14
             color:
             {

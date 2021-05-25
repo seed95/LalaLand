@@ -1,6 +1,6 @@
 *.pro.user*
 Makefile
 .qmake.stash
-HHM
+DocumentManager
 Build/*
-hhm.log
+dm.log
