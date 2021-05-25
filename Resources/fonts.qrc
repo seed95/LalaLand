@@ -15,5 +15,7 @@
         <file>Fonts/Arial-BoldItalic.ttf</file>
         <file>Fonts/Arial-Regular.ttf</file>
         <file>Fonts/Arial-Light.ttf</file>
+        <file>Fonts/DroidKufi-Bold.ttf</file>
+        <file>Fonts/DroidKufi-Regular.ttf</file>
     </qresource>
 </RCC>

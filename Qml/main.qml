@@ -153,6 +153,17 @@ Window
         source: "qrc:/Fonts/Arial-BoldItalic.ttf"
     }
 
+    FontLoader
+    {
+        id: fontDroidKufiRegular
+        source: "qrc:/Fonts/DroidKufi-Regular.ttf"
+    }
+    FontLoader
+    {
+        id: fontDroidKufiBold
+        source: "qrc:/Fonts/DroidKufi-Bold.ttf"
+    }
+
 
     //Animations:
     NumberAnimation
