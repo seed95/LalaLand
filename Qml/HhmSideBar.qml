@@ -6,6 +6,8 @@ Rectangle
     id: container
     color: "#d7d7d7"
 
+    property string last_searched_case_number: ""
+
     Rectangle
     {
         id: rect_logo
@@ -29,6 +31,35 @@ Rectangle
         id: search
         anchors.left: parent.left
         anchors.top: rect_logo.bottom
+
+        onChangedFocus:
+        {
+            if( text==="" )
+            {
+                email_list.visible = true
+                email_search_list.visible = false
+            }
+            else
+            {
+                email_list.visible = false
+                email_search_list.visible = true
+            }
+        }
+
+        onSearchCasenumber:
+        {
+            if( caseNumber==="" )
+            {
+                email_list.visible = true
+                email_search_list.visible = false
+            }
+            else
+            {
+                email_list.visible = false
+                email_search_list.visible = true
+                searchDocument(caseNumber)
+            }
+        }
     }
 
     Rectangle
@@ -44,11 +75,11 @@ Rectangle
         Text
         {
             id: inbox_rtl
-            text: qsTr("دریافتی")
+            text: qsTr("الواردة")
             anchors.right: parent.right
             anchors.rightMargin: 28
             anchors.verticalCenter: parent.verticalCenter
-            font.family: fontSansBold.name
+            font.family: fontArialBold.name
             font.pixelSize: 14
             color:
             {
@@ -90,6 +121,7 @@ Rectangle
                     {
                         root.email_mode = con.id_EMAIL_MODE_INBOX
                         root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
+                        searchDocument(last_searched_case_number)
                     }
                 }
 
@@ -99,11 +131,11 @@ Rectangle
         Text
         {
             id: outbox_rtl
-            text: qsTr("ارسالی")
+            text: qsTr("الصادرة")
             anchors.right: inbox_rtl.left
             anchors.rightMargin: 20
             anchors.verticalCenter: parent.verticalCenter
-            font.family: fontSansBold.name
+            font.family: fontArialBold.name
             font.pixelSize: 14
             color:
             {
@@ -145,6 +177,7 @@ Rectangle
                     {
                         root.email_mode = con.id_EMAIL_MODE_OUTBOX
                         root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
+                        searchDocument(last_searched_case_number)
                     }
                 }
 
@@ -213,9 +246,9 @@ Rectangle
                     {
                         root.email_mode = con.id_EMAIL_MODE_INBOX
                         root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
+                        searchDocument(last_searched_case_number)
                     }
                 }
-
 
             }
         }
@@ -270,6 +303,7 @@ Rectangle
                     {
                         root.email_mode = con.id_EMAIL_MODE_OUTBOX
                         root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
+                        searchDocument(last_searched_case_number)
                     }
                 }
 
@@ -278,9 +312,9 @@ Rectangle
 
     }
 
-    ListView
+    HhmEmailList
     {
-        id: listview_sidebar
+        id: email_list
         width: parent.width
         anchors.left: parent.left
         anchors.top:
@@ -295,133 +329,38 @@ Rectangle
             }
         }
         anchors.bottom: parent.bottom
-        model: ListModel
-        {
-            id: listmodel_sidebar
-        }
-        clip: true
+    }
 
-        delegate: HhmSideBarElement
+    HhmEmailList
+    {
+        id: email_search_list
+        width: parent.width
+        anchors.left: parent.left
+        anchors.top:
         {
-            width: container.width
-            text_username: senderUsername
-            text_subject: docSubject
-            text_name: name
-            case_number: caseNumber
-            doc_status: docStatus
-            text_time: time
-            isActive: root.selected_doc_case_number===case_number
-            id_email_in_emails_table: idEmail
-            isRead: emailOpened
-            text_filepath: docFilepath
-            receiver_names: receiverNames
-
-            onEmailClicked:
+            if( root.rtl )
             {
-                root.createNewEmail = false
-                if( root.selected_doc_case_number===case_number )
-                {
-                    root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
-                }
-                else
-                {
-                    root.selected_doc_case_number = case_number
-
-                    var obj = email_content
-                    if( root.rtl )
-                    {
-                        obj = email_content_rtl
-                    }
-
-                    obj.case_number = case_number
-                    obj.text_name = name
-                    obj.text_time = time
-                    obj.doc_status = docStatus
-                    obj.download_filepath = docFilepath
-                    obj.text_subject = docSubject
-                    obj.text_username = senderUsername
-                    obj.text_to = receiverNames
-
-                    if( !emailOpened )
-                    {
-                        emailOpened = true
-                        root.openEmail(idEmail)
-                    }
-
-                }
-
+                inbox_outbox_rtl.bottom
+            }
+            else
+            {
+                inbox_outbox.bottom
             }
         }
+        anchors.bottom: parent.bottom
+        visible: false
+    }
 
-        ScrollBar.vertical: ScrollBar
-        {
-            background: Rectangle
-            {
-                width: 6
-                anchors.right: parent.right
-                anchors.top: parent.top
-                color: "#b4b4b4"
-            }
-
-            contentItem: Rectangle
-            {
-                anchors.right: parent.right
-                radius: 3
-                implicitWidth: 6
-                implicitHeight: 400
-                color: "#646464"
-            }
-
-            policy: ScrollBar.AsNeeded
-        }
-
+    function searchDocument(caseNumber)
+    {
+        last_searched_case_number = caseNumber
+        email_search_list.clearEmails()
+        email_search_list.addObjects(email_list.searchObject(caseNumber))
     }
 
     function addToBox()
     {
-        for(var i=0; i<listmodel_sidebar.count; i++)
-        {
-            //Document exist
-            if( root.case_number===listmodel_sidebar.get(i).caseNumber )
-            {
-                console.log("Update document with case number " + root.case_number)
-                listmodel_sidebar.get(i).docSubject = root.subject
-                listmodel_sidebar.get(i).senderUsername = root.sender_username
-                listmodel_sidebar.get(i).name = root.sender_name
-                listmodel_sidebar.get(i).docStatus = root.doc_status
-                listmodel_sidebar.get(i).time = root.r_email_date
-                listmodel_sidebar.get(i).docFilepath = root.filepath
-                listmodel_sidebar.get(i).receiverNames = root.receiver_names
-                listmodel_sidebar.get(i).emailOpened = root.email_opened
-                listmodel_sidebar.get(i).idEmail = root.id_email_in_emails_table
-                return
-            }
-
-            if( root.case_number>listmodel_sidebar.get(i).caseNumber )
-            {
-                listmodel_sidebar.insert(i, {"docSubject" : root.subject,
-                                             "senderUsername": root.sender_username,
-                                             "name" : root.sender_name,
-                                             "caseNumber" : root.case_number,
-                                             "docStatus" : root.doc_status,
-                                             "time" : root.r_email_date,
-                                             "docFilepath" : root.filepath,
-                                             "receiverNames" : root.receiver_names,
-                                             "emailOpened" : root.email_opened,
-                                             "idEmail" : root.id_email_in_emails_table})
-                return
-            }
-        }
-        listmodel_sidebar.append({"docSubject" : root.subject,
-                                  "senderUsername": root.sender_username,
-                                  "name" : root.sender_name,
-                                  "caseNumber" : root.case_number,
-                                  "docStatus" : root.doc_status,
-                                  "time" : root.r_email_date,
-                                  "docFilepath" : root.filepath,
-                                  "receiverNames" : root.receiver_names,
-                                  "emailOpened" : root.email_opened,
-                                  "idEmail" : root.id_email_in_emails_table})
+        email_list.addToList()
     }
 
     function finishSync()
@@ -431,7 +370,8 @@ Rectangle
 
     function clearEmails()
     {
-        listmodel_sidebar.clear()
+        email_list.clearEmails()
+        email_search_list.clearEmails()
     }
 
 }

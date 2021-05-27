@@ -23,7 +23,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: !root.createNewEmail
             icon: "\uf067"
-            action: qsTr("جدید")
+            action: qsTr("انشاء")
             onButtonClicked: root.showPageNewEmail()
         }
 
@@ -36,7 +36,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: root.isDocSelected() && !root.createNewEmail
             icon: "\uf3e5"
-            action: qsTr("پاسخ")
+            action: qsTr("الرد")
             onButtonClicked: root.replyButtonClicked()
         }
 
@@ -44,12 +44,12 @@ Rectangle
         {
             id: action_approve_rtl
             height: parent.height
-            width: 120
+            width: 100
             anchors.right: action_reply_rtl.left
             anchors.verticalCenter: parent.verticalCenter
             visible: root.isDocSelected() && !root.createNewEmail && root.email_mode===con.id_EMAIL_MODE_INBOX
             icon: "\uf00c"
-            action: qsTr("تایید")
+            action: qsTr("تأیید المستند")
             onButtonClicked:
             {
                 root.approveButtonClicked(email_content_rtl.case_number)
@@ -61,12 +61,12 @@ Rectangle
         {
             id: action_reject_rtl
             height: parent.height
-            width: 100
+            width: 80
             anchors.right: action_approve_rtl.left
             anchors.verticalCenter: parent.verticalCenter
             visible: root.isDocSelected() && !root.createNewEmail && root.email_mode===con.id_EMAIL_MODE_INBOX
             icon: "\uf00d"
-            action: qsTr("لغو")
+            action: qsTr("رفض")
             onButtonClicked:
             {
                 root.rejectButtonClicked(email_content_rtl.case_number)
@@ -78,7 +78,7 @@ Rectangle
         {
             id: action_archive_rtl
             height: parent.height
-            width: 120
+            width: 100
             anchors.right:
             {
                 if( action_reject_rtl.visible )
@@ -93,7 +93,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: root.isDocSelected() && !root.createNewEmail
             icon: "\uf187"
-            action: qsTr("آرشیو")
+            action: qsTr("ارشفة")
             onButtonClicked: root.archiveButtonClicked()
         }
 
@@ -107,7 +107,7 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: root.createNewEmail
             icon: "\uf060"
-            action: qsTr("بازگشت")
+            action: qsTr("رجوع")
             onButtonClicked: root.createNewEmail = false
         }
 
@@ -115,12 +115,12 @@ Rectangle
         {
             id: action_scan_rtl
             height: parent.height
-            width: 100
+            width: 120
             anchors.right: action_back_rtl.left
             anchors.verticalCenter: parent.verticalCenter
             visible: root.createNewEmail
             icon: "\uf574"
-            action: qsTr("اسکن")
+            action: qsTr("المسح الضوئي")
             onButtonClicked: root.scanButtonClicked()
         }
 
@@ -133,8 +133,35 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             visible: root.createNewEmail
             icon: "\uf1d8"
-            action: qsTr("ارسال")
+            action: qsTr("رسال")
             onButtonClicked: root.sendEmail()
+        }
+
+        HhmActionButton
+        {
+            id: action_signout_rtl
+            height: parent.height
+            width: 100
+            anchors.right:
+            {
+                if( root.createNewEmail )
+                {
+
+                    action_send_rtl.left
+                }
+                else if( root.isDocSelected() )
+                {
+                    action_archive_rtl.left
+                }
+                else
+                {
+                    action_new_rtl.left
+                }
+            }
+            anchors.verticalCenter: parent.verticalCenter
+            icon: "\uf2f5"
+            action: qsTr("الخروج")
+            onButtonClicked: root.signOut()
         }
 
     }
@@ -152,23 +179,44 @@ Rectangle
         Text
         {
             id: department_rtl
-            text: "قوه قضاییه عراق"
+            text: qsTr("جمهورية العراق")
             anchors.right: parent.right
             anchors.top: parent.top
-            anchors.topMargin: 8
+            anchors.topMargin:
+            {
+                if( root.fontOffset )
+                {
+                    4
+                }
+                else
+                {
+                    8
+                }
+            }
             color: "#c8c8c8"
-            font.family: fontSansBold.name
+            font.family: fontArialBold.name
             font.pixelSize: 17
         }
 
         Text
         {
             id: office_rtl
-            text: "دفتر استراتژیک و برنامه ریزی"
+            text: qsTr("ديوان محافظة البصرة")
             anchors.right: parent.right
             anchors.top: department_rtl.bottom
+            anchors.topMargin:
+            {
+                if( root.fontOffset )
+                {
+                    -4
+                }
+                else
+                {
+                    0
+                }
+            }
             color: "#c8c8c8"
-            font.family: fontSansRegular.name
+            font.family: fontArialRegular.name
             font.weight: Font.Normal
             font.pixelSize: 15
         }

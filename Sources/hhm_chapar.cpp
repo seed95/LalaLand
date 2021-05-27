@@ -105,6 +105,7 @@ void HhmChapar::loginUser(QString uname, QString pass)
     {
         QMetaObject::invokeMethod(ui, "loginSuccessfuly");
         mail->loadInboxEmails(user->getId());
+        hhm_setStatus(tr("Updated from server ") + QDateTime::currentDateTime().toString("hh:mmAP"));
     }
 }
 
@@ -167,7 +168,7 @@ void HhmChapar::sendBtnClicked(int receiverId, int caseNumber, QString subject, 
 {
     if( filepath.isEmpty() )
     {
-        hhm_showMessage("Please choose a document", 2000);
+        hhm_showMessage(tr("Please choose a document"), 2000);
         return;
     }
 
@@ -179,7 +180,7 @@ void HhmChapar::sendBtnClicked(int receiverId, int caseNumber, QString subject, 
 
     if( subject.isEmpty() )
     {
-        hhm_showMessage("Please write a subject", 2000);
+        hhm_showMessage(tr("Please write a subject"), 2000);
         return;
     }
 
@@ -277,6 +278,7 @@ void HhmChapar::checkUsername(QString username)
     else
     {
         hhm_showMessage(tr("Entered username is not valid"), 5000);
+        QMetaObject::invokeMethod(ui, "usernameNotFound");
     }
 }
 

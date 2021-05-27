@@ -2,7 +2,7 @@
 #define HHM_CONFIG_H
 
 #define HHM_CONFIG_FILE "db.conf"
-#define HHM_LOG_FILE    "hhm.log"
+#define HHM_LOG_FILE    "dm.log"
 
 #define HHM_START_YEAR          2020
 #define HHM_DEFAULT_NEWS_TIMER  10000//ms

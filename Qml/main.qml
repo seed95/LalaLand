@@ -7,6 +7,7 @@ Window
     id: root
 
     property bool rtl: true //Right to Left
+    property bool fontOffset: true
 
     property string app_status:     "Updated from server 12:20PM"
     property string login_status:   "Server connected"
@@ -128,23 +129,39 @@ Window
 
     FontLoader
     {
-        id: fontSansBold
-        source: "qrc:/Fonts/BijanSans.ttf"
+        id: fontArialBlack
+        source: "qrc:/Fonts/Arial-Bold.ttf"
     }
     FontLoader
     {
-        id: fontSansRegular
-        source: "qrc:/Fonts/IranSans-Regular.ttf"
+        id: fontArialRegular
+        source: "qrc:/Fonts/Arial-Regular.ttf"
     }
     FontLoader
     {
-        id: fontSansLight
-        source: "qrc:/Fonts/IranSans-Light.ttf"
+        id: fontArialLight
+        source: "qrc:/Fonts/Arial-Light.ttf"
     }
     FontLoader
     {
-        id: fontSansUltraLight
-        source: "qrc:/Fonts/IranSans-UltraLight.ttf"
+        id: fontArialBold
+        source: "qrc:/Fonts/Arial-Black.ttf"
+    }
+    FontLoader
+    {
+        id: fontArialBoldItalic
+        source: "qrc:/Fonts/Arial-BoldItalic.ttf"
+    }
+
+    FontLoader
+    {
+        id: fontDroidKufiRegular
+        source: "qrc:/Fonts/DroidKufi-Regular.ttf"
+    }
+    FontLoader
+    {
+        id: fontDroidKufiBold
+        source: "qrc:/Fonts/DroidKufi-Bold.ttf"
     }
 
 
@@ -161,6 +178,16 @@ Window
         {
             login.visible = false
         }
+    }
+
+    NumberAnimation
+    {
+        id: animateShowLogin
+        target: login
+        property: "opacity"
+        from: 0
+        to: 1
+        duration: 500
     }
 
     //Main UI
@@ -330,7 +357,7 @@ Window
         }
 
         obj.finishSync()
-        root.app_status = "Updated from server " + (Qt.formatTime(new Date(),"hh:mmAP"))
+        root.app_status = qsTr("Updated from server ") + (Qt.formatTime(new Date(),"hh:mmAP"))
     }
 
     function loginSuccessfuly()
@@ -349,6 +376,17 @@ Window
     {
         createNewEmail = false
         syncEmail()
+    }
+
+    function usernameNotFound()
+    {
+        var obj = new_email
+        if( root.rtl )
+        {
+            obj = new_email_rtl
+        }
+
+        obj.receiverUsernameNotFound()
     }
 
     /*** Call this function from qml ***/
@@ -403,6 +441,29 @@ Window
     function isDocSelected()
     {
         return root.selected_doc_case_number!==con.id_NO_SELECTED_ITEM
+    }
+
+    function signOut()
+    {
+        login.visible = true
+        animateShowLogin.start()
+        root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
+        root.email_mode = con.id_EMAIL_MODE_INBOX
+        root.createNewEmail = false
+        root.selected_file_path = ""
+    }
+
+    /*** Utilities functions ***/
+
+    //Slice string from 0 with amount len
+    //and add '...' to end text
+    function sliceString(text, len)
+    {
+        if( text.length>len )
+        {
+            return text.slice(0, len) + "..."
+        }
+        return text
     }
 
     //Convert english number to arabic number

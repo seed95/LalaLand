@@ -117,8 +117,8 @@ Rectangle
         Text
         {
             id: label_subject_rtl
-            text: text_subject
-            font.family: fontSansRegular.name
+            text: root.sliceString(text_subject, 20)
+            font.family: fontArialRegular.name
             font.weight: Font.Normal
             font.pixelSize: 18
             anchors.right: label_read_rtl.left
@@ -160,7 +160,7 @@ Rectangle
                     con.hhm_TEXT_DOC_STATUS_FAILED
                 }
             }
-            font.family: fontSansRegular.name
+            font.family: fontArialRegular.name
             font.weight: Font.Normal
             font.pixelSize: 15
             anchors.right: label_subject_rtl.right
@@ -346,7 +346,7 @@ Rectangle
         Text
         {
             id: label_subject
-            text: text_subject
+            text: root.sliceString(text_subject, 20)
             font.family: fontRobotoMedium.name
             font.weight: Font.Medium
             font.pixelSize: 18

@@ -10,10 +10,12 @@
         <file>Fonts/Roboto-Light.ttf</file>
         <file>Fonts/fasolid.ttf</file>
         <file>Fonts/Roboto-Bold.ttf</file>
-        <file>Fonts/IranSans-Regular.ttf</file>
-        <file>Fonts/IranSans-Bold.ttf</file>
-        <file>Fonts/IranSans-Light.ttf</file>
-        <file>Fonts/IranSans-UltraLight.ttf</file>
-        <file>Fonts/BijanSans.ttf</file>
+        <file>Fonts/Arial-Black.ttf</file>
+        <file>Fonts/Arial-Bold.ttf</file>
+        <file>Fonts/Arial-BoldItalic.ttf</file>
+        <file>Fonts/Arial-Regular.ttf</file>
+        <file>Fonts/Arial-Light.ttf</file>
+        <file>Fonts/DroidKufi-Bold.ttf</file>
+        <file>Fonts/DroidKufi-Regular.ttf</file>
     </qresource>
 </RCC>

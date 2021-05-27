@@ -65,9 +65,10 @@ Rectangle
             text: action
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-            font.family: fontSansRegular.name
-            font.weight: Font.Normal
-            font.pixelSize: 17
+            anchors.verticalCenterOffset: -1
+            font.family: fontArialRegular.name
+//            font.weight: Font.Normal
+            font.pixelSize: 18
             color: color_label
         }
     }
