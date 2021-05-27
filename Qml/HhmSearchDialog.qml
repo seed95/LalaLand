@@ -9,7 +9,7 @@ Rectangle
     height: 40
     color: "#e1e1e1"
 
-    signal searchCasenumber(string caseNumber)
+    signal searchDocument(string text)
     signal changedFocus(string text)
 
     Item
@@ -129,7 +129,7 @@ Rectangle
                 {
                     color: "transparent"
                 }
-                validator: RegExpValidator { regExp: /\d+/ }
+//                validator: RegExpValidator { regExp: /\d+/ }
 
                 property string hint_search: qsTr("البحث السجلات")
 
@@ -166,7 +166,7 @@ Rectangle
                 {
                     if( text!==hint_search )
                     {
-                        searchCasenumber(text)
+                        searchDocument(text)
                     }
                 }
 
@@ -297,7 +297,7 @@ Rectangle
                 {
                     color: "transparent"
                 }
-                validator: RegExpValidator { regExp: /\d+/ }
+//                validator: RegExpValidator { regExp: /\d+/ }
 
                 property string hint_search: "Search a document id"
 

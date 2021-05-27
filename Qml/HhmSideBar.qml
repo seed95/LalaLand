@@ -6,7 +6,7 @@ Rectangle
     id: container
     color: "#d7d7d7"
 
-    property string last_searched_case_number: ""
+    property string last_searched_text: ""
 
     Rectangle
     {
@@ -46,9 +46,9 @@ Rectangle
             }
         }
 
-        onSearchCasenumber:
+        onSearchDocument:
         {
-            if( caseNumber==="" )
+            if( text==="" )
             {
                 email_list.visible = true
                 email_search_list.visible = false
@@ -57,7 +57,7 @@ Rectangle
             {
                 email_list.visible = false
                 email_search_list.visible = true
-                searchDocument(caseNumber)
+                searchDoc(text)
             }
         }
     }
@@ -121,7 +121,7 @@ Rectangle
                     {
                         root.email_mode = con.id_EMAIL_MODE_INBOX
                         root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
-                        searchDocument(last_searched_case_number)
+                        searchDoc(last_searched_text)
                     }
                 }
 
@@ -177,7 +177,7 @@ Rectangle
                     {
                         root.email_mode = con.id_EMAIL_MODE_OUTBOX
                         root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
-                        searchDocument(last_searched_case_number)
+                        searchDoc(last_searched_text)
                     }
                 }
 
@@ -246,7 +246,7 @@ Rectangle
                     {
                         root.email_mode = con.id_EMAIL_MODE_INBOX
                         root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
-                        searchDocument(last_searched_case_number)
+                        searchDoc(last_searched_text)
                     }
                 }
 
@@ -303,7 +303,7 @@ Rectangle
                     {
                         root.email_mode = con.id_EMAIL_MODE_OUTBOX
                         root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
-                        searchDocument(last_searched_case_number)
+                        searchDoc(last_searched_text)
                     }
                 }
 
@@ -351,11 +351,11 @@ Rectangle
         visible: false
     }
 
-    function searchDocument(caseNumber)
+    function searchDoc(text)
     {
-        last_searched_case_number = caseNumber
+        last_searched_text = text
         email_search_list.clearEmails()
-        email_search_list.addObjects(email_list.searchObject(caseNumber))
+        email_search_list.addObjects(email_list.searchObject(root.ar2en(text)))
     }
 
     function addToBox()

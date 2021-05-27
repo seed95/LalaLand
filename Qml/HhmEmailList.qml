@@ -191,20 +191,32 @@ Item
         lm.clear()
     }
 
-    //Search with casenumber
-    //and return all object that match case number
-    function searchObject(caseNumber)
+    //Search with casenumber and subject
+    //and return all object that match
+    function searchObject(text)
     {
         var objects = []
-        var length_case_number = caseNumber.length
+
+        //Search on case number
         for(var i=0; i<lm.count; i++)
         {
-            var slice_case_number = lm.get(i).caseNumber.toString().slice(0, length_case_number)
-            if( slice_case_number===caseNumber )
+            var slice_case_number = lm.get(i).caseNumber.toString().slice(0, text.length)
+            if( slice_case_number===text )
             {
                 objects.push(lm.get(i))
             }
         }
+
+        //Search on subject
+        for(var i=0; i<lm.count; i++)
+        {
+            var slice_subject = lm.get(i).docSubject.toString().slice(0, text.length)
+            if( slice_subject===text )
+            {
+                objects.push(lm.get(i))
+            }
+        }
+
         return objects
     }
 
