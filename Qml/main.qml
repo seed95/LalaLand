@@ -221,6 +221,7 @@ Window
             anchors.left: parent.left
             anchors.right: sidebar_rtl.left
             anchors.top: parent.top
+            z: 1
         }
 
         HhmSideBar
@@ -250,6 +251,7 @@ Window
             anchors.right: sidebar_rtl.left
             anchors.top: topbar_rtl.bottom
             anchors.bottom: parent.bottom
+            anchors.bottomMargin: 100
             visible: createNewEmail
         }
 
