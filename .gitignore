@@ -4,3 +4,4 @@ Makefile
 DocumentManager
 Build/*
 dm.log
+Contracts/*
