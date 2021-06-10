@@ -9,8 +9,8 @@ Rectangle
 
     property bool isHovered: false
 
-    property color color_label_normal: "#d8dbe0"
-    property color color_label_hovered: "#ffffff"
+    property color color_label_normal: "#353b43"
+    property color color_label_hovered: "#474e59"
     property color color_label:
     {
         if(isHovered)
@@ -29,7 +29,7 @@ Rectangle
     {
         if(isHovered)
         {
-            "#718dc1"
+            "#e6e6e6"
         }
         else
         {

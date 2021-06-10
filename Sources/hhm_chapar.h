@@ -28,7 +28,7 @@ private slots:
     void rejectBtnClicked(int caseNumber);
     void archiveBtnClicked();
     void scanBtnClicked();
-    void sendBtnClicked(int receiverId, int caseNumber, QString subject, QString filepath);
+    void sendBtnClicked(int receiverId, int caseNumber, QString subject, QString filepath, QString tableContent);
     void flagBtnClicked(int id);
     void uploadFileClicked();
     void downloadFileClicked(QString src, int caseNumber);

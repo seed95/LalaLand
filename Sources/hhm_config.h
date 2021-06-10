@@ -59,14 +59,20 @@
 
 //Columns in Table 'HHM_TABLE_DOCUMENT'
 //#define HHM_DOCUMENTS_ID                "id"
-#define HHM_DOCUMENT_CASENUMBER        "case_num"
-#define HHM_DOCUMENT_SENDER_ID         "s_id"
-#define HHM_DOCUMENT_RECEIVER_IDS      "r_ids"
-#define HHM_DOCUMENT_DATE              "date"
-#define HHM_DOCUMENT_SENDER_NAME       "s_name"
-#define HHM_DOCUMENT_FILEPATH          "filepath"
-#define HHM_DOCUMENT_STATUS            "status"
-#define HHM_DOCUMENT_SUBJECT           "subject"
+#define HHM_DOCUMENT_CASENUMBER         "case_num"
+#define HHM_DOCUMENT_SENDER_ID          "s_id"
+#define HHM_DOCUMENT_RECEIVER_IDS       "r_ids"
+#define HHM_DOCUMENT_DATE               "date"
+#define HHM_DOCUMENT_SENDER_NAME        "s_name"
+#define HHM_DOCUMENT_FILEPATH           "filepath"
+#define HHM_DOCUMENT_STATUS             "status"
+#define HHM_DOCUMENT_SUBJECT            "subject"
+#define HHM_DOCUMENT_DATA1              "table_data1"
+#define HHM_DOCUMENT_DATA2              "table_data2"
+#define HHM_DOCUMENT_DATA3              "table_data3"
+#define HHM_DOCUMENT_DATA4              "table_data4"
+#define HHM_DOCUMENT_DATA5              "table_data5"
+#define HHM_DOCUMENT_DATA6              "table_data6"
 
 //Columns in Table `HHM_TABLE_USER_EMAIL`
 #define HHM_UE_ID                   "id"

@@ -13,6 +13,12 @@ Item
     property string text_to: "April Robegan, Jamie Reading"
     property string text_subject: ""
     property string download_filepath: ""
+    property string table_content: ""
+
+    onTable_contentChanged:
+    {
+        table.setContent(table_content)
+    }
 
     Item
     {
@@ -307,6 +313,15 @@ Item
                 color: "#646464"
             }
 
+        }
+
+        HhmTable
+        {
+            id: table
+            anchors.top: rect_username_rtl.bottom
+            anchors.topMargin: 50
+            anchors.horizontalCenter: parent.horizontalCenter
+            tableReadOnly: true
         }
 
     }

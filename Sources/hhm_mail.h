@@ -42,15 +42,16 @@ public:
     void approveDoc(int caseNumber);
     void rejectDoc(int caseNumber);
 
-    void sendNewEmail(QString caseNumber, QString subject, int senderId, int receiverId, QString filepath, QString senderName);
-//    bool checkCaseNumber(QString caseNumber);
+    void sendNewEmail(QString caseNumber, QString subject, int senderId, int receiverId,
+                      QString filepath, QString senderName, QString tableContent);
 
 private:
     QStringList getIdReceivedEmails(int userID);
     QStringList getIdSendEmails(int userID);
     void showEmailInSidebar(QStringList emailIds);//emailsIds: csv format
     HhmEmailTable getEmail(int idEmail);
-    void updateDocument(QString caseNumber, QString filepath, int senderId, int receiverId, QString subject, QString senderName);
+    void updateDocument(QString caseNumber, QString filepath, int senderId, int receiverId,
+                        QString subject, QString senderName, QString tableContent);
     int addNewEmail(QString caseNumber);
     bool updateEmail(QString field, int userId, int emailId);
     HhmUserTable getUser(int idUser);

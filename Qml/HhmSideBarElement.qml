@@ -39,7 +39,8 @@ Rectangle
     property string text_name:                  "Cassie Hicks"
     property string text_username:              "Admin"
     property string text_filepath:              "Filename.pdf"
-    property string receiver_names: value
+    property string receiver_names:             ""
+    property string table_content:              ""
 
     property bool isHovered:    false
     property bool isActive:     false

@@ -43,6 +43,7 @@ Window
     property string filepath:                   ""
     property string sender_username:            ""
     property string receiver_names:             ""
+    property string table_content:              ""
 
     //Properties for new email
     property bool   createNewEmail:     false           //When click on new button to create new email
@@ -65,7 +66,7 @@ Window
     signal approveButtonClicked(int docId)
     signal rejectButtonClicked(int docId)
     signal scanButtonClicked()
-    signal sendButtonClicked(int receiverId, int caseNumber, string subject, string filepath)
+    signal sendButtonClicked(int receiverId, int caseNumber, string subject, string filepath, string tableContent)
     signal flagButtonClicked(int id)
     signal uploadFileClicked()
     signal downloadFileClicked(string src, int docId)
@@ -87,7 +88,7 @@ Window
     minimumWidth: width
     maximumWidth: width
     title: "Document Manager"
-    color: "#e6e6e6"
+    color: "#dcdcdc"
 
     //Fonts:
     FontLoader
@@ -418,7 +419,8 @@ Window
             obj = new_email_rtl
         }
 
-        sendButtonClicked(root.receiver_id, root.new_case_number, obj.getSubject(), selected_file_path)
+        obj.getTableContent()
+        sendButtonClicked(root.receiver_id, root.new_case_number, obj.getSubject(), root.selected_file_path, obj.getTableContent())
     }
 
     function syncEmail()
@@ -472,8 +474,8 @@ Window
     function en2ar(number)
     {
         number = number.toString()
-        //FIXME: change persian number to arabic
-        var arabic_numbers  = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹']
+        var arabic_numbers  = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩']//arabic_numbers[0] = 0, arabic_numbers[9] = 9
+//        console.log('0:', arabic_numbers[0], ",1:", arabic_numbers[1], ",9:", arabic_numbers[9])
         var english_numbers  = [/0/g, /1/g, /2/g, /3/g, /4/g, /5/g, /6/g, /7/g, /8/g, /9/g]
         for(var i=0; i<10; i++)
         {

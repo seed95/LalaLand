@@ -18,5 +18,8 @@
         <file>HhmLoginButton.qml</file>
         <file>HhmActionBox.qml</file>
         <file>HhmEmailList.qml</file>
+        <file>HhmInputTable.qml</file>
+        <file>HhmTable.qml</file>
+        <file>HhmDateInputTable.qml</file>
     </qresource>
 </RCC>

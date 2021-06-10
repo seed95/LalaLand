@@ -3,7 +3,7 @@ import QtQuick 2.0
 Rectangle
 {
 
-    color: "#365488"
+    color: "#c8c8c8"
 
     Item
     {
@@ -106,7 +106,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
             visible: root.createNewEmail
-            icon: "\uf060"
+            icon: "\uf061"
             action: qsTr("رجوع")
             onButtonClicked: root.createNewEmail = false
         }

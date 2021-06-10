@@ -23,9 +23,9 @@ int main(int argc, char *argv[])
     engine.load(url);
     QObject *mainItem = engine.rootObjects().first();
 
-    QTranslator *translator = new QTranslator();
-    translator->load(":/Translators/HHM_ar.qm");
-    QCoreApplication::instance()->installTranslator(translator);
+//    QTranslator *translator = new QTranslator();
+//    translator->load(":/Translators/HHM_ar.qm");
+//    QCoreApplication::instance()->installTranslator(translator);
 //    engine.retranslate();
 
     hhm_log("-------------------------Start Document Manager-------------------------");

@@ -7,7 +7,7 @@ Item
     property string text_to:        "username@" + root.domain
     property string text_subject:   root.rtl ? qsTr("الموضوع") : "Subject"
     property string text_file_path: ""
-    property bool input_visible: true
+    property bool   input_visible: true
 
     onVisibleChanged:
     {
@@ -15,8 +15,8 @@ Item
         subject_input_box_rtl.setInput(text_subject)
         to_input_box.setInput(text_to)
         to_input_box_rtl.setInput(text_to)
-        rect_upload.visible = true
-        label_file.visible = false
+//        rect_upload.visible = true
+//        label_file.visible = false
         subject_input_box.focus = false
         subject_input_box_rtl.focus = false
         root.selected_file_path = ""
@@ -27,7 +27,7 @@ Item
     {
         id: flickable_container
         anchors.fill: parent
-        contentHeight: rect_table.height + rect_table.y
+        contentHeight: canvas_upload.height + canvas_upload.y
 
         onContentHeightChanged:
         {
@@ -184,18 +184,24 @@ Item
 
         }
 
+        HhmTable
+        {
+            id: table
+            anchors.top: rect_input_box_rtl.bottom
+            anchors.topMargin: 21
+            anchors.horizontalCenter: parent.horizontalCenter
+            tableReadOnly: false
+        }
+
         ///FIXME: two canvas for rtl, ltr
         Canvas
         {
             id: canvas_upload
-            width: 702
-            height: 502
-            anchors.top: rect_input_box_rtl.bottom
-    //        anchors.left: parent.left
-    //        anchors.leftMargin: 181
-            anchors.right: parent.right
-            anchors.rightMargin: 170
-
+            width: 666
+            height: 308
+            anchors.top: table.bottom
+            anchors.topMargin: 40
+            anchors.horizontalCenter: parent.horizontalCenter
             onPaint:
             {
                 var ctx = getContext("2d")
@@ -270,234 +276,6 @@ Item
 
         }
 
-        Rectangle
-        {
-            id: rect_table
-            width: 650
-            height: 180
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.horizontalCenterOffset: -30
-            anchors.bottom: canvas_upload.bottom
-            anchors.bottomMargin: 20
-            color: "transparent"
-            visible: input_visible
-
-            Item
-            {
-                id: row1
-                anchors.top: parent.top
-                anchors.left: parent.left
-                height: parent.height/4
-                width: parent.width
-
-                TextField
-                {
-                    id: input1
-                    width: parent.width/2
-                    height: parent.height
-                    anchors.top: parent.top
-                    anchors.right: parent.right
-                    selectByMouse: true
-                    text: "Text1"
-                    horizontalAlignment: TextInput.AlignRight
-                    background: Rectangle
-                    {
-                        color: "transparent"
-                        border.color: "#111"
-                        border.width: 1
-                    }
-                    color: "#464646"
-                    selectedTextColor: "#222"
-                    selectionColor: "#888"
-                }
-
-                TextField
-                {
-                    id: input2
-                    width: parent.width/2
-                    height: parent.height
-                    anchors.top: parent.top
-                    anchors.right: input1.left
-                    anchors.rightMargin:1
-                    selectByMouse: true
-                    text: "Text2"
-                    horizontalAlignment: TextInput.AlignRight
-                    background: Rectangle
-                    {
-                        color: "transparent"
-                        border.color: "#111"
-                        border.width: 1
-                    }
-                    color: "#464646"
-                    selectedTextColor: "#222"
-                    selectionColor: "#888"
-                }
-
-            }
-
-            Item
-            {
-                id: row2
-                anchors.top: row1.bottom
-                anchors.left: parent.left
-                height: parent.height/4
-                width: parent.width
-
-                TextField
-                {
-                    id: input3
-                    width: parent.width/2
-                    height: parent.height
-                    anchors.top: parent.top
-                    anchors.right: parent.right
-                    selectByMouse: true
-                    text: "Text3"
-                    horizontalAlignment: TextInput.AlignRight
-                    background: Rectangle
-                    {
-                        color: "transparent"
-                        border.color: "#111"
-                        border.width: 1
-                    }
-                    color: "#464646"
-                    selectedTextColor: "#222"
-                    selectionColor: "#888"
-                }
-
-                TextField
-                {
-                    id: input4
-                    width: parent.width/2
-                    height: parent.height
-                    anchors.top: parent.top
-                    anchors.right: input3.left
-                    anchors.rightMargin:1
-                    selectByMouse: true
-                    text: "Text4"
-                    horizontalAlignment: TextInput.AlignRight
-                    background: Rectangle
-                    {
-                        color: "transparent"
-                        border.color: "#111"
-                        border.width: 1
-                    }
-                    color: "#464646"
-                    selectedTextColor: "#222"
-                    selectionColor: "#888"
-                }
-
-            }
-
-            Item
-            {
-                id: row3
-                anchors.top: row2.bottom
-                anchors.left: parent.left
-                height: parent.height/4
-                width: parent.width
-
-                TextField
-                {
-                    id: input5
-                    width: parent.width/2
-                    height: parent.height
-                    anchors.top: parent.top
-                    anchors.right: parent.right
-                    selectByMouse: true
-                    text: "Text5"
-                    horizontalAlignment: TextInput.AlignRight
-                    background: Rectangle
-                    {
-                        color: "transparent"
-                        border.color: "#111"
-                        border.width: 1
-                    }
-                    color: "#464646"
-                    selectedTextColor: "#222"
-                    selectionColor: "#888"
-                }
-
-                TextField
-                {
-                    id: input6
-                    width: parent.width/2
-                    height: parent.height
-                    anchors.top: parent.top
-                    anchors.right: input5.left
-                    anchors.rightMargin:1
-                    selectByMouse: true
-                    text: "Text6"
-                    horizontalAlignment: TextInput.AlignRight
-                    background: Rectangle
-                    {
-                        color: "transparent"
-                        border.color: "#111"
-                        border.width: 1
-                    }
-                    color: "#464646"
-                    selectedTextColor: "#222"
-                    selectionColor: "#888"
-                }
-
-            }
-
-
-            Item
-            {
-                id: row4
-                anchors.top: row3.bottom
-                anchors.left: parent.left
-                height: parent.height/4
-                width: parent.width
-
-                TextField
-                {
-                    id: input7
-                    width: parent.width/2
-                    height: parent.height
-                    anchors.top: parent.top
-                    anchors.right: parent.right
-                    selectByMouse: true
-                    text: "Text7"
-                    horizontalAlignment: TextInput.AlignRight
-                    background: Rectangle
-                    {
-                        color: "transparent"
-                        border.color: "#111"
-                        border.width: 1
-                    }
-                    color: "#464646"
-                    selectedTextColor: "#222"
-                    selectionColor: "#888"
-                }
-
-                TextField
-                {
-                    id: input8
-                    width: parent.width/2
-                    height: parent.height
-                    anchors.top: parent.top
-                    anchors.right: input7.left
-                    anchors.rightMargin:1
-                    selectByMouse: true
-                    text: "Text8"
-                    horizontalAlignment: TextInput.AlignRight
-                    background: Rectangle
-                    {
-                        color: "transparent"
-                        border.color: "#111"
-                        border.width: 1
-                    }
-                    color: "#464646"
-                    selectedTextColor: "#222"
-                    selectionColor: "#888"
-                }
-
-            }
-
-
-        }
-
     }
 
     function getSubject()
@@ -508,6 +286,11 @@ Item
             obj = subject_input_box_rtl
         }
         return obj.getInput()
+    }
+
+    function getTableContent()
+    {
+        return table.getContent()
     }
 
     function showSelectedFile()

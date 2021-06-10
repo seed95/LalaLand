@@ -4,9 +4,9 @@ Rectangle
 {
     id: container
 
-    property color color_text: "#c8c8c8"
+    property color color_text: "#3c3c3c"
 
-    color: "#274579"
+    color: "#b4b4b4"
 
     Item
     {

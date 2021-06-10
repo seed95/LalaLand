@@ -26,7 +26,7 @@ void HhmMail::loadEmails(QString username)
     }
     else
     {
-        qDebug() << "user with username`" << username << "` not found in database";
+        hhm_log("user with username `" + username + "` not found in database");
     }
 }
 
@@ -46,12 +46,14 @@ void HhmMail::rejectDoc(int caseNumber)
 
 void HhmMail::sendNewEmail(QString caseNumber, QString subject,
                            int senderId, int receiverId,
-                           QString filepath, QString senderName)
+                           QString filepath, QString senderName,
+                           QString tableContent)
 {
 
     updateDocument(caseNumber, filepath,
                    senderId, receiverId,
-                   subject, senderName);
+                   subject, senderName,
+                   tableContent);
 
     int received_email_id = addNewEmail(caseNumber);
     int sent_email_id = received_email_id - 1;
@@ -152,6 +154,28 @@ void HhmMail::showEmailInSidebar(QStringList emailIds)
             }
 
             QQmlProperty::write(ui, "id_email_in_emails_table", emailIds.at(i));
+            QQmlProperty::write(ui, "email_opened", email.opened==1);
+
+            QString table_content;
+            data = res.value(HHM_DOCUMENT_DATA1);
+            table_content += data.toString() + ",";
+
+            data = res.value(HHM_DOCUMENT_DATA2);
+            table_content += data.toString() + ",";
+
+            data = res.value(HHM_DOCUMENT_DATA3);
+            table_content += data.toString() + ",";
+
+            data = res.value(HHM_DOCUMENT_DATA4);
+            table_content += data.toString() + ",";
+
+            data = res.value(HHM_DOCUMENT_DATA5);
+            table_content += data.toString() + ",";
+
+            data = res.value(HHM_DOCUMENT_DATA6);
+            table_content += data.toString();
+            QQmlProperty::write(ui, "table_content", table_content);
+
             QQmlProperty::write(ui, "email_opened", email.opened==1);
 
             QMetaObject::invokeMethod(ui, "addToBox");
@@ -262,7 +286,8 @@ QStringList HhmMail::getIdSendEmails(int userID)
 
 void HhmMail::updateDocument(QString caseNumber, QString filepath,
                             int senderId, int receiverId,
-                            QString subject, QString senderName)
+                            QString subject, QString senderName,
+                            QString tableContent)
 {
     QLocale locale(QLocale::English);
     QString date = locale.toString(QDateTime::currentDateTime(), "yyyy-MM-dd hh:mm:ss");
@@ -274,6 +299,15 @@ void HhmMail::updateDocument(QString caseNumber, QString filepath,
     values += ", `" + QString(HHM_DOCUMENT_DATE) + "`='" + date + "'";
     values += ", `" + QString(HHM_DOCUMENT_SENDER_NAME) + "`='" + senderName + "'";
     values += ", `" + QString(HHM_DOCUMENT_SUBJECT) + "`='" + subject + "'";
+
+    QStringList table_content = tableContent.split(",");
+    values += ", `" + QString(HHM_DOCUMENT_DATA1) + "`='" + table_content[0] + "'";
+    values += ", `" + QString(HHM_DOCUMENT_DATA2) + "`='" + table_content[1] + "'";
+    values += ", `" + QString(HHM_DOCUMENT_DATA3) + "`='" + table_content[2] + "'";
+    values += ", `" + QString(HHM_DOCUMENT_DATA4) + "`='" + table_content[3] + "'";
+    values += ", `" + QString(HHM_DOCUMENT_DATA5) + "`='" + table_content[4] + "'";
+    values += ", `" + QString(HHM_DOCUMENT_DATA6) + "`='" + table_content[5] + "'";
+
     db->update(condition, values, HHM_TABLE_DOCUMENT);
 }
 

@@ -1,0 +1,2 @@
+ALTER TABLE `hhm_db`.`document` 
+ADD COLUMN `table_data1` TEXT CHARACTER SET 'utf8' NULL COMMENT 'موضوع الکتاب' AFTER `subject`;

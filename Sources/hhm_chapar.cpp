@@ -12,7 +12,8 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     connect(ui, SIGNAL(rejectButtonClicked(int)), this, SLOT(rejectBtnClicked(int)));
     connect(ui, SIGNAL(archiveButtonClicked()), this, SLOT(archiveBtnClicked()));
     connect(ui, SIGNAL(scanButtonClicked()), this, SLOT(scanBtnClicked()));
-    connect(ui, SIGNAL(sendButtonClicked(int, int, QString, QString)), this, SLOT(sendBtnClicked(int, int, QString, QString)));
+    connect(ui, SIGNAL(sendButtonClicked(int, int, QString, QString, QString)),
+            this, SLOT(sendBtnClicked(int, int, QString, QString, QString)));
     connect(ui, SIGNAL(flagButtonClicked(int)), this, SLOT(flagBtnClicked(int)));
     connect(ui, SIGNAL(uploadFileClicked()), this, SLOT(uploadFileClicked()));
     connect(ui, SIGNAL(downloadFileClicked(QString, int)), this, SLOT(downloadFileClicked(QString, int)));
@@ -164,7 +165,8 @@ void HhmChapar::scanBtnClicked()
     qDebug() << "scanBtnClicked";
 }
 
-void HhmChapar::sendBtnClicked(int receiverId, int caseNumber, QString subject, QString filepath)
+void HhmChapar::sendBtnClicked(int receiverId, int caseNumber, QString subject,
+                               QString filepath, QString tableContent)
 {
     if( filepath.isEmpty() )
     {
@@ -190,14 +192,14 @@ void HhmChapar::sendBtnClicked(int receiverId, int caseNumber, QString subject, 
     QString dst_filename = s_case_number + "_" + QFileInfo(filepath).fileName();
     mail->sendNewEmail(s_case_number, subject,
                        id_user, receiverId,
-                       dst_filename, user->getName());
+                       dst_filename, user->getName(),
+                       tableContent);
 
     //Upload file in fpt server
     hhm_log("Start upload file: " + filepath + " --> " + dst_filename);
     ftp->uploadFile(filepath, dst_filename);
 
     QMetaObject::invokeMethod(ui, "sendEmailComplete");
-
 }
 
 void HhmChapar::flagBtnClicked(int id)

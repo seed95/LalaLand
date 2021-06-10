@@ -33,6 +33,7 @@ Item
             isRead: emailOpened
             text_filepath: docFilepath
             receiver_names: receiverNames
+            table_content: tableContent
 
             onEmailClicked:
             {
@@ -59,6 +60,7 @@ Item
                     obj.text_subject = docSubject
                     obj.text_username = senderUsername
                     obj.text_to = receiverNames
+                    obj.table_content = tableContent
 
                     if( !emailOpened )
                     {
@@ -156,6 +158,7 @@ Item
                 lm.get(i).receiverNames = root.receiver_names
                 lm.get(i).emailOpened = root.email_opened
                 lm.get(i).idEmail = root.id_email_in_emails_table
+                lm.get(i).tableContent = root.table_content
                 return
             }
 
@@ -169,6 +172,7 @@ Item
                              "time" : root.r_email_date,
                              "docFilepath" : root.filepath,
                              "receiverNames" : root.receiver_names,
+                             "tableContent" : root.table_content,
                              "emailOpened" : root.email_opened,
                              "idEmail" : root.id_email_in_emails_table})
                 return
@@ -182,6 +186,7 @@ Item
                   "time" : root.r_email_date,
                   "docFilepath" : root.filepath,
                   "receiverNames" : root.receiver_names,
+                  "tableContent" : root.table_content,
                   "emailOpened" : root.email_opened,
                   "idEmail" : root.id_email_in_emails_table})
     }
@@ -208,12 +213,12 @@ Item
         }
 
         //Search on subject
-        for(var i=0; i<lm.count; i++)
+        for(var j=0; j<lm.count; j++)
         {
-            var slice_subject = lm.get(i).docSubject.toString().slice(0, text.length)
+            var slice_subject = lm.get(j).docSubject.toString().slice(0, text.length)
             if( slice_subject===text )
             {
-                objects.push(lm.get(i))
+                objects.push(lm.get(j))
             }
         }
 
