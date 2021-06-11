@@ -7,7 +7,6 @@ Item
     property string text_to:        "username@" + root.domain
     property string text_subject:   root.rtl ? qsTr("الموضوع") : "Subject"
     property string text_file_path: ""
-    property bool   input_visible: true
 
     onVisibleChanged:
     {
@@ -15,12 +14,13 @@ Item
         subject_input_box_rtl.setInput(text_subject)
         to_input_box.setInput(text_to)
         to_input_box_rtl.setInput(text_to)
-//        rect_upload.visible = true
-//        label_file.visible = false
+        rect_upload.visible = true
+        label_file.visible = false
         subject_input_box.focus = false
         subject_input_box_rtl.focus = false
         root.selected_file_path = ""
         root.receiver_id = 0
+        table.setData("")
     }
 
     Flickable
@@ -190,7 +190,7 @@ Item
             anchors.top: rect_input_box_rtl.bottom
             anchors.topMargin: 21
             anchors.horizontalCenter: parent.horizontalCenter
-            tableReadOnly: false
+            tableMode: con.hhm_TABLE_MODE_NEW
         }
 
         ///FIXME: two canvas for rtl, ltr
@@ -244,7 +244,7 @@ Item
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: icon_upload.bottom
                     text: "ارسال المستند"
-                    font.family: fontRobotoMedium.name
+                    font.family: fontDroidKufiRegular.name
                     font.pixelSize: 40
                     color: "#808080"
                 }
@@ -290,7 +290,7 @@ Item
 
     function getTableContent()
     {
-        return table.getContent()
+        return table.getData()
     }
 
     function showSelectedFile()

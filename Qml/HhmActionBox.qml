@@ -34,7 +34,7 @@ Rectangle
             width: 100
             anchors.right: action_new_rtl.left
             anchors.verticalCenter: parent.verticalCenter
-            visible: root.isDocSelected() && !root.createNewEmail
+            visible: root.isDocSelected() && !root.createNewEmail && root.email_mode===con.id_EMAIL_MODE_INBOX
             icon: "\uf3e5"
             action: qsTr("الرد")
             onButtonClicked: root.replyButtonClicked()
@@ -52,8 +52,9 @@ Rectangle
             action: qsTr("تأیید المستند")
             onButtonClicked:
             {
-                root.approveButtonClicked(email_content_rtl.case_number)
-                root.syncEmail()
+                root.approveButtonClicked(email_content_rtl.case_number,
+                                          email_content_rtl.getDataContent(),
+                                          email_content_rtl.email_id)
             }
         }
 
@@ -87,7 +88,7 @@ Rectangle
                 }
                 else
                 {
-                    action_reply_rtl.left
+                    action_new_rtl.left
                 }
             }
             anchors.verticalCenter: parent.verticalCenter
@@ -193,7 +194,7 @@ Rectangle
                     8
                 }
             }
-            color: "#c8c8c8"
+            color: "#3c3c3c"
             font.family: fontArialBold.name
             font.pixelSize: 17
         }
@@ -215,7 +216,7 @@ Rectangle
                     0
                 }
             }
-            color: "#c8c8c8"
+            color: "#3c3c3c"
             font.family: fontArialRegular.name
             font.weight: Font.Normal
             font.pixelSize: 15

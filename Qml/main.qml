@@ -6,8 +6,8 @@ Window
 {
     id: root
 
-    property bool rtl: true //Right to Left
-    property bool fontOffset: true
+    property bool rtl:          true //Right to Left
+    property bool fontOffset:   true
 
     property string app_status:     "Updated from server 12:20PM"
     property string login_status:   "Server connected"
@@ -63,7 +63,7 @@ Window
     signal newButtonClicked()
     signal replyButtonClicked()
     signal archiveButtonClicked()
-    signal approveButtonClicked(int docId)
+    signal approveButtonClicked(int docId, string tableContent, int emailId)
     signal rejectButtonClicked(int docId)
     signal scanButtonClicked()
     signal sendButtonClicked(int receiverId, int caseNumber, string subject, string filepath, string tableContent)
@@ -360,12 +360,12 @@ Window
         }
 
         obj.finishSync()
-        root.app_status = qsTr("Updated from server ") + (Qt.formatTime(new Date(),"hh:mmAP"))
     }
 
     function loginSuccessfuly()
     {
         animateHideLogin.start()
+        syncEmail()
     }
 
     //call this function when have a error and must be
@@ -418,9 +418,8 @@ Window
         {
             obj = new_email_rtl
         }
-
-        obj.getTableContent()
-        sendButtonClicked(root.receiver_id, root.new_case_number, obj.getSubject(), root.selected_file_path, obj.getTableContent())
+        sendButtonClicked(root.receiver_id, root.new_case_number, obj.getSubject(),
+                          root.selected_file_path, obj.getTableContent())
     }
 
     function syncEmail()
@@ -484,16 +483,16 @@ Window
         return number
     }
 
-    //Convert arabic(persian) number to english number
+    //Convert arabic number to english number
     function ar2en(number)
     {
         number = number.toString()
-        var persian_numbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g]
+        var w_numbers = [/۰/g, /۱/g, /۲/g, /۳/g, /۴/g, /۵/g, /۶/g, /۷/g, /۸/g, /۹/g]
         var arabic_numbers  = [/٠/g, /١/g, /٢/g, /٣/g, /٤/g, /٥/g, /٦/g, /٧/g, /٨/g, /٩/g]
         var en_number
         for(var i=0; i<10; i++)
         {
-            number = number.replace(persian_numbers[i], i).replace(arabic_numbers[i], i)
+            number = number.replace(w_numbers[i], i).replace(arabic_numbers[i], i)
         }
         return number
     }

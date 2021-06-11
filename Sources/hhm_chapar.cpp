@@ -8,7 +8,8 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     connect(ui, SIGNAL(loginUser(QString, QString)), this, SLOT(loginUser(QString, QString)));
     connect(ui, SIGNAL(newButtonClicked()), this, SLOT(newBtnClicked()));
     connect(ui, SIGNAL(replyButtonClicked()), this, SLOT(replyBtnClicked()));
-    connect(ui, SIGNAL(approveButtonClicked(int)), this, SLOT(approveBtnClicked(int)));
+    connect(ui, SIGNAL(approveButtonClicked(int, QString, int)),
+            this, SLOT(approveBtnClicked(int, QString, int)));
     connect(ui, SIGNAL(rejectButtonClicked(int)), this, SLOT(rejectBtnClicked(int)));
     connect(ui, SIGNAL(archiveButtonClicked()), this, SLOT(archiveBtnClicked()));
     connect(ui, SIGNAL(scanButtonClicked()), this, SLOT(scanBtnClicked()));
@@ -105,8 +106,6 @@ void HhmChapar::loginUser(QString uname, QString pass)
     if( user->loadUser(uname, pass) )
     {
         QMetaObject::invokeMethod(ui, "loginSuccessfuly");
-        mail->loadInboxEmails(user->getId());
-        hhm_setStatus(tr("Updated from server ") + QDateTime::currentDateTime().toString("hh:mmAP"));
     }
 }
 
@@ -145,9 +144,9 @@ void HhmChapar::replyBtnClicked()
     qDebug() << "replyBtnClicked";
 }
 
-void HhmChapar::approveBtnClicked(int caseNumber)
+void HhmChapar::approveBtnClicked(int caseNumber, QString tableContent, int emailId)
 {
-    mail->approveDoc(caseNumber);
+    mail->approveDoc(caseNumber, tableContent, QString::number(emailId));
 }
 
 void HhmChapar::rejectBtnClicked(int caseNumber)
@@ -244,12 +243,14 @@ void HhmChapar::downloadFileClicked(QString src, int caseNumber)
 void HhmChapar::syncInbox()
 {
     mail->loadInboxEmails(user->getId());
+    hhm_updateFromServer();
     QMetaObject::invokeMethod(ui, "finishSync");
 }
 
 void HhmChapar::syncOutbox()
 {
     mail->loadOutboxEmails(user->getId());
+    hhm_updateFromServer();
     QMetaObject::invokeMethod(ui, "finishSync");
 }
 

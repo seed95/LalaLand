@@ -12,6 +12,8 @@ Item
     property int id_EMAIL_MODE_INBOX :  1
     property int id_EMAIL_MODE_OUTBOX:  2
 
+    property int hhm_TABLE_MODE_NEW:         1
+    property int hhm_TABLE_MODE_CONTENT:     2
 
     property string hhm_TEXT_DOC_STATUS_SUCCESS: qsTr("تمت بنجاح")
     property string hhm_TEXT_DOC_STATUS_PENDING: qsTr("غير مقروءة")

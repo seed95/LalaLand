@@ -21,5 +21,6 @@
         <file>HhmInputTable.qml</file>
         <file>HhmTable.qml</file>
         <file>HhmDateInputTable.qml</file>
+        <file>HhmDateFieldInput.qml</file>
     </qresource>
 </RCC>

@@ -34,7 +34,17 @@ Item
         anchors.topMargin: 1
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 1
-        color: "#e6e6e6"
+        color:
+        {
+            if( isEnabled )
+            {
+                "#e6e6e6"
+            }
+            else
+            {
+                "#dcdcdc"
+            }
+        }
         border.color: "#969696"
         border.width: 1
         radius: 4
@@ -49,7 +59,7 @@ Item
             font.family: font_name_input
             font.pixelSize: 13
             selectByMouse: true
-            readOnly: isEnabled
+            readOnly: !isEnabled
             text: text_input
             horizontalAlignment: TextInput.AlignRight
             background: Rectangle
@@ -79,19 +89,15 @@ Item
                 focus = false
             }
 
-            onFocusChanged:
+            onTextChanged:
             {
+                text = root.en2ar(text)
             }
 
             Keys.onEscapePressed:
             {
                 focus = false
             }
-
-            Keys.onTabPressed:
-            {
-            }
-
         }
     }
 

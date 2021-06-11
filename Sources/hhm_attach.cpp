@@ -24,6 +24,10 @@ HhmAttach::~HhmAttach()
 
 void HhmAttach::uploadFile(QString srcFilename, QString dstFilename)
 {
+    if( m_file->isOpen() )
+    {
+        m_file->close();
+    }
     m_file->setFileName(srcFilename);
 
     QUrl url(ftp_server + dstFilename);

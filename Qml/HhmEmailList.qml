@@ -60,6 +60,7 @@ Item
                     obj.text_subject = docSubject
                     obj.text_username = senderUsername
                     obj.text_to = receiverNames
+                    obj.email_id = idEmail
                     obj.table_content = tableContent
 
                     if( !emailOpened )

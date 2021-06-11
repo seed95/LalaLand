@@ -50,6 +50,13 @@ void hhm_showMessage(QString msg, int interval)
     hhm_log("Message --> " + msg);
 }
 
+void hhm_updateFromServer()
+{
+    QLocale ar_localce(QLocale::Arabic);
+    QString date = ar_localce.toString(QDateTime::currentDateTime(), "hh:mm");
+    hhm_setStatus("Updated from server " + date);
+}
+
 /*
  * Load IP Server from `HHM_CONFIG_FILE`
  * */

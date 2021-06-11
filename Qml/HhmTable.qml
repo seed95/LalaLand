@@ -6,7 +6,7 @@ Item
     width: 584
     height: childrenRect.height
 
-    property bool tableReadOnly: false
+    property int tableMode: con.hhm_TABLE_MODE_NEW
 
     Rectangle
     {
@@ -51,7 +51,7 @@ Item
             text_label: "موضوع الكتاب"
             right_margin_input: 32
             width_input: 125
-            isEnabled: tableReadOnly
+            isEnabled: tableMode===con.hhm_TABLE_MODE_NEW
         }
 
         HhmInputTable
@@ -63,9 +63,9 @@ Item
             anchors.leftMargin: 25
             anchors.verticalCenter: parent.verticalCenter
             text_label: "مضمون الكتاب"
-            right_margin_input: 15
+            right_margin_input: 13
             width_input: 168
-            isEnabled: tableReadOnly
+            isEnabled: tableMode===con.hhm_TABLE_MODE_NEW
         }
     }
 
@@ -90,21 +90,19 @@ Item
             right_margin_input: 41
             width_input: 125
             isNumber: true
-            isEnabled: tableReadOnly
+            isEnabled: tableMode===con.hhm_TABLE_MODE_NEW
         }
 
         HhmDateInputTable
         {
             id: send_date
-            width: 242
             height: parent.height
             anchors.left: parent.left
-            anchors.leftMargin: 45
+            anchors.leftMargin: 25
             anchors.verticalCenter: parent.verticalCenter
             text_label: "تاريخ الصادر"
-            right_margin_input: 48
-            width_input: 33
-            isEnabled: tableReadOnly
+            left_margin_label: 26
+            isEnabled: tableMode===con.hhm_TABLE_MODE_NEW
         }
 
     }
@@ -130,46 +128,118 @@ Item
             right_margin_input: 42
             width_input: 125
             isNumber: true
-            isEnabled: tableReadOnly
+            isEnabled: tableMode===con.hhm_TABLE_MODE_CONTENT && root.email_mode===con.id_EMAIL_MODE_INBOX
         }
 
         HhmDateInputTable
         {
             id: receive_date
-            width: 240
             height: parent.height
             anchors.left: parent.left
-            anchors.leftMargin: 45
+            anchors.leftMargin: 25
             anchors.verticalCenter: parent.verticalCenter
             text_label: "تاريخ الوارد"
-            right_margin_input: 50
-            width_input: 33
-            isEnabled: tableReadOnly
+            left_margin_label: 28
+            isEnabled: tableMode===con.hhm_TABLE_MODE_CONTENT && root.email_mode===con.id_EMAIL_MODE_INBOX
         }
 
     }
 
-    //Return table data with csv format
-    function getContent()
+    function getDataContent()
     {
-        var result = subject_doc.getInput() + ","
-        result += content_doc.getInput() + ","
-        result += root.ar2en(send_number.getInput()) + ","
-        result += send_date.getDate() + ","
-        result += root.ar2en(receive_number.getInput()) + ","
+        var result = ""
+        var number = root.ar2en(receive_number.getInput())
+        if( number==="" )
+        {
+            result += "-1,"
+        }
+        else
+        {
+            result += number + ","
+        }
         result += receive_date.getDate()
         return result
     }
 
-    function setContent(content)
+    //https://download.qt.io/archive/qt/5.13/5.13.1/
+    function getDataNew()
     {
-        var split_content = content.split(",")
-        subject_doc.setInput(split_content[0])
-        content_doc.setInput(split_content[1])
-        send_number.setInput(root.en2ar(split_content[2]))
-        send_date.setDate(split_content[3])
-        receive_number.setInput(root.en2ar(split_content[4]))
-        receive_date.setDate(split_content[5])
+        var result = subject_doc.getInput() + ","
+        result += content_doc.getInput() + ","
+        var number = root.ar2en(send_number.getInput())
+        if( number==="" )
+        {
+            result += "-1,"
+        }
+        else
+        {
+            result += number + ","
+        }
+        result += send_date.getDate()
+        return result
+    }
+
+    function getData()
+    {
+        var result = subject_doc.getInput() + ","
+        result += content_doc.getInput() + ","
+        var number = root.ar2en(send_number.getInput())
+        if( number==="" )
+        {
+            result += "-1,"
+        }
+        else
+        {
+            result += number + ","
+        }
+        result += send_date.getDate() + ","
+        number = root.ar2en(receive_number.getInput())
+        if( number==="" )
+        {
+            result += "-1,"
+        }
+        else
+        {
+            result += number + ","
+        }
+        result += receive_date.getDate()
+        return result
+    }
+
+    function setData(data)
+    {
+        if( data==="" )
+        {
+            subject_doc.setInput("")
+            content_doc.setInput("")
+            send_number.setInput("")
+            send_date.setDate("")
+            receive_number.setInput("")
+            receive_date.setDate("")
+            return
+        }
+        var split_data = data.split(",")
+        subject_doc.setInput(split_data[0])
+        content_doc.setInput(split_data[1])
+        if( split_data[2]==="-1" )
+        {
+            send_number.setInput("-")
+        }
+        else
+        {
+            send_number.setInput(root.en2ar(split_data[2]))
+        }
+        send_date.setDate(split_data[3])
+        if( split_data[4]==="-1" )
+        {
+            receive_number.setInput("")
+        }
+        else
+        {
+            receive_number.setInput(root.en2ar(split_data[4]))
+        }
+        split_data[5] = split_data[5].toString().replace(/-/g, "-1")
+        receive_date.setDate(split_data[5])
     }
 
 }

@@ -39,7 +39,7 @@ public:
     void loadInboxEmails(int idUser);
     void loadOutboxEmails(int idUser);
 
-    void approveDoc(int caseNumber);
+    void approveDoc(int caseNumber, QString tableContent, QString emailId);
     void rejectDoc(int caseNumber);
 
     void sendNewEmail(QString caseNumber, QString subject, int senderId, int receiverId,

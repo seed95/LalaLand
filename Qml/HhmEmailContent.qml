@@ -11,13 +11,14 @@ Item
     property string text_email: text_username + "@" + root.domain
     property string text_time: "12:15PM"
     property string text_to: "April Robegan, Jamie Reading"
+    property int    email_id: 0
     property string text_subject: ""
     property string download_filepath: ""
     property string table_content: ""
 
     onTable_contentChanged:
     {
-        table.setContent(table_content)
+        table.setData(table_content)
     }
 
     Item
@@ -321,7 +322,7 @@ Item
             anchors.top: rect_username_rtl.bottom
             anchors.topMargin: 50
             anchors.horizontalCenter: parent.horizontalCenter
-            tableReadOnly: true
+            tableMode: con.hhm_TABLE_MODE_CONTENT
         }
 
     }
@@ -571,6 +572,11 @@ Item
 
         }
 
+    }
+
+    function getDataContent()
+    {
+        return table.getDataContent()
     }
 
 }

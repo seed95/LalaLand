@@ -30,11 +30,19 @@ void HhmMail::loadEmails(QString username)
     }
 }
 
-void HhmMail::approveDoc(int caseNumber)
+void HhmMail::approveDoc(int caseNumber, QString tableContent, QString emailId)
 {
     QString condition = "`" + QString(HHM_DOCUMENT_CASENUMBER) + "`=" + QString::number(caseNumber);
-    QString value = "`" + QString(HHM_DOCUMENT_STATUS) + "`='" + QString::number(HHM_DOC_STATUS_SUCCESS) + "'";
-    db->update(condition, value, HHM_TABLE_DOCUMENT);
+    QString values = "`" + QString(HHM_DOCUMENT_STATUS) + "`='" + QString::number(HHM_DOC_STATUS_SUCCESS) + "'";
+
+    QStringList table_content = tableContent.split(",");
+    values += ", `" + QString(HHM_DOCUMENT_DATA5) + "`='" + table_content[0] + "'";
+    values += ", `" + QString(HHM_DOCUMENT_DATA6) + "`='" + table_content[1] + "'";
+
+    db->update(condition, values, HHM_TABLE_DOCUMENT);
+    QString msg = "تم العملية بنجاح";
+    hhm_showMessage(msg, 3000);
+    showEmailInSidebar(QStringList(emailId));
 }
 
 void HhmMail::rejectDoc(int caseNumber)
@@ -156,25 +164,25 @@ void HhmMail::showEmailInSidebar(QStringList emailIds)
             QQmlProperty::write(ui, "id_email_in_emails_table", emailIds.at(i));
             QQmlProperty::write(ui, "email_opened", email.opened==1);
 
-            QString table_content;
+            QStringList table_content;
             data = res.value(HHM_DOCUMENT_DATA1);
-            table_content += data.toString() + ",";
+            table_content.append(data.toString());
 
             data = res.value(HHM_DOCUMENT_DATA2);
-            table_content += data.toString() + ",";
+            table_content.append(data.toString());
 
             data = res.value(HHM_DOCUMENT_DATA3);
-            table_content += data.toString() + ",";
+            table_content.append(data.toString());
 
             data = res.value(HHM_DOCUMENT_DATA4);
-            table_content += data.toString() + ",";
+            table_content.append(data.toString());
 
             data = res.value(HHM_DOCUMENT_DATA5);
-            table_content += data.toString() + ",";
+            table_content.append(data.toString());
 
             data = res.value(HHM_DOCUMENT_DATA6);
-            table_content += data.toString();
-            QQmlProperty::write(ui, "table_content", table_content);
+            table_content.append(data.toString());
+            QQmlProperty::write(ui, "table_content", table_content.join(","));
 
             QQmlProperty::write(ui, "email_opened", email.opened==1);
 

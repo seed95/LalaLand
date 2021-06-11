@@ -249,7 +249,6 @@ Item
         visible: !root.rtl
     }
 
-
     ///FIXME: update this segment from rtl segment
     Rectangle
     {
