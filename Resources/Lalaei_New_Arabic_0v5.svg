@@ -27,9 +27,9 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="621.60744"
-     inkscape:cy="546.76756"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="801.72257"
+     inkscape:cy="596.96714"
      inkscape:document-units="px"
      inkscape:current-layer="layer14"
      showgrid="false"
@@ -1593,6 +1593,12 @@
            id="tspan4472">: </tspan><tspan
            id="tspan4430"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.37499905px;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';fill:#3c3c3c;fill-opacity:1">الرجاء تحديث نظام الأرشفة و المرسلات الإلكتروني. (۲۴ مايو/ أيار ۲۰۲۱)</tspan></tspan></text>
+    <circle
+       style="opacity:0.99900004;fill:#505050;fill-opacity:1;stroke:#505050;stroke-width:1.12312496;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke;stroke-opacity:1"
+       id="path1151"
+       cx="1134.8438"
+       cy="46.406258"
+       r="36.938374" />
   </g>
   <g
      inkscape:groupmode="layer"
