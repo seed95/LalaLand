@@ -30,6 +30,12 @@ void HhmNews::showNews()
     {
         last_news_index = 0;
     }
+
+    if( news_ids.size()==0 )
+    {
+        return; //in case of no connection;
+    }
+
     int id = news_ids[last_news_index];
     QString condition = "`" + QString(HHM_NEWS_ID) + "`='" + QString::number(id) + "'";
     QSqlQuery res = db->select("*", HHM_TABLE_NEWS, condition);

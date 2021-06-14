@@ -5,3 +5,17 @@ DocumentManager
 Build/*
 dm.log
 Contracts/*
+
+release/
+
+usersbijanappdatalocaltemptmpk0ej_r
+
+*.Debug
+
+*.Release
+
+*.autosave
+
+Resources/SQL/
+
+DocumentManager_resource.rc

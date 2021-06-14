@@ -28,7 +28,7 @@ QSqlQuery HhmDatabase::sendQuery(QString query)
     QString s_err; //string error
     if( err.type()==QSqlError::ConnectionError )
     {
-        s_err = "Connection is not establish between server ";
+        s_err = "Erorr(sendQuery): Connection is not establish between server ";
         s_err += QString(hhm_getServerIP()) + " " + QString::number(SERVER_PORT);
         hhm_setStatus(s_err);
     }
@@ -67,7 +67,7 @@ void HhmDatabase::update(QString condition, QString value, QString table)
     QString s_err; //string error
     if( err.type()==QSqlError::ConnectionError )
     {
-        s_err = "Connection is not establish between server ";
+        s_err = "Error(update): Connection is not establish between server ";
         s_err += QString(hhm_getServerIP()) + " " + QString::number(SERVER_PORT);
         hhm_setStatus(s_err);
         return;
@@ -104,7 +104,7 @@ void HhmDatabase::insert(QString table, QString columns, QString values)
     QString s_err; //string error
     if( err.type()==QSqlError::ConnectionError )
     {
-        s_err = "Connection is not establish between server ";
+        s_err = "Error(insert): Connection is not establish between server ";
         s_err += QString(hhm_getServerIP()) + " " + QString::number(SERVER_PORT);
         hhm_setStatus(s_err);
         return;
@@ -163,7 +163,7 @@ void HhmDatabase::printQuery(QSqlQuery res)
     QString s_err; //string error
     if( err.type()==QSqlError::ConnectionError )
     {
-        s_err = "Connection is not establish between server ";
+        s_err = "Error(printQuery): Connection is not establish between server ";
         s_err += QString(hhm_getServerIP()) + " " + QString::number(SERVER_PORT);
         hhm_setStatus(s_err);
         return;

@@ -43,7 +43,7 @@ void HhmAttach::uploadFile(QString srcFilename, QString dstFilename)
     }
     else
     {
-        hhm_showMessage(tr("Upload failed ") + url.toString(), 3000);
+        hhm_showMessage(tr("Cannot Read File ") + url.toString(), 3000);
         hhm_log("Cannot open file " + m_file->fileName());
     }
 }
@@ -122,14 +122,14 @@ void HhmAttach::uploadFinished()
     }
     else
     {
-        hhm_showMessage(tr("Upload failed ") + m_response->url().toString(), 3000);
+        hhm_showMessage("Upload Finished with Error " + QString::number(m_response->error()) + " " + m_response->url().toString(), 5000);
         hhm_log("Upload error: " + m_response->errorString() + ", url: " + m_response->url().toString());
     }
 }
 
 void HhmAttach::uploadError(QNetworkReply::NetworkError error)
 {
-    hhm_showMessage(tr("Upload failed ") + m_response->url().toString(), 3000);
+    hhm_showMessage("Upload Error " + QString::number(error) + " " + m_response->url().toString(), 3000);
     hhm_log("Upload error: " + m_response->errorString() + ", url: " + m_response->url().toString());
 }
 
