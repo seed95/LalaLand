@@ -5,7 +5,7 @@ import QtQuick.Controls 2.5
 Item
 {
     property string text_to:        "username@" + root.domain
-    property string text_subject:   root.rtl ? qsTr("الموضوع") : "Subject"
+    property string text_subject:   root.rtl ? qsTr("الموضوع المراسلة") : "Subject"
     property string text_file_path: ""
 
     onVisibleChanged:
@@ -106,7 +106,7 @@ Item
                 anchors.rightMargin: 50
                 width_box: 808
                 isEnabled: true
-                text_label: text_subject + ":"
+                text_label: "الموضوع:"
                 text_input_box: text_subject
                 left_margin: 10
                 textAlign: TextInput.AlignRight

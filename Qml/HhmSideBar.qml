@@ -13,7 +13,7 @@ Rectangle
         id: rect_logo
         width: parent.width
         height: 100
-        color: "#243554"
+        color: "#ffffff"
         anchors.left: parent.left
         anchors.top: parent.top
 
