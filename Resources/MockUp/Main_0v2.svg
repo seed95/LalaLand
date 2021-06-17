@@ -19,7 +19,29 @@
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
-     id="defs4" />
+     id="defs4">
+    <pattern
+       y="0"
+       x="0"
+       height="6"
+       width="6"
+       patternUnits="userSpaceOnUse"
+       id="EMFhbasepattern" />
+    <pattern
+       y="0"
+       x="0"
+       height="6"
+       width="6"
+       patternUnits="userSpaceOnUse"
+       id="EMFhbasepattern-8" />
+    <pattern
+       y="0"
+       x="0"
+       height="6"
+       width="6"
+       patternUnits="userSpaceOnUse"
+       id="EMFhbasepattern-3" />
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#c8c8c8"
@@ -27,17 +49,17 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.90505737"
-     inkscape:cx="655.1052"
-     inkscape:cy="399.48349"
+     inkscape:zoom="0.7071068"
+     inkscape:cx="669.19026"
+     inkscape:cy="432.22631"
      inkscape:document-units="px"
-     inkscape:current-layer="g4610"
+     inkscape:current-layer="layer21"
      showgrid="false"
      showguides="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1025"
-     inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-width="1536"
+     inkscape:window-height="841"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      units="px"
      inkscape:document-rotation="0"
@@ -960,8 +982,7 @@
      id="layer10"
      inkscape:label="Logo"
      style="display:inline"
-     transform="translate(0,65.624991)"
-     sodipodi:insensitive="true">
+     transform="translate(0,65.624991)">
     <rect
        y="-141.86327"
        x="-0.046923026"
@@ -971,7 +992,7 @@
        style="display:inline;fill:#000000;fill-opacity:0;stroke:none" />
     <rect
        y="-65.624985"
-       x="-3.1292439e-05"
+       x="-3.1292439e-005"
        height="65.625"
        width="1200"
        id="rect4141"
@@ -1018,12 +1039,12 @@
            id="tspan3332"
            sodipodi:role="line"
            x="316.25049"
-           y="-14.53462"
+           y="-14.467733"
            style="font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74999809px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:end;text-anchor:end;fill:#3c3c3c;fill-opacity:1;stroke:none">Basrah Governorate</tspan><tspan
            id="tspan3330"
            sodipodi:role="line"
            x="316.25049"
-           y="8.9028769"
+           y="8.9697647"
            style="font-style:oblique;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74999809px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:end;text-anchor:end;fill:#3c3c3c;fill-opacity:1;stroke:none" /></text>
       <text
          id="text3338"
@@ -1060,9 +1081,9 @@
          style="fill:#2d3139;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect3889"
          width="46.874996"
-         height="815.24994"
+         height="815.62494"
          x="1199.9999"
-         y="0.37501851" />
+         y="1.0242354e-008" />
       <rect
          style="fill:#2b303a;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect4701"
@@ -1286,9 +1307,9 @@
          style="display:inline;fill:#b4b4b4;fill-opacity:1;stroke:none"
          id="rect5516-7"
          width="918.74988"
-         height="68.116142"
+         height="70.3125"
          x="-918.74988"
-         y="-1.2912478e-05"
+         y="1.9103072e-006"
          transform="scale(-1,1)" />
       <text
          transform="translate(0,-302.36222)"
@@ -1333,113 +1354,8 @@
        inkscape:groupmode="layer"
        id="layer5"
        inkscape:label="ToolBar"
-       style="display:none"
+       style="display:inline"
        transform="translate(0,65.624991)">
-      <rect
-         y="349.09045"
-         x="-918.74988"
-         height="46.874992"
-         width="918.74988"
-         id="rect6663-6"
-         style="display:inline;fill:#c8c8c8;fill-opacity:1;stroke:none"
-         transform="matrix(-0.99999998,0,0,0.99999998,0,-302.36222)" />
-      <rect
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:none"
-         id="rect2513-3"
-         width="93.749985"
-         height="46.874996"
-         x="-918.74988"
-         y="349.09045"
-         transform="matrix(-0.99999998,0,0,0.99999998,0,-302.36222)" />
-      <text
-         transform="translate(0,-302.36222)"
-         id="text6669-2"
-         y="377.80139"
-         x="887.6499"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#474e59;fill-opacity:1;stroke:none"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#474e59;fill-opacity:1"
-           y="377.80139"
-           x="887.6499"
-           id="tspan6671-0"
-           sodipodi:role="line"></tspan></text>
-      <text
-         id="text6665-6"
-         y="71.391396"
-         x="878.09155"
-         style="font-style:normal;font-weight:normal;font-size:12px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#474e59;fill-opacity:1;stroke:none"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#474e59;fill-opacity:1;stroke:none"
-           y="71.391396"
-           x="878.09155"
-           id="tspan6667-1"
-           sodipodi:role="line">رجوع</tspan></text>
-      <rect
-         y="46.728195"
-         x="-824.99994"
-         height="46.874996"
-         width="140.625"
-         id="rect4816"
-         style="display:inline;fill:#c8c8c8;fill-opacity:1;stroke:none"
-         transform="scale(-1,1)" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
-         x="802.69812"
-         y="75.434196"
-         id="text6693"
-         sodipodi:linespacing="0%"><tspan
-           sodipodi:role="line"
-           id="tspan6695"
-           x="802.69812"
-           y="75.434196"
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#353b43;fill-opacity:1"></tspan></text>
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
-         x="787.02026"
-         y="72.570885"
-         id="text6697"
-         sodipodi:linespacing="0%"><tspan
-           sodipodi:role="line"
-           id="tspan6699"
-           x="787.02026"
-           y="72.570885"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#353b43;fill-opacity:1;stroke:none">المسح الضوئي</tspan></text>
-      <rect
-         style="display:inline;fill:#c8c8c8;fill-opacity:1;stroke:none"
-         id="rect4827"
-         width="93.749992"
-         height="46.874996"
-         x="-684.37494"
-         y="46.728195"
-         transform="scale(-1,1)" />
-      <text
-         id="text6713"
-         y="75.439171"
-         x="655.41064"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#353b43;fill-opacity:1"
-           y="75.439171"
-           x="655.41064"
-           id="tspan6715"
-           sodipodi:role="line"></tspan></text>
-      <text
-         id="text6717"
-         y="73.818687"
-         x="642.70856"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
-         xml:space="preserve"
-         sodipodi:linespacing="0%"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#353b43;fill-opacity:1;stroke:none"
-           y="73.818687"
-           x="642.70856"
-           id="tspan6719"
-           sodipodi:role="line">رسال</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:40px;line-height:125%;font-family:'Font Awesome 5 Pro Solid';-inkscape-font-specification:'Font Awesome 5 Pro Solid Heavy';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -1459,7 +1375,7 @@
      id="layer18"
      inkscape:label="Main">
     <g
-       inkscape:label="NewEmail"
+       inkscape:label="NewDoc"
        inkscape:groupmode="layer"
        id="layer1"
        transform="translate(0,-236.73723)"
@@ -1999,9 +1915,732 @@
            x="316.48343"
            y="650.47015"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi'">/</tspan></text>
+      <rect
+         y="349.09045"
+         x="-918.74988"
+         height="46.874992"
+         width="918.74988"
+         id="rect6663-6"
+         style="display:inline;fill:#c8c8c8;fill-opacity:1;stroke:none"
+         transform="matrix(-0.99999998,0,0,0.99999998,0,4.8468085e-6)" />
+      <rect
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:none"
+         id="rect2513-3"
+         width="93.749985"
+         height="46.874996"
+         x="-918.74988"
+         y="349.09045"
+         transform="matrix(-0.99999998,0,0,0.99999998,0,4.8468085e-6)" />
+      <text
+         transform="translate(0,4.8468085e-6)"
+         id="text6669-2"
+         y="377.80139"
+         x="887.6499"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#474e59;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#474e59;fill-opacity:1"
+           y="377.80139"
+           x="887.6499"
+           id="tspan6671-0"
+           sodipodi:role="line"></tspan></text>
+      <text
+         transform="translate(0,302.36222)"
+         id="text6665-6"
+         y="71.391396"
+         x="878.09155"
+         style="font-style:normal;font-weight:normal;font-size:12px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#474e59;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#474e59;fill-opacity:1;stroke:none"
+           y="71.391396"
+           x="878.09155"
+           id="tspan6667-1"
+           sodipodi:role="line">رجوع</tspan></text>
+      <rect
+         y="46.728195"
+         x="-824.99994"
+         height="46.874996"
+         width="140.625"
+         id="rect4816"
+         style="display:inline;fill:#c8c8c8;fill-opacity:1;stroke:none"
+         transform="matrix(-0.99999998,0,0,0.99999998,0,302.36222)" />
+      <text
+         transform="translate(0,302.36222)"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
+         x="802.69812"
+         y="75.434196"
+         id="text6693"
+         sodipodi:linespacing="0%"><tspan
+           sodipodi:role="line"
+           id="tspan6695"
+           x="802.69812"
+           y="75.434196"
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#353b43;fill-opacity:1"></tspan></text>
+      <text
+         transform="translate(0,302.36222)"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
+         x="787.02026"
+         y="72.570885"
+         id="text6697"
+         sodipodi:linespacing="0%"><tspan
+           sodipodi:role="line"
+           id="tspan6699"
+           x="787.02026"
+           y="72.570885"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#353b43;fill-opacity:1;stroke:none">المسح الضوئي</tspan></text>
+      <rect
+         style="display:inline;fill:#c8c8c8;fill-opacity:1;stroke:none"
+         id="rect4827"
+         width="93.749992"
+         height="46.874996"
+         x="-684.37494"
+         y="46.728195"
+         transform="matrix(-0.99999998,0,0,0.99999998,0,302.36222)" />
+      <text
+         transform="translate(0,302.36222)"
+         id="text6713"
+         y="75.439171"
+         x="655.41064"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#353b43;fill-opacity:1"
+           y="75.439171"
+           x="655.41064"
+           id="tspan6715"
+           sodipodi:role="line"></tspan></text>
+      <text
+         transform="translate(0,302.36222)"
+         id="text6717"
+         y="73.818687"
+         x="642.70856"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#353b43;fill-opacity:1;stroke:none"
+           y="73.818687"
+           x="642.70856"
+           id="tspan6719"
+           sodipodi:role="line">رسال</tspan></text>
     </g>
     <g
        style="display:inline"
+       transform="translate(0,-236.73723)"
+       id="g5339"
+       inkscape:groupmode="layer"
+       inkscape:label="NewMessage">
+      <text
+         sodipodi:linespacing="125%"
+         id="text5398"
+         y="630.6076"
+         x="316.98752"
+         style="font-style:normal;font-weight:normal;font-size:37.49999619px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           y="630.6076"
+           x="316.98752"
+           id="tspan5400"
+           sodipodi:role="line" /></text>
+      <rect
+         transform="scale(-1,1)"
+         style="display:inline;fill:#c8c8c8;fill-opacity:1;stroke:none"
+         id="rect5525"
+         width="918.74988"
+         height="46.874992"
+         x="-918.74988"
+         y="349.23724" />
+      <rect
+         transform="scale(-1,1)"
+         y="349.23721"
+         x="-918.74988"
+         height="46.874996"
+         width="93.749985"
+         id="rect5527"
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#474e59;fill-opacity:1;stroke:none"
+         x="887.6499"
+         y="377.80139"
+         id="text5529"
+         transform="translate(0,4.8468085e-6)"><tspan
+           sodipodi:role="line"
+           id="tspan5531"
+           x="887.6499"
+           y="377.80139"
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#474e59;fill-opacity:1"></tspan></text>
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:12px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#474e59;fill-opacity:1;stroke:none"
+         x="878.09155"
+         y="71.391396"
+         id="text5533"
+         transform="translate(0,302.36222)"><tspan
+           sodipodi:role="line"
+           id="tspan5535"
+           x="878.09155"
+           y="71.391396"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#474e59;fill-opacity:1;stroke:none">رجوع</tspan></text>
+      <rect
+         transform="scale(-1,1)"
+         style="display:inline;fill:#c8c8c8;fill-opacity:1;stroke:none"
+         id="rect5537"
+         width="140.625"
+         height="46.874996"
+         x="-824.99994"
+         y="349.23718" />
+      <text
+         sodipodi:linespacing="0%"
+         id="text5539"
+         y="75.434196"
+         x="802.69812"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         transform="translate(0,302.36222)"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#353b43;fill-opacity:1"
+           y="75.434196"
+           x="802.69812"
+           id="tspan5541"
+           sodipodi:role="line"></tspan></text>
+      <text
+         sodipodi:linespacing="0%"
+         id="text5543"
+         y="72.570885"
+         x="787.02026"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:Arial;-inkscape-font-specification:Arial;letter-spacing:0px;word-spacing:0px;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         transform="translate(0,302.36222)"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#353b43;fill-opacity:1;stroke:none"
+           y="72.570885"
+           x="787.02026"
+           id="tspan5545"
+           sodipodi:role="line">المسح الضوئي</tspan></text>
+      <rect
+         transform="scale(-1,1)"
+         y="349.23718"
+         x="-684.37494"
+         height="46.874996"
+         width="93.749992"
+         id="rect5547"
+         style="display:inline;fill:#c8c8c8;fill-opacity:1;stroke:none" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
+         x="655.41064"
+         y="75.439171"
+         id="text5549"
+         transform="translate(0,302.36222)"><tspan
+           sodipodi:role="line"
+           id="tspan5551"
+           x="655.41064"
+           y="75.439171"
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#353b43;fill-opacity:1"></tspan></text>
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
+         x="642.70856"
+         y="73.818687"
+         id="text5553"
+         transform="translate(0,302.36222)"><tspan
+           sodipodi:role="line"
+           id="tspan5555"
+           x="642.70856"
+           y="73.818687"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#353b43;fill-opacity:1;stroke:none">مرفق</tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5603"
+         y="518.57532"
+         x="901.13538"
+         style="font-style:normal;font-variant:normal;font-weight:400;font-size:12.9492178px;line-height:125%;font-family:Calibri;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           id="tspan5605"
+           y="0"
+           x="0"
+           sodipodi:role="line"><tspan
+             id="tspan5607"
+             style="font-style:normal;font-variant:normal;font-weight:400;font-size:12.9492178px;font-family:Calibri;fill:#000000"
+             dy="0"
+             dx="0" /></tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5631"
+         y="518.57532"
+         x="901.13538"
+         style="font-style:normal;font-variant:normal;font-weight:400;font-size:12.9492178px;line-height:125%;font-family:Calibri;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           id="tspan5633"
+           y="0"
+           x="0"
+           sodipodi:role="line"><tspan
+             id="tspan5635"
+             style="font-style:normal;font-variant:normal;font-weight:400;font-size:12.9492178px;font-family:Calibri;fill:#000000"
+             dy="0"
+             dx="0" /></tspan></text>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5659"
+         y="488.36157"
+         x="899.4873"
+         style="font-style:normal;font-variant:normal;font-weight:400;font-size:12.9492178px;line-height:125%;font-family:Calibri;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           id="tspan5661"
+           y="0"
+           x="0"
+           sodipodi:role="line"><tspan
+             id="tspan5663"
+             style="font-style:normal;font-variant:normal;font-weight:400;font-size:12.9492178px;font-family:Calibri;fill:#000000"
+             dy="0"
+             dx="0" /></tspan></text>
+      <g
+         inkscape:groupmode="layer"
+         id="layer20"
+         inkscape:label="MessageBackground"
+         sodipodi:insensitive="true">
+        <rect
+           transform="translate(0,-4.5281911e-6)"
+           style="display:inline;fill:#dcdcdc;fill-opacity:1;stroke:none;stroke-width:1.0631249;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
+           id="rect5722"
+           width="918.74994"
+           height="140.625"
+           x="0"
+           y="396.11221" />
+        <rect
+           y="535.79968"
+           x="-4.5776367e-005"
+           height="492.18747"
+           width="918.74994"
+           id="rect5780"
+           style="display:inline;fill:#f0f0f0;fill-opacity:1;stroke:none;stroke-width:1.0631249;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke" />
+        <rect
+           y="963.29968"
+           x="0"
+           height="65.625"
+           width="918.74994"
+           id="rect5822"
+           style="display:inline;fill:#dcdcdc;fill-opacity:1;stroke:none;stroke-width:1.0631249;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke" />
+      </g>
+      <g
+         inkscape:groupmode="layer"
+         id="layer21"
+         inkscape:label="MessageContent"
+         style="display:inline">
+        <rect
+           style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#7593b7;stroke-width:1.16269302;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect5825"
+           width="186.3373"
+           height="36.337307"
+           x="707.4563"
+           y="977.94354" />
+        <rect
+           ry="5.0204988"
+           rx="4.920548"
+           y="415.27954"
+           x="215.99847"
+           height="27.185722"
+           width="580.20612"
+           id="rect5342"
+           style="display:inline;fill:#f0f0f0;fill-opacity:1;stroke:#aaaaaa;stroke-width:0.93927574;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           transform="translate(0,-4.5281911e-6)"
+           sodipodi:linespacing="0%"
+           id="text5348"
+           y="431.92078"
+           x="882.60797"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#646464;fill-opacity:1;stroke:none"
+             y="431.92078"
+             x="882.60797"
+             id="tspan5350"
+             sodipodi:role="line">الی:</tspan></text>
+        <text
+           transform="translate(0,-4.5281911e-6)"
+           sodipodi:linespacing="0%"
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+           x="882.60797"
+           y="469.42078"
+           id="text5358"><tspan
+             sodipodi:role="line"
+             id="tspan5360"
+             x="882.60797"
+             y="469.42078"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#646464;fill-opacity:1;stroke:none">نسخة إلى:</tspan></text>
+        <rect
+           ry="4.9989805"
+           rx="5.0000005"
+           y="490.33374"
+           x="37.817478"
+           height="27.187593"
+           width="758.44324"
+           id="rect5362"
+           style="display:inline;fill:#f0f0f0;fill-opacity:1;stroke:#aaaaaa;stroke-width:0.93740445;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           transform="translate(0,-4.5281911e-6)"
+           sodipodi:linespacing="0%"
+           id="text5364"
+           y="507.52557"
+           x="783.36688"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#828282;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#828282;fill-opacity:1;stroke:none"
+             y="507.52557"
+             x="783.36688"
+             id="tspan5366"
+             sodipodi:role="line">الموضوع</tspan></text>
+        <text
+           transform="translate(0,-4.5281911e-6)"
+           sodipodi:linespacing="0%"
+           id="text5369"
+           y="506.92078"
+           x="882.60797"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#646464;fill-opacity:1;stroke:none"
+             y="506.92078"
+             x="882.60797"
+             id="tspan5371"
+             sodipodi:role="line">الموضوع:</tspan></text>
+        <rect
+           style="display:inline;fill:#f0f0f0;fill-opacity:1;stroke:#aaaaaa;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect5577"
+           width="140.11501"
+           height="27.194521"
+           x="67.60656"
+           y="415.53766"
+           rx="5.0002508"
+           ry="5" />
+        <rect
+           transform="translate(0,-4.5281911e-6)"
+           ry="5.7142863"
+           rx="5.7142863"
+           y="417.07819"
+           x="37.912235"
+           height="21.069141"
+           width="21.069141"
+           id="rect5583"
+           style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#5790d5;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           transform="translate(0,-4.5281911e-6)"
+           id="text5585"
+           y="432.91763"
+           x="48.470325"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.07143021px;line-height:125%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#5790d5;fill-opacity:1;stroke:none"
+           xml:space="preserve"
+           sodipodi:linespacing="125%"><tspan
+             y="432.91763"
+             x="48.470325"
+             id="tspan5587"
+             sodipodi:role="line"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:roboto;-inkscape-font-specification:roboto;fill:#5790d5;fill-opacity:1">+</tspan></text>
+        <rect
+           style="display:inline;fill:#f0f0f0;fill-opacity:1;stroke:#aaaaaa;stroke-width:0.93927574;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect5699"
+           width="580.20612"
+           height="27.185722"
+           x="215.99847"
+           y="452.77954"
+           rx="4.920548"
+           ry="5.0204988" />
+        <rect
+           ry="4.9251184"
+           rx="5.0002508"
+           y="453.03766"
+           x="67.60656"
+           height="27.194521"
+           width="140.11501"
+           id="rect5706"
+           style="display:inline;fill:#f0f0f0;fill-opacity:1;stroke:#aaaaaa;stroke-width:0.93047667;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           transform="translate(0,-4.5281911e-6)"
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:roboto;-inkscape-font-specification:roboto;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#828282;fill-opacity:1;stroke:none"
+           x="153.97304"
+           y="472.17648"
+           id="text5708"
+           sodipodi:linespacing="0%"><tspan
+             sodipodi:role="line"
+             id="tspan5710"
+             x="153.97304"
+             y="472.17648"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;text-align:end;text-anchor:end;fill:#828282;fill-opacity:1;stroke:none">Username</tspan></text>
+        <rect
+           transform="translate(0,-4.5281911e-6)"
+           style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#5790d5;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect5712"
+           width="21.069141"
+           height="21.069141"
+           x="37.912235"
+           y="454.57819"
+           rx="5.7142863"
+           ry="5.7142863" />
+        <text
+           transform="translate(0,-4.5281911e-6)"
+           sodipodi:linespacing="125%"
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.07143021px;line-height:125%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#5790d5;fill-opacity:1;stroke:none"
+           x="48.470325"
+           y="470.41763"
+           id="text5714"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:roboto;-inkscape-font-specification:roboto;fill:#5790d5;fill-opacity:1"
+             sodipodi:role="line"
+             id="tspan5716"
+             x="48.470325"
+             y="470.41763">+</tspan></text>
+        <text
+           transform="translate(0,-4.5281911e-6)"
+           sodipodi:linespacing="0%"
+           id="text5718"
+           y="434.67648"
+           x="153.97304"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:roboto;-inkscape-font-specification:roboto;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#828282;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;text-align:end;text-anchor:end;fill:#828282;fill-opacity:1;stroke:none"
+             y="434.67648"
+             x="153.97304"
+             id="tspan5720"
+             sodipodi:role="line">Username</tspan></text>
+        <text
+           sodipodi:linespacing="0%"
+           id="text5385"
+           y="1000.7344"
+           x="864.0755"
+           style="font-style:normal;font-weight:normal;font-size:16.40625px;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#556373;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40625px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#556373;fill-opacity:1;stroke:none"
+             y="1000.7344"
+             x="864.0755"
+             id="tspan5387"
+             sodipodi:role="line">filename1.pdf</tspan></text>
+        <text
+           id="text6560"
+           y="1000.9462"
+           x="878.29022"
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12.89062405px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#556373;fill-opacity:1;stroke:none"
+           xml:space="preserve"
+           sodipodi:linespacing="0%"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12.89062405px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#556373;fill-opacity:1"
+             y="1000.9462"
+             x="878.29022"
+             id="tspan6562"
+             sodipodi:role="line"></tspan></text>
+        <rect
+           ry="5"
+           rx="5"
+           y="417.5827"
+           x="725.33112"
+           height="22.579426"
+           width="64.570984"
+           id="rect5415"
+           style="display:inline;fill:#eff0f1;fill-opacity:1;stroke:#5790d5;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           sodipodi:linespacing="125%"
+           id="text5417"
+           y="430.55899"
+           x="757.51361"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.54687405px;line-height:125%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             style="font-size:10.54687405px;fill:#5790d5;fill-opacity:1"
+             y="430.55899"
+             x="757.51361"
+             id="tspan5419"
+             sodipodi:role="line">علي عدنان</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.0714283px;line-height:125%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#5790d5;fill-opacity:1;stroke:none"
+           x="718.94647"
+           y="432.72961"
+           id="text5425"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan5427"
+             x="718.94647"
+             y="432.72961"
+             style="font-size:14.06249905px;fill:#5790d5;fill-opacity:1">,</tspan></text>
+        <rect
+           style="display:inline;fill:#eff0f1;fill-opacity:1;stroke:#5790d5;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect5434"
+           width="64.570984"
+           height="22.579426"
+           x="644.70612"
+           y="417.5827"
+           rx="5"
+           ry="5" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.54687405px;line-height:125%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
+           x="676.88861"
+           y="430.55899"
+           id="text5436"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan5438"
+             x="676.88861"
+             y="430.55899"
+             style="font-size:10.54687405px;fill:#5790d5;fill-opacity:1">علاء عباس</tspan></text>
+        <rect
+           style="display:inline;fill:#eff0f1;fill-opacity:1;stroke:#5790d5;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect5441"
+           width="64.570984"
+           height="22.579426"
+           x="725.33112"
+           y="455.0827"
+           rx="5"
+           ry="5" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.54687405px;line-height:125%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
+           x="757.51361"
+           y="468.05899"
+           id="text5443"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan5445"
+             x="757.51361"
+             y="468.05899"
+             style="font-size:10.54687405px;fill:#5790d5;fill-opacity:1">بشار رسن</tspan></text>
+        <rect
+           y="977.71826"
+           x="707.4563"
+           height="36.562496"
+           width="31.649805"
+           id="rect5457"
+           style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#7593b7;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:25.78124809px;line-height:0%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;display:inline;fill:#b07368;fill-opacity:1;stroke:none"
+           x="717.73309"
+           y="1001.1127"
+           id="text5459"
+           sodipodi:linespacing="0%"><tspan
+             sodipodi:role="line"
+             id="tspan5461"
+             x="717.73309"
+             y="1001.1127"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74999809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:start;text-anchor:start;fill:#b07368;fill-opacity:1;stroke:none">x</tspan></text>
+        <rect
+           y="977.94354"
+           x="501.20633"
+           height="36.337303"
+           width="186.3373"
+           id="rect5463"
+           style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#7593b7;stroke-width:1.16269302;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:16.40625px;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#556373;fill-opacity:1;stroke:none"
+           x="657.8255"
+           y="1000.9137"
+           id="text5465"
+           sodipodi:linespacing="0%"><tspan
+             sodipodi:role="line"
+             id="tspan5467"
+             x="657.8255"
+             y="1000.9137"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40625px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#556373;fill-opacity:1;stroke:none">filename2.pdf</tspan></text>
+        <text
+           sodipodi:linespacing="0%"
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12.89062405px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#556373;fill-opacity:1;stroke:none"
+           x="672.04022"
+           y="1001.1254"
+           id="text5469"><tspan
+             sodipodi:role="line"
+             id="tspan5471"
+             x="672.04022"
+             y="1001.1254"
+             style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12.89062405px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#556373;fill-opacity:1"></tspan></text>
+        <rect
+           style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#7593b7;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="rect5473"
+           width="31.875"
+           height="36.562496"
+           x="501.20609"
+           y="977.83093" />
+        <text
+           sodipodi:linespacing="0%"
+           id="text5475"
+           y="1001.2254"
+           x="511.59549"
+           style="font-style:normal;font-weight:normal;font-size:25.78124809px;line-height:0%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;display:inline;fill:#b07368;fill-opacity:1;stroke:none"
+           xml:space="preserve"><tspan
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74999809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:start;text-anchor:start;fill:#b07368;fill-opacity:1;stroke:none"
+             y="1001.2254"
+             x="511.59549"
+             id="tspan5477"
+             sodipodi:role="line">x</tspan></text>
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot5479"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           transform="matrix(0.93749995,0,0,0.93749995,0,236.73723)"><flowRegion
+             id="flowRegion5481"><rect
+               id="rect5483"
+               width="627"
+               height="167"
+               x="238"
+               y="360" /></flowRegion><flowPara
+             id="flowPara5485"></flowPara></flowRoot>        <flowRoot
+           xml:space="preserve"
+           id="flowRoot5487"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74999809px;line-height:125%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#464646;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"><flowRegion
+             id="flowRegion5489"><rect
+               id="rect5491"
+               width="799.46002"
+               height="378.59106"
+               x="67.5"
+               y="576.11218"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74999809px;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';fill:#464646;fill-opacity:1" /></flowRegion><flowPara
+             id="flowPara5493"
+             style="font-size:18.74999809px;text-align:justify;text-anchor:start;fill:#464646;fill-opacity:1">علي عدنان (من مواليد 19 ديسمبر 1993 في حي القاهرة في الأعظمية، بغداد، العراق)، لاعب المنتخب العراقي لكرة القدم. يلعب في الظهير الايسر مع نادي فانكوفر وايتكابس الكندي في الدوري الأميركي. كان أحد الفائزين كأفضل لاعب آسيوي شاب للعام 2013. لعب في كأس آسيا للشباب 2012 في الإمارات، وحصل مع منتخب بلاده على القلادة الفضية.</flowPara><flowPara
+             style="font-size:18.74999809px;text-align:justify;text-anchor:start;fill:#464646;fill-opacity:1"
+             id="flowPara5495">عمه هو علي كاظم أحد أشهر لاعبين كرة القدم لعب مع الفرق الكروية العراقية في عقد السبعينيات من القرن الماضي. </flowPara></flowRoot>        <path
+           style="fill:none;fill-opacity:1;stroke:#464646;stroke-width:1.40624988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           d="m 624.19023,709.19297 0,23.43749"
+           id="path5497"
+           inkscape:connector-curvature="0" />
+      </g>
+      <rect
+         style="display:inline;fill:#c8c8c8;fill-opacity:1;stroke:none"
+         id="rect6546"
+         width="93.749992"
+         height="46.874996"
+         x="-590.62494"
+         y="349.23718"
+         transform="scale(-1,1)" />
+      <text
+         id="text6548"
+         y="377.80139"
+         x="561.66064"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12px;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#353b43;fill-opacity:1"
+           y="377.80139"
+           x="561.66064"
+           id="tspan6550"
+           sodipodi:role="line"></tspan></text>
+      <text
+         id="text6552"
+         y="376.18091"
+         x="548.95856"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#353b43;fill-opacity:1;stroke:none"
+           y="376.18091"
+           x="548.95856"
+           id="tspan6554"
+           sodipodi:role="line">رسال</tspan></text>
+    </g>
+    <g
+       style="display:none"
        transform="translate(0,-236.73723)"
        id="g4610"
        inkscape:groupmode="layer"
