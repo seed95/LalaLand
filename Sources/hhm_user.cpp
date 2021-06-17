@@ -60,7 +60,8 @@ bool HhmUser::loadUser(QString username, QString password)
     data = res.value(HHM_USER_LASTLOGIN);
     if(data.isValid())
     {
-        QQmlProperty::write(ui, "lastlogin", data);
+        QLocale ar_locale(QLocale::Arabic);
+        QQmlProperty::write(ui, "lastlogin", ar_locale.toString(data.toDateTime(), "hh:mm (dd MMMM/ yyyyy"));
     }
     else
     {

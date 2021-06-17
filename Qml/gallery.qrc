@@ -22,5 +22,8 @@
         <file>HhmTable.qml</file>
         <file>HhmDateInputTable.qml</file>
         <file>HhmDateFieldInput.qml</file>
+        <file>HhmSideMenu.qml</file>
+        <file>HhmMenuButton.qml</file>
+        <file>HhmProfile.qml</file>
     </qresource>
 </RCC>

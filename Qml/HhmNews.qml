@@ -6,6 +6,8 @@ Rectangle
 
     property color color_text: "#3c3c3c"
 
+    height: 75
+    width: 980
     color: "#b4b4b4"
 
     Item

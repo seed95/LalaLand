@@ -125,8 +125,8 @@ void HhmMail::showEmailInSidebar(QStringList emailIds)
                 QString date;
                 if( hhm_rtlIsEnable() )
                 {
-                    QLocale ar_localce(QLocale::Arabic);
-                    date = ar_localce.toString(data.toDateTime(), "hh:mm");
+                    QLocale ar_locale(QLocale::Arabic);
+                    date = ar_locale.toString(data.toDateTime(), "hh:mm");
                 }
                 else
                 {

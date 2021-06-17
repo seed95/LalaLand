@@ -15,6 +15,11 @@ Item
     property int hhm_TABLE_MODE_NEW:         1
     property int hhm_TABLE_MODE_CONTENT:     2
 
+    property int hhm_MESSAGE_MODE:      0
+    property int hhm_DOCUMENT_MODE:     1
+    property int hhm_PROFILE_MODE:      2
+    property int hhm_ADMINPANEL_MODE:   3
+
     property string hhm_TEXT_DOC_STATUS_SUCCESS: qsTr("تمت بنجاح")
     property string hhm_TEXT_DOC_STATUS_PENDING: qsTr("غير مقروءة")
     property string hhm_TEXT_DOC_STATUS_FAILED:  qsTr("رفض")

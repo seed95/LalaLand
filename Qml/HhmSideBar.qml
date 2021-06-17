@@ -8,29 +8,12 @@ Rectangle
 
     property string last_searched_text: ""
 
-    Rectangle
-    {
-        id: rect_logo
-        width: parent.width
-        height: 100
-        color: "#ffffff"
-        anchors.left: parent.left
-        anchors.top: parent.top
-
-        Image
-        {
-            id: image_logo
-            anchors.centerIn: parent
-            source: "qrc:/logo.png"
-        }
-
-    }
 
     HhmSearchDialog
     {
         id: search
         anchors.left: parent.left
-        anchors.top: rect_logo.bottom
+        anchors.top: parent.top
 
         onChangedFocus:
         {

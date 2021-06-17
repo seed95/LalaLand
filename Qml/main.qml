@@ -12,6 +12,7 @@ Window
     property string app_status:     "Updated from server 12:20PM"
     property string login_status:   "Server connected"
 
+    property int hhm_mode:                  con.hhm_MESSAGE_MODE
     property int email_mode:                con.id_EMAIL_MODE_INBOX
     property int selected_doc_case_number:  con.id_NO_SELECTED_ITEM
 
@@ -81,8 +82,8 @@ Window
     }
 
     visible: true
-    width: 1280
-    height: 800
+    width: 1330
+    height: 870
     minimumHeight: height
     maximumHeight: height
     minimumWidth: width
@@ -208,22 +209,43 @@ Window
         }
     }
 
-    Item
+    HhmTopBar
     {
-        id: main_rtl
-        width: parent.width
+        id: topbar
+        anchors.left: parent.left
+        anchors.top: parent.top
+    }
+
+    HhmSideMenu
+    {
+        id: sidebar_menu
+        anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: bottombar.top
-        visible: root.rtl
+    }
 
-        HhmTopBar
-        {
-            id: topbar_rtl
-            anchors.left: parent.left
-            anchors.right: sidebar_rtl.left
-            anchors.top: parent.top
-            z: 1
-        }
+    HhmNews
+    {
+        id: news
+        anchors.left: parent.left
+        anchors.top: topbar.bottom
+    }
+
+    HhmProfile
+    {
+        id: profile
+        anchors.left: news.right
+        anchors.top: topbar.bottom
+    }
+
+    Item
+    {
+        id: main_ui
+        anchors.left: parent.left
+        anchors.right: sidebar_menu.left
+        anchors.top: profile.bottom
+        anchors.bottom: bottombar.top
+        visible: root.rtl
 
         HhmSideBar
         {
@@ -240,8 +262,7 @@ Window
             id: email_content_rtl
             anchors.left: parent.left
             anchors.right: sidebar_rtl.left
-            anchors.top: topbar_rtl.bottom
-            anchors.bottom: parent.bottom
+            height: parent.height
             visible: !createNewEmail && root.isDocSelected()
         }
 
@@ -250,8 +271,7 @@ Window
             id: new_email_rtl
             anchors.left: parent.left
             anchors.right: sidebar_rtl.left
-            anchors.top: topbar_rtl.bottom
-            anchors.bottom: parent.bottom
+            height: parent.height
             anchors.bottomMargin: 100
             visible: createNewEmail
         }
@@ -268,15 +288,15 @@ Window
 
         HhmTopBar
         {
-            id: topbar
-            anchors.left: sidebar.right
+            id: topbar_ltr
+            anchors.left: sidebar_ltr.right
             anchors.right: parent.right
             anchors.top: parent.top
         }
 
         HhmSideBar
         {
-            id: sidebar
+            id: sidebar_ltr
             width: 300
             height: parent.height
             anchors.top: parent.top
@@ -286,19 +306,19 @@ Window
 
         HhmEmailContent
         {
-            id: email_content
-            anchors.left: sidebar.right
+            id: email_content_ltr
+            anchors.left: sidebar_ltr.right
             anchors.right: parent.right
-            anchors.top: topbar.bottom
+            anchors.top: topbar_ltr.bottom
             anchors.bottom: parent.bottom
             visible: !createNewEmail && root.isDocSelected()
         }
 
         HhmNewEmail
         {
-            id: new_email
-            anchors.left: sidebar.right
-            anchors.top: topbar.bottom
+            id: new_email_ltr
+            anchors.left: sidebar_ltr.right
+            anchors.top: topbar_ltr.bottom
             anchors.right: parent.right
             anchors.bottom: parent.bottom
             visible: createNewEmail
@@ -328,7 +348,7 @@ Window
 
     function addToBox()
     {
-        var obj = email_content
+        var obj = email_content_ltr
         if( root.rtl )
         {
             obj = email_content_rtl
@@ -343,7 +363,7 @@ Window
             obj.download_filepath = root.filepath
         }
 
-        obj = sidebar
+        obj = sidebar_ltr
         if( root.rtl )
         {
             obj = sidebar_rtl
@@ -353,7 +373,7 @@ Window
 
     function finishSync()
     {
-        var obj = sidebar
+        var obj = sidebar_ltr
         if( root.rtl )
         {
             obj = sidebar_rtl
@@ -383,7 +403,7 @@ Window
 
     function usernameNotFound()
     {
-        var obj = new_email
+        var obj = new_email_ltr
         if( root.rtl )
         {
             obj = new_email_rtl
@@ -402,7 +422,7 @@ Window
 
     function showSelectedFilePath()
     {
-        var obj = new_email
+        var obj = new_email_ltr
         if( root.rtl )
         {
             obj = new_email_rtl
@@ -413,7 +433,7 @@ Window
 
     function sendEmail()
     {
-        var obj = new_email
+        var obj = new_email_ltr
         if( root.rtl )
         {
             obj = new_email_rtl
@@ -424,7 +444,7 @@ Window
 
     function syncEmail()
     {
-        var obj = sidebar
+        var obj = sidebar_ltr
         if( root.rtl )
         {
             obj = sidebar_rtl

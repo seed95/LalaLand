@@ -52,8 +52,8 @@ void hhm_showMessage(QString msg, int interval)
 
 void hhm_updateFromServer()
 {
-    QLocale ar_localce(QLocale::Arabic);
-    QString date = ar_localce.toString(QDateTime::currentDateTime(), "hh:mm");
+    QLocale ar_locale(QLocale::Arabic);
+    QString date = ar_locale.toString(QDateTime::currentDateTime(), "hh:mm");
     hhm_setStatus("Updated from server " + date);
 }
 
