@@ -25,5 +25,7 @@
         <file>HhmSideMenu.qml</file>
         <file>HhmMenuButton.qml</file>
         <file>HhmProfile.qml</file>
+        <file>HhmTabTrapezius.qml</file>
+        <file>HhmTab.qml</file>
     </qresource>
 </RCC>

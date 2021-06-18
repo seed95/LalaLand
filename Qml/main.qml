@@ -198,6 +198,13 @@ Window
         id: con
     }
 
+    HhmTab
+    {
+        x: 0
+        y: 130
+        z: 1
+    }
+
     HhmLogin
     {
         id: login

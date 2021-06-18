@@ -8,6 +8,7 @@ HhmDatabase::HhmDatabase(QObject *parent) : QObject(parent)
     db.setDatabaseName(DATABASE_NAME);
     db.setUserName(SERVER_USER);
     db.setPassword(SERVER_PASS);
+    qDebug() << "Server IP" << hhm_getServerIP();
 
     if( db.open() )
     {
