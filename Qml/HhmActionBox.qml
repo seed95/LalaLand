@@ -3,6 +3,8 @@ import QtQuick 2.0
 Rectangle
 {
 
+    width: 980
+    height: 50
     color: "#c8c8c8"
 
     Item
@@ -167,63 +169,6 @@ Rectangle
 
     }
 
-    Rectangle
-    {
-        id: rtl_rect_text
-        height: parent.height
-        width: 144
-        anchors.left: parent.left
-        anchors.top: parent.top
-        color: "transparent"
-        visible: root.rtl
-
-        Text
-        {
-            id: department_rtl
-            text: qsTr("جمهورية العراق")
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.topMargin:
-            {
-                if( root.fontOffset )
-                {
-                    4
-                }
-                else
-                {
-                    8
-                }
-            }
-            color: "#3c3c3c"
-            font.family: fontArialBold.name
-            font.pixelSize: 17
-        }
-
-        Text
-        {
-            id: office_rtl
-            text: qsTr("ديوان محافظة البصرة")
-            anchors.right: parent.right
-            anchors.top: department_rtl.bottom
-            anchors.topMargin:
-            {
-                if( root.fontOffset )
-                {
-                    -4
-                }
-                else
-                {
-                    0
-                }
-            }
-            color: "#3c3c3c"
-            font.family: fontArialRegular.name
-            font.weight: Font.Normal
-            font.pixelSize: 15
-        }
-
-    }
-
     Item
     {
         id: action_box
@@ -355,45 +300,6 @@ Rectangle
             icon: "\uf1d8"
             action: "Send"
             onButtonClicked: root.sendEmail()
-        }
-
-    }
-
-    Rectangle
-    {
-        id: rect_text
-        height: parent.height
-        width: 130
-        anchors.right: parent.right
-        anchors.top: parent.top
-        color: "transparent"
-        visible: !root.rtl
-
-        Text
-        {
-            id: department
-            text: "Iraq Department of Justice"
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.rightMargin: 16
-            anchors.topMargin: 5
-            color: "#c8c8c8"
-            font.family: fontRobotoMedium.name
-            font.weight: Font.Medium
-            font.pixelSize: 15
-        }
-
-        Text
-        {
-            id: office
-            text: "Office of Legislative Affairs"
-            anchors.right: parent.right
-            anchors.top: department.bottom
-            anchors.rightMargin: 16
-            color: "#c8c8c8"
-            font.family: fontRobotoLight.name
-            font.weight: Font.Light
-            font.pixelSize: 11
         }
 
     }

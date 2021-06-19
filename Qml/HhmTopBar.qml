@@ -81,14 +81,4 @@ Rectangle
 
     }
 
-
-//    HhmActionBox
-//    {
-//        id: actions
-//        width: parent.width
-//        height: 50
-//        anchors.left: parent.left
-//        anchors.top: news.bottom
-//    }
-
 }

@@ -27,5 +27,9 @@
         <file>HhmProfile.qml</file>
         <file>HhmTabTrapezius.qml</file>
         <file>HhmTab.qml</file>
+        <file>HhmNewMessage.qml</file>
+        <file>HhmAttachmentText.qml</file>
+        <file>HhmMessageTextInput.qml</file>
+        <file>HhmEnteredUsername.qml</file>
     </qresource>
 </RCC>

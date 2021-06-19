@@ -20,6 +20,9 @@ Item
     property int hhm_PROFILE_MODE:      2
     property int hhm_ADMINPANEL_MODE:   3
 
+    property int hhm_MTIT_DEFAULT:      0//Message TextInput Type
+    property int hhm_MTIT_USERNAME:     1//Message TextInput Type
+
     property string hhm_TEXT_DOC_STATUS_SUCCESS: qsTr("تمت بنجاح")
     property string hhm_TEXT_DOC_STATUS_PENDING: qsTr("غير مقروءة")
     property string hhm_TEXT_DOC_STATUS_FAILED:  qsTr("رفض")

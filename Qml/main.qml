@@ -203,6 +203,7 @@ Window
         x: 0
         y: 130
         z: 1
+        visible: root.hhm_mode===con.hhm_ADMINPANEL_MODE
     }
 
     HhmLogin
@@ -238,11 +239,29 @@ Window
         anchors.top: topbar.bottom
     }
 
+    HhmActionBox
+    {
+        id: actions
+        anchors.left: parent.left
+        anchors.top: news.bottom
+        anchors.topMargin: -25
+        visible: root.hhm_mode===con.hhm_DOCUMENT_MODE ||
+                 root.hhm_mode===con.hhm_MESSAGE_MODE
+    }
+
     HhmProfile
     {
         id: profile
         anchors.left: news.right
         anchors.top: topbar.bottom
+    }
+
+    HhmNewMessage
+    {
+        id: new_message
+        anchors.left: parent.left
+        anchors.top: actions.bottom
+        visible: root.hhm_mode===con.hhm_MESSAGE_MODE
     }
 
     Item
