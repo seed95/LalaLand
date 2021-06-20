@@ -2,6 +2,7 @@
 
 QObject *ui;
 QString server_ip;
+QString last_directory;
 
 void hhm_setBackendUI(QObject *item)
 {
@@ -100,6 +101,16 @@ bool hhm_rtlIsEnable()
         return data.toInt();
     }
     return false;
+}
+
+QString hhm_getLastDirectory()
+{
+    return last_directory;
+}
+
+void hhm_setLastDirectory(QString lastDir)
+{
+    last_directory = lastDir;
 }
 
 //Print in qDebug and LOG_FILE

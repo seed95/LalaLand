@@ -6,7 +6,7 @@ Rectangle
     height: 870
     color: "#2d3139"
 
-    HhmMenuButton
+    HhmSwitcherBtn
     {
         id: message
         anchors.bottom: document.top
@@ -15,7 +15,7 @@ Rectangle
         onButtonClicked: root.hhm_mode = con.hhm_MESSAGE_MODE
     }
 
-    HhmMenuButton
+    HhmSwitcherBtn
     {
         id: document
         anchors.bottom: profile.top
@@ -24,7 +24,7 @@ Rectangle
         onButtonClicked: root.hhm_mode = con.hhm_DOCUMENT_MODE
     }
 
-    HhmMenuButton
+    HhmSwitcherBtn
     {
         id: profile
         anchors.bottom: admin_panel.top
@@ -33,13 +33,21 @@ Rectangle
         onButtonClicked: root.hhm_mode = con.hhm_PROFILE_MODE
     }
 
-    HhmMenuButton
+    HhmSwitcherBtn
     {
         id: admin_panel
-        anchors.bottom: parent.bottom
+        anchors.bottom: signout.top
         text_icon: "\uf509"
         isActive: root.hhm_mode===con.hhm_ADMINPANEL_MODE
         onButtonClicked: root.hhm_mode = con.hhm_ADMINPANEL_MODE
+    }
+
+    HhmSwitcherBtn
+    {
+        id: signout
+        anchors.bottom: parent.bottom
+        text_icon: "\uf2f5"
+//        onButtonClicked: root.hhm_mode = con.hhm_ADMINPANEL_MODE
     }
 
 }

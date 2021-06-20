@@ -4,10 +4,12 @@ import QtQuick.Controls 2.0
 Rectangle
 {
     id: container
-    color: "#d7d7d7"
 
     property string last_searched_text: ""
 
+    color: "#d7d7d7"
+    width: 300
+    height: 675
 
     HhmSearchDialog
     {

@@ -4,35 +4,13 @@ Rectangle
 {
     id: container
 
+    property string attach_filename: ""//Set this variable in cpp
+
+    property int cnt_id: 0//Counter for id of attach file
+
     width: 980
     height: 675
     color: "#f0f0f0"
-
-    Component.onCompleted:
-    {
-        addAttachFile("filename1.pdf")
-        addAttachFile("filename2.pdf")
-        addAttachFile("filename3.pdf")
-        addAttachFile("filename4.pdf")
-        addAttachFile("filename5.pdf")
-        addAttachFile("filename6.pdf")
-        addAttachFile("filename7.pdf")
-        addAttachFile("filename8.pdf")
-        addAttachFile("filename9.pdf")
-        addAttachFile("filename10.pdf")
-//        addAttachFile("filename2 afjadsf.pdf")
-//        addAttachFile("filename2 afjadsf.pdf")
-//        addAttachFile("filename2 afjadsf.pdf")
-//        addAttachFile("filename2 afjadsf.pdf")
-//        addAttachFile("filename2 afjadsf.pdf")
-//        addAttachFile("filename2 afjadsf.pdf")
-//        addAttachFile("filename2 afjadsf.pdf")
-//        addAttachFile("filename2 afjadsf.pdf")
-//        addAttachFile("filename2 afjadsf.pdf")
-//        addAttachFile("filename2 afjadsf.pdf")
-//        addAttachFile("filename2 afjadsf.pdf")
-//        addAttachFile("filename2 afjadsf.pdf")
-    }
 
     Rectangle
     {
@@ -43,27 +21,29 @@ Rectangle
         anchors.left: parent.left
         color: "#dcdcdc"
 
-        HhmMessageTextInput
+        HhmMessageInput
         {
             id: text_input_to
             anchors.left: parent.left
             anchors.top: parent.top
             anchors.topMargin: 17
             text_label: "الی"
+            objectName: "MessageNewTo"
             input_type: con.hhm_MTIT_USERNAME
         }
 
-        HhmMessageTextInput
+        HhmMessageInput
         {
             id: text_input_cc
             anchors.left: parent.left
             anchors.top: text_input_to.bottom
             anchors.topMargin: 10
             text_label: "نسخة إلى"
+            objectName: "MessageNewCc"
             input_type: con.hhm_MTIT_USERNAME
         }
 
-        HhmMessageTextInput
+        HhmMessageInput
         {
             anchors.left: parent.left
             anchors.top: text_input_cc.bottom
@@ -188,13 +168,14 @@ Rectangle
             spacing: 20
             interactive: false
 
-            delegate: HhmAttachmentText
+            delegate: HhmAttachmentBtn
             {
-                text_filename: attachFilename
+                text_filename   : attachFilename
+                id_file         : idFile
 
                 onDeleteAttachment:
                 {
-                    removeAttachFile(attachFilename)
+                    removeAttachFile(idFile)
                 }
             }
 
@@ -202,19 +183,20 @@ Rectangle
 
     }
 
-
-    function addAttachFile(filename)
+    function addAttachFile()
     {
         ///FIXME: check duplicate file
-        lm_attachment.append({"attachFilename" : filename,
+        lm_attachment.append({"attachFilename" : container.attach_filename,
+                              "idFile" : cnt_id,
                               "sepVisible" : false})
+        cnt_id += 1
     }
 
-    function removeAttachFile(filename)
+    function removeAttachFile(fileId)
     {
         for(var i=0; i<lm_attachment.count; i++)
         {
-            if( lm_attachment.get(i).attachFilename===filename )
+            if( lm_attachment.get(i).idFile===fileId )
             {
                 lm_attachment.remove(i)
                 break

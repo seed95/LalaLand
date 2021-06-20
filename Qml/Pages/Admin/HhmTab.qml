@@ -7,7 +7,7 @@ Rectangle
     width: 980
     height: 40
 
-    HhmTabTrapezius
+    HhmTabBtn
     {
         id: tab_users
         anchors.right: parent.right
@@ -27,7 +27,7 @@ Rectangle
                     }
     }
 
-    HhmTabTrapezius
+    HhmTabBtn
     {
         id: tab_permissions
         anchors.right: tab_users.left
@@ -47,7 +47,7 @@ Rectangle
                     }
     }
 
-    HhmTabTrapezius
+    HhmTabBtn
     {
         id: tab_departments
         anchors.right: tab_permissions.left

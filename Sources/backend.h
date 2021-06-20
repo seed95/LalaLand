@@ -21,6 +21,9 @@ void hhm_updateFromServer();
 QString hhm_getServerIP();
 bool hhm_rtlIsEnable();
 
+QString hhm_getLastDirectory();
+void    hhm_setLastDirectory(QString lastDir);
+
 void hhm_log(QString msg);
 
 #endif // BACKEND_H

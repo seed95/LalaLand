@@ -32,6 +32,8 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     //Instance Mail
     mail = new HhmMail(ui, db);
 
+    message = new HhmMessage(ui, db);
+
     //Instance Attach
     QString ftp_server = "";
     QVariant data = getConfig(HHM_CONFIG_FTP_SERVER);

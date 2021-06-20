@@ -7,9 +7,13 @@ Item
     id: container
 
     property string text_username:      "علي عدنان"
+    property string text_firstname:     "علي"
+    property string text_lastname:     "عدنان"
+    property int    id_user:            0
     property bool   separator_visible:  false//Separator is visible
 
-    property bool isHovered: false
+    property string text_name:     text_firstname + " " + text_lastname
+    property bool   isHovered: false
 
     signal clickUsername()
 
@@ -85,17 +89,17 @@ Item
         id: text_metrics
         font.family: label_username.font.family
         font.pixelSize: label_username.font.pixelSize
-        text: text_username
+        text: text_name
 
         onTextChanged:
         {
             if( text_metrics.width>rect_username.width )
             {
-                label_username.text = root.sliceString(text_username, 7)
+                label_username.text = root.sliceString(text_name, 7)
             }
             else
             {
-                label_username.text = text_username
+                label_username.text = text_name
             }
         }
     }

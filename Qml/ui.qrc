@@ -1,0 +1,39 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>HhmBottomBar.qml</file>
+        <file>HhmTopBar.qml</file>
+        <file>HhmNews.qml</file>
+        <file>HhmConstants.qml</file>
+        <file>HhmActionBox.qml</file>
+        <file>HhmProfile.qml</file>
+        <file>HhmSwitcherBtn.qml</file>
+        <file>HhmSwitcher.qml</file>
+        <file>HhmPage.qml</file>
+        <file>HhmError.qml</file>
+        <file alias="HhmEmailList.qml">Sidebar/HhmEmailList.qml</file>
+        <file alias="HhmSideBar.qml">Sidebar/HhmSideBar.qml</file>
+        <file alias="HhmSearchDialog.qml">Sidebar/HhmSearchDialog.qml</file>
+        <file alias="HhmSideBarElement.qml">Sidebar/HhmSideBarElement.qml</file>
+        <file alias="HhmLoginButton.qml">Login/HhmLoginButton.qml</file>
+        <file alias="HhmLoginTextInput.qml">Login/HhmLoginTextInput.qml</file>
+        <file alias="HhmLogin.qml">Login/HhmLogin.qml</file>
+        <file alias="HhmTag.qml">Elements/HhmTag.qml</file>
+        <file alias="HhmActionBtn.qml">Elements/HhmActionBtn.qml</file>
+        <file alias="HhmTabBtn.qml">Elements/HhmTabBtn.qml</file>
+        <file alias="HhmInputBox.qml">Elements/HhmInputBox.qml</file>
+        <file alias="HhmDateFieldInput.qml">Pages/Document/HhmDateFieldInput.qml</file>
+        <file alias="HhmDateInputTable.qml">Pages/Document/HhmDateInputTable.qml</file>
+        <file alias="HhmDocumentNew.qml">Pages/Document/HhmDocumentNew.qml</file>
+        <file alias="HhmDocumentContent.qml">Pages/Document/HhmDocumentContent.qml</file>
+        <file alias="HhmInputTable.qml">Pages/Document/HhmInputTable.qml</file>
+        <file alias="HhmTable.qml">Pages/Document/HhmTable.qml</file>
+        <file alias="HhmAttachmentBtn.qml">Pages/Message/HhmAttachmentBtn.qml</file>
+        <file alias="HhmMessageInput.qml">Pages/Message/HhmMessageInput.qml</file>
+        <file alias="HhmMessageAction.qml">Pages/Message/HhmMessageAction.qml</file>
+        <file alias="HhmMessageNew.qml">Pages/Message/HhmMessageNew.qml</file>
+        <file alias="HhmMessage.qml">Pages/Message/HhmMessage.qml</file>
+        <file alias="HhmTab.qml">Pages/Admin/HhmTab.qml</file>
+        <file alias="HhmAdmin.qml">Pages/Admin/HhmAdmin.qml</file>
+    </qresource>
+</RCC>

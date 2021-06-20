@@ -16,7 +16,7 @@ Rectangle
         visible: root.rtl
 
         //Top Bar for Content Email Page
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_new_rtl
             height: parent.height
@@ -29,7 +29,7 @@ Rectangle
             onButtonClicked: root.showPageNewEmail()
         }
 
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_reply_rtl
             height: parent.height
@@ -42,7 +42,7 @@ Rectangle
             onButtonClicked: root.replyButtonClicked()
         }
 
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_approve_rtl
             height: parent.height
@@ -60,7 +60,7 @@ Rectangle
             }
         }
 
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_reject_rtl
             height: parent.height
@@ -77,7 +77,7 @@ Rectangle
             }
         }
 
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_archive_rtl
             height: parent.height
@@ -101,7 +101,7 @@ Rectangle
         }
 
         //Top Bar for New Email Page
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_back_rtl
             height: parent.height
@@ -114,7 +114,7 @@ Rectangle
             onButtonClicked: root.createNewEmail = false
         }
 
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_scan_rtl
             height: parent.height
@@ -127,7 +127,7 @@ Rectangle
             onButtonClicked: root.scanButtonClicked()
         }
 
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_send_rtl
             height: parent.height
@@ -140,7 +140,7 @@ Rectangle
             onButtonClicked: root.sendEmail()
         }
 
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_signout_rtl
             height: parent.height
@@ -178,7 +178,7 @@ Rectangle
         visible: !root.rtl
 
         //Top Bar for Content Email Page
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_new
             height: parent.height
@@ -191,7 +191,7 @@ Rectangle
             onButtonClicked: root.showPageNewEmail()
         }
 
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_reply
             height: parent.height
@@ -204,7 +204,7 @@ Rectangle
             onButtonClicked: root.replyButtonClicked()
         }
 
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_approve
             height: parent.height
@@ -221,7 +221,7 @@ Rectangle
             }
         }
 
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_reject
             height: parent.height
@@ -238,7 +238,7 @@ Rectangle
             }
         }
 
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_archive
             height: parent.height
@@ -263,7 +263,7 @@ Rectangle
         }
 
         //Top Bar for New Email Page
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_back
             height: parent.height
@@ -276,7 +276,7 @@ Rectangle
             onButtonClicked: root.createNewEmail = false
         }
 
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_scan
             height: parent.height
@@ -289,7 +289,7 @@ Rectangle
             onButtonClicked: root.scanButtonClicked()
         }
 
-        HhmActionButton
+        HhmActionBtn
         {
             id: action_send
             height: parent.height

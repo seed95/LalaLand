@@ -95,7 +95,7 @@ Window
     FontLoader
     {
         id: fontAwesomeSolid
-        source: "qrc:/Fonts/fa-solid.ttf"
+        source: "qrc:/Fonts/fasolid.ttf"
     }
     FontLoader
     {
@@ -198,19 +198,12 @@ Window
         id: con
     }
 
-    HhmTab
-    {
-        x: 0
-        y: 130
-        z: 1
-        visible: root.hhm_mode===con.hhm_ADMINPANEL_MODE
-    }
-
     HhmLogin
     {
         id: login
         anchors.fill: parent
         z: 1
+        visible: false
         onSignInUser:
         {
             root.loginUser(uname, pass)
@@ -224,9 +217,9 @@ Window
         anchors.top: parent.top
     }
 
-    HhmSideMenu
+    HhmSwitcher
     {
-        id: sidebar_menu
+        id: switcher
         anchors.right: parent.right
         anchors.top: parent.top
         anchors.bottom: bottombar.top
@@ -239,15 +232,15 @@ Window
         anchors.top: topbar.bottom
     }
 
-    HhmActionBox
-    {
-        id: actions
-        anchors.left: parent.left
-        anchors.top: news.bottom
-        anchors.topMargin: -25
-        visible: root.hhm_mode===con.hhm_DOCUMENT_MODE ||
-                 root.hhm_mode===con.hhm_MESSAGE_MODE
-    }
+//    HhmActionBox
+//    {
+//        id: actions
+//        anchors.left: parent.left
+//        anchors.top: news.bottom
+//        anchors.topMargin: -25
+//        visible: root.hhm_mode===con.hhm_DOCUMENT_MODE ||
+//                 root.hhm_mode===con.hhm_MESSAGE_MODE
+//    }
 
     HhmProfile
     {
@@ -256,52 +249,21 @@ Window
         anchors.top: topbar.bottom
     }
 
-    HhmNewMessage
+    HhmSideBar
     {
-        id: new_message
-        anchors.left: parent.left
-        anchors.top: actions.bottom
-        visible: root.hhm_mode===con.hhm_MESSAGE_MODE
+        id: sidebar
+        anchors.top: profile.bottom
+        anchors.right: switcher.left
+        anchors.bottom: bottombar.top
     }
 
-    Item
+    HhmPage
     {
-        id: main_ui
+        id: page
         anchors.left: parent.left
-        anchors.right: sidebar_menu.left
-        anchors.top: profile.bottom
+        anchors.top: news.bottom
         anchors.bottom: bottombar.top
-        visible: root.rtl
-
-        HhmSideBar
-        {
-            id: sidebar_rtl
-            width: 300
-            height: parent.height
-            anchors.top: parent.top
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-        }
-
-        HhmEmailContent
-        {
-            id: email_content_rtl
-            anchors.left: parent.left
-            anchors.right: sidebar_rtl.left
-            height: parent.height
-            visible: !createNewEmail && root.isDocSelected()
-        }
-
-        HhmNewEmail
-        {
-            id: new_email_rtl
-            anchors.left: parent.left
-            anchors.right: sidebar_rtl.left
-            height: parent.height
-            anchors.bottomMargin: 100
-            visible: createNewEmail
-        }
-
+        anchors.right: sidebar.left
     }
 
     Item
@@ -330,25 +292,25 @@ Window
             anchors.bottom: parent.bottom
         }
 
-        HhmEmailContent
-        {
-            id: email_content_ltr
-            anchors.left: sidebar_ltr.right
-            anchors.right: parent.right
-            anchors.top: topbar_ltr.bottom
-            anchors.bottom: parent.bottom
-            visible: !createNewEmail && root.isDocSelected()
-        }
+//        HhmEmailContent
+//        {
+//            id: email_content_ltr
+//            anchors.left: sidebar_ltr.right
+//            anchors.right: parent.right
+//            anchors.top: topbar_ltr.bottom
+//            anchors.bottom: parent.bottom
+//            visible: !createNewEmail && root.isDocSelected()
+//        }
 
-        HhmNewEmail
-        {
-            id: new_email_ltr
-            anchors.left: sidebar_ltr.right
-            anchors.top: topbar_ltr.bottom
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-            visible: createNewEmail
-        }
+//        HhmNewEmail
+//        {
+//            id: new_email_ltr
+//            anchors.left: sidebar_ltr.right
+//            anchors.top: topbar_ltr.bottom
+//            anchors.right: parent.right
+//            anchors.bottom: parent.bottom
+//            visible: createNewEmail
+//        }
 
     }
 
@@ -362,9 +324,9 @@ Window
         text_status: root.app_status
     }
 
-    HhmMessage
+    HhmError
     {
-        id: message
+        id: error_messae
         anchors.centerIn: parent
         z: 10
     }
@@ -392,7 +354,7 @@ Window
         obj = sidebar_ltr
         if( root.rtl )
         {
-            obj = sidebar_rtl
+            obj = sidebar
         }
         obj.addToBox()
     }
@@ -402,7 +364,7 @@ Window
         var obj = sidebar_ltr
         if( root.rtl )
         {
-            obj = sidebar_rtl
+            obj = sidebar
         }
 
         obj.finishSync()
@@ -418,7 +380,7 @@ Window
     //set properites `error_msg`, `d_error_msg`.
     function showMessage()
     {
-        message.showMessage(error_msg, d_error_msg)
+        error_messae.showMessage(error_msg, d_error_msg)
     }
 
     function sendEmailComplete()
@@ -473,7 +435,7 @@ Window
         var obj = sidebar_ltr
         if( root.rtl )
         {
-            obj = sidebar_rtl
+            obj = sidebar
         }
 
         obj.clearEmails()

@@ -3,6 +3,7 @@ import QtQuick 2.0
 Rectangle
 {
     property string text_filename: ""
+    property int    id_file: 0
 
     signal deleteAttachment()
 
@@ -87,7 +88,7 @@ Rectangle
         anchors.rightMargin: 10
         anchors.verticalCenter: parent.verticalCenter
         elide: Text.ElideRight
-        text: text_filename
+        text: text_filename.replace(/^.*[\\\/]/, '')
         font.family: fontRobotoRegular.name
         font.pixelSize: 17
         color: "#556373"

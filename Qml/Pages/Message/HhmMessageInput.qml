@@ -8,11 +8,21 @@ Item
     property int    input_type: con.hhm_MTIT_DEFAULT
     property string text_label: "الموضوع"
 
+    //Set this variables in cpp
+    property string label_username:     ""
+    property string label_firstname:    ""
+    property string label_lastname:     ""
+    property int    user_id:            0
+
     property string username_placeholder:   "Username"
     property string subject_placeholder:    "الموضوع"
     property color  color_background:       "#f0f0f0"
     property color  color_border:           "#aaaaaa"
     property int    rect_radius:            5
+
+    property bool   username_err: false
+
+    signal addNewUsername(string username)
 
     width: 980
     height: 30
@@ -91,8 +101,7 @@ Item
             onClicked:
             {
                 container.forceActiveFocus()
-                addUsername(input_username.text)
-                input_username.text = username_placeholder
+                addNewUsername(input_username.text)
             }
         }
 
@@ -108,7 +117,17 @@ Item
         anchors.verticalCenter: parent.verticalCenter
         color: color_background
         border.width: 1
-        border.color: color_border
+        border.color:
+        {
+            if( username_err )
+            {
+                "#cb8989"
+            }
+            else
+            {
+                color_border
+            }
+        }
         radius: rect_radius
         visible: input_type===con.hhm_MTIT_USERNAME
 
@@ -125,7 +144,11 @@ Item
             font.pixelSize: 17
             color:
             {
-                if( text===username_placeholder )
+                if( username_err )
+                {
+                    "#e08888"
+                }
+                else if( text===username_placeholder )
                 {
                     "#828282"
                 }
@@ -146,6 +169,7 @@ Item
             {
                 if( focus )
                 {
+                    username_err = false
                     if( text===username_placeholder )
                     {
                         text = ""
@@ -165,8 +189,7 @@ Item
                 focus = false
                 if( text!=="" && text!==username_placeholder )
                 {
-                    addUsername(input_username.text)
-                    input_username.text = username_placeholder
+                    addNewUsername(input_username.text)
                 }
             }
 
@@ -209,10 +232,13 @@ Item
             orientation: ListView.Horizontal
             layoutDirection: Qt.RightToLeft
 
-            delegate: HhmEnteredUsername
+            delegate: HhmTag
             {
-                text_username: enteredUsername
-                separator_visible: sepVisible
+                text_username:      enteredUsername
+                text_firstname:     firstName
+                text_lastname:      lastName
+                id_user:            userId
+                separator_visible:  sepVisible
 
                 onClickUsername:
                 {
@@ -330,15 +356,24 @@ Item
 
     }
 
-    function addUsername(textUsername)
+    function addUsername()
     {
+        input_username.text = username_placeholder
         for(var i=0; i<lm_username.count; i++)
         {
             lm_username.get(i).sepVisible = true
         }
 
-        lm_username.append({"enteredUsername" : textUsername,
+        lm_username.append({"enteredUsername" : container.label_username,
+                            "firstName" : container.label_firstname,
+                            "lastName" : container.label_lastname,
+                            "userId" : container.user_id,
                             "sepVisible" : false})
+    }
+
+    function usernameNotFound()
+    {
+        username_err = true
     }
 
     function removeUsername(textUsername)
