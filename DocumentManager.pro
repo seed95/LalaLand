@@ -33,8 +33,7 @@ HEADERS += Sources/backend.h \
 
 RESOURCES += Qml/ui.qrc \
              Resources/fonts.qrc \
-             Resources/images.qrc \
-             Resources/translators.qrc
+             Resources/images.qrc
 
 OTHER_FILES += Qml/*.qml \
                Qml/Pages/Message/*.qml \

@@ -17,13 +17,6 @@ Item
         id: admin_panel
         anchors.fill: parent
         visible: root.hhm_mode===con.hhm_ADMINPANEL_MODE
-        HhmTab
-        {
-            x: 0
-            y: 0
-            z: 1
-        }
-
     }
 
 
