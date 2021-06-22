@@ -26,7 +26,7 @@ Item
 
     property int hhm_MESSAGE_NONE_STATE:        0
     property int hhm_MESSAGE_NEW_STATE:         1
-    property int hhm_MESSAGE_CONTENT_STATE:     2
+    property int hhm_MESSAGE_SHOW_STATE:     2
 
     property string hhm_TEXT_DOC_STATUS_SUCCESS: qsTr("تمت بنجاح")
     property string hhm_TEXT_DOC_STATUS_PENDING: qsTr("غير مقروءة")

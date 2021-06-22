@@ -101,7 +101,14 @@ Item
             onClicked:
             {
                 container.forceActiveFocus()
-                addNewUsername(input_username.text)
+                if( checkUniqueUsername(input_username.text) )
+                {
+                    addNewUsername(input_username.text)
+                }
+                else
+                {
+                    input_username.text = username_placeholder
+                }
             }
         }
 
@@ -189,7 +196,14 @@ Item
                 focus = false
                 if( text!=="" && text!==username_placeholder )
                 {
-                    addNewUsername(input_username.text)
+                    if( checkUniqueUsername(input_username.text) )
+                    {
+                        addNewUsername(input_username.text)
+                    }
+                    else
+                    {
+                        input_username.text = username_placeholder
+                    }
                 }
             }
 
@@ -356,6 +370,19 @@ Item
 
     }
 
+    //Return true if not found 'username' in lm_username
+    function checkUniqueUsername(username)
+    {
+        for(var i=0; i<lm_username.count; i++)
+        {
+            if( lm_username.get(i).enteredUsername.toLowerCase()===username.toLowerCase() )
+            {
+                return false
+            }
+        }
+        return true
+    }
+
     function addUsername()
     {
         input_username.text = username_placeholder
@@ -391,6 +418,37 @@ Item
         {
             lm_username.get(lm_username.count-1).sepVisible = false
         }
+    }
+
+    function getSubject()
+    {
+        var result = input_subject.text
+        if( input_subject.text===subject_placeholder )
+        {
+            return ""
+        }
+        return input_subject.text
+    }
+
+    //Return format: list of users
+    function getUsernameIds()
+    {
+        var result = []
+        for(var i=0; i<lm_username.count ; i++)
+        {
+            var item = []
+            item.push(lm_username.get(i).userId)
+            item.push(lm_username.get(i).enteredUsername)
+            result.push(item)
+        }
+        return result
+    }
+
+    function clearInput()
+    {
+        input_username.text = username_placeholder
+        input_subject.text = subject_placeholder
+        lm_username.clear()
     }
 
 }

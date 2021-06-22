@@ -6,6 +6,7 @@
 
 #define HHM_START_YEAR          2020
 #define HHM_DEFAULT_NEWS_TIMER  10000//ms
+
 /*****              DataBase Configs            *****/
 
 #define SERVER_PORT     3306
@@ -24,6 +25,8 @@
 #define HHM_TABLE_DOCUMENT     "document"
 #define HHM_TABLE_USER_EMAIL   "user_email"
 #define HHM_TABLE_NEWS         "news"
+#define HHM_TABLE_FILES        "files"
+#define HHM_TABLE_MESSAGE      "message"
 
 //Columns in Table `HHM_TABLE_CONFIG`
 #define HHM_CONFIG_KEY          "config_key"
@@ -58,7 +61,6 @@
 #define HHM_EMAIL_RECEIVE_REFERENCE    "r_email"
 
 //Columns in Table 'HHM_TABLE_DOCUMENT'
-//#define HHM_DOCUMENTS_ID                "id"
 #define HHM_DOCUMENT_CASENUMBER         "case_num"
 #define HHM_DOCUMENT_SENDER_ID          "s_id"
 #define HHM_DOCUMENT_RECEIVER_IDS       "r_ids"
@@ -86,5 +88,22 @@
 #define HHM_NEWS_TITLE              "title"
 #define HHM_NEWS_CONTENT            "content"
 #define HHM_NEWS_DATE               "date"
+
+//Columns in Table `HHM_TABLE_FILES`
+#define HHM_FILES_ID                 "id"
+#define HHM_FILES_FILENAME           "filename"
+#define HHM_FILES_SENDER_ID          "s_id"
+#define HHM_FILES_TO_IDS             "to_ids"
+#define HHM_FILES_CC_IDS             "cc_ids"
+
+//Columns in Table `HHM_TABLE_MESSAGE`
+#define HHM_MESSAGE_ID                 "id"
+#define HHM_MESSAGE_SENDER_ID          "sender_id"
+#define HHM_MESSAGE_TO_IDS             "to_ids"
+#define HHM_MESSAGE_CC_IDS             "cc_ids"
+#define HHM_MESSAGE_SUBJECT            "subject"
+#define HHM_MESSAGE_CONTENT            "content"
+#define HHM_MESSAGE_FILE_IDS           "file_ids"
+#define HHM_MESSAGE_DATETIME           "date_time"
 
 #endif // HHM_CONFIG_H

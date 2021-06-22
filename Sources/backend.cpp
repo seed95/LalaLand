@@ -4,6 +4,10 @@ QObject *ui;
 QString server_ip;
 QString last_directory;
 
+QString ftp_address;
+QString ftp_username;
+QString ftp_password;
+
 void hhm_setBackendUI(QObject *item)
 {
     ui = item;
@@ -45,8 +49,8 @@ void hhm_showMessage(QString msg, int interval)
         return;
     }
 
-    QQmlProperty::write(ui, "error_msg", msg);
-    QQmlProperty::write(ui, "d_error_msg", interval);
+    QQmlProperty::write(ui, "error_text", msg);
+    QQmlProperty::write(ui, "error_duration", interval);
     QMetaObject::invokeMethod(ui, "showMessage");
     hhm_log("Message --> " + msg);
 }
@@ -112,6 +116,41 @@ void hhm_setLastDirectory(QString lastDir)
 {
     last_directory = lastDir;
 }
+
+QString hhm_getFtpAddress()
+{
+    return ftp_address;
+}
+
+void hhm_setFtpAddress(QString address)
+{
+    if( !address.endsWith("/") )
+    {
+        address += "/";
+    }
+    ftp_address = address;
+}
+
+QString hhm_getFtpUsername()
+{
+    return ftp_username;
+}
+
+void hhm_setFtpUsername(QString username)
+{
+    ftp_username = username;
+}
+
+QString hhm_getFtpPassword()
+{
+    return ftp_password;
+}
+
+void hhm_setFtpPassword(QString password)
+{
+    ftp_password = password;
+}
+
 
 //Print in qDebug and LOG_FILE
 void hhm_log(QString msg)

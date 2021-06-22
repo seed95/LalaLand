@@ -24,6 +24,13 @@ bool hhm_rtlIsEnable();
 QString hhm_getLastDirectory();
 void    hhm_setLastDirectory(QString lastDir);
 
+QString hhm_getFtpAddress();
+void    hhm_setFtpAddress(QString address);
+QString hhm_getFtpUsername();
+void    hhm_setFtpUsername(QString username);
+QString hhm_getFtpPassword();
+void    hhm_setFtpPassword(QString password);
+
 void hhm_log(QString msg);
 
 #endif // BACKEND_H

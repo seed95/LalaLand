@@ -16,12 +16,12 @@ Window
     property int email_mode:                con.id_EMAIL_MODE_INBOX
     property int selected_doc_case_number:  con.id_NO_SELECTED_ITEM
 
-    //Message properties
-    property string error_msg:    ""//error message
-    property int    d_error_msg:  100//duration error message
+    //Error properties
+    property string error_text:         ""
+    property int    error_duration:     100
 
     //User properties
-    property int    idUser:     101
+    property int    idUser:     102
     property string firstname:  "Cassie"
     property string lastname:   "Hicks"
     property string username:   "Admin"
@@ -95,7 +95,7 @@ Window
     FontLoader
     {
         id: fontAwesomeSolid
-        source: "qrc:/Fonts/fasolid.ttf"
+        source: "qrc:/Fonts/fa-solid.ttf"
     }
     FontLoader
     {
@@ -203,7 +203,6 @@ Window
         id: login
         anchors.fill: parent
         z: 1
-        visible: false
         onSignInUser:
         {
             root.loginUser(uname, pass)
@@ -231,16 +230,6 @@ Window
         anchors.left: parent.left
         anchors.top: topbar.bottom
     }
-
-//    HhmActionBox
-//    {
-//        id: actions
-//        anchors.left: parent.left
-//        anchors.top: news.bottom
-//        anchors.topMargin: -25
-//        visible: root.hhm_mode===con.hhm_DOCUMENT_MODE ||
-//                 root.hhm_mode===con.hhm_MESSAGE_MODE
-//    }
 
     HhmProfile
     {
@@ -377,10 +366,10 @@ Window
     }
 
     //call this function when have a error and must be
-    //set properites `error_msg`, `d_error_msg`.
+    //set properites `error_text`, `error_duration`.
     function showMessage()
     {
-        error_messae.showMessage(error_msg, d_error_msg)
+        error_messae.showMessage(error_text, error_duration)
     }
 
     function sendEmailComplete()

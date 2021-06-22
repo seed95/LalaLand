@@ -2,7 +2,12 @@ import QtQuick 2.0
 
 Rectangle
 {   
+    //Cpp Signals
     signal attachNewFile()
+
+    //Qml Signals
+    signal sendMessageClicked()
+    signal newMessageClicked()
 
     width: 980
     height: 50
@@ -21,11 +26,12 @@ Rectangle
         action: qsTr("انشاء")
         onButtonClicked:
         {
+            newMessageClicked()
             messageState = con.hhm_MESSAGE_NEW_STATE
         }
     }
 
-    //Acttion Box for Content State
+    //Acttion Box for Show State
 
     //Acttion Box for New State
     HhmActionBtn
@@ -67,7 +73,7 @@ Rectangle
         visible: messageState===con.hhm_MESSAGE_NEW_STATE
         icon: "\uf1d8"
         action: qsTr("رسال")
-//        onButtonClicked: root.sendEmail()
+        onButtonClicked: sendMessageClicked()
     }
 
 }

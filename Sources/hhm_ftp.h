@@ -1,5 +1,5 @@
-#ifndef HHM_ATTACH_H
-#define HHM_ATTACH_H
+#ifndef HHM_FTP_H
+#define HHM_FTP_H
 
 #include <QObject>
 #include <QNetworkAccessManager>
@@ -10,13 +10,13 @@
 #include "hhm_config.h"
 #include "backend.h"
 
-class HhmAttach : public QObject
+class HhmFtp : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit HhmAttach(QString server, QString username, QString password, QObject *parent = 0);
-    ~HhmAttach();
+    explicit HhmFtp(QObject *parent=nullptr);
+    ~HhmFtp();
 
     void uploadFile(QString srcFilename, QString dstFilename);
     void downloadFile(QString src, QString dst);
@@ -24,21 +24,26 @@ public:
 private slots:
     void uploadFinished();
     void uploadError(QNetworkReply::NetworkError error);
+
     void downloadReady();
     void downloadFinished();
     void downloadError(QNetworkReply::NetworkError error);
+
+signals:
+    void uploadSuccess(QString filename);
+    void uploadFailed(QString filename);
+
+    void downloadSuccess(QString filename);
+    void downloadFailed(QString filename);
+
 
 private:
     QNetworkAccessManager *m_manager;
     QNetworkReply         *m_response;
     // You must save the file on the heap
     // If you create a file object on the stack, the program will crash.
-    QFile *m_file;
+    QFile *u_file;//upload file
     QFile d_file;//download file
-
-    QString ftp_server;
-    QString ftp_username;
-    QString ftp_password;
 };
 
-#endif // HHM_ATTACH_H
+#endif // HHM_FTP_H

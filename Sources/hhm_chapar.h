@@ -10,7 +10,7 @@
 #include "hhm_mail.h"
 #include "hhm_database.h"
 #include "hhm_user.h"
-#include "hhm_attach.h"
+#include "hhm_ftp.h"
 #include "hhm_news.h"
 #include "hhm_message.h"
 
@@ -40,15 +40,16 @@ private slots:
     void checkUsername(QString username);
 
 private:
-    void addNewDocToDocuments();
-    QVariant getConfig(QString key);
+    void        addNewDocToDocuments();
+    QVariant    getConfig(QString key);
+    void        setFtpConfigs();
 
 private:
-    QObject *ui;
+    QObject     *ui;
     HhmMail     *mail;
     HhmDatabase *db;
     HhmUser     *user;
-    HhmAttach   *ftp;
+    HhmFtp      *ftp;
     HhmNews     *news;
     HhmMessage  *message;
 

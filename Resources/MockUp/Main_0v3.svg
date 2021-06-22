@@ -15,7 +15,7 @@
    version="1.1"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="Main_0v3.svg"
-   inkscape:export-filename="C:\Users\Bijan\Downloads\HHM-master(1)\HHM-master\Resources\0v3.png"
+   inkscape:export-filename="C:\Users\ASuS\Desktop\picture.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -49,17 +49,17 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="480.91979"
-     inkscape:cy="623.01759"
+     inkscape:zoom="1"
+     inkscape:cx="669.36102"
+     inkscape:cy="468.09061"
      inkscape:document-units="px"
-     inkscape:current-layer="layer5"
+     inkscape:current-layer="g4610"
      showgrid="false"
      showguides="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1025"
-     inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-height="1052"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      units="px"
      inkscape:document-rotation="0"
@@ -73,7 +73,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1122,7 +1122,7 @@
          style="fill:none;fill-rule:evenodd;stroke:#7a8db2;stroke-width:0.9375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <text
          xml:space="preserve"
-         style="font-size:18.75px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;stroke-width:0.9375"
+         style="line-height:0%;font-family:Roboto;-inkscape-font-specification:Roboto;letter-spacing:0px;word-spacing:0px;stroke-width:0.9375"
          x="1368.2516"
          y="545.15668"
          id="text2297"><tspan
@@ -1130,7 +1130,7 @@
            id="tspan2295"
            x="1368.2516"
            y="545.15668"
-           style="stroke-width:0.9375">`</tspan></text>
+           style="font-size:18.75px;line-height:1.25;stroke-width:0.9375">`</tspan></text>
       <rect
          y="745.3125"
          x="1199.9999"
@@ -2155,7 +2155,7 @@
            id="text5364"
            y="507.52557"
            x="783.36688"
-           style="font-style:normal;font-weight:normal;font-size:13.75px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#828282;fill-opacity:1;stroke:none"
+           style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#828282;fill-opacity:1;stroke:none"
            xml:space="preserve"><tspan
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#828282;fill-opacity:1;stroke:none"
              y="507.52557"
@@ -2255,7 +2255,7 @@
            id="text5417"
            y="430.71115"
            x="757.33875"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.25px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
            xml:space="preserve"><tspan
              style="font-size:11.25px;line-height:1.25;fill:#5790d5;fill-opacity:1"
              y="430.71115"
@@ -2264,7 +2264,7 @@
              sodipodi:role="line">علي عدنان</tspan></text>
         <text
            xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#5790d5;fill-opacity:1;stroke:none"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#5790d5;fill-opacity:1;stroke:none"
            x="718.34106"
            y="432.72961"
            id="text5425"><tspan
@@ -2313,7 +2313,7 @@
            ry="4.6875" />
         <text
            xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.25px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
            x="757.33875"
            y="469.71515"
            id="text5443"><tspan
@@ -2954,10 +2954,10 @@
          y="56.250011" />
       <g
          id="g5187"
-         transform="translate(-3.5654797)">
+         transform="translate(-3.5654797,0)">
         <path
            style="display:inline;fill:#dcdcdc;fill-opacity:1;stroke:#969696;stroke-opacity:1"
-           d="M 755.92554,62.132313 H 682.56086 L 663.74997,93.250008 H 774.37496 Z"
+           d="m 755.92554,62.132313 -73.36468,0 -18.81089,31.117695 110.62499,0 z"
            id="path4815"
            inkscape:connector-curvature="0"
            sodipodi:nodetypes="ccccc"
@@ -2981,7 +2981,7 @@
            sodipodi:nodetypes="ccccc"
            inkscape:connector-curvature="0"
            id="rect4780"
-           d="m 635.25476,364.49453 h -73.36469 l -19.0776,31.1177 h 110.625 z"
+           d="m 635.25476,364.49453 -73.36469,0 -19.0776,31.1177 110.625,0 z"
            style="display:inline;fill:#dcdcdc;fill-opacity:1;stroke:#969696;stroke-opacity:1" />
         <text
            id="text4941"
@@ -2993,7 +2993,7 @@
              x="597.43604"
              id="tspan4943"
              sodipodi:role="line"
-             style="font-size:16.0714283px;line-height:1.25">وزارة</tspan></text>
+             style="font-size:16.0714283px;line-height:1.25">الاقسام</tspan></text>
       </g>
       <g
          id="g5192">
@@ -3001,7 +3001,7 @@
            sodipodi:nodetypes="ccccc"
            inkscape:connector-curvature="0"
            id="path4817"
-           d="M 886.70641,62.203057 H 796.18073 L 777.18746,93.17895 H 905.0376 Z"
+           d="m 886.70641,62.203057 -90.52568,0 -18.99327,30.975893 127.85014,0 z"
            style="display:inline;fill:#f0f0f0;fill-opacity:1;stroke:#53769d;stroke-width:1.10862911;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            transform="translate(0,302.36222)" />
         <text
@@ -3019,7 +3019,7 @@
       </g>
       <path
          style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="M -0.47942207,93.281258 H 918.74988"
+         d="m -0.47942207,93.281258 919.22930207,0"
          id="path4929"
          inkscape:connector-curvature="0"
          transform="translate(0,302.36222)" />
@@ -3045,7 +3045,7 @@
          ry="5.0881181" />
       <path
          style="fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 423.72445,473.92472 v 23.4375"
+         d="m 423.72445,473.92472 0,23.4375"
          id="path7380"
          inkscape:connector-curvature="0" />
       <text
@@ -3096,7 +3096,7 @@
       <path
          inkscape:connector-curvature="0"
          id="path7405"
-         d="m 423.72445,502.04972 v 23.4375"
+         d="m 423.72445,502.04972 0,23.4375"
          style="fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <text
          xml:space="preserve"
@@ -3145,7 +3145,7 @@
          ry="5.0881181" />
       <path
          style="fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 423.72445,530.17472 v 23.4375"
+         d="m 423.72445,530.17472 0,23.4375"
          id="path7419"
          inkscape:connector-curvature="0" />
       <text
@@ -3420,7 +3420,7 @@
          ry="5.0881181" />
       <path
          style="fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 423.72445,558.29972 v 23.4375"
+         d="m 423.72445,558.29972 0,23.4375"
          id="path7507"
          inkscape:connector-curvature="0" />
       <text
@@ -3471,7 +3471,7 @@
       <path
          inkscape:connector-curvature="0"
          id="path7521"
-         d="m 423.72445,586.42472 v 23.4375"
+         d="m 423.72445,586.42472 0,23.4375"
          style="fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <text
          xml:space="preserve"
@@ -3746,7 +3746,7 @@
       <path
          inkscape:connector-curvature="0"
          id="path7609"
-         d="m 423.72445,614.54972 v 23.4375"
+         d="m 423.72445,614.54972 0,23.4375"
          style="fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <text
          xml:space="preserve"
@@ -3795,7 +3795,7 @@
          ry="5.0881181" />
       <path
          style="fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 423.72445,642.67472 v 23.4375"
+         d="m 423.72445,642.67472 0,23.4375"
          id="path7623"
          inkscape:connector-curvature="0" />
       <text
@@ -4070,7 +4070,7 @@
          ry="5.0881181" />
       <path
          style="fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 423.72445,670.79972 v 23.4375"
+         d="m 423.72445,670.79972 0,23.4375"
          id="path7711"
          inkscape:connector-curvature="0" />
       <text
@@ -4121,7 +4121,7 @@
       <path
          inkscape:connector-curvature="0"
          id="path7725"
-         d="m 423.72445,698.92472 v 23.4375"
+         d="m 423.72445,698.92472 0,23.4375"
          style="fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <text
          xml:space="preserve"
@@ -4396,7 +4396,7 @@
       <path
          inkscape:connector-curvature="0"
          id="path7813"
-         d="m 423.72445,727.04972 v 23.4375"
+         d="m 423.72445,727.04972 0,23.4375"
          style="fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <text
          xml:space="preserve"
@@ -4445,7 +4445,7 @@
          ry="5.0881181" />
       <path
          style="fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 423.72445,755.17472 v 23.4375"
+         d="m 423.72445,755.17472 0,23.4375"
          id="path7827"
          inkscape:connector-curvature="0" />
       <text
@@ -4720,7 +4720,7 @@
          ry="5.0881181" />
       <path
          style="fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 423.72445,783.29972 v 23.4375"
+         d="m 423.72445,783.29972 0,23.4375"
          id="path7915"
          inkscape:connector-curvature="0" />
       <text
@@ -4771,7 +4771,7 @@
       <path
          inkscape:connector-curvature="0"
          id="path7929"
-         d="m 423.72445,811.42472 v 23.4375"
+         d="m 423.72445,811.42472 0,23.4375"
          style="fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <text
          xml:space="preserve"
@@ -5154,7 +5154,7 @@
            x="597.43604"
            id="tspan6078"
            sodipodi:role="line"
-           style="font-size:16.0714283px;line-height:1.25">وزارة</tspan></text>
+           style="font-size:16.0714283px;line-height:1.25">الاقسام</tspan></text>
       <path
          sodipodi:nodetypes="ccccc"
          inkscape:connector-curvature="0"
@@ -5175,36 +5175,36 @@
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="686.22833"
+         x="685.37689"
          y="492.48077"
          id="text6098"><tspan
            sodipodi:role="line"
            id="tspan6100"
-           x="686.22833"
+           x="685.37689"
            y="492.48077"
-           style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end">الموارد البشرية</tspan></text>
+           style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end">قسم الهندسة</tspan></text>
       <text
          id="text6108"
          y="516.85577"
-         x="649.86359"
+         x="634.43176"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
-           style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end"
+           style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle"
            y="516.85577"
-           x="649.86359"
+           x="634.43176"
            id="tspan6110"
-           sodipodi:role="line">إنتاج</tspan></text>
+           sodipodi:role="line">قسم التقنیه معلومات</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="654.34052"
+         x="634.43176"
          y="544.98077"
          id="text6112"><tspan
            sodipodi:role="line"
            id="tspan6114"
-           x="654.34052"
+           x="634.43176"
            y="544.98077"
-           style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end">تصنيع</tspan></text>
+           style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle">قسم الحسابات</tspan></text>
       <rect
          y="555.48718"
          x="79.687492"
@@ -5385,25 +5385,25 @@
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="649.86359"
+         x="634.43176"
          y="573.10577"
          id="text6965"><tspan
            sodipodi:role="line"
            id="tspan6967"
-           x="649.86359"
+           x="634.43176"
            y="573.10577"
-           style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end">إنتاج</tspan></text>
+           style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle">قسم التدقیق</tspan></text>
       <text
          id="text6969"
          y="601.23077"
-         x="654.34052"
+         x="634.43176"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
-           style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end"
+           style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle"
            y="601.23077"
-           x="654.34052"
+           x="634.43176"
            id="tspan6971"
-           sodipodi:role="line">تصنيع</tspan></text>
+           sodipodi:role="line">قسم التخطیط و المتابعة</tspan></text>
       <rect
          style="fill:#d2d2d2;fill-opacity:1;stroke:none"
          id="rect6973"
@@ -5584,25 +5584,25 @@
       <text
          id="text7029"
          y="629.35577"
-         x="649.86359"
+         x="634.26697"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
-           style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end"
+           style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle"
            y="629.35577"
-           x="649.86359"
+           x="634.26697"
            id="tspan7031"
-           sodipodi:role="line">إنتاج</tspan></text>
+           sodipodi:role="line">مدیر مکتب</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="654.34052"
+         x="634.43176"
          y="657.48077"
          id="text7033"><tspan
            sodipodi:role="line"
            id="tspan7035"
-           x="654.34052"
+           x="634.43176"
            y="657.48077"
-           style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end">تصنيع</tspan></text>
+           style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle">قسم إدارة موارد البشریة</tspan></text>
       <rect
          y="667.98718"
          x="79.687492"
@@ -5783,25 +5783,25 @@
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="649.86359"
+         x="634.43176"
          y="685.60577"
          id="text7093"><tspan
            sodipodi:role="line"
            id="tspan7095"
-           x="649.86359"
+           x="634.43176"
            y="685.60577"
-           style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end">إنتاج</tspan></text>
+           style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle">قسم العقود الحكومية</tspan></text>
       <text
          id="text7097"
          y="713.73077"
-         x="654.34052"
+         x="634.43176"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
-           style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end"
+           style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle"
            y="713.73077"
-           x="654.34052"
+           x="634.43176"
            id="tspan7099"
-           sodipodi:role="line">تصنيع</tspan></text>
+           sodipodi:role="line">قسم إدارة مشاريع</tspan></text>
       <rect
          style="fill:#d2d2d2;fill-opacity:1;stroke:none"
          id="rect7101"
@@ -5982,25 +5982,25 @@
       <text
          id="text7157"
          y="741.85577"
-         x="649.86359"
+         x="634.43176"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
-           style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end"
+           style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle"
            y="741.85577"
-           x="649.86359"
+           x="634.43176"
            id="tspan7159"
-           sodipodi:role="line">إنتاج</tspan></text>
+           sodipodi:role="line">قسم القانوني</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="654.34052"
+         x="634.54553"
          y="769.98077"
          id="text7161"><tspan
            sodipodi:role="line"
            id="tspan7163"
-           x="654.34052"
+           x="634.54553"
            y="769.98077"
-           style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end">تصنيع</tspan></text>
+           style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle">الدائرة المالية و الشؤون الإدارية</tspan></text>
       <rect
          y="780.48718"
          x="79.687492"
@@ -6181,14 +6181,14 @@
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="649.86359"
+         x="634.54553"
          y="798.10577"
          id="text7221"><tspan
            sodipodi:role="line"
            id="tspan7223"
-           x="649.86359"
+           x="634.54553"
            y="798.10577"
-           style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end">إنتاج</tspan></text>
+           style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle">ادارة العامة</tspan></text>
       <text
          id="text7225"
          y="826.23077"
@@ -6263,7 +6263,7 @@
          id="rect7251"
          width="139.29784"
          height="22.110334"
-         x="-702.93164"
+         x="-703.91193"
          y="867.86957"
          rx="5"
          ry="5"
@@ -6437,12 +6437,12 @@
       <path
          inkscape:connector-curvature="0"
          id="path5357"
-         d="M -0.47942207,93.281258 H 918.74988"
+         d="m -0.47942207,93.281258 919.22930207,0"
          style="display:inline;fill:none;fill-rule:evenodd;stroke:#969696;stroke-width:0.93749994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          transform="translate(0,302.36222)" />
       <path
          style="display:inline;fill:#f0f0f0;fill-opacity:1;stroke:#53769d;stroke-opacity:1"
-         d="m 752.36006,364.49453 h -73.36468 l -18.81089,31.1177 h 110.62499 z"
+         d="m 752.36006,364.49453 -73.36468,0 -18.81089,31.1177 110.62499,0 z"
          id="path5335"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="ccccc" />
@@ -6461,7 +6461,7 @@
          sodipodi:nodetypes="ccccc"
          inkscape:connector-curvature="0"
          id="path5343"
-         d="m 635.25476,364.49453 h -73.36469 l -19.0776,31.1177 h 110.625 z"
+         d="m 635.25476,364.49453 -73.36469,0 -19.0776,31.1177 110.625,0 z"
          style="display:inline;fill:#f0f0f0;fill-opacity:1;stroke:#646464;stroke-opacity:1" />
       <text
          id="text5345"
@@ -6473,12 +6473,12 @@
            x="597.43604"
            id="tspan5347"
            sodipodi:role="line"
-           style="font-size:16.0714283px;line-height:1.25">وزارة</tspan></text>
+           style="font-size:16.0714283px;line-height:1.25">الاقسام</tspan></text>
       <path
          sodipodi:nodetypes="ccccc"
          inkscape:connector-curvature="0"
          id="path5351"
-         d="m 886.70641,364.56528 h -90.52568 l -18.99327,30.97589 H 905.0376 Z"
+         d="m 886.70641,364.56528 -90.52568,0 -18.99327,30.97589 127.85014,0 z"
          style="display:inline;fill:#dcdcdc;fill-opacity:1;stroke:#969696;stroke-width:1.10862911;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <text
          xml:space="preserve"

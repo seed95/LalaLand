@@ -25,6 +25,7 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
 
     //Instance Database
     db = new HhmDatabase();
+    setFtpConfigs();
 
     //Instance User
     user = new HhmUser(ui, db);
@@ -32,46 +33,14 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     //Instance Mail
     mail = new HhmMail(ui, db);
 
-    message = new HhmMessage(ui, db);
+    //Instance Message
+    message = new HhmMessage(ui, db, user);
 
     //Instance Attach
-    QString ftp_server = "";
-    QVariant data = getConfig(HHM_CONFIG_FTP_SERVER);
-    if(data.isValid())
-    {
-        ftp_server = data.toString();
-    }
-    else
-    {
-        hhm_log("FTP server is wrong in config table(" + data.toString() + ")");
-    }
-
-    QString ftp_username = "";
-    data = getConfig(HHM_CONFIG_FTP_USERNAME);
-    if(data.isValid())
-    {
-        ftp_username = data.toString();
-    }
-    else
-    {
-        hhm_log("FTP username is wrong in config table(" + data.toString() + ")");
-    }
-
-    QString ftp_password = "";
-    data = getConfig(HHM_CONFIG_FTP_PASSWORD);
-    if( data.isValid() )
-    {
-        ftp_password = data.toString();
-    }
-    else
-    {
-        hhm_log("FTP password is wrong in config table(" + data.toString() + ")");
-    }
-
-    ftp = new HhmAttach(ftp_server, ftp_username, ftp_password);
+    ftp = new HhmFtp();
 
     //Instance News
-    data = getConfig(HHM_CONFIG_NEWS_TIMER);
+    QVariant data = getConfig(HHM_CONFIG_NEWS_TIMER);
     int interval = HHM_DEFAULT_NEWS_TIMER;
     if( data.isValid() )
     {
@@ -298,4 +267,38 @@ QVariant HhmChapar::getConfig(QString key)
         return data;
     }
     return QVariant();
+}
+
+void HhmChapar::setFtpConfigs()
+{
+    QVariant data = getConfig(HHM_CONFIG_FTP_SERVER);
+    if(data.isValid())
+    {
+        hhm_setFtpAddress(data.toString());
+    }
+    else
+    {
+        hhm_log("FTP server is wrong in config table(" + data.toString() + ")");
+    }
+
+    data = getConfig(HHM_CONFIG_FTP_USERNAME);
+    if(data.isValid())
+    {
+        hhm_setFtpUsername(data.toString());
+    }
+    else
+    {
+        hhm_log("FTP username is wrong in config table(" + data.toString() + ")");
+    }
+
+    data = getConfig(HHM_CONFIG_FTP_PASSWORD);
+    if( data.isValid() )
+    {
+        hhm_setFtpPassword(data.toString());
+    }
+    else
+    {
+        hhm_log("FTP password is wrong in config table(" + data.toString() + ")");
+    }
+
 }

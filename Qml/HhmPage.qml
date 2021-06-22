@@ -8,7 +8,7 @@ Item
     {
         id: message
         anchors.fill: parent
-        objectName: "message"
+        objectName: "Message"
         visible: root.hhm_mode===con.hhm_MESSAGE_MODE
     }
 

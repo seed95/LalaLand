@@ -4,13 +4,23 @@ Rectangle
 {
     id: container
 
-    property string attach_filename: ""//Set this variable in cpp
+    //Set this variables in cpp
+    property string attach_filename:    ""
 
     property int cnt_id: 0//Counter for id of attach file
 
     width: 980
     height: 675
     color: "#f0f0f0"
+
+    onVisibleChanged:
+    {
+        cnt_id = 0
+        text_input_to.clearInput()
+        text_input_cc.clearInput()
+        text_input_subject.clearInput()
+        lm_attachment.clear()
+    }
 
     Rectangle
     {
@@ -45,6 +55,7 @@ Rectangle
 
         HhmMessageInput
         {
+            id: text_input_subject
             anchors.left: parent.left
             anchors.top: text_input_cc.bottom
             anchors.topMargin: 10
@@ -202,6 +213,40 @@ Rectangle
                 break
             }
         }
+    }
+
+
+    //Return format: list of users
+    function getToData()
+    {
+        return text_input_to.getUsernameIds()
+    }
+
+    //Return format: list of users
+    function getCcData()
+    {
+        return text_input_cc.getUsernameIds()
+    }
+
+    function getSubject()
+    {
+        return text_input_subject.getSubject()
+    }
+
+    function getContent()
+    {
+        return input_message.text
+    }
+
+    //Return format: list
+    function getFiles()
+    {
+        var result = []
+        for(var i=0; i<lm_attachment.count ; i++)
+        {
+            result.push(lm_attachment.get(i).attachFilename)
+        }
+        return result
     }
 
 }
