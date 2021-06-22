@@ -39,5 +39,10 @@
         <file alias="HhmCheckBox.qml">Elements/HhmCheckBox.qml</file>
         <file alias="HhmAdminPermissions.qml">Pages/Admin/HhmAdminPermissions.qml</file>
         <file alias="HhmTablePermissionsRow.qml">Pages/Admin/HhmTablePermissionsRow.qml</file>
+        <file alias="HhmUserTableRow.qml">Pages/Admin/HhmUserTableRow.qml</file>
+        <file alias="HhmUserTableTitle.qml">Pages/Admin/HhmUserTableTitle.qml</file>
+        <file alias="HhmAdminUser.qml">Pages/Admin/HhmAdminUser.qml</file>
+        <file alias="HhmDropDown.qml">Elements/HhmDropDown.qml</file>
+        <file alias="HhmAddBtn.qml">Elements/HhmAddBtn.qml</file>
     </qresource>
 </RCC>

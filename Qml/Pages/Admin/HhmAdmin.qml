@@ -18,5 +18,11 @@ Item
         visible: admin_tab.active_tab===1
     }
 
+    HhmAdminUser
+    {
+        anchors.left: parent.left
+        anchors.top: parent.top
 
+        visible: admin_tab.active_tab===2
+    }
 }
