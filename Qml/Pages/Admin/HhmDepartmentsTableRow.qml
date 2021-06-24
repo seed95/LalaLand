@@ -31,7 +31,7 @@ Rectangle
     property bool is_odd: false
 
 
-    width: 850
+    width: 800
     height: 30
     color:
          {
@@ -45,107 +45,60 @@ Rectangle
                }
          }
 
+
     Rectangle
     {
         id: numberBackRec
-        width: 74
+        width: 100
         height: parent.height
         color: "transparent"
-        anchors.right: parent.right
+        anchors.horizontalCenter: parent.left
+        anchors.horizontalCenterOffset: 735
         anchors.verticalCenter: parent.verticalCenter
-    }
+        Text
+        {
+            text: id_number
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            color: "#464646"
+            font.family: fontDroidKufiRegular.name
+            font.pixelSize: 15
+        }
 
-    Text
-    {
-        text: id_number
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenter: numberBackRec.horizontalCenter
-        color: "#464646"
-        font.family: fontDroidKufiRegular.name
-        font.pixelSize: 15
     }
 
     Rectangle
     {
         id: usernameBackRec
-        width: 134
+        width: 150
         height: parent.height
         color: "transparent"
-        anchors.right: numberBackRec.left
+        anchors.horizontalCenter: parent.left
+        anchors.horizontalCenterOffset: 587
         anchors.verticalCenter: parent.verticalCenter
+        Text
+        {
+            text: id_username
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            color: "#464646"
+            font.family: fontRobotoRegular.name
+            font.pixelSize: 15
+        }
     }
 
-    Text
-    {
-        text: id_username
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenter: usernameBackRec.horizontalCenter
-        color: "#464646"
-        font.family: fontRobotoRegular.name
-        font.pixelSize: 15
-    }
-
-    Rectangle
-    {
-        id: nameBackRec
-        width: 133
-        height: parent.height
-        color: "transparent"
-        anchors.right: usernameBackRec.left
-        anchors.verticalCenter: parent.verticalCenter
-    }
-
-    Text
-    {
-        text: id_name
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.horizontalCenter: nameBackRec.horizontalCenter
-        color: "#464646"
-        font.family: fontDroidKufiRegular.name
-        font.pixelSize: 15
-    }
-
-    HhmDropDown
-    {
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-    }
 
     Rectangle
     {
         id: userTableRowPosition
-        width: 296
+        width: 400
         height: 24
-        color: "#e6e6e6"
+        color: "#E6E6E6"
         radius: 6
         anchors.verticalCenter: parent.verticalCenter
-        anchors.leftMargin: 47
+        anchors.leftMargin: 55
         anchors.left: parent.left
         border.color: "#969696"
-    }
-
-    Rectangle
-    {
-        id: userTableRowPosition01
-        width: 55
-        height: 19
-        color: "transparent"
-        radius: 5
-        anchors.verticalCenter: userTableRowPosition.verticalCenter
-        anchors.leftMargin: 285
-        anchors.left: parent.left
-        border.color: "#5790d5"
-    }
-
-    Text
-    {
-        id: userTableRowPositionTitle
-        text: "الموظف"
-        color: "#5790d5"
-        anchors.verticalCenter: userTableRowPosition01.verticalCenter
-        anchors.horizontalCenter: userTableRowPosition01.horizontalCenter
-        font.family: fontDroidKufiRegular.name
-        font.pixelSize: 10
     }
 
     HhmAddBtn

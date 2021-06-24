@@ -7,43 +7,63 @@ Item
 
     ListModel
     {
-        id: contactModel
+        id: permissionListModel
         ListElement
         {
             list_number: "۱"
             list_name: "المدير التنفيذي"
-            list_odd: true
         }
         ListElement
         {
             list_number: "۲"
             list_name: "مدير الإدارة"
-            list_odd: false
         }
         ListElement
         {
             list_number: "٣"
             list_name: "مدير مجموعة"
-            list_odd: true
         }
     }
 
     Component
     {
-           id: contactDelegate
+           id: permissionRowDelegate
 
            HhmTablePermissionsRow
            {
                id_number: list_number
                id_name: list_name
-               is_odd: list_odd
            }
     }
 
     ListView
     {
-       anchors.fill: parent
-       model: contactModel
-       delegate: contactDelegate
-   }
+        id: permissionListView
+
+        anchors.left: parent.left
+        anchors.top: parent.top
+        width: parent.width
+        height: childrenRect.height
+
+        model: permissionListModel
+        delegate: permissionRowDelegate
+    }
+
+    HhmTablePermissionsNewRow
+    {
+        anchors.left: parent.left
+        anchors.top: permissionListView.bottom
+
+        is_odd: (permissionListModel.count+1)%2
+
+        onCreatePermission:
+        {
+            addPermissionUser(text_value);
+        }
+    }
+
+    function addPermissionUser(username)
+    {
+        permissionListModel.append({list_number: en2ar(permissionListModel.count+1),list_name: username,list_odd: true})
+    }
 }

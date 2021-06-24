@@ -1,7 +1,64 @@
 import QtQuick 2.0
 
 Rectangle
+
+
 {
+    signal clickedBtn()
+    property color backcolor_Plus:
+                           {
+                                if( is_active )
+                                {
+                                    if( is_hovered )
+                                    {
+                                        "#477FBD"
+                                    }
+                                    else
+                                    {
+                                        "#3D628B"
+                                    }
+                                }
+                                else
+                                {
+                                    if( is_hovered )
+                                    {
+                                        "#E6E6E6"
+                                    }
+                                    else
+                                    {
+                                        "#DCDCDC"
+                                    }
+                                }
+                           }
+    property color bordercolor_Plus:
+                               {
+                                    if( is_active )
+                                    {
+                                        if( is_hovered )
+                                        {
+                                            "#477FBD"
+                                        }
+                                        else
+                                        {
+                                            "#3D628B"
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if( is_hovered )
+                                        {
+                                            "#3D7FC7"
+                                        }
+                                        else
+                                        {
+                                            "#3D628B"
+                                        }
+                                    }
+                               }
+
+    property bool is_active: false
+    property bool is_hovered: false
+
     Rectangle
     {
         id: addButton
@@ -9,9 +66,7 @@ Rectangle
         height: 23
         color: backcolor_Plus
         radius: 6
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.leftMargin: 17
-        anchors.left: parent.left
+        anchors.centerIn: parent
         border.color: bordercolor_Plus
     }
 
@@ -30,6 +85,7 @@ Rectangle
     {
         anchors.fill: addButton
         hoverEnabled: true
+        onClicked: clickedBtn();
         onEntered:
                  {
                    is_hovered = true;

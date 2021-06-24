@@ -6,6 +6,8 @@ Rectangle
     property string id_name: "name"
     property bool is_odd: ar2en(id_number)%2
 
+    signal createPermission(string text_value)
+
     height: 30
     width: 800
     color:
@@ -90,6 +92,7 @@ Rectangle
             anchors.centerIn: parent
         }
     }
+
     Rectangle
     {
         id: rect6
@@ -146,24 +149,17 @@ Rectangle
         }
     }
 
-    Rectangle
+    HhmInput
     {
         id: rect10
-        width: 180
-        height: parent.height
-        color: "transparent"
         anchors.left: rect9.right
         anchors.verticalCenter: parent.verticalCenter
-        Text
-        {
-             anchors.right: parent.right
-             anchors.rightMargin: 28.5
-             anchors.verticalCenter: parent.verticalCenter
+        width: 180
 
-             text: id_name
-             font.family: fontDroidKufiRegular.name
-             font.pixelSize: 17
-             color: "#464646"
+        onEnterPressed:
+        {
+            createPermission(rect10.text_val);
+            rect10.setInput("");
         }
     }
 
@@ -175,14 +171,15 @@ Rectangle
         color: "transparent"
         anchors.left: rect10.right
         anchors.verticalCenter: parent.verticalCenter
-        Text
+        HhmAddBtn
         {
              anchors.centerIn: parent
+             onClickedBtn:
+             {
+                 createPermission(rect10.text_val);
+                 rect10.setInput("");
+             }
 
-             text: id_number
-             font.family: fontDroidKufiRegular.name
-             font.pixelSize: 17
-             color: "#464646"
         }
     }
 }

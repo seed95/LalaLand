@@ -10,7 +10,7 @@ Item
         anchors.top: parent.top
     }
 
-    HhmAdminPermissions
+    HhmAdminUser
     {
         anchors.left: parent.left
         anchors.top: parent.top
@@ -18,11 +18,19 @@ Item
         visible: admin_tab.active_tab===1
     }
 
-    HhmAdminUser
+    HhmAdminPermissions
     {
         anchors.left: parent.left
         anchors.top: parent.top
 
         visible: admin_tab.active_tab===2
+    }
+
+    HhmAdminDepartments
+    {
+        anchors.left: parent.left
+        anchors.top: parent.top
+
+        visible: admin_tab.active_tab===3
     }
 }

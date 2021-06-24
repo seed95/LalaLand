@@ -1,339 +1,133 @@
 import QtQuick 2.0
-import QtQuick.Controls 2.5
 
-Item
+Rectangle
 {
+    id: container
 
-    property color color_background_enabled: "#f0f0f0"
-    property color color_background_disabled: "#dcdcdc"
-    property color color_background:
+    property string icon: "\uf024"
+    property string action: "New"
+
+    property bool isHovered: false
+
+    property color color_label_normal: "#353b43"
+    property color color_label_hovered: "#474e59"
+    property color color_label:
     {
-        if(isEnabled)
+        if(isHovered)
         {
-            color_background_enabled
+            color_label_hovered
         }
         else
         {
-            color_background_disabled
+            color_label_normal
         }
     }
 
-    property string text_label: "From"
-    property string font_name_label:
+    signal buttonClicked()
+
+    color:
     {
-        if( root.rtl )
+        if(isHovered)
         {
-            fontArialRegular.name
+            "#e6e6e6"
         }
         else
         {
-            fontRobotoRegular.name
+            "transparent"
         }
-    }
-    property int    font_weight_label: Font.Normal
-    property int    font_size_label: 22
-
-    property string text_input_box: "User"
-    property string font_name_input_box: fontRobotoRegular.name
-    property int    font_weight_input_box: Font.Normal
-    property int    font_size_input_box: 18
-
-    property int    left_margin: 30
-    property int    width_box: 500
-    property int    height_box: 30
-
-    property string auto_complete_text: ""
-    property int    textAlign: TextInput.AlignLeft
-
-    property bool isEnabled:    false
-    property bool isError:      false
-
-    signal inputChanged(string text)
-
-    Text
-    {
-        id: label_input_box_rtl
-        anchors.right: parent.right
-        anchors.verticalCenter: parent.verticalCenter
-        text: text_label
-        font.family: font_name_label
-        font.weight: font_weight_label
-        font.pixelSize: font_size_label
-        color: "#646464"
-        visible: root.rtl
     }
 
     Rectangle
     {
-        id: rect_input_rtl
-        width: width_box
-        height: height_box
-        anchors.right: label_input_box_rtl.left
-        anchors.rightMargin: left_margin
-        anchors.verticalCenter: parent.verticalCenter
-        color: color_background
-        border.width: 1
-        border.color:
-        {
-            if( isError )
-            {
-                "red"
-            }
-            else
-            {
-                "#aaaaaa"
-            }
-        }
-        radius: 5
+        id: rect_rtl
+        height: parent.height
+        width: childrenRect.width
+        anchors.centerIn: parent
+        color: "transparent"
         visible: root.rtl
 
-        TextField
+        Text
         {
-            id: input_rtl
+            id: label_icon_rtl
+            text: icon
+            anchors.left: label_action_rtl.right
+            anchors.leftMargin: 7
             anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: 1
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.rightMargin:
-            {
-                if( textAlign===TextInput.AlignLeft )
-                {
-                    0
-                }
-                else
-                {
-                    5
-                }
-            }
-            anchors.leftMargin:
-            {
-                if( textAlign===TextInput.AlignLeft )
-                {
-                    5
-                }
-                else
-                {
-                    0
-                }
-            }
-            font.family: font_name_input_box
-            font.pixelSize: font_size_input_box
-            selectByMouse: true
-            enabled: isEnabled
-            text: text_input_box
-            horizontalAlignment: textAlign
-            background: Rectangle
-            {
-                color: "transparent"
-            }
-            color:
-            {
-                if( isError )
-                {
-                    "red"
-                }
-                else if( text===text_input_box )
-                {
-                    "#828282"
-                }
-                else
-                {
-                    "#464646"
-                }
-            }
-            selectedTextColor: "#222"
-            selectionColor: "#888"
-
-            onAccepted:
-            {
-                focus = false
-            }
-
-            onFocusChanged:
-            {
-                isError = false
-                if( !focus )
-                {
-                    if( text==="" )
-                    {
-                        text = text_input_box
-                    }
-                    else if( text!==text_input_box )
-                    {
-                        completeText()
-                        inputChanged(input_rtl.text)
-                    }
-                }
-                else if( text===text_input_box )
-                {
-                    text = ""
-                }
-            }
-
-            Keys.onEscapePressed:
-            {
-                focus = false
-            }
-
-            Keys.onTabPressed:
-            {
-                completeText()
-            }
-
-//            Label
-//            {
-//                id: typed_text
-//                anchors.left: parent.left
-//                anchors.top: parent.top
-//                text: input_rtl.text
-//                font.family: font_name_input_box
-//                font.pixelSize: font_size_input_box
-//                color: "transparent"
-//            }
-
-//            Label
-//            {
-//                id: suggestion_text
-//                anchors.right: parent.right
-////                anchors.left: typed_text.right
-////                anchors.leftMargin: 10
-//                anchors.verticalCenter: parent.verticalCenter
-//                text: auto_complete_text
-//                font.family: font_name_input_box
-//                font.pixelSize: font_size_input_box
-//                color: "#999"
-//                visible: input_rtl.focus && input_rtl.text!=="" && !input_rtl.text.includes(auto_complete_text) &&
-//                         !input_rtl.checkUnicode()
-//            }
-
-            function completeText()
-            {
-                if( text!=="" )
-                {
-                    var index_atsign = text.indexOf("@");
-                    if( index_atsign!==-1 )
-                    {
-                        text = text.slice(0, index_atsign)
-                    }
-                    text = text + auto_complete_text
-                }
-            }
-
-//            //return true if text contains letters other than English
-//            function checkUnicode()
-//            {
-//                for(var i=0; i<input_rtl.text.length; i++)
-//                {
-//                    if( input_rtl.text.charCodeAt(i)>255 )
-//                    {
-//                        return true
-//                    }
-//                }
-//                return false
-//            }
-
+            font.family: fontAwesomeSolid.name
+            font.weight: Font.Bold
+            font.pixelSize: 14
+            color: color_label
         }
 
+        Text
+        {
+            id: label_action_rtl
+            text: action
+            anchors.left: parent.left
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.verticalCenterOffset: -1
+            font.family: fontArialRegular.name
+//            font.weight: Font.Normal
+            font.pixelSize: 18
+            color: color_label
+        }
     }
 
-    Text
-    {
-        id: label_input_box
-        anchors.left: parent.left
-        anchors.verticalCenter: parent.verticalCenter
-        text: text_label
-        font.family: font_name_label
-        font.weight: font_weight_label
-        font.pixelSize: font_size_label
-        color: "#646464"
-        visible: !root.rtl
-    }
-
-    ///FIXME: update this segment from rtl segment
     Rectangle
     {
-        id: rect_input
-        width: width_box
-        height: height_box
-        anchors.left: label_input_box.right
-        anchors.leftMargin: left_margin
-        anchors.verticalCenter: parent.verticalCenter
-        color: color_background
-        border.width: 1
-        border.color: "#aaaaaa"
-        radius: 5
+        id: rect_ltr
+        height: parent.height
+        width: childrenRect.width
+        anchors.centerIn: parent
+        color: "transparent"
         visible: !root.rtl
 
-        TextField
+        Text
         {
-            id: input
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: 1
+            id: label_icon_ltr
+            text: icon
             anchors.left: parent.left
-            anchors.leftMargin: 5
-            anchors.right: parent.right
-            text: text_input_box
-            font.family: font_name_input_box
-            font.pixelSize: font_size_input_box
-            selectByMouse: true
-            placeholderText: text_input_box
-            placeholderTextColor: "#828282"
-            horizontalAlignment: TextInput.AlignRight
-            background: Rectangle
-            {
-                color: "transparent"
-            }
-            color: "#464646"
-            selectedTextColor: "#222"
-            selectionColor: "#888"
-            readOnly: !isEnabled
-
-            onFocusChanged:
-            {
-                if(focus)
-                {
-                    if(text===text_input_box)
-                    {
-                        text = ""
-                    }
-                }
-                else
-                {
-                    if(text==="")
-                    {
-                        text = text_input_box
-                    }
-                }
-            }
-
-            onAccepted:
-            {
-                focus = false
-            }
-
-            Keys.onEscapePressed:
-            {
-                focus = false
-            }
-
+            anchors.verticalCenter: parent.verticalCenter
+            font.family: fontAwesomeSolid.name
+            font.pixelSize: 14
+            color: color_label
         }
 
-    }
-
-    function getInput()
-    {
-        var obj = input
-        if( root.rtl )
+        Text
         {
-            obj = input_rtl
+            id: label_action_ltr
+            text: action
+            anchors.left: label_icon_ltr.right
+            anchors.leftMargin: 7
+            anchors.verticalCenter: parent.verticalCenter
+            font.family: fontRobotoMedium.name
+            font.weight: Font.Medium
+            font.pixelSize: 17
+            color: color_label
         }
-        return obj.text
     }
 
-    function setInput(text)
+    MouseArea
     {
-        input_rtl.text = text
-        input.text = text
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+        hoverEnabled: true
+
+        onEntered:
+        {
+            isHovered = true
+        }
+
+        onExited:
+        {
+            isHovered = false
+        }
+
+        onClicked:
+        {
+            container.forceActiveFocus()
+            buttonClicked()
+        }
     }
 
 }

@@ -60,6 +60,7 @@ Rectangle
     property bool is_hovered: false
 
     signal clickedTab()
+
     color: "transparent"
     width: 140
     height: 35

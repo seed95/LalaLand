@@ -44,5 +44,11 @@
         <file alias="HhmAdminUser.qml">Pages/Admin/HhmAdminUser.qml</file>
         <file alias="HhmDropDown.qml">Elements/HhmDropDown.qml</file>
         <file alias="HhmAddBtn.qml">Elements/HhmAddBtn.qml</file>
+        <file alias="HhmAdminPermissionsTitles.qml">Pages/Admin/HhmAdminPermissionsTitles.qml</file>
+        <file alias="HhmTablePermissionsNewRow.qml">Pages/Admin/HhmTablePermissionsNewRow.qml</file>
+        <file alias="HhmInput.qml">Elements/HhmInput.qml</file>
+        <file alias="HhmDepartmentsTableRow.qml">Pages/Admin/HhmDepartmentsTableRow.qml</file>
+        <file alias="HhmDepartmentsTableTitle.qml">Pages/Admin/HhmDepartmentsTableTitle.qml</file>
+        <file alias="HhmAdminDepartments.qml">Pages/Admin/HhmAdminDepartments.qml</file>
     </qresource>
 </RCC>
