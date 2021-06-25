@@ -40,7 +40,18 @@ Rectangle
     height: 25
     color: color_background
     border.width: 1.5
-    border.color: "#969696"
+    border.color:
+                {
+                    if( isError===true )
+                    {
+                        "#EA7E7E"
+                    }
+                    else
+                    {
+                        "#969696"
+                    }
+                }
+
     radius: 5
 
     TextField
@@ -105,42 +116,29 @@ Rectangle
         Keys.onEscapePressed:
         {
             focus = false;
-            subject_placeholder = "وظيفة";
-            border.color= "#969696";
+            text = subject_placeholder;
+            isError = false;
         }
 
         Keys.onEnterPressed:
         {
-            if(text==="")
-            {
-                border.color= "#EA7E7E";
-            }
-            else
-                {
-                border.color= "#969696";
-                enterPressed(text);
-                }
+            dataEntered();
         }
 
         Keys.onReturnPressed:
         {
-            if(text==="")
-            {
-                border.color= "#EA7E7E";
-            }
-             else
-                {
-                border.color= "#969696";
-                enterPressed(text);
-                }
+            dataEntered();
         }
     }
-
 
 
     function getInput()
     {
         var obj = input
+        if( input.text===subject_placeholder )
+        {
+            return "";
+        }
         return obj.text
     }
 
@@ -149,4 +147,17 @@ Rectangle
         input.text = text
     }
 
+    function dataEntered()
+    {
+        if( getInput()==="" )
+        {
+            isError = true;
+        }
+        else
+        {
+            isError = false;
+            enterPressed(input.text);
+        }
+    }
 }
+

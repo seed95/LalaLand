@@ -25,10 +25,9 @@ Rectangle
                                             "#e5e6e7"
                                         }
                                   }
-    property string id_number: "۱"
-    property string id_username: "m.ebrahim"
-    property string id_name: "ابراهيم محمد"
-    property bool is_odd: false
+    property string id_number: "number"
+    property string id_username: "name"
+    property bool is_odd: ar2en(id_number)%2
 
 
     width: 800
@@ -48,12 +47,11 @@ Rectangle
 
     Rectangle
     {
-        id: numberBackRec
+        id: numberRect
         width: 100
         height: parent.height
         color: "transparent"
-        anchors.horizontalCenter: parent.left
-        anchors.horizontalCenterOffset: 735
+        anchors.left: usernameRect.right
         anchors.verticalCenter: parent.verticalCenter
         Text
         {
@@ -69,12 +67,11 @@ Rectangle
 
     Rectangle
     {
-        id: usernameBackRec
-        width: 150
+        id: usernameRect
+        width: 190
         height: parent.height
         color: "transparent"
-        anchors.horizontalCenter: parent.left
-        anchors.horizontalCenterOffset: 587
+        anchors.left: groupRect.right
         anchors.verticalCenter: parent.verticalCenter
         Text
         {
@@ -82,23 +79,30 @@ Rectangle
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
             color: "#464646"
-            font.family: fontRobotoRegular.name
+            font.family: fontDroidKufiRegular.name
             font.pixelSize: 15
         }
     }
 
-
     Rectangle
     {
-        id: userTableRowPosition
-        width: 400
-        height: 24
-        color: "#E6E6E6"
-        radius: 6
-        anchors.verticalCenter: parent.verticalCenter
-        anchors.leftMargin: 55
+        id: groupRect
+        width: 500
+        height: parent.height
+        color: "transparent"
+        anchors.top: parent.top
         anchors.left: parent.left
-        border.color: "#969696"
+        Rectangle
+        {
+            width: 400
+            height: 24
+            color: "#E6E6E6"
+            radius: 6
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.leftMargin: 55
+            anchors.left: parent.left
+            border.color: "#969696"
+        }
     }
 
     HhmAddBtn

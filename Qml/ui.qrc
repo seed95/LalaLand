@@ -49,6 +49,8 @@
         <file alias="HhmInput.qml">Elements/HhmInput.qml</file>
         <file alias="HhmDepartmentsTableRow.qml">Pages/Admin/HhmDepartmentsTableRow.qml</file>
         <file alias="HhmDepartmentsTableTitle.qml">Pages/Admin/HhmDepartmentsTableTitle.qml</file>
-        <file alias="HhmAdminDepartments.qml">Pages/Admin/HhmAdminDepartments.qml</file>
+        <file alias="HhmDepartmentsTableNewRow.qml">Pages/Admin/HhmDepartmentsTableNewRow.qml</file>
+        <file alias="HhmDepartmentsTable.qml">Pages/Admin/HhmDepartmentsTable.qml</file>
+        <file alias="HhmAdminDepartments.qml">pages/Admin/HhmAdminDepartments.qml</file>
     </qresource>
 </RCC>

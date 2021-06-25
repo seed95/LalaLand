@@ -64,6 +64,6 @@ Item
 
     function addPermissionUser(username)
     {
-        permissionListModel.append({list_number: en2ar(permissionListModel.count+1),list_name: username,list_odd: true})
+        permissionListModel.append({list_number: en2ar(permissionListModel.count+1),list_name: username })
     }
 }

@@ -2,74 +2,24 @@ import QtQuick 2.0
 
 Rectangle
 {
+    height: 500
     width: 800
-    height: 420
     color: "transparent"
 
     HhmDepartmentsTableTitle
     {
-        id: topTable
         anchors.left: parent.left
-        anchors.leftMargin: 65
+        anchors.leftMargin: 85
         anchors.top: parent.top
         anchors.topMargin: 90
     }
 
-    ListModel
+    HhmDepartmentsTable
     {
-        id: contactModel
-        ListElement
-        {
-            list_number: "۱"
-            list_username: "m.ebrahim"
-            list_name: "ابراهيم محمد"
-            list_odd: false
-        }
-        ListElement
-        {
-            list_number: "٢"
-            list_username: "e.mohammad"
-            list_name: "محمد ابراهيم"
-            list_odd: true
-        }
-        ListElement
-        {
-            list_number: "٣"
-            list_username: "m.ebrahim"
-            list_name: "تاريخ الوارد"
-            list_odd: false
-        }
+        anchors.left: parent.left
+        anchors.leftMargin: 85
+        anchors.top: parent.top
+        anchors.topMargin: 120
     }
 
-    Component
-    {
-        id: contactDelegate
-
-        HhmDepartmentsTableRow
-        {
-            width: parent.parent.width
-            height: 30
-            id_number: list_number
-            id_username: list_username
-            id_name: list_name
-            is_odd: list_odd
-        }
-    }
-
-    Rectangle
-    {
-        width: parent.width
-        height: 500
-        anchors.left: topTable.left
-        anchors.top: topTable.top
-        anchors.topMargin: 30
-        color: "transparent"
-
-        ListView
-        {
-            anchors.fill: parent
-            model: contactModel
-            delegate: contactDelegate
-        }
-    }
 }
