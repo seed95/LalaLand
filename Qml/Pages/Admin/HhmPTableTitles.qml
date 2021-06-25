@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 Rectangle
 {
-    height: 500
+    height: 230
     width: 800
     color: "transparent"
 
@@ -24,7 +24,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "افتح جميع المستندات"
+            text: "اضافة الملف"
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -48,7 +48,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "تحرير مستندات القسم"
+            text: "تعدیل الملف"
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -72,7 +72,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "فتح مستندات المجموعة"
+            text: "مسح الملف"
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -96,7 +96,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "تحرير وثيقة المجموعة"
+            text: "مسح بیانات الملف"
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -120,7 +120,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "تحرير كافة المستندات"
+            text: "عرض ملفات القسم"
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -144,7 +144,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "افتح جميع المستندات"
+            text: "عرض ملفات الأقسام"
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -168,7 +168,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "تحرير مستندات القسم"
+            text: "عرض تقریر الملفات"
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -192,7 +192,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "فتح مستندات المجموعة"
+            text: "عرض تقاریر القسم"
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -216,7 +216,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "تحرير وثيقة المجموعة"
+            text: "عرض تقاریر الأقسام"
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"

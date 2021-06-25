@@ -6,7 +6,7 @@ Rectangle
     width: 800
     color: "transparent"
 
-    HhmDepartmentsTableTitle
+    HhmDTableTitle
     {
         anchors.left: parent.left
         anchors.leftMargin: 85
@@ -14,7 +14,7 @@ Rectangle
         anchors.topMargin: 90
     }
 
-    HhmDepartmentsTable
+    HhmDTable
     {
         anchors.left: parent.left
         anchors.leftMargin: 85

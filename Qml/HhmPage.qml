@@ -15,6 +15,7 @@ Item
     HhmAdmin
     {
         id: admin_panel
+        objectName: "Admin"
         anchors.fill: parent
         visible: root.hhm_mode===con.hhm_ADMINPANEL_MODE
     }

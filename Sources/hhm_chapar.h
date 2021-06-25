@@ -13,6 +13,7 @@
 #include "hhm_ftp.h"
 #include "hhm_news.h"
 #include "hhm_message.h"
+#include "hhm_admin.h"
 
 class HhmChapar : public QObject
 {
@@ -51,6 +52,7 @@ private:
     HhmUser     *user;
     HhmFtp      *ftp;
     HhmNews     *news;
+    HhmAdmin    *admin;
     HhmMessage  *message;
 
     QString last_directory;

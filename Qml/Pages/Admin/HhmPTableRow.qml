@@ -5,6 +5,9 @@ Rectangle
     property string id_number: "number"
     property string id_name: "name"
     property bool is_odd: ar2en(id_number)%2
+    property int chkContainer_width: 60
+
+    signal chkBoxChanged(int id, int val)
 
     height: 30
     width: 800
@@ -22,8 +25,8 @@ Rectangle
 
     Rectangle
     {
-        id: rect1
-        width: 60
+        id: pTableContainer1
+        width: chkContainer_width
         height: parent.height
         color: "transparent"
         anchors.left: parent.left
@@ -32,128 +35,173 @@ Rectangle
         HhmCheckBox
         {
             anchors.centerIn: parent
+            onCheckBoxChange:
+            {
+                chkBoxChanged(1, value);
+            }
         }
     }
 
     Rectangle
     {
-        id: rect2
-        width: 60
+        id: pTableContainer2
+        anchors.left: pTableContainer1.right
+        anchors.verticalCenter: parent.verticalCenter
+
+        width: chkContainer_width
         height: parent.height
         color: "transparent"
-        anchors.left: rect1.right
-        anchors.verticalCenter: parent.verticalCenter
         HhmCheckBox
         {
             anchors.centerIn: parent
+            onCheckBoxChange:
+            {
+                chkBoxChanged(2, value);
+            }
         }
     }
 
     Rectangle
     {
-        id: rect3
-        width: 60
+        id: pTableContainer3
+        anchors.left: pTableContainer2.right
+        anchors.verticalCenter: parent.verticalCenter
+
+        width: chkContainer_width
         height: parent.height
         color: "transparent"
-        anchors.left: rect2.right
-        anchors.verticalCenter: parent.verticalCenter
         HhmCheckBox
         {
             anchors.centerIn: parent
+            onCheckBoxChange:
+            {
+                chkBoxChanged(3, value);
+            }
         }
     }
 
     Rectangle
     {
-        id: rect4
-        width: 60
+        id: pTableContainer4
+        anchors.left: pTableContainer3.right
+        anchors.verticalCenter: parent.verticalCenter
+
+        width: chkContainer_width
         height: parent.height
         color: "transparent"
-        anchors.left: rect3.right
-        anchors.verticalCenter: parent.verticalCenter
         HhmCheckBox
         {
             anchors.centerIn: parent
+            onCheckBoxChange:
+            {
+                chkBoxChanged(4, value);
+            }
         }
     }
 
     Rectangle
     {
-        id: rect5
-        width: 60
+        id: pTableContainer5
+        anchors.left: pTableContainer4.right
+        anchors.verticalCenter: parent.verticalCenter
+
+        width: chkContainer_width
         height: parent.height
         color: "transparent"
-        anchors.left: rect4.right
-        anchors.verticalCenter: parent.verticalCenter
         HhmCheckBox
         {
             anchors.centerIn: parent
+            onCheckBoxChange:
+            {
+                chkBoxChanged(5, value);
+            }
         }
     }
     Rectangle
     {
-        id: rect6
-        width: 60
+        id: pTableContainer6
+        anchors.left: pTableContainer5.right
+        anchors.verticalCenter: parent.verticalCenter
+
+        width: chkContainer_width
         height: parent.height
         color: "transparent"
-        anchors.left: rect5.right
-        anchors.verticalCenter: parent.verticalCenter
         HhmCheckBox
         {
             anchors.centerIn: parent
+            onCheckBoxChange:
+            {
+                chkBoxChanged(6, value);
+            }
         }
     }
 
     Rectangle
     {
-        id: rect7
-        width: 60
+        id: pTableContainer7
+        anchors.left: pTableContainer6.right
+        anchors.verticalCenter: parent.verticalCenter
+
+        width: chkContainer_width
         height: parent.height
         color: "transparent"
-        anchors.left: rect6.right
-        anchors.verticalCenter: parent.verticalCenter
         HhmCheckBox
         {
             anchors.centerIn: parent
+            onCheckBoxChange:
+            {
+                chkBoxChanged(7, value);
+            }
         }
     }
 
     Rectangle
     {
-        id: rect8
-        width: 60
+        id: pTableContainer8
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.left: pTableContainer7.right
+
+        width: chkContainer_width
         height: parent.height
         color: "transparent"
-        anchors.left: rect7.right
-        anchors.verticalCenter: parent.verticalCenter
         HhmCheckBox
         {
             anchors.centerIn: parent
+            onCheckBoxChange:
+            {
+                chkBoxChanged(8, value);
+            }
         }
     }
 
     Rectangle
     {
-        id: rect9
-        width: 60
+        id: pTableContainer9
+        anchors.left: pTableContainer8.right
+        anchors.verticalCenter: parent.verticalCenter
+
+        width: chkContainer_width
         height: parent.height
         color: "transparent"
-        anchors.left: rect8.right
-        anchors.verticalCenter: parent.verticalCenter
         HhmCheckBox
         {
             anchors.centerIn: parent
+            onCheckBoxChange:
+            {
+                chkBoxChanged(9, value);
+            }
         }
     }
 
     Rectangle
     {
-        id: rect10
+        id: pTableContainer10
+        anchors.left: pTableContainer9.right
+        anchors.verticalCenter: parent.verticalCenter
+
         width: 180
         height: parent.height
         color: "transparent"
-        anchors.left: rect9.right
-        anchors.verticalCenter: parent.verticalCenter
         Text
         {
              anchors.right: parent.right
@@ -169,12 +217,13 @@ Rectangle
 
     Rectangle
     {
-        id: rect11
+        id: pTableContainer11
+        anchors.left: pTableContainer10.right
+        anchors.verticalCenter: parent.verticalCenter
+
         width: 54
         height: parent.height
         color: "transparent"
-        anchors.left: rect10.right
-        anchors.verticalCenter: parent.verticalCenter
         Text
         {
              anchors.centerIn: parent

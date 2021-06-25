@@ -13,7 +13,7 @@
    viewBox="0 0 1246.875 815.625"
    id="svg2"
    version="1.1"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="Main_0v3.svg"
    inkscape:export-filename="C:\Users\ASuS\Desktop\picture.png"
    inkscape:export-xdpi="90"
@@ -50,16 +50,16 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="669.36102"
+     inkscape:cx="652.86102"
      inkscape:cy="468.09061"
      inkscape:document-units="px"
-     inkscape:current-layer="g4610"
+     inkscape:current-layer="g5197"
      showgrid="false"
      showguides="false"
      inkscape:window-width="1920"
-     inkscape:window-height="1052"
-     inkscape:window-x="1920"
-     inkscape:window-y="0"
+     inkscape:window-height="1018"
+     inkscape:window-x="-8"
+     inkscape:window-y="32"
      inkscape:window-maximized="1"
      units="px"
      inkscape:document-rotation="0"
@@ -1946,7 +1946,7 @@
            sodipodi:role="line">رسال</tspan></text>
     </g>
     <g
-       style="display:inline"
+       style="display:none"
        transform="translate(0,-236.73723)"
        id="g5339"
        inkscape:groupmode="layer"
@@ -1956,7 +1956,8 @@
          y="630.6076"
          x="316.98752"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="630.6076"
            x="328.92599"
            id="tspan5400"
@@ -1980,11 +1981,12 @@
          style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:none" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;fill:#474e59;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#474e59;fill-opacity:1;stroke:none"
          x="887.6499"
          y="377.80139"
          id="text5529"
-         transform="translate(0,4.8468085e-6)"><tspan
+         transform="translate(0,4.8468085e-6)"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5531"
            x="887.6499"
@@ -1996,7 +1998,8 @@
          x="878.09155"
          y="71.391396"
          id="text5533"
-         transform="translate(0,302.36222)"><tspan
+         transform="translate(0,302.36222)"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5535"
            x="878.09155"
@@ -2012,10 +2015,11 @@
          style="display:inline;fill:#c8c8c8;fill-opacity:1;stroke:none" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
          x="796.03564"
          y="377.80139"
-         id="text5549"><tspan
+         id="text5549"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5551"
            x="796.03564"
@@ -2026,7 +2030,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
          x="783.33356"
          y="376.18091"
-         id="text5553"><tspan
+         id="text5553"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5555"
            x="783.33356"
@@ -2037,7 +2042,8 @@
          y="518.57532"
          x="901.13538"
          style="font-style:normal;font-variant:normal;font-weight:400;line-height:0%;font-family:Calibri;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            id="tspan5605"
            y="518.57532"
            x="901.13538"
@@ -2052,7 +2058,8 @@
          y="518.57532"
          x="901.13538"
          style="font-style:normal;font-variant:normal;font-weight:400;line-height:0%;font-family:Calibri;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            id="tspan5633"
            y="518.57532"
            x="901.13538"
@@ -2067,7 +2074,8 @@
          y="488.36157"
          x="899.4873"
          style="font-style:normal;font-variant:normal;font-weight:400;line-height:0%;font-family:Calibri;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            id="tspan5661"
            y="488.36157"
            x="899.4873"
@@ -2092,7 +2100,7 @@
            y="396.11221" />
         <rect
            y="536.73724"
-           x="-4.5776367e-05"
+           x="-4.5776367e-005"
            height="426.56247"
            width="918.74994"
            id="rect5780"
@@ -2124,7 +2132,8 @@
            y="433.18652"
            x="882.60797"
            style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#969696;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
+           xml:space="preserve"
+           sodipodi:linespacing="0%"><tspan
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#646464;fill-opacity:1;stroke:none"
              y="433.18652"
              x="882.60797"
@@ -2135,7 +2144,8 @@
            style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#969696;fill-opacity:1;stroke:none"
            x="882.60797"
            y="470.49426"
-           id="text5358"><tspan
+           id="text5358"
+           sodipodi:linespacing="0%"><tspan
              sodipodi:role="line"
              id="tspan5360"
              x="882.60797"
@@ -2156,7 +2166,8 @@
            y="507.52557"
            x="783.36688"
            style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;display:inline;fill:#828282;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
+           xml:space="preserve"
+           sodipodi:linespacing="0%"><tspan
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.75px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#828282;fill-opacity:1;stroke:none"
              y="507.52557"
              x="783.36688"
@@ -2167,7 +2178,8 @@
            y="507.5256"
            x="882.60797"
            style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#969696;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
+           xml:space="preserve"
+           sodipodi:linespacing="0%"><tspan
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#646464;fill-opacity:1;stroke:none"
              y="507.5256"
              x="882.60797"
@@ -2196,7 +2208,8 @@
            y="434.28851"
            x="48.773804"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#679bd9;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
+           xml:space="preserve"
+           sodipodi:linespacing="0%"><tspan
              y="434.28851"
              x="48.773804"
              id="tspan5587"
@@ -2207,7 +2220,8 @@
            y="434.67651"
            x="153.97304"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:roboto;-inkscape-font-specification:roboto;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#828282;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
+           xml:space="preserve"
+           sodipodi:linespacing="0%"><tspan
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40620041px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;text-align:end;text-anchor:end;fill:#828282;fill-opacity:1;stroke:none"
              y="434.67651"
              x="153.97304"
@@ -2225,7 +2239,8 @@
            y="1000.7344"
            x="865.013"
            style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#556373;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
+           xml:space="preserve"
+           sodipodi:linespacing="0%"><tspan
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40625px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#556373;fill-opacity:1;stroke:none"
              y="1000.7344"
              x="865.013"
@@ -2235,8 +2250,9 @@
            id="text6560"
            y="1000.9462"
            x="879.22772"
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;fill:#556373;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#556373;fill-opacity:1;stroke:none"
+           xml:space="preserve"
+           sodipodi:linespacing="0%"><tspan
              style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:12.89062405px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#556373;fill-opacity:1"
              y="1000.9462"
              x="879.22772"
@@ -2256,7 +2272,8 @@
            y="430.71115"
            x="757.33875"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
+           xml:space="preserve"
+           sodipodi:linespacing="0%"><tspan
              style="font-size:11.25px;line-height:1.25;fill:#5790d5;fill-opacity:1"
              y="430.71115"
              x="757.33875"
@@ -2267,7 +2284,8 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#5790d5;fill-opacity:1;stroke:none"
            x="718.34106"
            y="432.72961"
-           id="text5425"><tspan
+           id="text5425"
+           sodipodi:linespacing="0%"><tspan
              sodipodi:role="line"
              id="tspan5427"
              x="718.34106"
@@ -2287,7 +2305,8 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#679bd9;fill-opacity:1;stroke:none"
            x="676.71375"
            y="431.8345"
-           id="text5436"><tspan
+           id="text5436"
+           sodipodi:linespacing="0%"><tspan
              sodipodi:role="line"
              id="tspan5438"
              x="676.71375"
@@ -2316,7 +2335,8 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
            x="757.33875"
            y="469.71515"
-           id="text5443"><tspan
+           id="text5443"
+           sodipodi:linespacing="0%"><tspan
              sodipodi:role="line"
              id="tspan5445"
              x="757.33875"
@@ -2334,7 +2354,8 @@
            style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;display:inline;fill:#b07368;fill-opacity:1;stroke:none"
            x="718.67059"
            y="1001.1127"
-           id="text5459"><tspan
+           id="text5459"
+           sodipodi:linespacing="0%"><tspan
              sodipodi:role="line"
              id="tspan5461"
              x="718.67059"
@@ -2352,7 +2373,8 @@
            style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#556373;fill-opacity:1;stroke:none"
            x="658.65063"
            y="1000.9137"
-           id="text5465"><tspan
+           id="text5465"
+           sodipodi:linespacing="0%"><tspan
              sodipodi:role="line"
              id="tspan5467"
              x="658.65063"
@@ -2360,10 +2382,11 @@
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.40625px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#556373;fill-opacity:1;stroke:none">filename2.pdf</tspan></text>
         <text
            xml:space="preserve"
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;fill:#556373;fill-opacity:1;stroke:none"
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#556373;fill-opacity:1;stroke:none"
            x="672.86536"
            y="1001.1254"
-           id="text5469"><tspan
+           id="text5469"
+           sodipodi:linespacing="0%"><tspan
              sodipodi:role="line"
              id="tspan5471"
              x="672.86536"
@@ -2381,7 +2404,8 @@
            y="1001.2254"
            x="512.42065"
            style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:start;letter-spacing:0px;word-spacing:0px;text-anchor:start;display:inline;fill:#b77f75;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
+           xml:space="preserve"
+           sodipodi:linespacing="0%"><tspan
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.74999809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:start;text-anchor:start;fill:#b77f75;fill-opacity:1;stroke:none"
              y="1001.2254"
              x="512.42065"
@@ -2415,7 +2439,7 @@
              style="font-size:18.74999809px;line-height:1.25;text-align:justify;text-anchor:start;fill:#464646;fill-opacity:1"
              id="flowPara5495">عمه هو علي كاظم أحد أشهر لاعبين كرة القدم لعب مع الفرق الكروية العراقية في عقد السبعينيات من القرن الماضي. </flowPara></flowRoot>        <path
            style="fill:none;fill-opacity:1;stroke:#464646;stroke-width:1.40624988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           d="m 624.19023,709.19297 v 23.43749"
+           d="m 624.19023,709.19297 0,23.43749"
            id="path5497"
            inkscape:connector-curvature="0" />
         <g
@@ -2435,7 +2459,8 @@
              y="469.91351"
              x="48.773804"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#5790d5;fill-opacity:1;stroke:none"
-             xml:space="preserve"><tspan
+             xml:space="preserve"
+             sodipodi:linespacing="0%"><tspan
                y="469.91351"
                x="48.773804"
                id="tspan2169"
@@ -2456,7 +2481,8 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:roboto;-inkscape-font-specification:roboto;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#505050;fill-opacity:1;stroke:none"
            x="153.97304"
            y="472.17651"
-           id="text2177"><tspan
+           id="text2177"
+           sodipodi:linespacing="0%"><tspan
              sodipodi:role="line"
              id="tspan2175"
              x="153.97304"
@@ -2484,7 +2510,8 @@
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:roboto;-inkscape-font-specification:roboto;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#e08888;fill-opacity:1;stroke:none"
            x="153.97304"
            y="434.67651"
-           id="text2149"><tspan
+           id="text2149"
+           sodipodi:linespacing="0%"><tspan
              sodipodi:role="line"
              id="tspan2147"
              x="153.97304"
@@ -2503,8 +2530,9 @@
          id="text6548"
          y="377.80139"
          x="702.28564"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#353b43;fill-opacity:1"
            y="377.80139"
            x="702.28564"
@@ -2515,7 +2543,8 @@
          y="376.18091"
          x="689.58356"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'IRAN Sans';-inkscape-font-specification:'IRAN Sans';text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;display:inline;fill:#353b43;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249809px;line-height:1.25;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:end;text-anchor:end;fill:#353b43;fill-opacity:1;stroke:none"
            y="376.18091"
            x="689.58356"
@@ -6360,13 +6389,14 @@
        inkscape:groupmode="layer"
        id="g5197"
        transform="translate(0,-236.73723)"
-       style="display:none">
+       style="display:inline">
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          x="316.98752"
          y="630.6076"
-         id="text5199"><tspan
+         id="text5199"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5201"
            x="328.92599"
@@ -6384,7 +6414,8 @@
          y="612.46436"
          x="809.88953"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end"
            y="612.46436"
            x="809.88953"
@@ -6402,7 +6433,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          x="808.12384"
          y="640.58936"
-         id="text5215"><tspan
+         id="text5215"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5217"
            x="808.12384"
@@ -6420,7 +6452,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          x="807.44098"
          y="668.92627"
-         id="text5225"><tspan
+         id="text5225"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5227"
            x="807.44098"
@@ -6451,7 +6484,8 @@
          y="384.79327"
          x="714.54132"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#53769d;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="384.79327"
            x="714.54132"
            id="tspan5339"
@@ -6468,7 +6502,8 @@
          y="384.79327"
          x="597.43604"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#505050;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="384.79327"
            x="597.43604"
            id="tspan5347"
@@ -6485,7 +6520,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#646464;fill-opacity:1;stroke:none"
          x="840.31342"
          y="384.79327"
-         id="text5353"><tspan
+         id="text5353"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5355"
            x="840.31342"
@@ -6497,19 +6533,21 @@
          x="-415.47394"
          y="359.60333"
          id="text5368"
-         transform="rotate(-90)"><tspan
+         transform="matrix(0,-1,1,0,0,0)"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5370"
            x="-415.47394"
            y="359.60333"
            style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end">تحرير كافة المستندات</tspan></text>
       <text
-         transform="rotate(-90)"
+         transform="matrix(0,-1,1,0,0,0)"
          id="text5372"
          y="415.85333"
          x="-415.47394"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end"
            y="415.85333"
            x="-415.47394"
@@ -6521,19 +6559,21 @@
          x="-415.47394"
          y="472.10333"
          id="text5376"
-         transform="rotate(-90)"><tspan
+         transform="matrix(0,-1,1,0,0,0)"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5378"
            x="-415.47394"
            y="472.10333"
            style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end">تحرير مستندات القسم</tspan></text>
       <text
-         transform="rotate(-90)"
+         transform="matrix(0,-1,1,0,0,0)"
          id="text5380"
          y="528.35333"
          x="-415.47394"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end"
            y="528.35333"
            x="-415.47394"
@@ -6545,7 +6585,8 @@
          x="-415.47394"
          y="584.60333"
          id="text5388"
-         transform="rotate(-90)"><tspan
+         transform="matrix(0,-1,1,0,0,0)"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5390"
            x="-415.47394"
@@ -6556,7 +6597,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          x="753.63953"
          y="609.61969"
-         id="text5392"><tspan
+         id="text5392"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5394"
            x="753.63953"
@@ -6567,7 +6609,8 @@
          y="638.83942"
          x="713.68854"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="638.83942"
            x="713.68854"
            id="tspan5398"
@@ -6578,7 +6621,8 @@
          y="667.47839"
          x="707.77161"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="667.47839"
            x="707.77161"
            id="tspan5402"
@@ -6604,10 +6648,11 @@
          style="opacity:1;fill:#3d628b;fill-opacity:1;stroke:#3d628b;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;fill:#f0f0f0;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#f0f0f0;fill-opacity:1;stroke:none"
          x="526.04614"
          y="611.1922"
-         id="text5422"><tspan
+         id="text5422"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5424"
            x="526.04614"
@@ -6635,8 +6680,9 @@
          id="text5432"
          y="611.1922"
          x="413.54614"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:11.71874905px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#ffffff;fill-opacity:1"
            y="611.1922"
            x="413.54614"
@@ -6747,19 +6793,21 @@
          x="-415.47394"
          y="134.60333"
          id="text5462"
-         transform="rotate(-90)"><tspan
+         transform="matrix(0,-1,1,0,0,0)"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5464"
            x="-415.47394"
            y="134.60333"
            style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end">افتح جميع المستندات</tspan></text>
       <text
-         transform="rotate(-90)"
+         transform="matrix(0,-1,1,0,0,0)"
          id="text5466"
          y="190.85333"
          x="-415.47394"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end"
            y="190.85333"
            x="-415.47394"
@@ -6771,19 +6819,21 @@
          x="-415.47394"
          y="247.10333"
          id="text5470"
-         transform="rotate(-90)"><tspan
+         transform="matrix(0,-1,1,0,0,0)"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5472"
            x="-415.47394"
            y="247.10333"
            style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end">فتح مستندات المجموعة</tspan></text>
       <text
-         transform="rotate(-90)"
+         transform="matrix(0,-1,1,0,0,0)"
          id="text5474"
          y="303.35333"
          x="-415.47394"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end"
            y="303.35333"
            x="-415.47394"
@@ -6811,8 +6861,9 @@
          id="text5482"
          y="611.1922"
          x="244.79614"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;fill:#f0f0f0;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#f0f0f0;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:11.71874905px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#f0f0f0;fill-opacity:1"
            y="611.1922"
            x="244.79614"
@@ -6838,10 +6889,11 @@
          style="opacity:1;fill:#477fbd;fill-opacity:1;stroke:#477fbd;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;text-anchor:middle;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#ffffff;fill-opacity:1;stroke:none"
          x="132.29614"
          y="611.1922"
-         id="text5490"><tspan
+         id="text5490"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5492"
            x="132.29614"
@@ -6931,7 +6983,8 @@
          y="696.83936"
          x="808.12384"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="696.83936"
            x="808.12384"
            id="tspan5520"
@@ -6949,7 +7002,8 @@
          y="725.17627"
          x="807.44098"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="725.17627"
            x="807.44098"
            id="tspan5526"
@@ -6960,7 +7014,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          x="713.68854"
          y="695.08942"
-         id="text5528"><tspan
+         id="text5528"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5530"
            x="713.68854"
@@ -6971,7 +7026,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          x="707.77161"
          y="723.72839"
-         id="text5532"><tspan
+         id="text5532"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5534"
            x="707.77161"
@@ -7151,7 +7207,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          x="808.12384"
          y="753.08936"
-         id="text5574"><tspan
+         id="text5574"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5576"
            x="808.12384"
@@ -7169,7 +7226,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          x="807.44098"
          y="781.42627"
-         id="text5580"><tspan
+         id="text5580"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5582"
            x="807.44098"
@@ -7180,7 +7238,8 @@
          y="751.33942"
          x="713.68854"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="751.33942"
            x="713.68854"
            id="tspan5586"
@@ -7191,7 +7250,8 @@
          y="779.97839"
          x="707.77161"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="779.97839"
            x="707.77161"
            id="tspan5590"
@@ -7371,7 +7431,8 @@
          y="809.33936"
          x="808.12384"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="809.33936"
            x="808.12384"
            id="tspan5632"
@@ -7389,7 +7450,8 @@
          y="837.67627"
          x="807.44098"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="837.67627"
            x="807.44098"
            id="tspan5638"
@@ -7400,7 +7462,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          x="713.68854"
          y="807.58942"
-         id="text5640"><tspan
+         id="text5640"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5642"
            x="713.68854"
@@ -7411,7 +7474,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          x="707.77161"
          y="836.22839"
-         id="text5644"><tspan
+         id="text5644"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5646"
            x="707.77161"
@@ -7591,7 +7655,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          x="808.12384"
          y="865.58936"
-         id="text5687"><tspan
+         id="text5687"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5689"
            x="808.12384"
@@ -7609,7 +7674,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          x="807.44098"
          y="893.92627"
-         id="text5693"><tspan
+         id="text5693"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5695"
            x="807.44098"
@@ -7620,7 +7686,8 @@
          y="863.83942"
          x="713.68854"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="863.83942"
            x="713.68854"
            id="tspan5699"
@@ -7631,7 +7698,8 @@
          y="892.47839"
          x="707.77161"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="892.47839"
            x="707.77161"
            id="tspan5703"
@@ -7811,7 +7879,8 @@
          y="921.83936"
          x="808.12384"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="921.83936"
            x="808.12384"
            id="tspan5745"
@@ -7829,7 +7898,8 @@
          y="950.17627"
          x="807.44098"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         xml:space="preserve"><tspan
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
            y="950.17627"
            x="807.44098"
            id="tspan5751"
@@ -7840,7 +7910,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          x="713.68854"
          y="920.08942"
-         id="text5753"><tspan
+         id="text5753"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5755"
            x="713.68854"
@@ -7851,7 +7922,8 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          x="707.77161"
          y="948.72839"
-         id="text5757"><tspan
+         id="text5757"
+         sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5759"
            x="707.77161"
@@ -8052,94 +8124,14 @@
            y="603.82019"
            x="287.55582"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
-           xml:space="preserve"><tspan
+           xml:space="preserve"
+           sodipodi:linespacing="0%"><tspan
              y="603.82019"
              x="287.55582"
              id="tspan4878-9"
              sodipodi:role="line"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#5790d5;fill-opacity:1">+</tspan></text>
       </g>
-      <rect
-         ry="4"
-         rx="4"
-         y="963.98517"
-         x="348.85864"
-         height="16.874998"
-         width="16.875"
-         id="rect5910"
-         style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:#3d628b;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <rect
-         style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:#3d628b;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="rect5912"
-         width="16.875"
-         height="16.874998"
-         x="405.10864"
-         y="963.98517"
-         rx="4"
-         ry="4" />
-      <rect
-         style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:#3d628b;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="rect5914"
-         width="16.875"
-         height="16.874998"
-         x="461.35864"
-         y="963.98517"
-         rx="4"
-         ry="4" />
-      <rect
-         ry="4"
-         rx="4"
-         y="963.98517"
-         x="517.60864"
-         height="16.874998"
-         width="16.875"
-         id="rect5916"
-         style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:#3d628b;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <rect
-         style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:#3d628b;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="rect5918"
-         width="16.875"
-         height="16.874998"
-         x="573.85864"
-         y="963.98517"
-         rx="4"
-         ry="4" />
-      <rect
-         ry="4"
-         rx="4"
-         y="963.98517"
-         x="180.10864"
-         height="16.874998"
-         width="16.875"
-         id="rect5920"
-         style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:#3d628b;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <rect
-         style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:#3d628b;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="rect5922"
-         width="16.875"
-         height="16.874998"
-         x="236.35864"
-         y="963.98517"
-         rx="4"
-         ry="4" />
-      <rect
-         ry="4"
-         rx="4"
-         y="963.98517"
-         x="292.60864"
-         height="16.874998"
-         width="16.875"
-         id="rect5924"
-         style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:#3d628b;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-      <rect
-         ry="4"
-         rx="4"
-         y="963.98517"
-         x="123.85864"
-         height="16.874998"
-         width="16.875"
-         id="rect5926"
-         style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:#3d628b;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     </g>
   </g>
   <g

@@ -2,6 +2,9 @@ import QtQuick 2.0
 
 Item
 {
+    signal checkBoxChanged(int col_id, int row_id, int value)
+    signal crtePermission(string text_value)
+
     height: 500
     width: 800
 
@@ -21,7 +24,7 @@ Item
         ListElement
         {
             list_number: "٣"
-            list_name: "مدير مجموعة1"
+            list_name: "مدير مجموعة"
         }
     }
 
@@ -29,10 +32,14 @@ Item
     {
            id: permissionRowDelegate
 
-           HhmTablePermissionsRow
+           HhmPTableRow
            {
                id_number: list_number
                id_name: list_name
+               onChkBoxChanged:
+               {
+                   checkBoxChanged(id, ar2en(list_number), val);
+               }
            }
     }
 
@@ -50,7 +57,7 @@ Item
         delegate: permissionRowDelegate
     }
 
-    HhmTablePermissionsNewRow
+    HhmPTableNewRow
     {
         anchors.left: parent.left
         anchors.top: permissionListView.bottom
@@ -60,6 +67,7 @@ Item
         onCreatePermission:
         {
             addPermissionUser(text_value);
+            crtePermission(text_value);
         }
     }
 

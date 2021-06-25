@@ -35,7 +35,7 @@ Item
     {
         id: contactDelegate
 
-        HhmUserTableRow
+        HhmUTableRow
         {
             width: parent.parent.width
             height: 30

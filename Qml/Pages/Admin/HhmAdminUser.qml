@@ -6,7 +6,7 @@ Rectangle
     width: 800
     color: "transparent"
 
-    HhmUserTableTitle
+    HhmUTableTitle
     {
         anchors.left: parent.left
         anchors.leftMargin: 85
@@ -14,7 +14,7 @@ Rectangle
         anchors.topMargin: 90
     }
 
-    HhmTableUser
+    HhmUTable
     {
         anchors.left: parent.left
         anchors.leftMargin: 85

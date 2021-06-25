@@ -81,6 +81,7 @@ Rectangle
     property bool is_hovered: false
 
     signal clickedTab()
+    signal checkBoxChange(int value)
 
     radius: 4
     height: 20
@@ -108,6 +109,7 @@ Rectangle
                  {
                     is_active = !is_active
                     clickedTab();
+                    checkBoxChange(is_active);
                  }
         onEntered:
                  {

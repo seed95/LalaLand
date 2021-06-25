@@ -35,23 +35,23 @@
         <file alias="HhmMessage.qml">Pages/Message/HhmMessage.qml</file>
         <file alias="HhmTab.qml">Pages/Admin/HhmTab.qml</file>
         <file alias="HhmAdmin.qml">Pages/Admin/HhmAdmin.qml</file>
-        <file alias="HhmTablePermissions.qml">Pages/Admin/HhmTablePermissions.qml</file>
+        <file alias="HhmPTable.qml">Pages/Admin/HhmPTable.qml</file>
         <file alias="HhmCheckBox.qml">Elements/HhmCheckBox.qml</file>
         <file alias="HhmAdminPermissions.qml">Pages/Admin/HhmAdminPermissions.qml</file>
-        <file alias="HhmTablePermissionsRow.qml">Pages/Admin/HhmTablePermissionsRow.qml</file>
-        <file alias="HhmUserTableRow.qml">Pages/Admin/HhmUserTableRow.qml</file>
-        <file alias="HhmUserTableTitle.qml">Pages/Admin/HhmUserTableTitle.qml</file>
+        <file alias="HhmPTableRow.qml">Pages/Admin/HhmPTableRow.qml</file>
+        <file alias="HhmUTableRow.qml">Pages/Admin/HhmUTableRow.qml</file>
+        <file alias="HhmUTableTitle.qml">Pages/Admin/HhmUTableTitle.qml</file>
         <file alias="HhmAdminUser.qml">Pages/Admin/HhmAdminUser.qml</file>
         <file alias="HhmDropDown.qml">Elements/HhmDropDown.qml</file>
         <file alias="HhmAddBtn.qml">Elements/HhmAddBtn.qml</file>
-        <file alias="HhmAdminPermissionsTitles.qml">Pages/Admin/HhmAdminPermissionsTitles.qml</file>
-        <file alias="HhmTablePermissionsNewRow.qml">Pages/Admin/HhmTablePermissionsNewRow.qml</file>
+        <file alias="HhmPTableTitles.qml">Pages/Admin/HhmPTableTitles.qml</file>
+        <file alias="HhmPTableNewRow.qml">Pages/Admin/HhmPTableNewRow.qml</file>
         <file alias="HhmInput.qml">Elements/HhmInput.qml</file>
-        <file alias="HhmDepartmentsTableRow.qml">Pages/Admin/HhmDepartmentsTableRow.qml</file>
-        <file alias="HhmDepartmentsTableTitle.qml">Pages/Admin/HhmDepartmentsTableTitle.qml</file>
-        <file alias="HhmDepartmentsTableNewRow.qml">Pages/Admin/HhmDepartmentsTableNewRow.qml</file>
-        <file alias="HhmDepartmentsTable.qml">Pages/Admin/HhmDepartmentsTable.qml</file>
+        <file alias="HhmDTableRow.qml">Pages/Admin/HhmDTableRow.qml</file>
+        <file alias="HhmDTableTitle.qml">Pages/Admin/HhmDTableTitle.qml</file>
+        <file alias="HhmDTableNewRow.qml">Pages/Admin/HhmDTableNewRow.qml</file>
+        <file alias="HhmDTable.qml">Pages/Admin/HhmDTable.qml</file>
         <file alias="HhmAdminDepartments.qml">pages/Admin/HhmAdminDepartments.qml</file>
-        <file alias="HhmTableUser.qml">Pages/Admin/HhmTableUser.qml</file>
+        <file alias="HhmUTable.qml">Pages/Admin/HhmUTable.qml</file>
     </qresource>
 </RCC>

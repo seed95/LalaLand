@@ -32,7 +32,7 @@ Item
     {
            id: departmentsRowDelegate
 
-           HhmDepartmentsTableRow
+           HhmDTableRow
            {
                id_number: list_number
                id_username: list_username
@@ -53,7 +53,7 @@ Item
         delegate: departmentsRowDelegate
     }
 
-    HhmDepartmentsTableNewRow
+    HhmDTableNewRow
     {
         anchors.left: parent.left
         anchors.top: departmentsListView.bottom
