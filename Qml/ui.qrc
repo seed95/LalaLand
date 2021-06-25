@@ -52,5 +52,6 @@
         <file alias="HhmDepartmentsTableNewRow.qml">Pages/Admin/HhmDepartmentsTableNewRow.qml</file>
         <file alias="HhmDepartmentsTable.qml">Pages/Admin/HhmDepartmentsTable.qml</file>
         <file alias="HhmAdminDepartments.qml">pages/Admin/HhmAdminDepartments.qml</file>
+        <file alias="HhmTableUser.qml">Pages/Admin/HhmTableUser.qml</file>
     </qresource>
 </RCC>

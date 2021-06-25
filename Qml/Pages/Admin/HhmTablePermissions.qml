@@ -21,7 +21,7 @@ Item
         ListElement
         {
             list_number: "٣"
-            list_name: "مدير مجموعة"
+            list_name: "مدير مجموعة1"
         }
     }
 
@@ -44,6 +44,7 @@ Item
         anchors.top: parent.top
         width: parent.width
         height: childrenRect.height
+        interactive: false
 
         model: permissionListModel
         delegate: permissionRowDelegate

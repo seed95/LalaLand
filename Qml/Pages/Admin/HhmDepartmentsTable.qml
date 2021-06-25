@@ -47,6 +47,7 @@ Item
         anchors.top: parent.top
         width: parent.width
         height: childrenRect.height
+        interactive: false
 
         model: departmentsListModel
         delegate: departmentsRowDelegate

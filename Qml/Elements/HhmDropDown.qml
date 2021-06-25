@@ -2,6 +2,8 @@ import QtQuick 2.0
 
 Rectangle
 {
+
+
     Rectangle
     {
         id: section
@@ -31,7 +33,7 @@ Rectangle
     {
         id: downButton01
         width: 13
-        height: 22
+        height: 24
         color: "#3d628b"
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: downButton.horizontalCenter
