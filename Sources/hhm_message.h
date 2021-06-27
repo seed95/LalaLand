@@ -32,7 +32,7 @@ class HhmMessage : public QObject
     Q_OBJECT
 public:
     explicit HhmMessage(QObject *root, HhmDatabase *database, HhmUser *userLoggedIn,
-                        QObject *parent = nullptr);
+                        QObject *parent=nullptr);
     ~HhmMessage();
 
 private slots:
@@ -68,15 +68,17 @@ private:
 
 private:
     QObject *main_ui;
-    QObject *new_ui;
-    QObject *content_ui;
     QObject *action_ui;
+
+    QObject *new_ui;
     QObject *new_input_to_ui;
     QObject *new_input_cc_ui;
 
+    QObject *show_ui;
+
     HhmDatabase *db;
     HhmUser     *m_user;
-    HhmFtp   *ftp;
+    HhmFtp      *ftp;
 
     int attach_file_ind;
     int dst_filename_ind;

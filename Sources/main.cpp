@@ -17,6 +17,9 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QApplication app(argc, argv);
+    app.setOrganizationName("WBT");
+    app.setOrganizationDomain("WBT.com");
+    app.setApplicationName("DocumentManager");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));

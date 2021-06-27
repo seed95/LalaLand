@@ -4,8 +4,11 @@ Rectangle
 {
     id: container
 
-    property string icon: "\uf024"
-    property string action: "New"
+    property string icon_text: "\uf024"
+    property int    icon_left_margin: 3
+    property string action_text: "New"
+    property int    action_vertical_offset: -4
+    property int    action_left_margin: 2
 
     property bool isHovered: false
 
@@ -49,9 +52,9 @@ Rectangle
         Text
         {
             id: label_icon_rtl
-            text: icon
+            text: icon_text
             anchors.left: label_action_rtl.right
-            anchors.leftMargin: 7
+            anchors.leftMargin: icon_left_margin
             anchors.verticalCenter: parent.verticalCenter
             font.family: fontAwesomeSolid.name
             font.weight: Font.Bold
@@ -62,13 +65,14 @@ Rectangle
         Text
         {
             id: label_action_rtl
-            text: action
+            text: action_text
             anchors.left: parent.left
+            anchors.leftMargin: action_left_margin
             anchors.verticalCenter: parent.verticalCenter
-            anchors.verticalCenterOffset: -1
-            font.family: fontArialRegular.name
-//            font.weight: Font.Normal
-            font.pixelSize: 18
+            anchors.verticalCenterOffset: action_vertical_offset
+            font.family: fontDroidKufiRegular.name
+            font.weight: Font.Normal
+            font.pixelSize: 15
             color: color_label
         }
     }
@@ -85,7 +89,7 @@ Rectangle
         Text
         {
             id: label_icon_ltr
-            text: icon
+            text: icon_text
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
             font.family: fontAwesomeSolid.name
@@ -96,7 +100,7 @@ Rectangle
         Text
         {
             id: label_action_ltr
-            text: action
+            text: action_text
             anchors.left: label_icon_ltr.right
             anchors.leftMargin: 7
             anchors.verticalCenter: parent.verticalCenter

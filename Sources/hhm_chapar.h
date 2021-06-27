@@ -13,6 +13,7 @@
 #include "hhm_ftp.h"
 #include "hhm_news.h"
 #include "hhm_message.h"
+#include "hhm_document.h"
 #include "hhm_admin.h"
 
 class HhmChapar : public QObject
@@ -24,21 +25,16 @@ public:
 private slots:
     //Ui slots
     void loginUser(QString uname, QString pass);
-    void newBtnClicked();
     void replyBtnClicked();
     void approveBtnClicked(int caseNumber, QString tableContent, int emailId);
     void rejectBtnClicked(int caseNumber);
     void archiveBtnClicked();
     void scanBtnClicked();
-    void sendBtnClicked(int receiverId, int caseNumber, QString subject,
-                        QString filepath, QString tableContent);
     void flagBtnClicked(int id);
-    void uploadFileClicked();
     void downloadFileClicked(QString src, int caseNumber);
     void syncInbox();
     void syncOutbox();
     void openEmail(int idEmail);
-    void checkUsername(QString username);
 
 private:
     void        addNewDocToDocuments();
@@ -54,6 +50,7 @@ private:
     HhmNews     *news;
     HhmAdmin    *admin;
     HhmMessage  *message;
+    HhmDocument *document;
 
     QString last_directory;
     int doc_base_id;

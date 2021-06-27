@@ -5,6 +5,7 @@ Item
 
     property int messageState:  con.hhm_MESSAGE_NONE_STATE
 
+    //Cpp Signals
     signal sendNewMessage(variant toData, variant ccData, string subject,
                           string content, variant attachFiles)
 
@@ -31,18 +32,11 @@ Item
 
     function sendMessage()
     {
-        if( new_message.getToData().length===0 )
-        {
-            console.log("please select that you want to send witch user")
-        }
-        else
-        {
-            sendNewMessage(new_message.getToData(),
-                           new_message.getCcData(),
-                           new_message.getSubject(),
-                           new_message.getContent(),
-                           new_message.getFiles())
-        }
+        sendNewMessage(new_message.getToData(),
+                       new_message.getCcData(),
+                       new_message.getSubject(),
+                       new_message.getContent(),
+                       new_message.getFiles())
     }
 
     /*** Call this function from cpp ***/

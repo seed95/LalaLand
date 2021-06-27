@@ -64,8 +64,8 @@ Rectangle
         color: "transparent"
         anchors.top: parent.top
         anchors.left: parent.left
-        Text
 
+        Text
         {
             text: "مجموعات فرعية"
             anchors.verticalCenter: parent.verticalCenter

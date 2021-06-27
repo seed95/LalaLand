@@ -20,12 +20,23 @@ Item
     property color  color_border:           "#aaaaaa"
     property int    rect_radius:            5
 
+    property color color_input_error:       "#e08888"
+    property color color_input_placeholder: "#828282"
+    property color color_input_normal:      "#505050"
+
     property bool   username_err: false
 
     signal addNewUsername(string username)
 
     width: 980
     height: 30
+
+    onVisibleChanged:
+    {
+        input_username.text = username_placeholder
+        input_subject.text = subject_placeholder
+        lm_username.clear()
+    }
 
     Rectangle
     {
@@ -149,21 +160,7 @@ Item
             text: username_placeholder
             font.family: fontRobotoRegular.name
             font.pixelSize: 17
-            color:
-            {
-                if( username_err )
-                {
-                    "#e08888"
-                }
-                else if( text===username_placeholder )
-                {
-                    "#828282"
-                }
-                else
-                {
-                    "#505050"
-                }
-            }
+            color: color_input_placeholder
             selectByMouse: true
             selectedTextColor: "#222"
             selectionColor: "#888"
@@ -181,12 +178,19 @@ Item
                     {
                         text = ""
                     }
+                    else
+                    {
+                        selectAll()
+                    }
+
+                    color = color_input_normal
                 }
                 else
                 {
                     if( text==="" )
                     {
                         text = username_placeholder
+                        color = color_input_placeholder
                     }
                 }
             }
@@ -401,6 +405,7 @@ Item
     function usernameNotFound()
     {
         username_err = true
+        input_username.color = color_input_error
     }
 
     function removeUsername(textUsername)

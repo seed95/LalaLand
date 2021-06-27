@@ -50,8 +50,10 @@ private:
     QStringList getIdSendEmails(int userID);
     void showEmailInSidebar(QStringList emailIds);//emailsIds: csv format
     HhmEmailTable getEmail(int idEmail);
-    void updateDocument(QString caseNumber, QString filepath, int senderId, int receiverId,
-                        QString subject, QString senderName, QString tableContent);
+    void updateDocument(QString caseNumber, QString filepath,
+                        int senderId, int receiverId,
+                        QString subject, QString senderName,
+                        QString tableContent);
     int addNewEmail(QString caseNumber);
     bool updateEmail(QString field, int userId, int emailId);
     HhmUserTable getUser(int idUser);

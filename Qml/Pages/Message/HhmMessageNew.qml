@@ -16,9 +16,6 @@ Rectangle
     onVisibleChanged:
     {
         cnt_id = 0
-        text_input_to.clearInput()
-        text_input_cc.clearInput()
-        text_input_subject.clearInput()
         lm_attachment.clear()
     }
 

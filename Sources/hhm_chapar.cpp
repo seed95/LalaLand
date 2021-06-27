@@ -6,22 +6,17 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     last_directory = QDir::currentPath();
 
     connect(ui, SIGNAL(loginUser(QString, QString)), this, SLOT(loginUser(QString, QString)));
-    connect(ui, SIGNAL(newButtonClicked()), this, SLOT(newBtnClicked()));
     connect(ui, SIGNAL(replyButtonClicked()), this, SLOT(replyBtnClicked()));
     connect(ui, SIGNAL(approveButtonClicked(int, QString, int)),
             this, SLOT(approveBtnClicked(int, QString, int)));
     connect(ui, SIGNAL(rejectButtonClicked(int)), this, SLOT(rejectBtnClicked(int)));
     connect(ui, SIGNAL(archiveButtonClicked()), this, SLOT(archiveBtnClicked()));
     connect(ui, SIGNAL(scanButtonClicked()), this, SLOT(scanBtnClicked()));
-    connect(ui, SIGNAL(sendButtonClicked(int, int, QString, QString, QString)),
-            this, SLOT(sendBtnClicked(int, int, QString, QString, QString)));
     connect(ui, SIGNAL(flagButtonClicked(int)), this, SLOT(flagBtnClicked(int)));
-    connect(ui, SIGNAL(uploadFileClicked()), this, SLOT(uploadFileClicked()));
     connect(ui, SIGNAL(downloadFileClicked(QString, int)), this, SLOT(downloadFileClicked(QString, int)));
     connect(ui, SIGNAL(syncInbox()), this, SLOT(syncInbox()));
     connect(ui, SIGNAL(syncOutbox()), this, SLOT(syncOutbox()));
     connect(ui, SIGNAL(openEmail(int)), this, SLOT(openEmail(int)));
-    connect(ui, SIGNAL(checkUsername(QString)), this, SLOT(checkUsername(QString)));
 
     //Instance Database
     db = new HhmDatabase();
@@ -37,7 +32,10 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     message = new HhmMessage(ui, db, user);
     admin = new HhmAdmin(ui, db, user);
 
-    //Instance Attach
+    //Instance Document
+    document = new HhmDocument(ui, db, user);
+
+    //Instance Ftp
     ftp = new HhmFtp();
 
     //Instance News
@@ -81,36 +79,6 @@ void HhmChapar::loginUser(QString uname, QString pass)
     }
 }
 
-void HhmChapar::newBtnClicked()
-{
-    int new_case_number = 0;
-    //Get max case number
-    QString query = "SELECT MAX(" + QString(HHM_DOCUMENT_CASENUMBER) + ") FROM ";
-    query += "`" + QString(DATABASE_NAME) + "`.`" + QString(HHM_TABLE_DOCUMENT) + "`";
-    QSqlQuery res = db->sendQuery(query);
-    if( res.next() )
-    {
-        int max_case_number = res.value(0).toInt();
-        if( max_case_number>=doc_base_id )
-        {
-            new_case_number = max_case_number + 1;//auto increment case number
-        }
-        else
-        {
-            new_case_number = doc_base_id;
-        }
-    }
-    else
-    {
-        hhm_log("Table " + QString(HHM_TABLE_DOCUMENT) + " is empty");
-        new_case_number = doc_base_id;
-    }
-    QString columns = "`" + QString(HHM_DOCUMENT_CASENUMBER) + "`";
-    QString values  = "'" + QString::number(new_case_number) + "'";
-    db->insert(HHM_TABLE_DOCUMENT, columns, values);
-    QQmlProperty::write(ui, "new_case_number", new_case_number);
-}
-
 void HhmChapar::replyBtnClicked()
 {
     qDebug() << "replyBtnClicked";
@@ -136,60 +104,9 @@ void HhmChapar::scanBtnClicked()
     qDebug() << "scanBtnClicked";
 }
 
-void HhmChapar::sendBtnClicked(int receiverId, int caseNumber, QString subject,
-                               QString filepath, QString tableContent)
-{
-    if( filepath.isEmpty() )
-    {
-        hhm_showMessage(tr("Please choose a document"), 2000);
-        return;
-    }
-
-    if( receiverId==0 )
-    {
-        hhm_showMessage(tr("Entered username is not valid"), 5000);
-        return;
-    }
-
-    if( subject.isEmpty() )
-    {
-        hhm_showMessage(tr("Please write a subject"), 2000);
-        return;
-    }
-
-    int id_user = user->getId();
-
-    QString s_case_number = QString::number(caseNumber);//string case number
-    QString dst_filename = s_case_number + "_" + QFileInfo(filepath).fileName();
-    mail->sendNewEmail(s_case_number, subject,
-                       id_user, receiverId,
-                       dst_filename, user->getName(),
-                       tableContent);
-
-    //Upload file in fpt server
-    hhm_log("Start upload file: " + filepath + " --> " + dst_filename);
-    ftp->uploadFile(filepath, dst_filename);
-
-    QMetaObject::invokeMethod(ui, "sendEmailComplete");
-}
-
 void HhmChapar::flagBtnClicked(int id)
 {
     qDebug() << "flagBtnClicked";
-}
-
-void HhmChapar::uploadFileClicked()
-{
-    QString file_path = QFileDialog::getOpenFileName( NULL,
-                                                     "Choose Document File",
-                                                     last_directory,
-                                                     "*");
-    if(!file_path.isEmpty())
-    {
-        last_directory = QFileInfo(file_path).absolutePath();
-        QQmlProperty::write(ui, "selected_file_path", file_path);
-        QMetaObject::invokeMethod(ui, "showSelectedFilePath");
-    }
 }
 
 void HhmChapar::downloadFileClicked(QString src, int caseNumber)
@@ -232,29 +149,6 @@ void HhmChapar::openEmail(int idEmail)
     QString condition = "`" + QString(HHM_EMAIL_ID) + "`=" + QString::number(idEmail);
     QString value = "`" + QString(HHM_EMAIL_OPENED) + "`=" + QString::number(1);
     db->update(condition, value, HHM_TABLE_EMAIL);
-}
-
-void HhmChapar::checkUsername(QString username)
-{
-    QString condition = "`" + QString(HHM_USER_USERNAME) + "`='" + username + "'";
-    QSqlQuery res = db->select("*", HHM_TABLE_USER, condition);
-    if( res.next() )
-    {
-        QVariant data = res.value(HHM_USER_ID);
-        if( data.isValid() )
-        {
-            QQmlProperty::write(ui, "receiver_id", data.toInt());
-        }
-        else
-        {
-            hhm_log("Receiver id is not valid for username " + username + " (" + data.toString() + ")");
-        }
-    }
-    else
-    {
-        hhm_showMessage(tr("Entered username is not valid"), 5000);
-        QMetaObject::invokeMethod(ui, "usernameNotFound");
-    }
 }
 
 //Return Invalid Qvariant if not found key

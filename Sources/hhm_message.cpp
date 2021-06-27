@@ -39,7 +39,6 @@ HhmMessage::~HhmMessage()
 }
 
 /***************** Ftp Slots *****************/
-
 void HhmMessage::uploadSuccess(QString filename)
 {
     dst_filename_ind++;
@@ -137,6 +136,12 @@ void HhmMessage::sendNewMessage(QVariant toData, QVariant ccData,
                                 QString subject, QString content,
                                 QVariant attachFiles)
 {
+    if( toData.toList().size()==0 )
+    {
+        hhm_showMessage("Please select that you want to send witch user", 5000);
+        return;
+    }
+
     new_data.senderId   = m_user->getId();
     new_data.toData     = toData.toList();
     new_data.ccData     = ccData.toList();

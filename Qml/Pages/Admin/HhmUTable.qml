@@ -50,8 +50,8 @@ Item
     {
         width: parent.width
         height: 500
-        anchors.left: topTable.left
-        anchors.top: topTable.top
+        anchors.left: parent.left
+        anchors.top: parent.top
         anchors.topMargin: 30
         color: "transparent"
 

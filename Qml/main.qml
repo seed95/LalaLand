@@ -1,6 +1,7 @@
 import QtQuick 2.10
 import QtQuick.Window 2.10
 import QtQuick.Controls 2.4
+import Qt.labs.settings 1.0
 
 Window
 {
@@ -9,6 +10,8 @@ Window
     property bool rtl:          true //Right to Left
     property bool fontOffset:   true
 
+    property string domain:         "lolo.com"
+    property string base_id:        "lolo.com"
     property string app_status:     "Updated from server 12:20PM"
     property string login_status:   "Server connected"
 
@@ -30,8 +33,6 @@ Window
     property string bio:        "Bio"
     property string image:      "Image"
 
-    property string domain: "lolo.com"
-    property string base_id: "lolo.com"
 
     //Document properties for inbox or outbox items
     property int    case_number:                2 //Document id
@@ -47,9 +48,6 @@ Window
     property string table_content:              ""
 
     //Properties for new email
-    property bool   createNewEmail:     false           //When click on new button to create new email
-    property int    new_case_number:    0               //When click on new button to create new email get new case number from data base
-    property int    receiver_id:        1               //id user for received email
     property string selected_file_path: "path/to/file"  //Selected file path for upload file
 
     //Properties for news
@@ -61,20 +59,17 @@ Window
     property string news_date2:      ""
 
     signal loginUser(string username, string pass)
-    signal newButtonClicked()
     signal replyButtonClicked()
     signal archiveButtonClicked()
     signal approveButtonClicked(int docId, string tableContent, int emailId)
     signal rejectButtonClicked(int docId)
     signal scanButtonClicked()
-    signal sendButtonClicked(int receiverId, int caseNumber, string subject, string filepath, string tableContent)
     signal flagButtonClicked(int id)
     signal uploadFileClicked()
     signal downloadFileClicked(string src, int docId)
     signal syncInbox()
     signal syncOutbox()
     signal openEmail(int emailId)
-    signal checkUsername(string username)
 
     onEmail_modeChanged:
     {
@@ -95,7 +90,7 @@ Window
     FontLoader
     {
         id: fontAwesomeSolid
-        source: "qrc:/Fonts/fa-solid.ttf"
+        source: "qrc:/Fonts/fasolid.ttf"
     }
     FontLoader
     {
@@ -166,7 +161,6 @@ Window
         source: "qrc:/Fonts/DroidKufi-Bold.ttf"
     }
 
-
     //Animations:
     NumberAnimation
     {
@@ -192,6 +186,11 @@ Window
         duration: 500
     }
 
+    Settings
+    {
+        property alias mode: root.hhm_mode
+    }
+
     //Main UI
     HhmConstants
     {
@@ -203,6 +202,7 @@ Window
         id: login
         anchors.fill: parent
         z: 1
+        visible: false
         onSignInUser:
         {
             root.loginUser(uname, pass)
@@ -263,14 +263,6 @@ Window
         anchors.bottom: bottombar.top
         visible: !root.rtl
 
-        HhmTopBar
-        {
-            id: topbar_ltr
-            anchors.left: sidebar_ltr.right
-            anchors.right: parent.right
-            anchors.top: parent.top
-        }
-
         HhmSideBar
         {
             id: sidebar_ltr
@@ -280,26 +272,6 @@ Window
             anchors.left: parent.left
             anchors.bottom: parent.bottom
         }
-
-//        HhmEmailContent
-//        {
-//            id: email_content_ltr
-//            anchors.left: sidebar_ltr.right
-//            anchors.right: parent.right
-//            anchors.top: topbar_ltr.bottom
-//            anchors.bottom: parent.bottom
-//            visible: !createNewEmail && root.isDocSelected()
-//        }
-
-//        HhmNewEmail
-//        {
-//            id: new_email_ltr
-//            anchors.left: sidebar_ltr.right
-//            anchors.top: topbar_ltr.bottom
-//            anchors.right: parent.right
-//            anchors.bottom: parent.bottom
-//            visible: createNewEmail
-//        }
 
     }
 
@@ -325,27 +297,27 @@ Window
 
     function addToBox()
     {
-        var obj = email_content_ltr
-        if( root.rtl )
-        {
-            obj = email_content_rtl
-        }
+//        var obj = email_content_ltr
+//        if( root.rtl )
+//        {
+//            obj = email_content_rtl
+//        }
 
-        if( obj.case_number===root.case_number )
-        {
-            obj.case_number = root.case_number
-            obj.text_name = root.sender_name
-            obj.text_time = root.r_email_date
-            obj.doc_status = root.doc_status
-            obj.download_filepath = root.filepath
-        }
+//        if( obj.case_number===root.case_number )
+//        {
+//            obj.case_number = root.case_number
+//            obj.text_name = root.sender_name
+//            obj.text_time = root.r_email_date
+//            obj.doc_status = root.doc_status
+//            obj.download_filepath = root.filepath
+//        }
 
-        obj = sidebar_ltr
-        if( root.rtl )
-        {
-            obj = sidebar
-        }
-        obj.addToBox()
+//        obj = sidebar_ltr
+//        if( root.rtl )
+//        {
+//            obj = sidebar
+//        }
+//        obj.addToBox()
     }
 
     function finishSync()
@@ -372,52 +344,7 @@ Window
         error_messae.showMessage(error_text, error_duration)
     }
 
-    function sendEmailComplete()
-    {
-        createNewEmail = false
-        syncEmail()
-    }
-
-    function usernameNotFound()
-    {
-        var obj = new_email_ltr
-        if( root.rtl )
-        {
-            obj = new_email_rtl
-        }
-
-        obj.receiverUsernameNotFound()
-    }
-
     /*** Call this function from qml ***/
-
-    function showPageNewEmail()
-    {
-        createNewEmail = true
-        newButtonClicked()
-    }
-
-    function showSelectedFilePath()
-    {
-        var obj = new_email_ltr
-        if( root.rtl )
-        {
-            obj = new_email_rtl
-        }
-
-        obj.showSelectedFile()
-    }
-
-    function sendEmail()
-    {
-        var obj = new_email_ltr
-        if( root.rtl )
-        {
-            obj = new_email_rtl
-        }
-        sendButtonClicked(root.receiver_id, root.new_case_number, obj.getSubject(),
-                          root.selected_file_path, obj.getTableContent())
-    }
 
     function syncEmail()
     {
@@ -449,7 +376,6 @@ Window
         animateShowLogin.start()
         root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
         root.email_mode = con.id_EMAIL_MODE_INBOX
-        root.createNewEmail = false
         root.selected_file_path = ""
     }
 

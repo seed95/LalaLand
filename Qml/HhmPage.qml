@@ -2,8 +2,6 @@ import QtQuick 2.0
 
 Item
 {
-    property int documentState: con.hhm_MESSAGE_NONE_STATE
-
     HhmMessage
     {
         id: message
@@ -20,25 +18,12 @@ Item
         visible: root.hhm_mode===con.hhm_ADMINPANEL_MODE
     }
 
-
-//    HhmEmailContent
-//    {
-//        id: document_content
-//        anchors.left: parent.left
-//        anchors.right: sidebar.left
-//        height: parent.height
-//        visible: root.hhm_mode===con.hhm_DOCUMENT_MODE &&
-//                 !createNewEmail && root.isDocSelected()
-//    }
-
-//    HhmNewEmail
-//    {
-//        id: new_document
-//        anchors.left: parent.left
-//        anchors.right: sidebar.left
-//        height: parent.height
-//        anchors.bottomMargin: 100
-//        visible: root.hhm_mode===con.hhm_DOCUMENT_MODE && createNewEmail
-//    }
+    HhmDocument
+    {
+        id: document
+        anchors.fill: parent
+        objectName: "Document"
+        visible: root.hhm_mode===con.hhm_DOCUMENT_MODE
+    }
 
 }

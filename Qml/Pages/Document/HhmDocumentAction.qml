@@ -1,13 +1,12 @@
 import QtQuick 2.0
 
 Rectangle
-{   
+{
     //Cpp Signals
-    signal attachNewFile()
-    signal newMessageClicked()
+    signal newDocumentClicked()
 
     //Qml Signals
-    signal sendMessageClicked()
+    signal sendDocumentClicked()
 
     width: 980
     height: 50
@@ -21,7 +20,7 @@ Rectangle
         width: 100
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
-        visible: messageState===con.hhm_MESSAGE_NONE_STATE
+        visible: documentState===con.hhm_DOCUMENT_NONE_STATE
         icon_text: "\uf067"
         action_text: qsTr("انشاء")
         icon_left_margin: 6
@@ -29,8 +28,8 @@ Rectangle
         action_left_margin: 2
         onButtonClicked:
         {
-            newMessageClicked()
-            messageState = con.hhm_MESSAGE_NEW_STATE
+            newDocumentClicked()
+            documentState = con.hhm_DOCUMENT_NEW_STATE
         }
     }
 
@@ -44,7 +43,7 @@ Rectangle
         width: 100
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
-        visible: messageState===con.hhm_MESSAGE_NEW_STATE
+        visible: documentState===con.hhm_MESSAGE_NEW_STATE
         icon_text: "\uf061"
         action_text: qsTr("رجوع")
         icon_left_margin: 3
@@ -52,24 +51,23 @@ Rectangle
         action_left_margin: 0
         onButtonClicked:
         {
-            messageState = con.hhm_MESSAGE_NONE_STATE
+            documentState = con.hhm_DOCUMENT_NONE_STATE
         }
     }
 
     HhmActionBtn
     {
-        id: action_attach
+        id: action_scan
         height: parent.height
-        width: 100
+        width: 150
         anchors.right: action_back.left
         anchors.verticalCenter: parent.verticalCenter
-        visible: messageState===con.hhm_MESSAGE_NEW_STATE
-        icon_text: "\uf0c6"
-        action_text: qsTr("مرفق")
-        action_left_margin: 0
+        visible: documentState===con.hhm_MESSAGE_NEW_STATE
+        icon_text: "\uf574"
+        action_text: qsTr("المسح الضوئي")
+        action_left_margin: -2
         action_vertical_offset: -2
-        icon_left_margin: 7
-        onButtonClicked: attachNewFile()
+        icon_left_margin: 10
     }
 
     HhmActionBtn
@@ -77,15 +75,15 @@ Rectangle
         id: action_send
         height: parent.height
         width: 100
-        anchors.right: action_attach.left
+        anchors.right: action_scan.left
         anchors.verticalCenter: parent.verticalCenter
-        visible: messageState===con.hhm_MESSAGE_NEW_STATE
+        visible: documentState===con.hhm_MESSAGE_NEW_STATE
         icon_text: "\uf1d8"
         action_text: qsTr("رسال")
         action_left_margin: 0
         action_vertical_offset: -1
         icon_left_margin: 5
-        onButtonClicked: sendMessageClicked()
+        onButtonClicked: sendDocumentClicked()
     }
 
 }

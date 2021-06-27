@@ -2,25 +2,30 @@ import QtQuick 2.0
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Controls 2.5
 
-Item
+Rectangle
 {
-    property string text_to:        "username@" + root.domain
-    property string text_subject:   root.rtl ? qsTr("الموضوع المراسلة") : "Subject"
-    property string text_file_path: ""
+    id: container
+
+    //Set this variables in cpp
+    property int    new_casenumber:         0  //When click on new button to create new document get new casenumber from data base
+    property int    receiver_id:            -1  //Id user for receive document
+    property string selected_file_path:     ""
+
+    //Cpp Signals
+    signal checkUsername(string username)
+    signal uploadFileClicked()
+    signal sendNewDocument(int caseNumber, int receiverId,
+                           string subject, string filepath,
+                           string tableContent)
+
+    width: 980
+    height: 675
+    color: "#dcdcdc"
 
     onVisibleChanged:
     {
-        subject_input_box.setInput(text_subject)
-        subject_input_box_rtl.setInput(text_subject)
-        to_input_box.setInput(text_to)
-        to_input_box_rtl.setInput(text_to)
-        rect_upload.visible = true
-        label_file.visible = false
-        subject_input_box.focus = false
-        subject_input_box_rtl.focus = false
-        root.selected_file_path = ""
-        root.receiver_id = 0
-        table.setData("")
+        receiver_id = -1
+        selected_file_path = ""
     }
 
     Flickable
@@ -28,90 +33,13 @@ Item
         id: flickable_container
         anchors.fill: parent
         contentHeight: canvas_upload.height + canvas_upload.y
+        flickableDirection: Flickable.VerticalFlick
+        clip: true
 
         onContentHeightChanged:
         {
             //disable interactive for prevent stealing mouse event
             interactive = height>contentHeight ? false : true
-        }
-
-        flickableDirection: Flickable.VerticalFlick
-
-        Item
-        {
-            id: rect_input_box_rtl
-            width: parent.width
-            height: 160
-            anchors.right: parent.right
-            anchors.top: parent.top
-            visible: root.rtl
-
-            HhmInputBox
-            {
-                id: from_input_box_rtl
-                width: 555
-                height: 40
-                anchors.right: parent.right
-                anchors.rightMargin: 50
-                anchors.top: parent.top
-                anchors.topMargin: 18
-                width_box: 500
-                text_label: qsTr("من:")
-                text_input_box: root.username + "@" + root.domain
-                left_margin: 48
-            }
-
-            HhmInputBox
-            {
-                id: to_input_box_rtl
-                width: 555
-                height: 40
-                anchors.right: parent.right
-                anchors.rightMargin: 50
-                anchors.top: from_input_box_rtl.bottom
-                width_box: 500
-                text_label: qsTr("الى:")
-                text_input_box: text_to
-                left_margin: 46
-                isEnabled: true
-                auto_complete_text: "@" + root.domain
-                onInputChanged:
-                {
-                    root.checkUsername(text.replace(auto_complete_text, ""))
-                }
-            }
-
-            HhmInputBox
-            {
-                id: case_number_input_box_rtl
-                width: 200
-                height: 40
-                anchors.top: to_input_box_rtl.top
-                anchors.right: to_input_box_rtl.left
-                anchors.rightMargin: 60
-                width_box: 150
-                text_label: qsTr("رقم الارسال:")
-                text_input_box: root.en2ar(root.new_case_number)
-                left_margin: 15
-                textAlign: TextInput.AlignRight
-            }
-
-            HhmInputBox
-            {
-                id: subject_input_box_rtl
-                width: 875
-                height: 40
-                anchors.top: to_input_box_rtl.bottom
-                anchors.right: parent.right
-                anchors.rightMargin: 50
-                width_box: 808
-                isEnabled: true
-                text_label: "الموضوع:"
-                text_input_box: text_subject
-                left_margin: 10
-                textAlign: TextInput.AlignRight
-            }
-
         }
 
         Item
@@ -121,65 +49,93 @@ Item
             height: 160
             anchors.left: parent.left
             anchors.top: parent.top
-            visible: !root.rtl
 
-            HhmInputBox
+            HhmDocumentInput
             {
-                id: from_input_box
-                width: 555
-                height: 40
-                anchors.left: parent.left
+                id: text_input_from
+                anchors.right: parent.right
+                anchors.rightMargin: 34
                 anchors.top: parent.top
-                anchors.leftMargin: 50
-                anchors.topMargin: 18
-                width_box: 500
-                text_label: "From:"
-                text_input_box: root.username + "@" + root.domain
-                left_margin: 29
+                anchors.topMargin: 22
+
+                enable_input: false
+                width_input: 500
+                placeholder_input: root.username + "@" + root.domain
+                font_name_input: fontRobotoRegular.name
+                font_weight_input: Font.Normal
+                font_size_input: 15
+                align_input: TextInput.AlignLeft
+
+                text_label: qsTr("من")
+                font_name_label: fontDroidKufiRegular.name
+                font_size_label: 17
             }
 
-            HhmInputBox
+            HhmDocumentInput
             {
-                id: to_input_box
-                width: 555
-                height: 40
-                anchors.left: parent.left
-                anchors.top: from_input_box.bottom
-                anchors.leftMargin: 51
-                width_box: 500
-                text_label: "To:"
-                text_input_box: text_to
-                left_margin: 50
-                auto_complete_text: "@" + root.domain
+                id: text_input_to
+                anchors.right: text_input_from.right
+                anchors.top: text_input_from.bottom
+                anchors.topMargin: 10
+
+                enable_input: true
+                width_input: 500
+                placeholder_input: root.username + "@" + root.domain
+                auto_complete_input: "@" + root.domain
+                font_name_input: fontRobotoRegular.name
+                font_weight_input: Font.Normal
+                font_size_input: 15
+                align_input: TextInput.AlignLeft
+
+                text_label: qsTr("الى")
+                font_name_label: fontDroidKufiRegular.name
+                font_size_label: 17
+
+                onInputChanged:
+                {
+                    container.checkUsername(text.replace(auto_complete_input, ""))
+                }
             }
 
-            HhmInputBox
+            HhmDocumentInput
             {
-                id: case_number_input_box
-                width: 200
-                height: 40
-                anchors.left: to_input_box.right
-                anchors.top: to_input_box.top
-                anchors.leftMargin: 60
-                width_box: 150
-                text_label: "Case Number:"
-                text_input_box: root.new_case_number
-                left_margin: 15
+                id: text_input_casenumber
+                anchors.top: text_input_to.top
+                anchors.right: text_input_to.left
+                anchors.rightMargin: 54
+
+                enable_input: false
+                width_input: 150
+                placeholder_input: root.en2ar(container.new_casenumber)
+                font_name_input: fontRobotoRegular.name
+                font_weight_input: Font.Normal
+                font_size_input: 15
+                align_input: TextInput.AlignRight
+
+                text_label: qsTr("رقم الارسال")
+                width_label: 116
+                font_name_label: fontDroidKufiRegular.name
+                font_size_label: 17
             }
 
-            HhmInputBox
+            HhmDocumentInput
             {
-                id: subject_input_box
-                width: 875
-                height: 40
-                anchors.top: to_input_box.bottom
-                anchors.left: parent.left
-                anchors.leftMargin: 51
-                width_box: 820
-                isEnabled: true
-                text_label: "Subject:"
-                text_input_box: "Subject"
-                left_margin: 10
+                id: text_input_subject
+                anchors.right: text_input_from.right
+                anchors.top: text_input_to.bottom
+                anchors.topMargin: 10
+
+                enable_input: true
+                width_input: 820
+                placeholder_input: "الموضوع المراسلة"
+                font_name_input: fontRobotoRegular.name
+                font_weight_input: Font.Normal
+                font_size_input: 15
+                align_input: TextInput.AlignRight
+
+                text_label: qsTr("الموضوع")
+                font_name_label: fontDroidKufiRegular.name
+                font_size_label: 17
             }
 
         }
@@ -187,13 +143,12 @@ Item
         HhmTable
         {
             id: table
-            anchors.top: rect_input_box_rtl.bottom
+            anchors.top: rect_input_box.bottom
             anchors.topMargin: 21
             anchors.horizontalCenter: parent.horizontalCenter
             tableMode: con.hhm_TABLE_MODE_NEW
         }
 
-        ///FIXME: two canvas for rtl, ltr
         Canvas
         {
             id: canvas_upload
@@ -202,6 +157,7 @@ Item
             anchors.top: table.bottom
             anchors.topMargin: 40
             anchors.horizontalCenter: parent.horizontalCenter
+
             onPaint:
             {
                 var ctx = getContext("2d")
@@ -227,6 +183,7 @@ Item
                 height: 145
                 anchors.centerIn: parent
                 color: "transparent"
+                visible: selected_file_path===""
 
                 Text
                 {
@@ -254,12 +211,12 @@ Item
             Text
             {
                 id: label_file
-                text: text_file_path
+                text: container.selected_file_path.replace(/^.*[\\\/]/, '')//show file name from full path
                 font.family: fontRobotoRegular.name
                 font.pixelSize: 20
                 color: "#808080"
                 anchors.centerIn: parent
-                visible: false
+                visible: !rect_upload.visible
             }
 
             MouseArea
@@ -269,8 +226,8 @@ Item
 
                 onClicked:
                 {
-                    canvas_upload.forceActiveFocus()
-                    root.uploadFileClicked()
+                    container.forceActiveFocus()
+                    container.uploadFileClicked()
                 }
             }
 
@@ -278,32 +235,17 @@ Item
 
     }
 
-    function getSubject()
+    function usernameNotFound()
     {
-        var obj = subject_input_box
-        if( root.rtl )
-        {
-            obj = subject_input_box_rtl
-        }
-        return obj.getInput()
+        text_input_to.usernameNotFound()
     }
 
-    function getTableContent()
+    function sendDocument()
     {
-        return table.getData()
-    }
-
-    function showSelectedFile()
-    {
-        rect_upload.visible = false
-        label_file.visible = true
-        text_file_path = root.selected_file_path.replace(/^.*[\\\/]/, '')//show file name from full path
-    }
-
-    function receiverUsernameNotFound()
-    {
-        to_input_box_rtl.isError = true
-        to_input_box.isError = true
+        sendNewDocument(new_casenumber, receiver_id,
+                        text_input_subject.getInput(),
+                        container.selected_file_path,
+                        table.getData())
     }
 
 }
