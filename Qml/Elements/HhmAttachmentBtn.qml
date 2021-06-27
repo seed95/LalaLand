@@ -13,8 +13,6 @@ Rectangle
     border.width: 1
     border.color: "#7593b7"
 
-    onWidthChanged: console.log(text_filename, width)
-
     Rectangle
     {
         id: delete_attach

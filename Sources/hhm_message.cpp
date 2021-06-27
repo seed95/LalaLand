@@ -12,11 +12,12 @@ HhmMessage::HhmMessage(QObject *root, HhmDatabase *database, HhmUser *userLogged
 
     new_input_to_ui   = main_ui->findChild<QObject*>("MessageNewTo");
     new_input_cc_ui   = main_ui->findChild<QObject*>("MessageNewCc");
+    new_attachbar     = main_ui->findChild<QObject*>("MessageAttachbar");
 
     connect(action_ui, SIGNAL(attachNewFile()), this, SLOT(attachNewFile()));
     connect(action_ui, SIGNAL(newMessageClicked()), this, SLOT(newMessageClicked()));
 
-    connect(main_ui, SIGNAL(sendNewMessage(QVariant, QVariant, QString, QString, QVariant)),
+    connect(new_ui, SIGNAL(sendNewMessage(QVariant, QVariant, QString, QString, QVariant)),
             this, SLOT(sendNewMessage(QVariant, QVariant, QString, QString, QVariant)));
 
     connect(new_input_to_ui, SIGNAL(addNewUsername(QString)), this, SLOT(addNewUsernameTo(QString)));
@@ -81,8 +82,8 @@ void HhmMessage::attachNewFile()
     if( !file_path.isEmpty() )
     {
         hhm_setLastDirectory(QFileInfo(file_path).absolutePath());
-        QQmlProperty::write(new_ui, "attach_filename", file_path);
-        QMetaObject::invokeMethod(new_ui, "addAttachFile");
+        QQmlProperty::write(new_attachbar, "attach_filename", file_path);
+        QMetaObject::invokeMethod(new_attachbar, "addAttachFile");
     }
 }
 

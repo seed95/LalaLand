@@ -4,20 +4,13 @@ Rectangle
 {
     id: container
 
-    //Set this variables in cpp
-    property string attach_filename:    ""
-
-    property int cnt_id: 0//Counter for id of attach file
+    //Cpp Signals
+    signal sendNewMessage(variant toData, variant ccData, string subject,
+                          string content, variant attachFiles)
 
     width: 980
     height: 675
     color: "#f0f0f0"
-
-    onVisibleChanged:
-    {
-        cnt_id = 0
-        lm_attachment.clear()
-    }
 
     Rectangle
     {
@@ -66,10 +59,20 @@ Rectangle
     {
         id: flick_middle
         width: parent.width
-        height: 455
         anchors.left: parent.left
         anchors.top: rect_top.bottom
         anchors.topMargin: 1
+        anchors.bottom:
+        {
+            if( attachbar.visible )
+            {
+                attachbar.top
+            }
+            else
+            {
+                parent.bottom
+            }
+        }
         contentHeight: input_message.contentHeight + input_message.anchors.topMargin
         clip: true
         flickableDirection: Flickable.VerticalFlick
@@ -120,130 +123,22 @@ Rectangle
         }
     }
 
-    Rectangle
+    HhmAttachmentBar
     {
-        id: rect_bottom
+        id: attachbar
         width: parent.width
-        height: 70
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        color: "#dcdcdc"
+        objectName: "MessageAttachbar"
     }
 
-    Flickable
+    function sendMessage()
     {
-        id: flick_bottom
-        width: parent.width
-        height: rect_bottom.height
-        anchors.right: parent.right
-        anchors.rightMargin: 1
-        anchors.left: parent.left
-        anchors.bottom: parent.bottom
-        flickableDirection: Flickable.AutoFlickIfNeeded
-        contentWidth: (lm_attachment.count * (200/*attachment height*/ + lv_attachment.spacing) +
-                       lv_attachment.anchors.rightMargin)
-        clip: true
-
-        onContentWidthChanged:
-        {
-            if( contentWidth<container.width )
-            {
-                interactive = false
-                anchors.leftMargin = container.width - contentWidth
-            }
-            else
-            {
-                interactive = true
-                anchors.leftMargin = 1
-            }
-        }
-
-        ListView
-        {
-            id: lv_attachment
-            height: parent.height
-            width: parent.width
-            anchors.right: parent.right
-            anchors.rightMargin: 15
-            anchors.top: parent.top
-            anchors.topMargin: 15
-            model: ListModel
-            {
-                id: lm_attachment
-            }
-            orientation: ListView.Horizontal
-            layoutDirection: Qt.RightToLeft
-            spacing: 20
-            interactive: false
-
-            delegate: HhmAttachmentBtn
-            {
-                text_filename   : attachFilename
-                id_file         : idFile
-
-                onDeleteAttachment:
-                {
-                    removeAttachFile(idFile)
-                }
-            }
-
-        }
-
-    }
-
-    function addAttachFile()
-    {
-        ///FIXME: check duplicate file
-        lm_attachment.append({"attachFilename" : container.attach_filename,
-                              "idFile" : cnt_id,
-                              "sepVisible" : false})
-        cnt_id += 1
-    }
-
-    function removeAttachFile(fileId)
-    {
-        for(var i=0; i<lm_attachment.count; i++)
-        {
-            if( lm_attachment.get(i).idFile===fileId )
-            {
-                lm_attachment.remove(i)
-                break
-            }
-        }
-    }
-
-
-    //Return format: list of users
-    function getToData()
-    {
-        return text_input_to.getUsernameIds()
-    }
-
-    //Return format: list of users
-    function getCcData()
-    {
-        return text_input_cc.getUsernameIds()
-    }
-
-    function getSubject()
-    {
-        return text_input_subject.getSubject()
-    }
-
-    function getContent()
-    {
-        return input_message.text
-    }
-
-    //Return format: list
-    function getFiles()
-    {
-        var result = []
-        for(var i=0; i<lm_attachment.count ; i++)
-        {
-            result.push(lm_attachment.get(i).attachFilename)
-        }
-        return result
+        sendNewMessage(text_input_to.getUsernameIds(),
+                       text_input_cc.getUsernameIds(),
+                       text_input_subject.getSubject(),
+                       input_message.text,
+                       attachbar.getAttachFiles())
     }
 
 }

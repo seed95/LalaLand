@@ -5,10 +5,6 @@ Item
 
     property int messageState:  con.hhm_MESSAGE_NONE_STATE
 
-    //Cpp Signals
-    signal sendNewMessage(variant toData, variant ccData, string subject,
-                          string content, variant attachFiles)
-
     HhmMessageAction
     {
         id: actions
@@ -16,7 +12,7 @@ Item
         anchors.topMargin: -25
         anchors.left: parent.left
         objectName: "MessageAction"
-        onSendMessageClicked: sendMessage()
+        onSendMessageClicked: new_message.sendMessage()
     }
 
     HhmMessageNew
@@ -28,19 +24,7 @@ Item
         visible: messageState===con.hhm_MESSAGE_NEW_STATE
     }
 
-    /*** Call this function from qml ***/
-
-    function sendMessage()
-    {
-        sendNewMessage(new_message.getToData(),
-                       new_message.getCcData(),
-                       new_message.getSubject(),
-                       new_message.getContent(),
-                       new_message.getFiles())
-    }
-
     /*** Call this function from cpp ***/
-
     function successfullySend()
     {
         //Check if a message selected, state changed to hhm_MESSAGE_SHOW_STATE

@@ -29,7 +29,6 @@
         <file alias="HhmDocumentShow.qml">Pages/Document/HhmDocumentShow.qml</file>
         <file alias="HhmInputTable.qml">Pages/Document/HhmInputTable.qml</file>
         <file alias="HhmTable.qml">Pages/Document/HhmTable.qml</file>
-        <file alias="HhmAttachmentBtn.qml">Pages/Message/HhmAttachmentBtn.qml</file>
         <file alias="HhmMessageInput.qml">Pages/Message/HhmMessageInput.qml</file>
         <file alias="HhmMessageAction.qml">Pages/Message/HhmMessageAction.qml</file>
         <file alias="HhmMessageNew.qml">Pages/Message/HhmMessageNew.qml</file>
@@ -54,5 +53,7 @@
         <file alias="HhmDropDown.qml">Elements/HhmDropDown.qml</file>
         <file alias="HhmAddBtn.qml">Elements/HhmAddBtn.qml</file>
         <file alias="HhmInput.qml">Elements/HhmInput.qml</file>
+        <file alias="HhmAttachmentBtn.qml">Elements/HhmAttachmentBtn.qml</file>
+        <file alias="HhmAttachmentBar.qml">Elements/HhmAttachmentBar.qml</file>
     </qresource>
 </RCC>

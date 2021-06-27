@@ -59,8 +59,7 @@ private:
     QObject *action_ui;
 
     QObject *new_ui;
-    QObject *new_input_cc_ui;
-    QObject *new_input_to_ui;
+    QObject *new_attachbar;
 
     QObject *show_ui;
 

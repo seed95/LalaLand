@@ -12,6 +12,8 @@ HhmDocument::HhmDocument(QObject *root, HhmDatabase *database, HhmUser *userLogg
     new_ui      = main_ui->findChild<QObject*>("DocumentNew");
     show_ui     = main_ui->findChild<QObject*>("DocumentShow");
 
+    new_attachbar = main_ui->findChild<QObject*>("DocumentAttachbar");
+
     setDocumentBaseId();
 
     connect(action_ui, SIGNAL(newDocumentClicked()), this, SLOT(newDocumentClicked()));
@@ -94,7 +96,8 @@ void HhmDocument::uploadFileClicked()
     if( !file_path.isEmpty() )
     {
         hhm_setLastDirectory(QFileInfo(file_path).absolutePath());
-        QQmlProperty::write(new_ui, "selected_file_path", file_path);
+        QQmlProperty::write(new_attachbar, "attach_filename", file_path);
+        QMetaObject::invokeMethod(new_attachbar, "addAttachFile");
     }
 }
 
