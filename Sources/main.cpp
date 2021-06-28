@@ -4,6 +4,7 @@
 #include <QTranslator>
 #include "hhm_chapar.h"
 #include "backend.h"
+#include "hhm_melica.h"
 
 /*
 Compile mysql driver, https://doc.qt.io/qt-5/sql-driver.html#building-the-drivers
@@ -33,6 +34,14 @@ int main(int argc, char *argv[])
 
 
     ///FIXME: MELICA
+    // Create Car objects and call the constructor with different values
+    HhmMelica carObj1("BMW", "X5", 1999);
+    HhmMelica carObj2("Ford", "Mustang", 1969);
 
+    // Print values
+    qDebug() << carObj1.brand << " " << carObj1.model << " " << carObj1.year << "\n";
+    qDebug() << carObj2.brand << " " << carObj2.model << " " << carObj2.year << "\n";
+    HhmMelica myObj("BMW", "X5", 1999); ;     // Create an object of MyClass
+    myObj.myMethod();  // Call the method
     return app.exec();
 }

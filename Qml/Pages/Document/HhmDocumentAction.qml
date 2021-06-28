@@ -36,7 +36,7 @@ Rectangle
     //Acttion Box for View State
     HhmActionBtn
     {
-        id: action_back
+        id: action_back2
         height: parent.height
         width: 100
         anchors.right: parent.right

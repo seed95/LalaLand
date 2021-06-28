@@ -4,6 +4,8 @@ Item
 {
     height: 500
     width: 800
+    signal crteDepartments(string text_value)
+
 
     ListModel
     {
@@ -62,7 +64,7 @@ Item
 
         onCreateDepartments:
         {
-            addDepartmentsUser(text_value);
+            crteDepartments(text_value);
         }
     }
 

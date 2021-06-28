@@ -19,6 +19,7 @@ SOURCES += Sources/main.cpp \
            Sources/hhm_document.cpp \
            Sources/hhm_ftp.cpp \
            Sources/hhm_mail.cpp \
+           Sources/hhm_melica.cpp \
            Sources/hhm_message.cpp \
            Sources/hhm_news.cpp \
            Sources/hhm_sidebar.cpp \
@@ -29,9 +30,11 @@ HEADERS += Sources/backend.h \
            Sources/hhm_chapar.h \
            Sources/hhm_config.h \
            Sources/hhm_database.h \
+           Sources/hhm_dbmelica.h \
            Sources/hhm_document.h \
            Sources/hhm_ftp.h \
            Sources/hhm_mail.h \
+           Sources/hhm_melica.h \
            Sources/hhm_message.h \
            Sources/hhm_news.h \
            Sources/hhm_sidebar.h \
