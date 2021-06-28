@@ -23,6 +23,7 @@ typedef struct MessageData
     QVariantList    ccData;
     QString         subject;
     QString         content;
+    QString         date;
     QStringList     filenames;//attach filenames
     QStringList     fileIds;
 }MessageData;
@@ -50,7 +51,7 @@ private slots:
     void addNewUsernameTo(QString username);
     void addNewUsernameCc(QString username);
 
-    //Main Slots
+    //New Slots
     void sendNewMessage(QVariant toData, QVariant ccData,
                         QString subject, QString content,
                         QVariant attachFiles);
@@ -60,6 +61,7 @@ private:
     void insertNewFile();
     void uploadNextFile();
     void uploadAttachFilesFinished();
+    void updateMessage();
 
     //Utility Functions
     void addUserTag(QSqlQuery res, QObject *ui);

@@ -128,7 +128,7 @@ Item
             right_margin_input: 42
             width_input: 125
             isNumber: true
-            isEnabled: tableMode===con.hhm_TABLE_MODE_CONTENT && root.email_mode===con.id_EMAIL_MODE_INBOX
+            isEnabled: tableMode===con.hhm_TABLE_MODE_CONTENT && root.email_mode===con.hhm_SIDEBAR_INBOX_STATE
         }
 
         HhmDateInputTable
@@ -140,7 +140,7 @@ Item
             anchors.verticalCenter: parent.verticalCenter
             text_label: "تاريخ الوارد"
             left_margin_label: 28
-            isEnabled: tableMode===con.hhm_TABLE_MODE_CONTENT && root.email_mode===con.id_EMAIL_MODE_INBOX
+            isEnabled: tableMode===con.hhm_TABLE_MODE_CONTENT && root.email_mode===con.hhm_SIDEBAR_INBOX_STATE
         }
 
     }

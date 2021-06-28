@@ -132,7 +132,7 @@ void HhmMessage::addNewUsernameCc(QString username)
     }
 }
 
-/***************** Main Slots *****************/
+/***************** New Slots *****************/
 void HhmMessage::sendNewMessage(QVariant toData, QVariant ccData,
                                 QString subject, QString content,
                                 QVariant attachFiles)
@@ -151,56 +151,14 @@ void HhmMessage::sendNewMessage(QVariant toData, QVariant ccData,
     new_data.filenames  = attachFiles.toStringList();
     new_data.fileIds.clear();
 
+    QLocale locale(QLocale::English);
+    new_data.date = locale.toString(QDateTime::currentDateTime(), "yyyy-MM-dd hh:mm:ss");
+
     attach_file_ind = -1;
     uploadNextFile();
 }
 
 /***************** Private Functions *****************/
-void HhmMessage::addUserTag(QSqlQuery res, QObject *ui)
-{
-    QVariant data = res.value(HHM_USER_ID);
-    if( data.isValid() )
-    {
-        QQmlProperty::write(ui, "user_id", data.toInt());
-    }
-    else
-    {
-        hhm_log("add user tag, user id is not valid");
-    }
-
-    data = res.value(HHM_USER_FIRSTNAME);
-    if( data.isValid() )
-    {
-        QQmlProperty::write(ui, "label_firstname", data.toString());
-    }
-    else
-    {
-        hhm_log("add user tag, user firstname is not valid");
-    }
-
-    data = res.value(HHM_USER_LASTNAME);
-    if( data.isValid() )
-    {
-        QQmlProperty::write(ui, "label_lastname", data.toString());
-    }
-    else
-    {
-        hhm_log("add user tag, user lastname is not valid");
-    }
-
-    data = res.value(HHM_USER_USERNAME);
-    if( data.isValid() )
-    {
-        QQmlProperty::write(ui, "label_username", data.toString());
-    }
-    else
-    {
-        hhm_log("add user tag, username is not valid");
-    }
-
-    QMetaObject::invokeMethod(ui, "addUsername");
-}
-
 /*
  * Fill 'dst_filenames' with filename at
  * position 'attach_file_ind' in
@@ -260,9 +218,12 @@ void HhmMessage::uploadNextFile()
 
 void HhmMessage::uploadAttachFilesFinished()
 {
-    QLocale locale(QLocale::English);
-    QString date_time = locale.toString(QDateTime::currentDateTime(), "yyyy-MM-dd hh:mm:ss");
+    updateMessage();
+    QMetaObject::invokeMethod(main_ui, "successfullySend");
+}
 
+void HhmMessage::updateMessage()
+{
     QString condition = "`" + QString(HHM_MESSAGE_ID) + "`='" +
                         QString::number(new_data.id) + "'";
     QStringList to_ids = getUsersId(new_data.toData);
@@ -274,28 +235,9 @@ void HhmMessage::uploadAttachFilesFinished()
     values += ", `" + QString(HHM_MESSAGE_SUBJECT) + "`='" + new_data.subject + "'";
     values += ", `" + QString(HHM_MESSAGE_CONTENT) + "`='" + new_data.content + "'";
     values += ", `" + QString(HHM_MESSAGE_FILE_IDS) + "`='" + new_data.fileIds.join(",") + "'";
-    values += ", `" + QString(HHM_MESSAGE_DATETIME) +"`='" + date_time + "'";
+    values += ", `" + QString(HHM_MESSAGE_DATETIME) +"`='" + new_data.date + "'";
 
     db->update(condition, values, HHM_TABLE_MESSAGE);
-
-    //Successfully Send Message
-    QMetaObject::invokeMethod(main_ui, "successfullySend");
-}
-
-/***************** Utility Functions *****************/
-/*
- * Return ids in 'users' variable
- * */
-QStringList HhmMessage::getUsersId(QVariantList users)
-{
-    QStringList result;
-    QVariantList user;//user
-    for(int i=0; i<users.length(); i++)
-    {
-        user = users.at(i).toList();
-        result.append(user.at(ID_INDEX).toString());
-    }
-    return result;
 }
 
 /*
@@ -331,6 +273,67 @@ void HhmMessage::insertNewFile()
         file_id = 0;
     }
     new_data.fileIds.append(QString::number(file_id));
+}
+
+/***************** Utility Functions *****************/
+void HhmMessage::addUserTag(QSqlQuery res, QObject *ui)
+{
+    QVariant data = res.value(HHM_USER_ID);
+    if( data.isValid() )
+    {
+        QQmlProperty::write(ui, "user_id", data.toInt());
+    }
+    else
+    {
+        hhm_log("add user tag, user id is not valid");
+    }
+
+    data = res.value(HHM_USER_FIRSTNAME);
+    if( data.isValid() )
+    {
+        QQmlProperty::write(ui, "label_firstname", data.toString());
+    }
+    else
+    {
+        hhm_log("add user tag, user firstname is not valid");
+    }
+
+    data = res.value(HHM_USER_LASTNAME);
+    if( data.isValid() )
+    {
+        QQmlProperty::write(ui, "label_lastname", data.toString());
+    }
+    else
+    {
+        hhm_log("add user tag, user lastname is not valid");
+    }
+
+    data = res.value(HHM_USER_USERNAME);
+    if( data.isValid() )
+    {
+        QQmlProperty::write(ui, "label_username", data.toString());
+    }
+    else
+    {
+        hhm_log("add user tag, username is not valid");
+    }
+
+    QMetaObject::invokeMethod(ui, "addUsername");
+}
+
+/*
+ * Return ids in 'users' variable
+ * */
+QStringList HhmMessage::getUsersId(QVariantList users)
+{
+    QStringList result;
+    QVariantList user;//user
+    for(int i=0; i<users.length(); i++)
+    {
+        user = users.at(i).toList();
+        result.append(user.at(ID_INDEX).toString());
+    }
+    return result;
 }
 
 /*

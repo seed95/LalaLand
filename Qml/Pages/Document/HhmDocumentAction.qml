@@ -33,7 +33,27 @@ Rectangle
         }
     }
 
-    //Acttion Box for Show State
+    //Acttion Box for View State
+    HhmActionBtn
+    {
+        id: action_back
+        height: parent.height
+        width: 100
+        anchors.right: parent.right
+        anchors.verticalCenter: parent.verticalCenter
+        visible: documentState===con.hhm_MESSAGE_VIEW_STATE
+        icon_text: "\uf061"
+        action_text: qsTr("رجوع")
+        icon_left_margin: 3
+        action_vertical_offset: -4
+        action_left_margin: 0
+        onButtonClicked:
+        {
+            documentState = con.hhm_DOCUMENT_NONE_STATE
+        }
+    }
+
+
 
     //Acttion Box for New State
     HhmActionBtn

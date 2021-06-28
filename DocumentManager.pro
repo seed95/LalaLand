@@ -21,6 +21,7 @@ SOURCES += Sources/main.cpp \
            Sources/hhm_mail.cpp \
            Sources/hhm_message.cpp \
            Sources/hhm_news.cpp \
+           Sources/hhm_sidebar.cpp \
            Sources/hhm_user.cpp
 
 HEADERS += Sources/backend.h \
@@ -33,6 +34,7 @@ HEADERS += Sources/backend.h \
            Sources/hhm_mail.h \
            Sources/hhm_message.h \
            Sources/hhm_news.h \
+           Sources/hhm_sidebar.h \
            Sources/hhm_user.h
 
 RESOURCES += Qml/ui.qrc \

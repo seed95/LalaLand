@@ -14,9 +14,6 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     connect(ui, SIGNAL(scanButtonClicked()), this, SLOT(scanBtnClicked()));
     connect(ui, SIGNAL(flagButtonClicked(int)), this, SLOT(flagBtnClicked(int)));
     connect(ui, SIGNAL(downloadFileClicked(QString, int)), this, SLOT(downloadFileClicked(QString, int)));
-    connect(ui, SIGNAL(syncInbox()), this, SLOT(syncInbox()));
-    connect(ui, SIGNAL(syncOutbox()), this, SLOT(syncOutbox()));
-    connect(ui, SIGNAL(openEmail(int)), this, SLOT(openEmail(int)));
 
     //Instance Database
     db = new HhmDatabase();
@@ -34,6 +31,10 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
 
     //Instance Document
     document = new HhmDocument(ui, db, user);
+
+    sidebar = new HhmSidebar(ui, db, user);
+
+    connect(sidebar, SIGNAL(openDocument(int)), document, SLOT(openDocument(int)));
 
     //Instance Ftp
     ftp = new HhmFtp();
@@ -57,18 +58,6 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     {
         hhm_log("Not set domain in config table");
     }
-
-    //Set document base id
-    data = getConfig(HHM_CONFIG_DOCUMENT_BASE_ID);
-    if( data.isValid() )
-    {
-        doc_base_id = data.toInt();
-    }
-    else
-    {
-        hhm_log("Not set " + QString(HHM_CONFIG_DOCUMENT_BASE_ID) + " in " + QString(HHM_TABLE_CONFIG));
-    }
-
 }
 
 void HhmChapar::loginUser(QString uname, QString pass)
@@ -127,28 +116,6 @@ void HhmChapar::downloadFileClicked(QString src, int caseNumber)
         hhm_log("Start download file: " + src_filename + " --> " + dst);
         ftp->downloadFile(src, dst);
     }
-}
-
-void HhmChapar::syncInbox()
-{
-    mail->loadInboxEmails(user->getId());
-    hhm_updateFromServer();
-    QMetaObject::invokeMethod(ui, "finishSync");
-}
-
-void HhmChapar::syncOutbox()
-{
-    mail->loadOutboxEmails(user->getId());
-    hhm_updateFromServer();
-    QMetaObject::invokeMethod(ui, "finishSync");
-}
-
-void HhmChapar::openEmail(int idEmail)
-{
-    //Change State `opened` Email
-    QString condition = "`" + QString(HHM_EMAIL_ID) + "`=" + QString::number(idEmail);
-    QString value = "`" + QString(HHM_EMAIL_OPENED) + "`=" + QString::number(1);
-    db->update(condition, value, HHM_TABLE_EMAIL);
 }
 
 //Return Invalid Qvariant if not found key

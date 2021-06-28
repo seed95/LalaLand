@@ -9,13 +9,13 @@ Rectangle
     //Set this variables in cpp
     property int    new_casenumber:         0  //When click on new button to create new document get new casenumber from data base
     property int    receiver_id:            -1  //Id user for receive document
-    property string selected_file_path:     ""
+    property string receiver_username:      ""  //Username for receive document
 
     //Cpp Signals
     signal checkUsername(string username)
     signal uploadFileClicked()
-    signal sendNewDocument(int caseNumber, int receiverId,
-                           string subject, string filepath,
+    signal sendNewDocument(int caseNumber, variant toData,
+                           string subject, variant attachFiles,
                            string tableContent)
 
     width: 980
@@ -25,7 +25,7 @@ Rectangle
     onVisibleChanged:
     {
         receiver_id = -1
-        selected_file_path = ""
+        receiver_username = ""
     }
 
     Rectangle
@@ -202,7 +202,6 @@ Rectangle
                 height: 145
                 anchors.centerIn: parent
                 color: "transparent"
-                visible: selected_file_path===""
 
                 Text
                 {
@@ -259,9 +258,12 @@ Rectangle
 
     function sendDocument()
     {
-        sendNewDocument(new_casenumber, receiver_id,
+        var toData = []
+        toData.push(container.receiver_id)
+        toData.push(container.receiver_username)
+        sendNewDocument(container.new_casenumber, toData,
                         text_input_subject.getInput(),
-                        container.selected_file_path,
+                        attachbar.getAttachFiles(),
                         table.getData())
     }
 

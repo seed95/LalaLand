@@ -27,7 +27,7 @@ Item
     /*** Call this function from cpp ***/
     function successfullySend()
     {
-        //Check if a message selected, state changed to hhm_MESSAGE_SHOW_STATE
+        //Check if a message selected, state changed to hhm_MESSAGE_VIEW_STATE
         messageState = con.hhm_MESSAGE_NONE_STATE
     }
 

@@ -26,7 +26,7 @@
         <file alias="HhmDocumentInput.qml">Pages/Document/HhmDocumentInput.qml</file>
         <file alias="HhmDateFieldInput.qml">Pages/Document/HhmDateFieldInput.qml</file>
         <file alias="HhmDateInputTable.qml">Pages/Document/HhmDateInputTable.qml</file>
-        <file alias="HhmDocumentShow.qml">Pages/Document/HhmDocumentShow.qml</file>
+        <file alias="HhmDocumentView.qml">Pages/Document/HhmDocumentView.qml</file>
         <file alias="HhmInputTable.qml">Pages/Document/HhmInputTable.qml</file>
         <file alias="HhmTable.qml">Pages/Document/HhmTable.qml</file>
         <file alias="HhmMessageInput.qml">Pages/Message/HhmMessageInput.qml</file>

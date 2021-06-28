@@ -29,19 +29,24 @@ Item
         visible: documentState===con.hhm_DOCUMENT_NEW_STATE
     }
 
-    HhmDocumentShow
+    HhmDocumentView
     {
         id: show_document
         anchors.left: parent.left
         anchors.top: actions.bottom
-        objectName: "DocumentShow"
-        visible: documentState===con.hhm_DOCUMENT_SHOW_STATE
+        objectName: "DocumentView"
+        visible: documentState===con.hhm_DOCUMENT_VIEW_STATE
     }
 
     function successfullySend()
     {
-        //Check if a document selected, state changed to hhm_DOCUMENT_SHOW_STATE
+        //Check if a document selected, state changed to hhm_DOCUMENT_VIEW_STATE
         documentState = con.hhm_DOCUMENT_NONE_STATE
+    }
+
+    function showDocument()
+    {
+        documentState = con.hhm_DOCUMENT_VIEW_STATE
     }
 
 }

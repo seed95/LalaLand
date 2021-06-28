@@ -16,8 +16,8 @@ Window
     property string login_status:   "Server connected"
 
     property int hhm_mode:                  con.hhm_MESSAGE_MODE
-    property int email_mode:                con.id_EMAIL_MODE_INBOX
-    property int selected_doc_case_number:  con.id_NO_SELECTED_ITEM
+    property int email_mode:                con.hhm_SIDEBAR_INBOX_STATE
+    property int selected_doc_case_number:  con.hhm_NO_SELECTED_ITEM
 
     //Error properties
     property string error_text:         ""
@@ -47,9 +47,6 @@ Window
     property string receiver_names:             ""
     property string table_content:              ""
 
-    //Properties for new email
-    property string selected_file_path: "path/to/file"  //Selected file path for upload file
-
     //Properties for news
     property string news_title1:     ""
     property string news_content1:   ""
@@ -65,16 +62,7 @@ Window
     signal rejectButtonClicked(int docId)
     signal scanButtonClicked()
     signal flagButtonClicked(int id)
-    signal uploadFileClicked()
     signal downloadFileClicked(string src, int docId)
-    signal syncInbox()
-    signal syncOutbox()
-    signal openEmail(int emailId)
-
-    onEmail_modeChanged:
-    {
-        syncEmail()
-    }
 
     visible: true
     width: 1330
@@ -244,6 +232,8 @@ Window
         anchors.top: profile.bottom
         anchors.right: switcher.left
         anchors.bottom: bottombar.top
+        visible: root.hhm_mode!==con.hhm_ADMINPANEL_MODE
+        objectName: "Sidebar"
     }
 
     HhmPage
@@ -334,7 +324,6 @@ Window
     function loginSuccessfuly()
     {
         animateHideLogin.start()
-        syncEmail()
     }
 
     //call this function when have a error and must be
@@ -355,11 +344,11 @@ Window
         }
 
         obj.clearEmails()
-        if( email_mode===con.id_EMAIL_MODE_INBOX )
+        if( email_mode===con.hhm_SIDEBAR_INBOX_STATE )
         {
             syncInbox()
         }
-        else if( email_mode===con.id_EMAIL_MODE_OUTBOX )
+        else if( email_mode===con.hhm_SIDEBAR_OUTBOX_STATE )
         {
             syncOutbox()
         }
@@ -367,15 +356,15 @@ Window
 
     function isDocSelected()
     {
-        return root.selected_doc_case_number!==con.id_NO_SELECTED_ITEM
+        return root.selected_doc_case_number!==con.hhm_NO_SELECTED_ITEM
     }
 
     function signOut()
     {
         login.visible = true
         animateShowLogin.start()
-        root.selected_doc_case_number = con.id_NO_SELECTED_ITEM
-        root.email_mode = con.id_EMAIL_MODE_INBOX
+        root.selected_doc_case_number = con.hhm_NO_SELECTED_ITEM
+        root.email_mode = con.hhm_SIDEBAR_INBOX_STATE
         root.selected_file_path = ""
     }
 

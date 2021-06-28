@@ -34,7 +34,7 @@ Rectangle
         }
     }
 
-    //Acttion Box for Show State
+    //Acttion Box for View State
 
     //Acttion Box for New State
     HhmActionBtn

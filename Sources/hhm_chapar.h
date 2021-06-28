@@ -12,6 +12,7 @@
 #include "hhm_user.h"
 #include "hhm_ftp.h"
 #include "hhm_news.h"
+#include "hhm_sidebar.h"
 #include "hhm_message.h"
 #include "hhm_document.h"
 #include "hhm_admin.h"
@@ -32,9 +33,6 @@ private slots:
     void scanBtnClicked();
     void flagBtnClicked(int id);
     void downloadFileClicked(QString src, int caseNumber);
-    void syncInbox();
-    void syncOutbox();
-    void openEmail(int idEmail);
 
 private:
     void        addNewDocToDocuments();
@@ -47,13 +45,15 @@ private:
     HhmDatabase *db;
     HhmUser     *user;
     HhmFtp      *ftp;
+
     HhmNews     *news;
+    HhmSidebar  *sidebar;
     HhmAdmin    *admin;
     HhmMessage  *message;
     HhmDocument *document;
 
+
     QString last_directory;
-    int doc_base_id;
 };
 
 #endif // HHM_CHAPAR_H

@@ -5,12 +5,11 @@ HhmDocument::HhmDocument(QObject *root, HhmDatabase *database, HhmUser *userLogg
 {
     db = database;
     m_user = userLoggedIn;
-    mail = new HhmMail(root, db);
 
     main_ui     = root->findChild<QObject*>("Document");
     action_ui   = main_ui->findChild<QObject*>("DocumentAction");
     new_ui      = main_ui->findChild<QObject*>("DocumentNew");
-    show_ui     = main_ui->findChild<QObject*>("DocumentShow");
+    view_ui     = main_ui->findChild<QObject*>("DocumentView");
 
     new_attachbar = main_ui->findChild<QObject*>("DocumentAttachbar");
 
@@ -20,8 +19,8 @@ HhmDocument::HhmDocument(QObject *root, HhmDatabase *database, HhmUser *userLogg
 
     connect(new_ui, SIGNAL(checkUsername(QString)), this, SLOT(checkUsername(QString)));
     connect(new_ui, SIGNAL(uploadFileClicked()), this, SLOT(uploadFileClicked()));
-    connect(new_ui, SIGNAL(sendNewDocument(int, int, QString, QString, QString)),
-            this, SLOT(sendNewDocument(int, int, QString, QString, QString)));
+    connect(new_ui, SIGNAL(sendNewDocument(int, QVariant, QString, QVariant, QString)),
+            this, SLOT(sendNewDocument(int, QVariant, QString, QVariant, QString)));
 
     ftp = new HhmFtp();
     connect(ftp, SIGNAL(uploadSuccess(QString)), this, SLOT(uploadSuccess(QString)));
@@ -38,12 +37,21 @@ HhmDocument::~HhmDocument()
     }
 }
 
-
 /***************** Ftp Slots *****************/
 void HhmDocument::uploadSuccess(QString filename)
 {
-    ///FIXME: complete this segment
-    hhm_log("Upload Success " + filename);
+    dst_filename_ind++;
+    if( dst_filename_ind<dst_filenames.length() )
+    {
+        QString src = new_data.filenames.at(attach_file_ind);
+        QString dst  = dst_filenames.at(dst_filename_ind);
+        ftp->uploadFile(src, dst);
+    }
+    else
+    {
+        insertNewFile();
+        uploadNextFile();
+    }
 }
 
 void HhmDocument::uploadFailed(QString filename)
@@ -61,7 +69,6 @@ void HhmDocument::downloadFailed(QString filename)
 {
     qDebug() << filename;
 }
-
 
 /***************** Action Slots *****************/
 void HhmDocument::newDocumentClicked()
@@ -116,6 +123,11 @@ void HhmDocument::checkUsername(QString username)
         {
             hhm_log("Receiver id is not valid for username " + username + " (" + data.toString() + ")");
         }
+        data = res.value(HHM_USER_USERNAME);
+        if( data.isValid() )
+        {
+            QQmlProperty::write(new_ui, "receiver_username", data.toString());
+        }
     }
     else
     {
@@ -123,17 +135,20 @@ void HhmDocument::checkUsername(QString username)
     }
 }
 
-void HhmDocument::sendNewDocument(int caseNumber, int receiverId,
-                                  QString subject, QString filepath,
+void HhmDocument::sendNewDocument(int caseNumber, QVariant toData,
+                                  QString subject, QVariant attachFiles,
                                   QString tableContent)
 {
-    if( filepath.isEmpty() )
+    new_data.filenames = attachFiles.toStringList();
+    new_data.toUser    = toData.toList();
+
+    if( new_data.filenames.isEmpty() )
     {
         hhm_showMessage(tr("Please choose a document"), 2000);
         return;
     }
 
-    if( receiverId==-1 )
+    if( new_data.toUser.at(ID_INDEX).toInt()==-1 )
     {
         hhm_showMessage(tr("Entered username is not valid"), 5000);
         return;
@@ -145,36 +160,91 @@ void HhmDocument::sendNewDocument(int caseNumber, int receiverId,
         return;
     }
 
-    int id_user = m_user->getId();
-
     new_data.casenumber     = caseNumber;
     new_data.senderId       = m_user->getId();
-    new_data.receiverId     = receiverId;
     new_data.senderName     = m_user->getName();
     new_data.subject        = subject;
-    new_data.filepath       = filepath;
     new_data.tableContent   = tableContent;
+    new_data.fileIds.clear();
 
     QLocale locale(QLocale::English);
     new_data.date = locale.toString(QDateTime::currentDateTime(), "yyyy-MM-dd hh:mm:ss");
 
-    updateDocument();
-
-    QString s_casenumber = QString::number(caseNumber);//string case number
-    QString dst_filename = s_casenumber + "_" + QFileInfo(filepath).fileName();
-//    mail->sendNewEmail(s_casenumber, subject,
-//                       id_user, receiverId,
-//                       dst_filename, m_user->getName(),
-//                       tableContent);
-
-    //Upload file in fpt server
-    hhm_log("Start upload file: " + filepath + " --> " + dst_filename);
-    ftp->uploadFile(filepath, dst_filename);
-
-    QMetaObject::invokeMethod(main_ui, "successfullySend");
+    attach_file_ind = -1;
+    uploadNextFile();
 }
 
-/***************** Main Slots *****************/
+/***************** View Slots *****************/
+void HhmDocument::openDocument(int casenumber)
+{
+    qDebug() << "openDocument" << casenumber;
+    QString condition = "`" + QString(HHM_DOCUMENT_CASENUMBER) + "`=" + QString::number(casenumber);
+    QSqlQuery res = db->select("*", HHM_TABLE_DOCUMENT, condition);
+    if( res.next() )
+    {
+        QVariant data = res.value(HHM_DOCUMENT_CASENUMBER);
+        if( data.isValid() )
+        {
+            QQmlProperty::write(view_ui, "case_number", data.toInt());
+        }
+
+        data = res.value(HHM_DOCUMENT_SUBJECT);
+        if( data.isValid() )
+        {
+            QQmlProperty::write(view_ui, "text_subject", data.toString());
+        }
+
+        data = res.value(HHM_DOCUMENT_STATUS);
+        if( data.isValid() )
+        {
+            QQmlProperty::write(view_ui, "doc_status", data.toInt());
+        }
+        data = res.value(HHM_DOCUMENT_DATE);
+        if( data.isValid() )
+        {
+            QString date;
+            QLocale ar_locale(QLocale::Arabic);
+            date = ar_locale.toString(data.toDateTime(), "hh:mm");
+            QQmlProperty::write(view_ui, "text_time", date);
+        }
+        data = res.value(HHM_DOCUMENT_RECEIVER_IDS);
+        if( data.isValid() )
+        {
+            QStringList receiver_names;
+            QStringList receiver_ids = data.toString().split(",", QString::SkipEmptyParts);
+            for(int i=0; i<receiver_ids.length(); i++)
+            {
+                HhmUserTable receiver_user = getUser(receiver_ids[i].toInt());
+
+                receiver_names.append(receiver_user.firstname + " " + receiver_user.lastname);
+            }
+            QString separator = "،";
+            QQmlProperty::write(view_ui, "text_to", receiver_names.join(separator));
+        }
+
+        QStringList table_content;
+        data = res.value(HHM_DOCUMENT_DATA1);
+        table_content.append(data.toString());
+
+        data = res.value(HHM_DOCUMENT_DATA2);
+        table_content.append(data.toString());
+
+        data = res.value(HHM_DOCUMENT_DATA3);
+        table_content.append(data.toString());
+
+        data = res.value(HHM_DOCUMENT_DATA4);
+        table_content.append(data.toString());
+
+        data = res.value(HHM_DOCUMENT_DATA5);
+        table_content.append(data.toString());
+
+        data = res.value(HHM_DOCUMENT_DATA6);
+        table_content.append(data.toString());
+        QQmlProperty::write(view_ui, "table_content", table_content.join(","));
+    }
+
+    QMetaObject::invokeMethod(main_ui, "showDocument");
+}
 
 /***************** Private Functions *****************/
 void HhmDocument::setDocumentBaseId()
@@ -191,17 +261,106 @@ void HhmDocument::setDocumentBaseId()
     }
 }
 
+HhmUserTable HhmDocument::getUser(int idUser)
+{
+    QString condition = "`" + QString(HHM_USER_ID) + "`=" + QString::number(idUser);
+    QSqlQuery res = db->select("*", HHM_TABLE_USER, condition);
+    HhmUserTable user;
+    if( res.next() )
+    {
+        user.userId = idUser;
+        QVariant data = res.value(HHM_USER_FIRSTNAME);
+        if( data.isValid() )
+        {
+            user.firstname = data.toString();
+        }
+
+        data = res.value(HHM_USER_LASTNAME);
+        if( data.isValid() )
+        {
+            user.lastname = data.toString();
+        }
+
+        data = res.value(HHM_USER_USERNAME);
+        if( data.isValid() )
+        {
+            user.username = data.toString();
+        }
+
+    }
+    return user;
+}
+
+
+/*
+ * Fill 'dst_filenames' with filename at
+ * position 'attach_file_ind' in
+ * new_data.filenames
+ * */
+void HhmDocument::fillDestinationFilenames()
+{
+    dst_filenames.clear();
+    QString src, dst_filepath, dst_filename;
+    QVariantList r_user;//Receiver(to) user
+
+    src = new_data.filenames.at(attach_file_ind);
+    dst_filename = QString::number(new_data.casenumber) + "_" + QFileInfo(src).fileName();
+
+    ///FIXME: Ask Bijan
+    dst_filepath  = "DocumentManager/" + dst_filename;
+    dst_filenames.append(dst_filepath);
+
+    ///FIXME: Ask Bijan
+    dst_filepath = m_user->getUsername() + "/Send/" + dst_filename;
+    dst_filenames.append(dst_filepath);
+
+    ///FIXME: Ask Bijan
+    dst_filepath = new_data.toUser.at(USERNAME_INDEX).toString() + "/Received/" + dst_filename;
+    dst_filenames.append(dst_filepath);
+}
+
+void HhmDocument::uploadNextFile()
+{
+    dst_filename_ind = 0;
+    attach_file_ind++;
+    if( attach_file_ind<new_data.filenames.length() )
+    {
+        fillDestinationFilenames();
+        QString src = new_data.filenames.at(attach_file_ind);
+        QString dst  = dst_filenames.at(dst_filename_ind);
+        ftp->uploadFile(src, dst);
+    }
+    else
+    {
+        uploadAttachFilesFinished();
+    }
+}
+
+void HhmDocument::uploadAttachFilesFinished()
+{
+    updateDocument();
+    insertNewEmail();
+    int received_email_id = getMaxId(HHM_EMAIL_ID, HHM_TABLE_EMAIL);
+    int sent_email_id = received_email_id - 1;
+
+    updateUserEmail(HHM_UE_RECEIVED_EMAILS, received_email_id);
+    updateUserEmail(HHM_UE_SENT_EMAILS, sent_email_id);
+
+    //Successfully Send Message
+    QMetaObject::invokeMethod(main_ui, "successfullySend");
+}
+
 void HhmDocument::updateDocument()
 {
     QString condition = "`" + QString(HHM_DOCUMENT_CASENUMBER) + "`='" +
                         QString::number(new_data.casenumber) + "'";
 
     QString values = "`" + QString(HHM_DOCUMENT_FILEPATH) + "`='" +
-                     new_data.filepath + "'";
+                     new_data.fileIds.join(",") + "'";
     values += ", `" + QString(HHM_DOCUMENT_SENDER_ID) + "`='" +
               QString::number(new_data.senderId) + "'";
     values += ", `" + QString(HHM_DOCUMENT_RECEIVER_IDS) + "`='" +
-              QString::number(new_data.receiverId) + "'";
+              new_data.toUser.at(ID_INDEX).toString() + "'";
     values += ", `" + QString(HHM_DOCUMENT_DATE) + "`='" + new_data.date + "'";
     values += ", `" + QString(HHM_DOCUMENT_SENDER_NAME) + "`='" + new_data.senderName + "'";
     values += ", `" + QString(HHM_DOCUMENT_SUBJECT) + "`='" + new_data.subject + "'";
@@ -215,6 +374,110 @@ void HhmDocument::updateDocument()
     values += ", `" + QString(HHM_DOCUMENT_DATA6) + "`='" + table_content[5] + "'";
 
     db->update(condition, values, HHM_TABLE_DOCUMENT);
+}
+
+/*
+ * Append 'emailId' to 'field'
+ * in table HHM_UE_USER_ID
+ * @field: 'HHM_UE_RECEIVED_EMAILS' or 'HHM_UE_SENT_EMAILS'
+ * */
+void HhmDocument::updateUserEmail(QString field, int emailId)
+{
+    QString condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(new_data.senderId);
+    QSqlQuery res = db->select(field, HHM_TABLE_USER_EMAIL, condition);
+    if( res.next() )
+    {
+        QString emails = res.value(0).toString();
+        if( emails.isEmpty() )
+        {
+            emails = QString::number(emailId);
+        }
+        else
+        {
+            emails = QString::number(emailId) + "," + emails;
+        }
+        condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(new_data.senderId);
+        QString value = "`" + QString(field) + "`='" + emails + "'";
+        db->update(condition, value, HHM_TABLE_USER_EMAIL);
+    }
+}
+
+/*
+ * Insert new email into 'HHM_TABLE_EMAIL'
+ * */
+void HhmDocument::insertNewEmail()
+{
+    QString columns  = "`" + QString(HHM_EMAIL_DOC_CASENUMBER) + "`";
+    columns += ", `" + QString(HHM_EMAIL_SEND_REFERENCE) + "`";
+    columns += ", `" + QString(HHM_EMAIL_RECEIVE_REFERENCE) + "`";
+
+    QString values  = "'" + QString::number(new_data.casenumber) + "'";
+    values += ", '" + QString::number(1) + "'";
+    values += ", '" + QString::number(0) + "'";
+    db->insert(HHM_TABLE_EMAIL, columns, values);
+
+    values  = "'" + QString::number(new_data.casenumber) + "'";
+    values += ", '" + QString::number(0) + "'";
+    values += ", '" + QString::number(1) + "'";
+    db->insert(HHM_TABLE_EMAIL, columns, values);
+}
+
+/*
+ * Insert filename at position
+ * 'attach_file_ind' in new_data.filenames
+ * into 'HHM_TABLE_FILES'
+ * */
+void HhmDocument::insertNewFile()
+{
+    //Insert new row file
+    QString columns  = "`" + QString(HHM_FILES_FILENAME) + "`, ";
+    columns += "`" + QString(HHM_FILES_SENDER_ID) + "`, ";
+    columns += "`" + QString(HHM_FILES_TO_IDS) + "`, ";
+    columns += "`" + QString(HHM_FILES_CC_IDS) + "`";
+
+    QString filename = getFtpFilename();
+    QString values  = "'" + filename + "'";
+    values += ", '" + QString::number(new_data.senderId) + "'";
+    values += ", '" + new_data.toUser.at(ID_INDEX).toString() + "'";
+    QString cc = "";
+    values += ", '" + cc + "'";
+
+    db->insert(HHM_TABLE_FILES, columns, values);
+
+    int file_id = getMaxId(HHM_FILES_ID, HHM_TABLE_FILES);
+    if( file_id==-1 )
+    {
+        hhm_log("Table " + QString(HHM_TABLE_FILES) + " is empty");
+        file_id = 0;
+    }
+    new_data.fileIds.append(QString::number(file_id));
+}
+
+/***************** Utility Functions *****************/
+/*
+ * Return last id for
+ * 'fieldId' in 'table'
+ * if not found return -1
+ * */
+int HhmDocument::getMaxId(QString fieldId, QString table)
+{
+    int max_id = -1;
+    QString query = "SELECT MAX(" + fieldId + ") FROM ";
+    query += "`" + QString(DATABASE_NAME) + "`.`" + table + "`";
+    QSqlQuery res = db->sendQuery(query);
+    if( res.next() )
+    {
+        max_id = res.value(0).toInt();
+    }
+    return max_id;
+}
+
+QString HhmDocument::getFtpFilename()
+{
+    QString src = new_data.filenames.at(attach_file_ind);
+    ///FIXME: Ask Bijan
+    return ("DocumentManager/" +
+            QString::number(new_data.casenumber) + "_" + QFileInfo(src).fileName());
 }
 
 //Return Invalid Qvariant if not found key
