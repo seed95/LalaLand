@@ -252,7 +252,7 @@ Item
 
             delegate: HhmTag
             {
-                text_username:      enteredUsername
+                tag_text:      enteredUsername
                 text_firstname:     firstName
                 text_lastname:      lastName
                 id_user:            userId

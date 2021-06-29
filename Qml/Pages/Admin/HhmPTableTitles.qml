@@ -2,8 +2,6 @@ import QtQuick 2.0
 
 Rectangle
 {
-    height: 230
-    width: 800
     color: "transparent"
 
     Rectangle
@@ -12,7 +10,6 @@ Rectangle
         anchors.left: parent.left
         anchors.leftMargin: 90
         anchors.top: parent.top
-        anchors.topMargin: 90
 
         height: 50
         width:100

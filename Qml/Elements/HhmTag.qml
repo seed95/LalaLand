@@ -6,7 +6,7 @@ Item
 {
     id: container
 
-    property string text_username:      "علي عدنان"
+    property string tag_text:  "علي عدنان"
     property string text_firstname:     "علي"
     property string text_lastname:     "عدنان"
     property int    id_user:            0
@@ -26,7 +26,7 @@ Item
         anchors.leftMargin: 7
         color: "#5790d5"
         font.family: fontDroidKufiRegular.name
-        font.pixelSize: 15
+        font.pixelSize: parent.height/2
         text: ","
         visible: separator_visible
     }
@@ -34,8 +34,8 @@ Item
     Rectangle
     {
         id: rect_username
-        height: 25
-        width: 70
+        height: parent.height*5/6
+        width: label_username.width + 10
         anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
         color:
@@ -66,7 +66,9 @@ Item
         Text
         {
             id: label_username
-            anchors.centerIn: parent
+            anchors.right: parent.right
+            anchors.rightMargin: 5
+            anchors.verticalCenter: parent.verticalCenter
             color:
             {
                 if( isHovered )
@@ -79,28 +81,8 @@ Item
                 }
             }
             font.family: fontDroidKufiRegular.name
-            font.pixelSize: 13
-            text: ""
-        }
-    }
-
-    TextMetrics
-    {
-        id: text_metrics
-        font.family: label_username.font.family
-        font.pixelSize: label_username.font.pixelSize
-        text: text_name
-
-        onTextChanged:
-        {
-            if( text_metrics.width>rect_username.width )
-            {
-                label_username.text = root.sliceString(text_name, 7)
-            }
-            else
-            {
-                label_username.text = text_name
-            }
+            font.pixelSize: parent.height/1.8
+            text: tag_text
         }
     }
 

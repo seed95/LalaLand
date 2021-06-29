@@ -44,6 +44,8 @@ void HhmAdmin::addNewPermission(QString permission)
 
 void HhmAdmin::addNewDepartment(QString department)
 {
+    qDebug() << department;
+
     QSqlQuery res = db->select("*", "departments");
     int count = res.size();
 

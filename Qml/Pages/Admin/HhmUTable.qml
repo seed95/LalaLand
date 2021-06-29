@@ -1,39 +1,21 @@
 import QtQuick 2.0
 
-Item
+Rectangle
 {
     width: 850
-    height: 420
+    height: childrenRect.height
+    signal stUserRole (int user_id, int user_role)
+    color: "blue"
+
 
     ListModel
     {
-        id: contactModel
-        ListElement
-        {
-            list_number: "۱"
-            list_username: "m.ebrahim"
-            list_name: "ابراهيم محمد"
-            list_odd: false
-        }
-        ListElement
-        {
-            list_number: "٢"
-            list_username: "e.mohammad"
-            list_name: "محمد ابراهيم"
-            list_odd: true
-        }
-        ListElement
-        {
-            list_number: "٣"
-            list_username: "m.ebrahim"
-            list_name: "تاريخ الوارد"
-            list_odd: false
-        }
+        id: userListModel
     }
 
     Component
     {
-        id: contactDelegate
+        id: userDelegate
 
         HhmUTableRow
         {
@@ -42,25 +24,24 @@ Item
             id_number: list_number
             id_username: list_username
             id_name: list_name
-            is_odd: list_odd
         }
     }
 
-    Rectangle
+    ListView
     {
-        width: parent.width
-        height: 500
         anchors.left: parent.left
         anchors.top: parent.top
-        anchors.topMargin: 30
-        color: "transparent"
 
-        ListView
-        {
-            anchors.fill: parent
-            model: contactModel
-            delegate: contactDelegate
-            interactive: false
-        }
+        width: parent.width
+        height: childrenRect.height
+
+        model: userListModel
+        delegate: userDelegate
+        interactive: false
+    }
+
+    function addUser(username)
+    {
+        userListModel.append({list_number: en2ar(userListModel.count+1),list_username: username,list_name:"lolo"})
     }
 }

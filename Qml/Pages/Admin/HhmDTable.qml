@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 Item
 {
-    height: 500
+    height: childrenRect.height
     width: 800
     signal crteDepartments(string text_value)
 
@@ -10,24 +10,6 @@ Item
     ListModel
     {
         id: departmentsListModel
-
-        ListElement
-        {
-            list_number: "۱"
-            list_username: "قسم الهندسة"
-        }
-
-        ListElement
-        {
-            list_number: "۲"
-            list_username: "قسم التقنیه معلومات"
-        }
-
-        ListElement
-        {
-            list_number: "٣"
-            list_username: "قسم الحسابات"
-        }
     }
 
     Component
@@ -65,6 +47,7 @@ Item
         onCreateDepartments:
         {
             crteDepartments(text_value);
+            addDepartmentsUser(text_value);
         }
     }
 

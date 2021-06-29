@@ -55,5 +55,6 @@
         <file alias="HhmInput.qml">Elements/HhmInput.qml</file>
         <file alias="HhmAttachmentBtn.qml">Elements/HhmAttachmentBtn.qml</file>
         <file alias="HhmAttachmentBar.qml">Elements/HhmAttachmentBar.qml</file>
+        <file alias="HhmUTableNewRole.qml">Pages/Admin/HhmUTableNewRole.qml</file>
     </qresource>
 </RCC>

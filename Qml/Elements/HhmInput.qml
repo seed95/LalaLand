@@ -28,7 +28,7 @@ Rectangle
     property int    left_margin: 30
 
     property string auto_complete_text: ""
-    property int    textAlign: TextInput.AlignLeft
+    property int    textAlign: TextInput.AlignRight
 
     property bool isEnabled:    false
     property bool isError:      false
@@ -67,10 +67,11 @@ Rectangle
         enabled: true
         text: subject_placeholder
         horizontalAlignment: textAlign
+        width: parent.width
         background: Rectangle
-        {
-            color: "transparent"
-        }
+                    {
+                        color: "transparent"
+                    }
 
         color:
         {
