@@ -17,16 +17,13 @@
         <file alias="HhmLoginButton.qml">Login/HhmLoginButton.qml</file>
         <file alias="HhmLoginTextInput.qml">Login/HhmLoginTextInput.qml</file>
         <file alias="HhmLogin.qml">Login/HhmLogin.qml</file>
-        <file alias="HhmTag.qml">Elements/HhmTag.qml</file>
-        <file alias="HhmActionBtn.qml">Elements/HhmActionBtn.qml</file>
-        <file alias="HhmTabBtn.qml">Elements/HhmTabBtn.qml</file>
         <file alias="HhmDocument.qml">Pages/Document/HhmDocument.qml</file>
         <file alias="HhmDocumentAction.qml">Pages/Document/HhmDocumentAction.qml</file>
         <file alias="HhmDocumentNew.qml">Pages/Document/HhmDocumentNew.qml</file>
+        <file alias="HhmDocumentView.qml">Pages/Document/HhmDocumentView.qml</file>
         <file alias="HhmDocumentInput.qml">Pages/Document/HhmDocumentInput.qml</file>
         <file alias="HhmDateFieldInput.qml">Pages/Document/HhmDateFieldInput.qml</file>
         <file alias="HhmDateInputTable.qml">Pages/Document/HhmDateInputTable.qml</file>
-        <file alias="HhmDocumentView.qml">Pages/Document/HhmDocumentView.qml</file>
         <file alias="HhmInputTable.qml">Pages/Document/HhmInputTable.qml</file>
         <file alias="HhmTable.qml">Pages/Document/HhmTable.qml</file>
         <file alias="HhmMessageInput.qml">Pages/Message/HhmMessageInput.qml</file>
@@ -49,6 +46,9 @@
         <file alias="HhmDTable.qml">Pages/Admin/HhmDTable.qml</file>
         <file alias="HhmAdminDepartments.qml">Pages/Admin/HhmAdminDepartments.qml</file>
         <file alias="HhmUTable.qml">Pages/Admin/HhmUTable.qml</file>
+        <file alias="HhmTag.qml">Elements/HhmTag.qml</file>
+        <file alias="HhmActionBtn.qml">Elements/HhmActionBtn.qml</file>
+        <file alias="HhmTabBtn.qml">Elements/HhmTabBtn.qml</file>
         <file alias="HhmCheckBox.qml">Elements/HhmCheckBox.qml</file>
         <file alias="HhmDropDown.qml">Elements/HhmDropDown.qml</file>
         <file alias="HhmAddBtn.qml">Elements/HhmAddBtn.qml</file>

@@ -7,6 +7,9 @@ Rectangle
 
     //Qml Signals
     signal sendDocumentClicked()
+    signal viewBackClicked()
+    signal approveClicked()
+    signal rejectClicked()
 
     width: 980
     height: 50
@@ -49,11 +52,50 @@ Rectangle
         action_left_margin: 0
         onButtonClicked:
         {
-            documentState = con.hhm_DOCUMENT_NONE_STATE
+            viewBackClicked()
         }
     }
 
+    HhmActionBtn
+    {
+        id: action_approve
+        height: parent.height
+        width: 140
+        anchors.right: action_back2.left
+        anchors.verticalCenter: parent.verticalCenter
+        visible: documentState===con.hhm_MESSAGE_VIEW_STATE
+        icon_text: "\uf00c"
+        action_text: qsTr("تأیید المستند")
+        icon_left_margin: 8
+        action_vertical_offset: -2
+        action_left_margin: 0
 
+        onButtonClicked:
+        {
+            approveClicked()
+        }
+
+    }
+
+    HhmActionBtn
+    {
+        id: action_reject
+        height: parent.height
+        width: 80
+        anchors.right: action_approve.left
+        anchors.verticalCenter: parent.verticalCenter
+        visible: documentState===con.hhm_MESSAGE_VIEW_STATE
+        icon_text: "\uf00d"
+        action_text: qsTr("رفض")
+        icon_left_margin: 8
+        action_vertical_offset: -2
+        action_left_margin: 0
+
+        onButtonClicked:
+        {
+            rejectClicked()
+        }
+    }
 
     //Acttion Box for New State
     HhmActionBtn

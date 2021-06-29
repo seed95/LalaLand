@@ -6,25 +6,19 @@ Item
     id: container
 
     //Set this variables in cpp
-    property int    case_number:    1992
+    property int    case_number:    1992//id item
     property int    doc_status:     1
     property string text_subject:   "وقال السيناتور بيرني ساندرز"
     property bool   email_opened:   false
     property int    email_id:       1
 
-    property int    selectedCasenumber: con.hhm_NO_SELECTED_ITEM
+    property int    selectedId: con.hhm_NO_SELECTED_ITEM//Email Id
 
     //Cpp Signals
-    signal documentOpened(int emailId, int casenumber)
-    signal documentClicked(int casenumber)
+    signal readEmail(int idEmail)
 
-//    //Qml Signals
-//    signal selectedEmailChanged()
-
-//    onSelectedCasenumberChanged:
-//    {
-
-//    }
+    //Qml Signals
+    signal clickEmail(int idEmail, int idItem)
 
     ListView
     {
@@ -44,51 +38,20 @@ Item
         {
             width: container.width
             text_subject: docSubject
-            case_number: caseNumber
+            case_number: caseNumber//id Item
             doc_status: docStatus
             isRead: emailOpened
-            isActive: container.selectedCasenumber===case_number
             email_id: emailId
+            isActive: container.selectedId===emailId
 
-            onEmailClicked:
+            onClickItem:
             {
-                if( container.selectedCasenumber===caseNumber )
+                if( !emailOpened )
                 {
-                    container.selectedCasenumber = con.hhm_NO_SELECTED_ITEM
+                    emailOpened = true
+                    readEmail(emailId)
                 }
-                else
-                {
-                    container.selectedCasenumber = caseNumber
-
-//                    var obj = email_content
-//                    if( root.rtl )
-//                    {
-//                        obj = email_content_rtl
-//                    }
-
-//                    obj.case_number = case_number
-//                    obj.text_name = name
-//                    obj.text_time = time
-//                    obj.doc_status = docStatus
-//                    obj.download_filepath = docFilepath
-//                    obj.text_subject = docSubject
-//                    obj.text_username = senderUsername
-//                    obj.text_to = receiverNames
-//                    obj.email_id = idEmail
-//                    obj.table_content = tableContent
-
-                    if( emailOpened )
-                    {
-                        documentClicked(caseNumber)
-                    }
-                    else
-                    {
-                        emailOpened = true
-                        documentOpened(emailId, caseNumber)
-                    }
-
-                }
-
+                clickEmail(emailId, caseNumber)
             }
 
         }
@@ -102,7 +65,6 @@ Item
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
-        visible: root.rtl
         background: Rectangle
         {
             width: 6
@@ -123,6 +85,8 @@ Item
         policy: ScrollBar.AsNeeded
     }
 
+    //Add if not exist
+    //Update if exist
     function addToList()
     {
         for(var i=0; i<lm_email.count; i++)
@@ -130,7 +94,6 @@ Item
             //Document exist
             if( container.case_number===lm_email.get(i).caseNumber )
             {
-                console.log("Update document with case number " + root.case_number)
                 lm_email.get(i).docSubject  = container.text_subject
                 lm_email.get(i).docStatus   = container.doc_status
                 lm_email.get(i).emailOpened = container.email_opened
@@ -155,46 +118,57 @@ Item
                         "emailId" : container.email_id})
     }
 
-    function clearEmails()
-    {
-        selectedCasenumber = con.hhm_NO_SELECTED_ITEM
-        lm_email.clear()
-    }
-
     //Search with casenumber and subject
     //and return all object that match
     function searchObject(text)
     {
         var objects = []
 
-        //Search on case number
         for(var i=0; i<lm_email.count; i++)
         {
+            //Search on case number
             var slice_case_number = lm_email.get(i).caseNumber.toString().slice(0, text.length)
             if( slice_case_number===text )
             {
                 objects.push(lm_email.get(i))
+                continue
             }
-        }
 
-        //Search on subject
-        for(var j=0; j<lm_email.count; j++)
-        {
-            var slice_subject = lm_email.get(j).docSubject.toString().slice(0, text.length)
+            //Search on subject
+            var slice_subject = lm_email.get(i).docSubject.toString().slice(0, text.length)
             if( slice_subject===text )
             {
-                objects.push(lm_email.get(j))
+                objects.push(lm_email.get(i))
             }
         }
 
         return objects
     }
 
-    //append all object to list model
+    //Clear list model and
+    //add all object to list model
     function addObjects(objects)
     {
+        lm_email.clear()
         lm_email.append(objects)
     }
 
+    function clickSearchedItem(idEmail)
+    {
+        for(var i=0; i<lm_email.count; i++)
+        {
+            if( lm_email.get(i).emailId===idEmail )
+            {
+                lm_email.get(i).emailOpened = true
+                readEmail(lm_email.get(i).emailId)
+                break
+            }
+        }
+    }
+
+    function clearList()
+    {
+        lm_email.clear()
+    }
 }
 

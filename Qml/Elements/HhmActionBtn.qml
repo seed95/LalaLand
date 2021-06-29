@@ -42,29 +42,14 @@ Rectangle
 
     Rectangle
     {
-        id: rect_rtl
         height: parent.height
         width: childrenRect.width
         anchors.centerIn: parent
         color: "transparent"
-        visible: root.rtl
 
         Text
         {
-            id: label_icon_rtl
-            text: icon_text
-            anchors.left: label_action_rtl.right
-            anchors.leftMargin: icon_left_margin
-            anchors.verticalCenter: parent.verticalCenter
-            font.family: fontAwesomeSolid.name
-            font.weight: Font.Bold
-            font.pixelSize: 14
-            color: color_label
-        }
-
-        Text
-        {
-            id: label_action_rtl
+            id: label_action
             text: action_text
             anchors.left: parent.left
             anchors.leftMargin: action_left_margin
@@ -75,40 +60,21 @@ Rectangle
             font.pixelSize: 15
             color: color_label
         }
-    }
-
-    Rectangle
-    {
-        id: rect_ltr
-        height: parent.height
-        width: childrenRect.width
-        anchors.centerIn: parent
-        color: "transparent"
-        visible: !root.rtl
 
         Text
         {
-            id: label_icon_ltr
+            id: label_icon
             text: icon_text
-            anchors.left: parent.left
+            anchors.left: label_action.right
+            anchors.leftMargin: icon_left_margin
             anchors.verticalCenter: parent.verticalCenter
             font.family: fontAwesomeSolid.name
+            font.weight: Font.Bold
             font.pixelSize: 14
             color: color_label
         }
 
-        Text
-        {
-            id: label_action_ltr
-            text: action_text
-            anchors.left: label_icon_ltr.right
-            anchors.leftMargin: 7
-            anchors.verticalCenter: parent.verticalCenter
-            font.family: fontRobotoMedium.name
-            font.weight: Font.Medium
-            font.pixelSize: 17
-            color: color_label
-        }
+
     }
 
     MouseArea

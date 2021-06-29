@@ -24,6 +24,10 @@ Item
     property int hhm_SIDEBAR_INBOX_STATE :      1
     property int hhm_SIDEBAR_OUTBOX_STATE:      2
 
+    property int hhm_ATTACHMENT_NONE_MODE:         0
+    property int hhm_ATTACHMENT_UPLOAD_MODE:       1
+    property int hhm_ATTACHMENT_DOWNLOAD_MODE:     2
+
     property int hhm_MESSAGE_NONE_STATE:        0
     property int hhm_MESSAGE_NEW_STATE:         1
     property int hhm_MESSAGE_VIEW_STATE:        2

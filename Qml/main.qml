@@ -33,20 +33,6 @@ Window
     property string bio:        "Bio"
     property string image:      "Image"
 
-
-    //Document properties for inbox or outbox items
-    property int    case_number:                2 //Document id
-    property string sender_name:                "Cassie Hicks"
-    property string subject:                    "Subject"
-    property int    doc_status:                 1//Success(1), Pending(2), Failed(3)
-    property string r_email_date:               "7:17PM" //Received email date
-    property int    id_email_in_emails_table:   1 //Save this value for change mode email(open)
-    property bool   email_opened:               false
-    property string filepath:                   ""
-    property string sender_username:            ""
-    property string receiver_names:             ""
-    property string table_content:              ""
-
     //Properties for news
     property string news_title1:     ""
     property string news_content1:   ""
@@ -58,11 +44,8 @@ Window
     signal loginUser(string username, string pass)
     signal replyButtonClicked()
     signal archiveButtonClicked()
-    signal approveButtonClicked(int docId, string tableContent, int emailId)
-    signal rejectButtonClicked(int docId)
     signal scanButtonClicked()
     signal flagButtonClicked(int id)
-    signal downloadFileClicked(string src, int docId)
 
     visible: true
     width: 1330
@@ -190,7 +173,7 @@ Window
         id: login
         anchors.fill: parent
         z: 1
-        visible: false
+//        visible: false
         onSignInUser:
         {
             root.loginUser(uname, pass)
@@ -226,43 +209,13 @@ Window
         anchors.top: topbar.bottom
     }
 
-    HhmSideBar
-    {
-        id: sidebar
-        anchors.top: profile.bottom
-        anchors.right: switcher.left
-        anchors.bottom: bottombar.top
-        visible: root.hhm_mode!==con.hhm_ADMINPANEL_MODE
-        objectName: "Sidebar"
-    }
-
     HhmPage
     {
         id: page
         anchors.left: parent.left
         anchors.top: news.bottom
         anchors.bottom: bottombar.top
-        anchors.right: sidebar.left
-    }
-
-    Item
-    {
-        id: main_ltr
-        width: parent.width
-        anchors.top: parent.top
-        anchors.bottom: bottombar.top
-        visible: !root.rtl
-
-        HhmSideBar
-        {
-            id: sidebar_ltr
-            width: 300
-            height: parent.height
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.bottom: parent.bottom
-        }
-
+        anchors.right: switcher.left
     }
 
     HhmBottomBar
@@ -283,45 +236,8 @@ Window
     }
     
     //Functions
-    /*** Call this function from cpp ***/
-
-    function addToBox()
-    {
-//        var obj = email_content_ltr
-//        if( root.rtl )
-//        {
-//            obj = email_content_rtl
-//        }
-
-//        if( obj.case_number===root.case_number )
-//        {
-//            obj.case_number = root.case_number
-//            obj.text_name = root.sender_name
-//            obj.text_time = root.r_email_date
-//            obj.doc_status = root.doc_status
-//            obj.download_filepath = root.filepath
-//        }
-
-//        obj = sidebar_ltr
-//        if( root.rtl )
-//        {
-//            obj = sidebar
-//        }
-//        obj.addToBox()
-    }
-
-    function finishSync()
-    {
-        var obj = sidebar_ltr
-        if( root.rtl )
-        {
-            obj = sidebar
-        }
-
-        obj.finishSync()
-    }
-
-    function loginSuccessfuly()
+    /*** Call this functions from cpp ***/
+    function loginSuccessfully()
     {
         animateHideLogin.start()
     }
@@ -335,37 +251,11 @@ Window
 
     /*** Call this function from qml ***/
 
-    function syncEmail()
-    {
-        var obj = sidebar_ltr
-        if( root.rtl )
-        {
-            obj = sidebar
-        }
-
-        obj.clearEmails()
-        if( email_mode===con.hhm_SIDEBAR_INBOX_STATE )
-        {
-            syncInbox()
-        }
-        else if( email_mode===con.hhm_SIDEBAR_OUTBOX_STATE )
-        {
-            syncOutbox()
-        }
-    }
-
-    function isDocSelected()
-    {
-        return root.selected_doc_case_number!==con.hhm_NO_SELECTED_ITEM
-    }
-
     function signOut()
     {
         login.visible = true
         animateShowLogin.start()
-        root.selected_doc_case_number = con.hhm_NO_SELECTED_ITEM
-        root.email_mode = con.hhm_SIDEBAR_INBOX_STATE
-        root.selected_file_path = ""
+        page.signOut()
     }
 
     /*** Utilities functions ***/

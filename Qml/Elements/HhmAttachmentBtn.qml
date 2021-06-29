@@ -2,16 +2,50 @@ import QtQuick 2.0
 
 Rectangle
 {
-    property string text_filename: ""
-    property int    id_file: 0
+    property string text_filename:  ""
+    property int    id_file:        0
+    property int    id_list:        0 //Handle for delete attach files
+    property bool   download_mode:  false
+
+
+    property color color_background_normal:     "#e6e6e6"
+    property color color_background_hovered:    "#f0f0f0"
+    property color color_background:
+    {
+        if( isHovered )
+        {
+            color_background_hovered
+        }
+        else
+        {
+            color_background_normal
+        }
+    }
+
+    property color color_border_normal:     "#7593b7"
+    property color color_border_hovered:    "#829dbe"
+    property color color_border:
+    {
+        if( isHovered )
+        {
+            color_border_hovered
+        }
+        else
+        {
+            color_border_normal
+        }
+    }
+
+    property bool   isHovered: false
 
     signal deleteAttachment()
+    signal downloadAttachment()
 
-    width: childrenRect.width + 10/*right margin*/
+    width: rect_file.width + rect_file.x + 10/*right margin*/
     height: 40
-    color: "#e6e6e6"
+    color: color_background
     border.width: 1
-    border.color: "#7593b7"
+    border.color: color_border
 
     Rectangle
     {
@@ -24,11 +58,11 @@ Rectangle
         {
             if( delete_attach.isHovered )
             {
-                "#f0f0f0"
+                color_background_hovered
             }
             else
             {
-                parent.color
+                color_background_normal
             }
         }
         border.width: parent.border.width
@@ -36,13 +70,14 @@ Rectangle
         {
             if( delete_attach.isHovered )
             {
-                "#829dbe"
+                color_border_hovered
             }
             else
             {
-                parent.border.color
+                color_border_normal
             }
         }
+        visible: !download_mode
 
         property bool isHovered: false
 
@@ -85,7 +120,17 @@ Rectangle
         id: rect_file
         width: childrenRect.width
         height: parent.height
-        anchors.left: delete_attach.right
+        anchors.left:
+        {
+            if( download_mode )
+            {
+                parent.left
+            }
+            else
+            {
+                delete_attach.right
+            }
+        }
         anchors.leftMargin: 10
         color: "transparent"
 
@@ -114,6 +159,29 @@ Rectangle
             color: "#556373"
         }
 
+    }
+
+    MouseArea
+    {
+        anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+        visible: download_mode
+
+        onClicked:
+        {
+            downloadAttachment()
+        }
+
+        onEntered:
+        {
+            isHovered = true
+        }
+
+        onExited:
+        {
+            isHovered = false
+        }
     }
 
 }

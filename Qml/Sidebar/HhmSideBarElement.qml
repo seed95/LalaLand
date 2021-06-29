@@ -41,7 +41,7 @@ Rectangle
 
     property bool isHovered:    false
 
-    signal emailClicked()
+    signal clickItem()
 
     height: 60
     color: color_background
@@ -107,10 +107,10 @@ Rectangle
     Text
     {
         id: label_subject
-        text: root.sliceString(text_subject, 20)
+        text: root.sliceString(text_subject, 22)
         font.family: fontDroidKufiRegular.name
         font.weight: Font.Normal
-        font.pixelSize: 10
+        font.pixelSize: 13
         anchors.right: label_read.left
         anchors.rightMargin: 10
         anchors.top: parent.top
@@ -152,7 +152,7 @@ Rectangle
         }
         font.family: fontDroidKufiRegular.name
         font.weight: Font.Normal
-        font.pixelSize: 9
+        font.pixelSize: 10
         anchors.right: label_subject.right
         anchors.top: label_casenumber.bottom
         anchors.topMargin: 5
@@ -257,7 +257,7 @@ Rectangle
 
         onClicked:
         {
-            emailClicked()
+            clickItem()
         }
 
     }

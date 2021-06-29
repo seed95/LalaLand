@@ -47,7 +47,7 @@ Rectangle
         id: signout
         anchors.bottom: parent.bottom
         text_icon: "\uf2f5"
-//        onButtonClicked: root.hhm_mode = con.hhm_ADMINPANEL_MODE
+        onButtonClicked: root.signOut()
     }
 
 }

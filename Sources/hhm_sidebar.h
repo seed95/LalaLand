@@ -2,6 +2,7 @@
 #define HHMSIDEBAR_H
 
 #include <QObject>
+#include <QQmlProperty>
 
 #include "hhm_database.h"
 #include "hhm_user.h"
@@ -25,22 +26,19 @@ public:
     explicit HhmSidebar(QObject *root, HhmDatabase *database, HhmUser *userLoggedIn,
                         QObject *parent = nullptr);
 
+    void updateSelectedEmail();
+    void loadEmails();
+
 private slots:
     //Main Slots
     void syncInbox();
     void syncOutbox();
-
-    //List Slots
-    void documentClicked(int casenumber);
-    void documentOpened(int emailId, int casenumber);
-
-signals:
-    void openDocument(int casenumber);
+    void readEmail(int emailId);
 
 private:
     void loadInboxEmails();
     void loadOutboxEmails();
-    void showEmailInSidebar(QStringList emailIds);//emailsIds: csv format
+    void showEmailInSidebar(QObject *list_ui, QStringList emailIds);//emailsIds: csv format
     QStringList getIdEmails(QString type);
 
     HhmEmailTable getEmail(int idEmail);
@@ -48,7 +46,10 @@ private:
 
 private:
     QObject *main_ui;
-    QObject *list_ui;
+
+    QObject *inbox_ui;
+    QObject *outbox_ui;
+    QObject *search_ui;
 
     HhmDatabase *db;
     HhmUser     *m_user;

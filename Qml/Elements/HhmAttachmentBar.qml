@@ -4,10 +4,16 @@ Rectangle
 {
     id: container
 
+    property int    attachMode:         con.hhm_ATTACHMENT_NONE_MODE
+
     //Set this variables in cpp
     property string attach_filename:    ""
+    property int    attach_fileId:      0
 
     property int cnt_id: 0//Counter for id of attach file
+
+    //Qml Signals
+    signal fileClicked(int idFile)
 
     height: 70
     color: "#dcdcdc"
@@ -36,7 +42,6 @@ Rectangle
 
         onContentWidthChanged:
         {
-//            console.log(contentWidth)
             if( contentWidth<container.width )
             {
                 interactive = false
@@ -76,10 +81,17 @@ Rectangle
             {
                 text_filename   : attachFilename
                 id_file         : idFile
+                id_list         : idList
+                download_mode   : container.attachMode===con.hhm_ATTACHMENT_DOWNLOAD_MODE
 
                 onDeleteAttachment:
                 {
-                    removeAttachFile(idFile)
+                    removeAttachFile(idList)
+                }
+
+                onDownloadAttachment:
+                {
+                    fileClicked(idFile)
                 }
             }
 
@@ -91,7 +103,8 @@ Rectangle
     function addAttachFile()
     {
         lm_attachment.append({"attachFilename" : container.attach_filename,
-                              "idFile" : cnt_id})
+                              "idFile" : attach_fileId,
+                              "idList" : cnt_id})
         cnt_id += 1
     }
 
@@ -130,4 +143,8 @@ Rectangle
         return result
     }
 
+    function clearList()
+    {
+        lm_attachment.clear()
+    }
 }

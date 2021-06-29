@@ -8,6 +8,7 @@
 #include "hhm_database.h"
 #include "hhm_user.h"
 #include "hhm_ftp.h"
+#include "hhm_sidebar.h"
 
 #define ID_INDEX        0
 #define USERNAME_INDEX  1
@@ -34,6 +35,12 @@ typedef struct HhmUserTable
     QString username;//0,1
 } HhmUserTable;
 
+typedef struct HhmFileTable
+{
+    int fileId;
+    QString filepath;
+} HhmFileTable;
+
 class HhmDocument : public QObject
 {
     Q_OBJECT
@@ -41,6 +48,8 @@ public:
     explicit HhmDocument(QObject *root, HhmDatabase *database, HhmUser *userLoggedIn,
                          QObject *parent=nullptr);
     ~HhmDocument();
+
+    void loginSuccessfully();
 
 private slots:
     //Ftp Slots
@@ -53,6 +62,7 @@ private slots:
     void newDocumentClicked();
 
     //Main Slots
+    void showDocument(int casenumber);
 
     //New Slots
     void checkUsername(QString username);
@@ -62,7 +72,9 @@ private slots:
                          QString tableContent);
 
     //View Slots
-    void openDocument(int casenumber);
+    void downloadFile(int fileId, int casenumber);
+    void approveDocument(int casenumber, QString tableContent);
+    void rejectDocument(int casenumber);
 
 private:
     void setDocumentBaseId();
@@ -72,6 +84,7 @@ private:
 
 
     HhmUserTable getUser(int idUser);
+    HhmFileTable getFile(int idFile);
 
     void fillDestinationFilenames();
     void uploadNextFile();
@@ -86,15 +99,18 @@ private:
 private:
     QObject *main_ui;
     QObject *action_ui;
+    QObject *sidebar_ui;
 
     QObject *new_ui;
     QObject *new_attachbar;
 
     QObject *view_ui;
+    QObject *view_attachbar;
 
     HhmDatabase *db;
     HhmUser     *m_user;
     HhmFtp      *ftp;
+    HhmSidebar  *sidebar;
 
     int doc_base_id;//Document Base id in 'HHM_TABLE_CONFIG'
     DocumentData new_data;

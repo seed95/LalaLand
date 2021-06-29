@@ -18,8 +18,6 @@ class HhmMail : public QObject
 public:
     explicit HhmMail(QObject *item, HhmDatabase *database, QObject *parent = nullptr);
 
-    void approveDoc(int caseNumber, QString tableContent, QString emailId);
-    void rejectDoc(int caseNumber);
 private:
 
 //    HhmEmailTable getEmail(int idEmail);

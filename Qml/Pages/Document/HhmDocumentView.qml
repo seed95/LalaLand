@@ -2,6 +2,7 @@ import QtQuick 2.0
 
 Rectangle
 {
+    //Set this variables in cpp
     property int    case_number: con.hhm_NO_SELECTED_ITEM
     property string text_name: "خايمي كاميل"
     property int    doc_status: 1
@@ -10,17 +11,16 @@ Rectangle
     property string text_time: "12:15"
     property string text_to: "جيروم ألين ساينفيلد"
     property string text_subject: "وقال السيناتور بيرني ساندرز"
-    property string download_filepath: ""
     property string table_content: ""
+
+    //Cpp Signals
+    signal downloadFile(int idFile, int casenumber)
+    signal approveDocument(int casenumber, string tableContent)
+    signal rejectDocument(int casenumber)
 
     width: 980
     height: 675
     color: "#e8e8e8"
-
-    onTable_contentChanged:
-    {
-        table.setData(table_content)
-    }
 
     Rectangle
     {
@@ -189,56 +189,6 @@ Rectangle
         color: "#646464"
     }
 
-    Rectangle
-    {
-        id: rect_download
-        width: childrenRect.width
-        height: childrenRect.height
-        anchors.left: parent.left
-        anchors.leftMargin: 41
-        anchors.top: split_line.bottom
-        anchors.topMargin: 16
-        color: "transparent"
-
-        Text
-        {
-            id: icon_download
-            anchors.left: parent.left
-            anchors.top: parent.top
-            anchors.topMargin: 6
-            text: "\uf078"
-            font.family: fontAwesomeSolid.name
-            font.pixelSize: 12
-            color: "#3c598c"
-        }
-
-
-        Text
-        {
-            id: label_download
-            anchors.left: icon_download.right
-            anchors.leftMargin: 10
-            anchors.top: parent.top
-            text: qsTr("تحميل")
-            font.family: fontDroidKufiBold.name
-            font.weight: Font.Bold
-            font.pixelSize: 12
-            color: "#3c598c"
-        }
-
-        MouseArea
-        {
-            anchors.fill: parent
-            cursorShape: Qt.PointingHandCursor
-
-            onClicked:
-            {
-                root.downloadFileClicked(download_filepath, case_number)
-            }
-        }
-
-    }
-
     Text
     {
         id: label_to
@@ -261,9 +211,46 @@ Rectangle
         tableMode: con.hhm_TABLE_MODE_CONTENT
     }
 
+    HhmAttachmentBar
+    {
+        id: attachbar
+        width: parent.width
+        anchors.bottom: parent.bottom
+        anchors.left: parent.left
+        attachMode: con.hhm_ATTACHMENT_DOWNLOAD_MODE
+        objectName: "DocumentViewAttachbar"
+
+        onFileClicked:
+        {
+            downloadFile(idFile, case_number)
+        }
+    }
+
+    /*** Call this functions from cpp ***/
+    function setTableData()
+    {
+        table.setData(table_content)
+    }
+
+    function clearAttachbar()
+    {
+        attachbar.clearList()
+    }
+
+    /*** Call this functions from qml ***/
     function getDataContent()
     {
         return table.getDataContent()
+    }
+
+    function approve()
+    {
+        approveDocument(case_number, table.getDataContent())
+    }
+
+    function reject()
+    {
+        rejectDocument(case_number)
     }
 
 }

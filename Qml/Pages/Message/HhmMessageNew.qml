@@ -129,6 +129,7 @@ Rectangle
         width: parent.width
         anchors.bottom: parent.bottom
         anchors.left: parent.left
+        attachMode: con.hhm_ATTACHMENT_UPLOAD_MODE
         objectName: "MessageAttachbar"
     }
 

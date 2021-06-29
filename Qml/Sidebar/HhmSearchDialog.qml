@@ -5,10 +5,15 @@ Rectangle
 {
     id: container
 
-    signal searchDocument(string text)
-    signal changedFocus(string text)
+    property string text_placeholder: qsTr("البحث السجلات")
 
-    width: 300
+    property color  color_input_placeholder:    "#969696"
+    property color  color_input_normal:         "#464646"
+
+    //Qml Signals
+    signal refreshClicked()
+    signal searchDocument(string text)
+
     height: 40
     color: "#e1e1e1"
 
@@ -63,7 +68,7 @@ Rectangle
             {
                 rotation_refresh.start()
                 rotation_refresh.loops = Animation.Infinite
-                root.syncEmail()
+                refreshClicked()
             }
         }
 
@@ -101,53 +106,45 @@ Rectangle
             anchors.rightMargin: 2
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-            text: hint_search
-            font.family: fontArialRegular.name
-            font.pixelSize: 13
+            text: text_placeholder
+            font.family: fontDroidKufiRegular.name
+            font.pixelSize: 10
             horizontalAlignment: TextInput.AlignRight
             selectByMouse: true
-            color:
-            {
-                if( text===hint_search )
-                {
-                    "#969696"
-                }
-                else
-                {
-                    "#464646"
-                }
-            }
+            color: color_input_placeholder
             selectedTextColor: "#222"
             selectionColor: "#888"
             background: Rectangle
             {
                 color: "transparent"
             }
-//                validator: RegExpValidator { regExp: /\d+/ }
-
-            property string hint_search: qsTr("البحث السجلات")
 
             onFocusChanged:
             {
-                if( !focus )
+                if( focus )
+                {
+                    if( text===text_placeholder )
+                    {
+                        text = ""
+                        color = color_input_normal
+                    }
+                }
+                else
                 {
                     if( text==="" )
                     {
-                        text = hint_search
+                        text = text_placeholder
+                        color = color_input_placeholder
                     }
 
-                    if( text===hint_search )
+                    if( text===text_placeholder )
                     {
-                        changedFocus("")
+                        searchDocument("")
                     }
                     else
                     {
-                        changedFocus(text)
+                        searchDocument(text)
                     }
-                }
-                else if( text===hint_search )
-                {
-                    text = ""
                 }
             }
 
@@ -158,7 +155,11 @@ Rectangle
 
             onTextChanged:
             {
-                if( text!==hint_search )
+                if( text===text_placeholder )
+                {
+                    searchDocument("")
+                }
+                else
                 {
                     searchDocument(text)
                 }

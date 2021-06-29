@@ -5,7 +5,16 @@ Item
 {
     id: container
 
-    property int documentState: con.hhm_DOCUMENT_NONE_STATE
+    property int documentState:     con.hhm_DOCUMENT_NONE_STATE
+    property int sidebarState:      con.hhm_SIDEBAR_NONE_STATE
+
+    //Cpp Signals
+    signal documentClicked(int casenumber)
+
+    Settings
+    {
+        property alias documentSidebar: container.sidebarState
+    }
 
     HhmDocumentAction
     {
@@ -14,10 +23,69 @@ Item
         anchors.topMargin: -25
         anchors.left: parent.left
         objectName: "DocumentAction"
+
         onSendDocumentClicked:
         {
             new_document.sendDocument()
         }
+
+        onViewBackClicked:
+        {
+            container.documentState = con.hhm_DOCUMENT_NONE_STATE
+            sidebar.clearSelectedItem()
+        }
+
+        onApproveClicked:
+        {
+            view_document.approve()
+        }
+
+        onRejectClicked:
+        {
+            view_document.reject()
+        }
+
+    }
+
+    HhmSideBar
+    {
+        id: sidebar
+        anchors.top: actions.bottom
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        emailState: container.sidebarState
+        objectName: "DocumentSidebar"
+
+        onInboxClicked:
+        {
+            container.sidebarState = con.hhm_SIDEBAR_INBOX_STATE
+            if( container.documentState!==con.hhm_DOCUMENT_NEW_STATE )
+            {
+                container.documentState = con.hhm_DOCUMENT_NONE_STATE
+            }
+        }
+
+        onOutboxClicked:
+        {
+            container.sidebarState = con.hhm_SIDEBAR_OUTBOX_STATE
+            if( container.documentState!==con.hhm_DOCUMENT_NEW_STATE )
+            {
+                container.documentState = con.hhm_DOCUMENT_NONE_STATE
+            }
+        }
+
+        onEmailClicked:
+        {
+            if( idSelectedEmail===con.hhm_NO_SELECTED_ITEM )
+            {
+                container.documentState = con.hhm_DOCUMENT_NONE_STATE
+            }
+            else
+            {
+                documentClicked(idItem)
+            }
+        }
+
     }
 
     HhmDocumentNew
@@ -31,22 +99,30 @@ Item
 
     HhmDocumentView
     {
-        id: show_document
+        id: view_document
         anchors.left: parent.left
         anchors.top: actions.bottom
         objectName: "DocumentView"
         visible: documentState===con.hhm_DOCUMENT_VIEW_STATE
     }
 
+    /*** Call this functions from cpp ***/
     function successfullySend()
     {
-        //Check if a document selected, state changed to hhm_DOCUMENT_VIEW_STATE
-        documentState = con.hhm_DOCUMENT_NONE_STATE
+        container.documentState = con.hhm_DOCUMENT_NONE_STATE
+        sidebar.syncSidebar()
     }
 
     function showDocument()
     {
-        documentState = con.hhm_DOCUMENT_VIEW_STATE
+        container.documentState = con.hhm_DOCUMENT_VIEW_STATE
+    }
+
+    /*** Call this functions from qml ***/
+    function signOut()
+    {
+        container.documentState = con.hhm_DOCUMENT_NONE_STATE
+        sidebar.signOut()
     }
 
 }

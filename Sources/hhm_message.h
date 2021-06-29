@@ -36,6 +36,8 @@ public:
                         QObject *parent=nullptr);
     ~HhmMessage();
 
+    void loginSuccessfully();
+
 private slots:
     //Ftp Slots
     void uploadSuccess(QString filename);

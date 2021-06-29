@@ -13,7 +13,7 @@ Item
 
     ScrollView
     {
-        width: 950
+        width: 980
         clip: true
 
         anchors.left: parent.left
@@ -35,7 +35,7 @@ Item
 
     ScrollView
     {
-        width: 900
+        width: 980
         clip: true
 
         anchors.left: parent.left
@@ -56,7 +56,7 @@ Item
 
     Flickable
     {
-        width: 900
+        width: 980
         clip: true
 
         anchors.left: parent.left

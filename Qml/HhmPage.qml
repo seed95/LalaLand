@@ -13,8 +13,8 @@ Item
     HhmAdmin
     {
         id: admin_panel
-        objectName: "Admin"
         anchors.fill: parent
+        objectName: "Admin"
         visible: root.hhm_mode===con.hhm_ADMINPANEL_MODE
     }
 
@@ -24,6 +24,11 @@ Item
         anchors.fill: parent
         objectName: "Document"
         visible: root.hhm_mode===con.hhm_DOCUMENT_MODE
+    }
+
+    function signOut()
+    {
+        document.signOut()
     }
 
 }

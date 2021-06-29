@@ -7,6 +7,9 @@
 #define HHM_START_YEAR          2020
 #define HHM_DEFAULT_NEWS_TIMER  10000//ms
 
+#define HHM_INBOX_STATE     1
+#define HHM_OUTBOX_STATE    2
+
 /*****              DataBase Configs            *****/
 
 #define SERVER_PORT     3306
@@ -75,6 +78,7 @@
 #define HHM_DOCUMENT_DATA4              "table_data4"
 #define HHM_DOCUMENT_DATA5              "table_data5"
 #define HHM_DOCUMENT_DATA6              "table_data6"
+#define HHM_DOCUMENT_FILE_IDS           "file_ids"
 
 //Columns in Table `HHM_TABLE_USER_EMAIL`
 #define HHM_UE_ID                   "id"

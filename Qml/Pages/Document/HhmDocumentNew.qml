@@ -248,9 +248,11 @@ Rectangle
         width: parent.width
         anchors.bottom: parent.bottom
         anchors.left: parent.left
-        objectName: "DocumentAttachbar"
+        attachMode: con.hhm_ATTACHMENT_UPLOAD_MODE
+        objectName: "DocumentNewAttachbar"
     }
 
+    /*** Call this functions from cpp ***/
     function usernameNotFound()
     {
         text_input_to.usernameNotFound()

@@ -6,19 +6,56 @@ HhmSidebar::HhmSidebar(QObject *root, HhmDatabase *database, HhmUser *userLogged
     db = database;
     m_user = userLoggedIn;
 
-    main_ui = root->findChild<QObject*>("Sidebar");
-    list_ui = root->findChild<QObject*>("SidebarList");
+    main_ui     = root;
+    inbox_ui    = root->findChild<QObject*>("InboxList");
+    outbox_ui   = root->findChild<QObject*>("OutboxList");
+    search_ui   = root->findChild<QObject*>("SearchList");
 
     connect(main_ui, SIGNAL(syncInbox()), this, SLOT(syncInbox()));
     connect(main_ui, SIGNAL(syncOutbox()), this, SLOT(syncOutbox()));
 
-    connect(list_ui, SIGNAL(documentClicked(int)), this, SLOT(documentClicked(int)));
-    connect(list_ui, SIGNAL(documentOpened(int, int)), this, SLOT(documentOpened(int, int)));
+    connect(inbox_ui, SIGNAL(readEmail(int)), this, SLOT(readEmail(int)));
+    connect(outbox_ui, SIGNAL(readEmail(int)), this, SLOT(readEmail(int)));
+    connect(search_ui, SIGNAL(readEmail(int)), this, SLOT(readEmail(int)));
+
+//    syncInbox();
+//    syncOutbox();
+}
+
+void HhmSidebar::updateSelectedEmail()
+{
+    QVariant data = QQmlProperty::read(main_ui, "selectedEmailId");
+    QString selected_id = "";
+    if( data.isValid() )
+    {
+        selected_id = data.toString();
+    }
+    data = QQmlProperty::read(main_ui, "emailState");
+    int email_state = 0;
+    if( data.isValid() )
+    {
+        email_state = data.toInt();
+    }
+    if( email_state==HHM_INBOX_STATE )
+    {
+        showEmailInSidebar(inbox_ui, QStringList(selected_id));
+    }
+    else if( email_state==HHM_OUTBOX_STATE )
+    {
+        showEmailInSidebar(outbox_ui, QStringList(selected_id));
+    }
+}
+
+void HhmSidebar::loadEmails()
+{
+    syncInbox();
+    syncOutbox();
 }
 
 /***************** Main Slots *****************/
 void HhmSidebar::syncInbox()
 {
+    qDebug() << "syncInbox" << m_user->getId();
     loadInboxEmails();
     hhm_updateFromServer();
     QMetaObject::invokeMethod(main_ui, "finishSync");
@@ -26,38 +63,32 @@ void HhmSidebar::syncInbox()
 
 void HhmSidebar::syncOutbox()
 {
+    qDebug() << "syncOutbox" << m_user->getId();
     loadOutboxEmails();
     hhm_updateFromServer();
     QMetaObject::invokeMethod(main_ui, "finishSync");
 }
 
-/***************** Document Slots *****************/
-void HhmSidebar::documentClicked(int casenumber)
-{
-    emit openDocument(casenumber);
-}
-
-void HhmSidebar::documentOpened(int emailId, int casenumber)
+void HhmSidebar::readEmail(int idEmail)
 {
     //Change State `opened` Email
-    QString condition = "`" + QString(HHM_EMAIL_ID) + "`=" + QString::number(emailId);
+    QString condition = "`" + QString(HHM_EMAIL_ID) + "`=" + QString::number(idEmail);
     QString value = "`" + QString(HHM_EMAIL_OPENED) + "`=" + QString::number(1);
     db->update(condition, value, HHM_TABLE_EMAIL);
-    documentClicked(casenumber);
 }
 
 void HhmSidebar::loadInboxEmails()
 {
-    showEmailInSidebar(getIdEmails(HHM_UE_RECEIVED_EMAILS));
+    showEmailInSidebar(inbox_ui, getIdEmails(HHM_UE_RECEIVED_EMAILS));
 }
 
 void HhmSidebar::loadOutboxEmails()
 {
-    showEmailInSidebar(getIdEmails(HHM_UE_SENT_EMAILS));
+    showEmailInSidebar(outbox_ui, getIdEmails(HHM_UE_SENT_EMAILS));
 }
 
 //input in csv format
-void HhmSidebar::showEmailInSidebar(QStringList emailIds)
+void HhmSidebar::showEmailInSidebar(QObject *list_ui, QStringList emailIds)
 {
     QString query = "";
     for(int i=0; i<emailIds.size(); i++)

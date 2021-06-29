@@ -50,6 +50,10 @@ CHANGE COLUMN `content` `content` TEXT CHARACTER SET 'utf8' NULL DEFAULT NULL ;
 
 ALTER SCHEMA `hhm_db`  DEFAULT CHARACTER SET utf8 ;
 
+ALTER TABLE `hhm_db`.`document` 
+ADD COLUMN `file_ids` VARCHAR(45) NULL DEFAULT NULL COMMENT 'files ids in csv format' AFTER `table_data6`;
+
+
 
 
 

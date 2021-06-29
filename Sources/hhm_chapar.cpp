@@ -7,13 +7,9 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
 
     connect(ui, SIGNAL(loginUser(QString, QString)), this, SLOT(loginUser(QString, QString)));
     connect(ui, SIGNAL(replyButtonClicked()), this, SLOT(replyBtnClicked()));
-    connect(ui, SIGNAL(approveButtonClicked(int, QString, int)),
-            this, SLOT(approveBtnClicked(int, QString, int)));
-    connect(ui, SIGNAL(rejectButtonClicked(int)), this, SLOT(rejectBtnClicked(int)));
     connect(ui, SIGNAL(archiveButtonClicked()), this, SLOT(archiveBtnClicked()));
     connect(ui, SIGNAL(scanButtonClicked()), this, SLOT(scanBtnClicked()));
     connect(ui, SIGNAL(flagButtonClicked(int)), this, SLOT(flagBtnClicked(int)));
-    connect(ui, SIGNAL(downloadFileClicked(QString, int)), this, SLOT(downloadFileClicked(QString, int)));
 
     //Instance Database
     db = new HhmDatabase();
@@ -22,19 +18,12 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
     //Instance User
     user = new HhmUser(ui, db);
 
-    //Instance Mail
-    mail = new HhmMail(ui, db);
-
     //Instance Message
     message = new HhmMessage(ui, db, user);
     admin = new HhmAdmin(ui, db, user);
 
     //Instance Document
     document = new HhmDocument(ui, db, user);
-
-    sidebar = new HhmSidebar(ui, db, user);
-
-    connect(sidebar, SIGNAL(openDocument(int)), document, SLOT(openDocument(int)));
 
     //Instance Ftp
     ftp = new HhmFtp();
@@ -64,23 +53,15 @@ void HhmChapar::loginUser(QString uname, QString pass)
 {
     if( user->loadUser(uname, pass) )
     {
-        QMetaObject::invokeMethod(ui, "loginSuccessfuly");
+        QMetaObject::invokeMethod(ui, "loginSuccessfully");
+        document->loginSuccessfully();
+//        message->loginSuccessfully();
     }
 }
 
 void HhmChapar::replyBtnClicked()
 {
     qDebug() << "replyBtnClicked";
-}
-
-void HhmChapar::approveBtnClicked(int caseNumber, QString tableContent, int emailId)
-{
-    mail->approveDoc(caseNumber, tableContent, QString::number(emailId));
-}
-
-void HhmChapar::rejectBtnClicked(int caseNumber)
-{
-    mail->rejectDoc(caseNumber);
 }
 
 void HhmChapar::archiveBtnClicked()
@@ -96,26 +77,6 @@ void HhmChapar::scanBtnClicked()
 void HhmChapar::flagBtnClicked(int id)
 {
     qDebug() << "flagBtnClicked";
-}
-
-void HhmChapar::downloadFileClicked(QString src, int caseNumber)
-{
-    QFileDialog dialog(NULL,
-                       "Choose folder for save file",
-                       last_directory);
-    dialog.setAcceptMode(QFileDialog::AcceptSave);
-    dialog.setFileMode(QFileDialog::AnyFile);
-    QString src_filename = QFileInfo(src).fileName().replace(QString::number(caseNumber) + "_", "");
-    dialog.selectFile(src_filename);
-
-    int ret = dialog.exec();
-    if( ret==QDialog::Accepted )
-    {
-        last_directory = QFileInfo(dialog.selectedFiles().first()).absolutePath();
-        QString dst = dialog.selectedFiles().first();
-        hhm_log("Start download file: " + src_filename + " --> " + dst);
-        ftp->downloadFile(src, dst);
-    }
 }
 
 //Return Invalid Qvariant if not found key

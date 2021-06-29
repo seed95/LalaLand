@@ -7,7 +7,6 @@
 #include <QQmlProperty>
 
 #include "hhm_config.h"
-#include "hhm_mail.h"
 #include "hhm_database.h"
 #include "hhm_user.h"
 #include "hhm_ftp.h"
@@ -27,12 +26,9 @@ private slots:
     //Ui slots
     void loginUser(QString uname, QString pass);
     void replyBtnClicked();
-    void approveBtnClicked(int caseNumber, QString tableContent, int emailId);
-    void rejectBtnClicked(int caseNumber);
     void archiveBtnClicked();
     void scanBtnClicked();
     void flagBtnClicked(int id);
-    void downloadFileClicked(QString src, int caseNumber);
 
 private:
     void        addNewDocToDocuments();
@@ -41,17 +37,14 @@ private:
 
 private:
     QObject     *ui;
-    HhmMail     *mail;
     HhmDatabase *db;
     HhmUser     *user;
     HhmFtp      *ftp;
 
     HhmNews     *news;
-    HhmSidebar  *sidebar;
     HhmAdmin    *admin;
     HhmMessage  *message;
     HhmDocument *document;
-
 
     QString last_directory;
 };
