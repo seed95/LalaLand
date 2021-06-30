@@ -9,8 +9,9 @@ Item
     property int id_DOC_STATUS_PENDING: 2
     property int id_DOC_STATUS_FAILED:  3
 
-    property int hhm_TABLE_MODE_NEW:         1
-    property int hhm_TABLE_MODE_CONTENT:     2
+    property int hhm_TABLE_NEW_MODE:            1
+    property int hhm_TABLE_VIEW_INBOX_MODE:     2
+    property int hhm_TABLE_VIEW_OUTBOX_MODE:    3
 
     property int hhm_MESSAGE_MODE:      0
     property int hhm_DOCUMENT_MODE:     1

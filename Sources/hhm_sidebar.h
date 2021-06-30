@@ -33,6 +33,9 @@ private slots:
     //Main Slots
     void syncInbox();
     void syncOutbox();
+    void syncEmails();
+
+    //Box Slots
     void readEmail(int emailId);
 
 private:

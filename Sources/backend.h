@@ -7,6 +7,8 @@
 #include <QFile>
 #include <QDateTime>
 #include <QTranslator>
+#include <QFileInfo>
+#include <QRegularExpression>
 
 #include "hhm_config.h"
 
@@ -30,6 +32,9 @@ QString hhm_getFtpUsername();
 void    hhm_setFtpUsername(QString username);
 QString hhm_getFtpPassword();
 void    hhm_setFtpPassword(QString password);
+
+QString hhm_appendCasenumber(QString file, int casenumber);
+QString hhm_removeCasenumber(QString file, int casenumber);
 
 void hhm_log(QString msg);
 

@@ -1,6 +1,5 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
-import Qt.labs.settings 1.0
 
 Rectangle
 {
@@ -19,6 +18,7 @@ Rectangle
     //Cpp Signals
     signal syncInbox()
     signal syncOutbox()
+    signal syncEmails()
 
     //Qml Signals
     signal inboxClicked()
@@ -47,7 +47,7 @@ Rectangle
 
         onRefreshClicked:
         {
-            syncSidebar()
+            syncEmails()
         }
 
         onSearchDocument:
@@ -270,7 +270,6 @@ Rectangle
     /*** Call this function from qml ***/
     function syncSidebar()
     {
-        console.log("syncSidebar", container.emailState)
         if( container.emailState===con.hhm_SIDEBAR_INBOX_STATE )
         {
             syncInbox()

@@ -13,6 +13,9 @@ Rectangle
     property string text_subject: "وقال السيناتور بيرني ساندرز"
     property string table_content: ""
 
+    //Set this variables in qml
+    property int emailState: con.hhm_SIDEBAR_NONE_STATE
+
     //Cpp Signals
     signal downloadFile(int idFile, int casenumber)
     signal approveDocument(int casenumber, string tableContent)
@@ -208,7 +211,17 @@ Rectangle
         anchors.top: rect_user.bottom
         anchors.topMargin: 50
         anchors.horizontalCenter: parent.horizontalCenter
-        tableMode: con.hhm_TABLE_MODE_CONTENT
+        tableMode:
+        {
+            if( emailState===con.hhm_SIDEBAR_INBOX_STATE )
+            {
+                con.hhm_TABLE_VIEW_INBOX_MODE
+            }
+            else if( emailState===con.hhm_SIDEBAR_OUTBOX_STATE )
+            {
+                con.hhm_TABLE_VIEW_OUTBOX_MODE
+            }
+        }
     }
 
     HhmAttachmentBar

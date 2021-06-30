@@ -165,7 +165,7 @@ Rectangle
             anchors.top: parent.top
             anchors.topMargin: 21
             anchors.horizontalCenter: parent.horizontalCenter
-            tableMode: con.hhm_TABLE_MODE_NEW
+            tableMode: con.hhm_TABLE_NEW_MODE
         }
 
         Canvas

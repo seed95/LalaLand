@@ -151,6 +151,25 @@ void hhm_setFtpPassword(QString password)
     ftp_password = password;
 }
 
+QString hhm_appendCasenumber(QString file, int casenumber)
+{
+    QString result;
+    QFileInfo file_info(file);
+    result = file_info.path() + "/" + QString::number(casenumber) + "_" + file_info.fileName();
+    return result;
+}
+
+QString hhm_removeCasenumber(QString file, int casenumber)
+{
+    QString result;
+    QFileInfo file_info(file);
+    QString file_name = file_info.fileName();
+    QRegularExpression re("^" + QString::number(casenumber) + "_");
+    file_name = file_name.replace(re, "");
+    result = file_info.path() + "/" + file_name;
+    return result;
+}
+
 
 //Print in qDebug and LOG_FILE
 void hhm_log(QString msg)

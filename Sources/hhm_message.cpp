@@ -59,7 +59,9 @@ void HhmMessage::uploadSuccess(QString filename)
 void HhmMessage::uploadFailed(QString filename)
 {
     ///FIXME: complete this segment
-    hhm_log("Upload Failed " + filename);
+    hhm_showMessage("Upload Failed", 2000);
+    hhm_log("Upload Failed: " + filename);
+
 }
 
 void HhmMessage::downloadSuccess(QString filename)
@@ -171,21 +173,21 @@ void HhmMessage::fillDestinationFilenames()
     QVariantList r_user;//Receiver(to,cc) user
 
     src = new_data.filenames.at(attach_file_ind);
-    dst_filename = QString::number(new_data.id) + "_" + QFileInfo(src).fileName();
+    dst_filename = hhm_appendCasenumber(src, new_data.id);
 
     ///FIXME: Ask Bijan
-    dst_filepath  = "DocumentManager/" + dst_filename;
+    dst_filepath  = /*"DocumentManager/" +*/ dst_filename;
     dst_filenames.append(dst_filepath);
 
     ///FIXME: Ask Bijan
-    dst_filepath = m_user->getUsername() + "/Send/" + dst_filename;
+    dst_filepath = m_user->getUsername().toLower() + "/Send/" + dst_filename;
     dst_filenames.append(dst_filepath);
 
     for(int to_ind=0; to_ind<new_data.toData.length(); to_ind++)
     {
         r_user = new_data.toData.at(to_ind).toList();
         ///FIXME: Ask Bijan
-        dst_filepath = r_user.at(USERNAME_INDEX).toString() + "/Received/" + dst_filename;
+        dst_filepath = r_user.at(USERNAME_INDEX).toString().toLower() + "/Received/" + dst_filename;
         dst_filenames.append(dst_filepath);
     }
 
@@ -193,7 +195,7 @@ void HhmMessage::fillDestinationFilenames()
     {
         r_user = new_data.ccData.at(cc_ind).toList();
         ///FIXME: Ask Bijan
-        dst_filepath = r_user.at(USERNAME_INDEX).toString() + "/Received/" + dst_filename;
+        dst_filepath = r_user.at(USERNAME_INDEX).toString().toLower() + "/Received/" + dst_filename;
         dst_filenames.append(dst_filepath);
     }
 
@@ -255,7 +257,7 @@ void HhmMessage::insertNewFile()
 
     QString src = new_data.filenames.at(attach_file_ind);
     ///FIXME: Ask Bijan
-    QString filename = "DocumentManager/" + QString::number(new_data.id) + "_" + QFileInfo(src).fileName();
+    QString filename = /*"DocumentManager/" +*/ QString::number(new_data.id) + "_" + QFileInfo(src).fileName();
 
     QString values  = "'" + filename + "', ";
     values += "'" + QString::number(m_user->getId()) + "', ";

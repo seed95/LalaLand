@@ -73,7 +73,8 @@ void HhmDocument::uploadSuccess(QString filename)
 void HhmDocument::uploadFailed(QString filename)
 {
     ///FIXME: complete this segment
-    hhm_log("Upload Failed " + filename);
+    hhm_showMessage("Upload Failed", 2000);
+    hhm_log("Upload Failed: " + filename);
 }
 
 void HhmDocument::downloadSuccess(QString filename)
@@ -84,6 +85,8 @@ void HhmDocument::downloadSuccess(QString filename)
 void HhmDocument::downloadFailed(QString filename)
 {
     qDebug() << filename;
+    ///FIXME: complete this segment
+    hhm_showMessage("Download Failed", 2000);
 }
 
 /***************** Action Slots *****************/
@@ -163,7 +166,7 @@ void HhmDocument::showDocument(int casenumber)
             for(int i=0; i<file_ids.length(); i++)
             {
                 HhmFileTable file = getFile(file_ids[i].toInt());
-                QString filename = file.filepath.replace(QString::number(casenumber) + "_", "");
+                QString filename = hhm_removeCasenumber(file.filepath, casenumber);
                 QQmlProperty::write(view_attachbar, "attach_filename", filename);
                 QQmlProperty::write(view_attachbar, "attach_fileId", file.fileId);
                 QMetaObject::invokeMethod(view_attachbar, "addAttachFile");
@@ -245,23 +248,23 @@ void HhmDocument::sendNewDocument(int caseNumber, QVariant toData,
     new_data.filenames = attachFiles.toStringList();
     new_data.toUser    = toData.toList();
 
-    if( new_data.filenames.isEmpty() )
-    {
-        hhm_showMessage(tr("Please choose a document"), 2000);
-        return;
-    }
+//    if( new_data.filenames.isEmpty() )
+//    {
+//        hhm_showMessage(tr("Please choose a document"), 2000);
+//        return;
+//    }
 
-    if( new_data.toUser.at(ID_INDEX).toInt()==-1 )
-    {
-        hhm_showMessage(tr("Entered username is not valid"), 5000);
-        return;
-    }
+//    if( new_data.toUser.at(ID_INDEX).toInt()==-1 )
+//    {
+//        hhm_showMessage(tr("Entered username is not valid"), 5000);
+//        return;
+//    }
 
-    if( subject.isEmpty() )
-    {
-        hhm_showMessage(tr("Please write a subject"), 2000);
-        return;
-    }
+//    if( subject.isEmpty() )
+//    {
+//        hhm_showMessage(tr("Please write a subject"), 2000);
+//        return;
+//    }
 
     new_data.casenumber     = caseNumber;
     new_data.senderId       = m_user->getId();
@@ -281,8 +284,7 @@ void HhmDocument::sendNewDocument(int caseNumber, QVariant toData,
 void HhmDocument::downloadFile(int fileId, int casenumber)
 {
     HhmFileTable file = getFile(fileId);
-    QString src = file.filepath;
-    src.replace(QString::number(casenumber) + "_", "");
+    QString src = hhm_removeCasenumber(file.filepath, casenumber);
     src = QFileInfo(src).fileName();
     QString dir = QFileDialog::getExistingDirectory(NULL,
                                                     "Choose Directory to Save " + src,
@@ -400,18 +402,19 @@ void HhmDocument::fillDestinationFilenames()
     QVariantList r_user;//Receiver(to) user
 
     src = new_data.filenames.at(attach_file_ind);
-    dst_filename = QString::number(new_data.casenumber) + "_" + QFileInfo(src).fileName();
+    dst_filename = hhm_appendCasenumber(src, new_data.casenumber);
+    dst_filename = QFileInfo(dst_filename).fileName();
 
     ///FIXME: Ask Bijan
-    dst_filepath  = "DocumentManager/" + dst_filename;
+    dst_filepath  = /*"DocumentManager/" +*/ dst_filename;
     dst_filenames.append(dst_filepath);
 
     ///FIXME: Ask Bijan
-    dst_filepath = m_user->getUsername() + "/Send/" + dst_filename;
+    dst_filepath = m_user->getUsername().toLower() + "/Send/" + dst_filename;
     dst_filenames.append(dst_filepath);
 
     ///FIXME: Ask Bijan
-    dst_filepath = new_data.toUser.at(USERNAME_INDEX).toString() + "/Received/" + dst_filename;
+    dst_filepath = new_data.toUser.at(USERNAME_INDEX).toString().toLower() + "/Received/" + dst_filename;
     dst_filenames.append(dst_filepath);
 }
 
@@ -443,8 +446,8 @@ void HhmDocument::uploadAttachFilesFinished()
     }
     int sent_email_id = received_email_id - 1;
 
-    updateUserEmail(HHM_UE_RECEIVED_EMAILS, received_email_id);
-    updateUserEmail(HHM_UE_SENT_EMAILS, sent_email_id);
+    updateReceiverUserEmail(received_email_id);
+    updateSenderUserEmail(sent_email_id);
 
     //Successfully Send Message
     QMetaObject::invokeMethod(main_ui, "successfullySend");
@@ -476,15 +479,10 @@ void HhmDocument::updateDocument()
     db->update(condition, values, HHM_TABLE_DOCUMENT);
 }
 
-/*
- * Append 'emailId' to 'field'
- * in table HHM_UE_USER_ID
- * @field: 'HHM_UE_RECEIVED_EMAILS' or 'HHM_UE_SENT_EMAILS'
- * */
-void HhmDocument::updateUserEmail(QString field, int emailId)
+void HhmDocument::updateSenderUserEmail(int emailId)
 {
     QString condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(new_data.senderId);
-    QSqlQuery res = db->select(field, HHM_TABLE_USER_EMAIL, condition);
+    QSqlQuery res = db->select(HHM_UE_SENT_EMAILS, HHM_TABLE_USER_EMAIL, condition);
     if( res.next() )
     {
         QString emails = res.value(0).toString();
@@ -497,7 +495,30 @@ void HhmDocument::updateUserEmail(QString field, int emailId)
             emails = QString::number(emailId) + "," + emails;
         }
         condition = "`" + QString(HHM_UE_USER_ID) + "`=" + QString::number(new_data.senderId);
-        QString value = "`" + QString(field) + "`='" + emails + "'";
+        QString value = "`" + QString(HHM_UE_SENT_EMAILS) + "`='" + emails + "'";
+        db->update(condition, value, HHM_TABLE_USER_EMAIL);
+    }
+}
+
+void HhmDocument::updateReceiverUserEmail(int emailId)
+{
+    QString condition = "`" + QString(HHM_UE_USER_ID) + "`=" + new_data.toUser.at(ID_INDEX).toString();
+    qDebug() << condition;
+    QSqlQuery res = db->select(HHM_UE_RECEIVED_EMAILS, HHM_TABLE_USER_EMAIL, condition);
+    if( res.next() )
+    {
+        qDebug() << res.value(0);
+        QString emails = res.value(0).toString();
+        if( emails.isEmpty() )
+        {
+            emails = QString::number(emailId);
+        }
+        else
+        {
+            emails = QString::number(emailId) + "," + emails;
+        }
+        condition = "`" + QString(HHM_UE_USER_ID) + "`=" + new_data.toUser.at(ID_INDEX).toString();
+        QString value = "`" + QString(HHM_UE_RECEIVED_EMAILS) + "`='" + emails + "'";
         db->update(condition, value, HHM_TABLE_USER_EMAIL);
     }
 }
@@ -576,7 +597,7 @@ QString HhmDocument::getFtpFilename()
 {
     QString src = new_data.filenames.at(attach_file_ind);
     ///FIXME: Ask Bijan
-    return ("DocumentManager/" +
+    return (/*"DocumentManager/" +*/
             QString::number(new_data.casenumber) + "_" + QFileInfo(src).fileName());
 }
 

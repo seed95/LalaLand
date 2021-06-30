@@ -13,13 +13,11 @@ HhmSidebar::HhmSidebar(QObject *root, HhmDatabase *database, HhmUser *userLogged
 
     connect(main_ui, SIGNAL(syncInbox()), this, SLOT(syncInbox()));
     connect(main_ui, SIGNAL(syncOutbox()), this, SLOT(syncOutbox()));
+    connect(main_ui, SIGNAL(syncEmails()), this, SLOT(syncEmails()));
 
     connect(inbox_ui, SIGNAL(readEmail(int)), this, SLOT(readEmail(int)));
     connect(outbox_ui, SIGNAL(readEmail(int)), this, SLOT(readEmail(int)));
     connect(search_ui, SIGNAL(readEmail(int)), this, SLOT(readEmail(int)));
-
-//    syncInbox();
-//    syncOutbox();
 }
 
 void HhmSidebar::updateSelectedEmail()
@@ -55,7 +53,6 @@ void HhmSidebar::loadEmails()
 /***************** Main Slots *****************/
 void HhmSidebar::syncInbox()
 {
-    qDebug() << "syncInbox" << m_user->getId();
     loadInboxEmails();
     hhm_updateFromServer();
     QMetaObject::invokeMethod(main_ui, "finishSync");
@@ -63,12 +60,18 @@ void HhmSidebar::syncInbox()
 
 void HhmSidebar::syncOutbox()
 {
-    qDebug() << "syncOutbox" << m_user->getId();
     loadOutboxEmails();
     hhm_updateFromServer();
     QMetaObject::invokeMethod(main_ui, "finishSync");
 }
 
+void HhmSidebar::syncEmails()
+{
+    syncInbox();
+    syncOutbox();
+}
+
+/***************** Box Slots *****************/
 void HhmSidebar::readEmail(int idEmail)
 {
     //Change State `opened` Email

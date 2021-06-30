@@ -22,6 +22,7 @@ Item
         anchors.top: parent.top
         anchors.topMargin: -25
         anchors.left: parent.left
+        emailState: container.sidebarState
         objectName: "DocumentAction"
 
         onSendDocumentClicked:
@@ -102,6 +103,7 @@ Item
         id: view_document
         anchors.left: parent.left
         anchors.top: actions.bottom
+        emailState: container.sidebarState
         objectName: "DocumentView"
         visible: documentState===con.hhm_DOCUMENT_VIEW_STATE
     }

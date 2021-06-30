@@ -2,6 +2,7 @@ import QtQuick 2.0
 
 Rectangle
 {
+    property int emailState: con.hhm_SIDEBAR_NONE_STATE
     //Cpp Signals
     signal newDocumentClicked()
 
@@ -63,7 +64,7 @@ Rectangle
         width: 140
         anchors.right: action_back2.left
         anchors.verticalCenter: parent.verticalCenter
-        visible: documentState===con.hhm_MESSAGE_VIEW_STATE
+        visible: documentState===con.hhm_MESSAGE_VIEW_STATE && emailState===con.hhm_SIDEBAR_INBOX_STATE
         icon_text: "\uf00c"
         action_text: qsTr("تأیید المستند")
         icon_left_margin: 8
@@ -84,7 +85,7 @@ Rectangle
         width: 80
         anchors.right: action_approve.left
         anchors.verticalCenter: parent.verticalCenter
-        visible: documentState===con.hhm_MESSAGE_VIEW_STATE
+        visible: documentState===con.hhm_MESSAGE_VIEW_STATE && emailState===con.hhm_SIDEBAR_INBOX_STATE
         icon_text: "\uf00d"
         action_text: qsTr("رفض")
         icon_left_margin: 8

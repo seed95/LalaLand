@@ -15,9 +15,7 @@ Window
     property string app_status:     "Updated from server 12:20PM"
     property string login_status:   "Server connected"
 
-    property int hhm_mode:                  con.hhm_MESSAGE_MODE
-    property int email_mode:                con.hhm_SIDEBAR_INBOX_STATE
-    property int selected_doc_case_number:  con.hhm_NO_SELECTED_ITEM
+    property int    hhm_mode:       con.hhm_MESSAGE_MODE
 
     //Error properties
     property string error_text:         ""

@@ -79,7 +79,8 @@ private slots:
 private:
     void setDocumentBaseId();
     void updateDocument();
-    void updateUserEmail(QString field, int emailId);
+    void updateSenderUserEmail(int emailId);
+    void updateReceiverUserEmail(int emailId);
     void insertNewEmail();
 
 

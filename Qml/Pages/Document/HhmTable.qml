@@ -3,10 +3,10 @@ import QtQuick 2.0
 Item
 {
 
+    property int tableMode: con.hhm_TABLE_NEW_MODE
+
     width: 584
     height: childrenRect.height
-
-    property int tableMode: con.hhm_TABLE_MODE_NEW
 
     Rectangle
     {
@@ -51,7 +51,7 @@ Item
             text_label: "موضوع الكتاب"
             right_margin_input: 32
             width_input: 125
-            isEnabled: tableMode===con.hhm_TABLE_MODE_NEW
+            isEnabled: tableMode===con.hhm_TABLE_NEW_MODE
         }
 
         HhmInputTable
@@ -65,7 +65,7 @@ Item
             text_label: "مضمون الكتاب"
             right_margin_input: 13
             width_input: 168
-            isEnabled: tableMode===con.hhm_TABLE_MODE_NEW
+            isEnabled: tableMode===con.hhm_TABLE_NEW_MODE
         }
     }
 
@@ -90,7 +90,7 @@ Item
             right_margin_input: 41
             width_input: 125
             isNumber: true
-            isEnabled: tableMode===con.hhm_TABLE_MODE_NEW
+            isEnabled: tableMode===con.hhm_TABLE_NEW_MODE
         }
 
         HhmDateInputTable
@@ -102,7 +102,7 @@ Item
             anchors.verticalCenter: parent.verticalCenter
             text_label: "تاريخ الصادر"
             left_margin_label: 26
-            isEnabled: tableMode===con.hhm_TABLE_MODE_NEW
+            isEnabled: tableMode===con.hhm_TABLE_NEW_MODE
         }
 
     }
@@ -128,7 +128,7 @@ Item
             right_margin_input: 42
             width_input: 125
             isNumber: true
-            isEnabled: tableMode===con.hhm_TABLE_MODE_CONTENT && root.email_mode===con.hhm_SIDEBAR_INBOX_STATE
+            isEnabled: tableMode===con.hhm_TABLE_VIEW_INBOX_MODE
         }
 
         HhmDateInputTable
@@ -140,7 +140,7 @@ Item
             anchors.verticalCenter: parent.verticalCenter
             text_label: "تاريخ الوارد"
             left_margin_label: 28
-            isEnabled: tableMode===con.hhm_TABLE_MODE_CONTENT && root.email_mode===con.hhm_SIDEBAR_INBOX_STATE
+            isEnabled: tableMode===con.hhm_TABLE_VIEW_INBOX_MODE
         }
 
     }
