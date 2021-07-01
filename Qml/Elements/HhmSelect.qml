@@ -91,8 +91,8 @@ Rectangle
         policy: ScrollBar.AsNeeded
     }
 
-    function addRole(role)
+    function addItem(item_text)
     {
-        hoverSelectModel.append({s_number: (hoverSelectModel.count+1),s_text: role})
+        hoverSelectModel.append({s_number: (hoverSelectModel.count+1),s_text: item_text})
     }
 }

@@ -122,6 +122,7 @@ Rectangle
 
     HhmUTableNewRole
     {
+        id: table_new_role
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
 
@@ -129,5 +130,10 @@ Rectangle
                     {
                         addUserRole();
                     }
+    }
+
+    function addRle(role)
+    {
+        table_new_role.addRole(role);
     }
 }

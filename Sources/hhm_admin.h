@@ -23,6 +23,7 @@ private slots:
     void addNewPermission(QString permission);
     void addNewDepartment(QString department);
     void setUserRole(int user_id, int user_role);
+    void addUserRole(int user_role);
     void setUserDepartment(int user_id, int user_department);
     void setRolePermission(int role_id, int permission_id, int value);
     void setDepartmentGroup(int department_id, int group_id);

@@ -12,6 +12,7 @@ HhmAdmin::HhmAdmin(QObject *root, HhmDatabase *database, QObject *parent): QObje
     connect(roles_ui, SIGNAL(createPermission(QString)), this, SLOT(addNewPermission(QString)));
     connect(departments_ui, SIGNAL(createDepartments(QString)), this, SLOT(addNewDepartment(QString)));
     connect(users_ui, SIGNAL(setUserRole(int, int)), this, SLOT(setUserRole(int, int)));
+    connect(users_ui, SIGNAL(addUserRole(int)), this, SLOT(addUserRole(int)));
 
     getUsers();
     getDepartment();
@@ -60,6 +61,31 @@ void HhmAdmin::setUserRole(int user_id, int user_role)
     QString condition = "`id_admin_users` = '" + QString::number(user_id) + "'";
     QString values = "`role_id` = '" + QString::number(user_role) + "'";
     db->update(condition, values, "user_role");
+}
+
+void HhmAdmin::addUserRole(int user_role)
+{
+    QSqlQuery res = db->select("*", "roles");
+
+    QSqlRecord rec = res.record();
+    int count = res.size();
+    QString column_s;
+
+    for( int i=0 ; i<user_role ; i++ )
+    {
+        if( res.next() )
+        {
+            ;///FIXME: A Bug Lies Here (Bijan)
+        }
+        else
+        {
+            qDebug() << "error getRoles";
+        }
+    }
+    QVariant data = res.value("role_name");
+    QString permissionName = data.toString();
+
+
 }
 
 void HhmAdmin::setUserDepartment(int user_id, int user_department)
@@ -170,6 +196,9 @@ void HhmAdmin::getDepartment()
             QString departmentName = data.toString();
             QQmlProperty::write(departments_ui, "department_name", departmentName);
             QMetaObject::invokeMethod(departments_ui, "addDepartment");
+
+            QQmlProperty::write(departments_ui, "group", departmentName);
+            QMetaObject::invokeMethod(departments_ui, "addGroup");
         }
         else
         {

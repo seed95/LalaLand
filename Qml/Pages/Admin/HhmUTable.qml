@@ -22,6 +22,7 @@ Rectangle
 
         HhmUTableRow
         {
+            id: utable_row
             width: parent.parent.width
             height: 30
             id_number: list_number
@@ -31,6 +32,7 @@ Rectangle
             onAddUserRole:
                          {
                             addUsrRole(id_number)
+                            addRle(list_name)
                          }
         }
     }

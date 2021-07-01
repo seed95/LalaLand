@@ -4,6 +4,7 @@ import QtQuick.Controls 2.10
 Rectangle
 {
     property string department_name: ""
+    property string group: ""
 
     height: childrenRect.height
     color: "transparent"
@@ -92,6 +93,11 @@ Rectangle
     function addDepartment()
     {
         department_table.addDepartmentsUser(department_name)
+    }
+
+    function addGroup()
+    {
+        dhover_select.addItem(group)
     }
 
 }

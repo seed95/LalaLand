@@ -2,7 +2,7 @@ import QtQuick 2.10
 //import QtQuick.Layouts 1.1
 import QtQuick.Controls 2.0
 
-Item
+Rectangle
 {
     id: container
 
@@ -14,12 +14,14 @@ Item
     signal clickTag()
 
     height: 30
-    width: 86
+    width: rect_username.width + 10
+
+    color: "transparent"
 
     Text
     {
         anchors.left: parent.left
-        anchors.leftMargin: 7
+        anchors.leftMargin: 3
         color: "#5790d5"
         font.family: fontDroidKufiRegular.name
         font.pixelSize: parent.height/2

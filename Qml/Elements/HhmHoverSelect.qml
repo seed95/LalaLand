@@ -25,7 +25,7 @@ Rectangle
     Rectangle
     {
         width: 275
-        height: childrenRect.height+40
+        height: select.height+40
         color: "#d2d2d2"
         border.width: 1
         border.color: "#8d9286"
@@ -46,9 +46,9 @@ Rectangle
 
     }
 
-    function addRole()
+    function addItem(i_item)
     {
-        select.addRole(role)
+        select.addItem(i_item)
     }
 
 }

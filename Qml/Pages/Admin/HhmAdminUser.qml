@@ -55,6 +55,7 @@ Rectangle
         visible: false
         onClickedBtn:
                     {
+                        addUserRole(value)
                         visible = false;
                         console.log(value)
                     }
@@ -94,6 +95,11 @@ Rectangle
 
     function addRole()
     {
-        hover_select.addRole(role)
+        hover_select.addItem(role)
+    }
+
+    function addRle()
+    {
+        u_table.addRole(role);
     }
 }

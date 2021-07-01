@@ -26,33 +26,12 @@ Rectangle
         width: parent.width
         height: 22
         anchors.right: parent.right
-        anchors.rightMargin: 5
+        anchors.rightMargin: 10
         anchors.verticalCenter: parent.verticalCenter
 
         model: ListModel
                {
                     id: lm_role
-
-                    ListElement
-                    {
-                        role_id: 1
-                        role_name: "goozoo"
-                        sep_visible: false
-                    }
-
-                    ListElement
-                    {
-                        role_id: 2
-                        role_name: "shashoo"
-                        sep_visible: true
-                    }
-
-                    ListElement
-                    {
-                        role_id: 3
-                        role_name: "shiri"
-                        sep_visible: true
-                    }
                }
         clip: true
         orientation: ListView.Horizontal
@@ -60,8 +39,10 @@ Rectangle
 
         delegate: HhmTag
         {
+            anchors.verticalCenter: parent.verticalCenter
             tag_text:   role_name
             separator_visible:  sep_visible
+            height: 22
 
             onClickTag:
             {
@@ -103,6 +84,11 @@ Rectangle
         {
             lm_role.get(lm_role.count-1).sepVisible = false
         }
+    }
+
+    function addRole(role)
+    {
+        lm_role.append({role_id: en2ar(lm_role.count+1),role_name: role, sep_visible:true })
     }
 
 }
