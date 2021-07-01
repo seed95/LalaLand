@@ -31,6 +31,8 @@ private:
     void getRoles();
     void getDepartment();
     void getUsers();
+    QString getUsername(int user_id);
+    QString getName(int user_id);
 
     QObject *departments_ui;
     QObject *roles_ui;

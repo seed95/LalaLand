@@ -8,7 +8,6 @@ Rectangle
     {
         id: permission_text1
         anchors.left: parent.left
-        anchors.leftMargin: 90
         anchors.top: parent.top
 
         height: 50

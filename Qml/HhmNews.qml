@@ -6,7 +6,7 @@ Rectangle
 
     property color color_text: "#3c3c3c"
 
-    height: 75
+    height: 60
     width: 980
     color: "#b4b4b4"
 

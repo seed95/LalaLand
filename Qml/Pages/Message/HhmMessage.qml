@@ -11,7 +11,7 @@ Item
     {
         id: actions
         anchors.top: parent.top
-        anchors.topMargin: -25
+        anchors.topMargin: -10
         anchors.left: parent.left
         objectName: "MessageAction"
         onSendMessageClicked: new_message.sendMessage()

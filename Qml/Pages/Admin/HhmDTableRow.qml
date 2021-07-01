@@ -29,6 +29,8 @@ Rectangle
     property string id_username: "name"
     property bool is_odd: ar2en(id_number)%2
 
+    signal addDepartmentGroup()
+
 
     width: 800
     height: 30
@@ -110,6 +112,11 @@ Rectangle
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
         anchors.leftMargin: 30
+
+        onClickedBtn:
+                    {
+                        addDepartmentGroup();
+                    }
     }
 
 }

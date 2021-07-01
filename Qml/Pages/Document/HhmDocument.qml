@@ -20,7 +20,7 @@ Item
     {
         id: actions
         anchors.top: parent.top
-        anchors.topMargin: -25
+        anchors.topMargin: -10
         anchors.left: parent.left
         emailState: container.sidebarState
         objectName: "DocumentAction"

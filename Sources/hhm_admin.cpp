@@ -37,7 +37,7 @@ void HhmAdmin::addNewPermission(QString permission)
     QString columns = "`role_id`, `role_name`, `permission_1`, `permission_2`, `permission_3`,";
     columns += " `permission_4`, `permission_5`, `permission_6`, `permission_7`, `permission_8`, `permission_9`";
     QString values = "'" + QString::number(count+1);
-    values += "', '" + permission + "', '0'"+ ", '0'"+ ", '0'"+ ", '0'"+ ", '0'"+ ", '0'"+ ", '0'"+ ", '0'"+ ", '0'";
+    values += "', '" + permission + "', '0', '0', '0', '0', '0', '0', '0', '0', '0'";
 
     db->insert(table, columns, values);
 }
@@ -140,8 +140,12 @@ void HhmAdmin::getRoles()
         {
             QVariant data = res.value("role_name");
             QString permissionName = data.toString();
+
             QQmlProperty::write(roles_ui, "permission_name", permissionName);
             QMetaObject::invokeMethod(roles_ui, "addPermission");
+
+            QQmlProperty::write(users_ui, "role", permissionName);
+            QMetaObject::invokeMethod(users_ui, "addRole");
         }
         else
         {
@@ -186,14 +190,58 @@ void HhmAdmin::getUsers()
     {
         if( res.next() )
         {
-            QVariant data = res.value("username");
-            QString userName = data.toString();
-            QQmlProperty::write(users_ui, "user_name", userName);
+            QVariant data = res.value("user_id");
+            int user_id = data.toInt();
+            QString username = getUsername(user_id);
+            QString name = getName(user_id);
+
+            QQmlProperty::write(users_ui, "user_username", username);
+            QQmlProperty::write(users_ui, "user_name", name);
             QMetaObject::invokeMethod(users_ui, "addUser");
         }
         else
         {
             qDebug() << "error getUsers";
         }
+    }
+}
+
+QString HhmAdmin::getUsername(int user_id)
+{
+
+    QString condition = "`id`='" + QString::number(user_id) + "'";
+    QSqlQuery res = db->select("*", HHM_TABLE_USER, condition);
+
+    if( res.next() )
+    {
+        QVariant data = res.value("username");
+        QString username = data.toString();
+        return username;
+    }
+    else
+    {
+        qDebug() << "error getUsername";
+        return "";
+    }
+}
+
+QString HhmAdmin::getName(int user_id)
+{
+    QString condition = "`id`='" + QString::number(user_id) + "'";
+    QSqlQuery res = db->select("*", HHM_TABLE_USER, condition);
+
+    if( res.next() )
+    {
+        QVariant data1 = res.value("firstname");
+        QVariant data2 = res.value("lastname");
+        QString name1 = data1.toString();
+        QString name2 = data2.toString();
+        QString name = name1 + " " + name2;
+        return name;
+    }
+    else
+    {
+        qDebug() << "error getUsername";
+        return "";
     }
 }

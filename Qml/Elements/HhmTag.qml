@@ -7,15 +7,11 @@ Item
     id: container
 
     property string tag_text:  "علي عدنان"
-    property string text_firstname:     "علي"
-    property string text_lastname:     "عدنان"
-    property int    id_user:            0
     property bool   separator_visible:  false//Separator is visible
 
-    property string text_name:     text_firstname + " " + text_lastname
     property bool   isHovered: false
 
-    signal clickUsername()
+    signal clickTag()
 
     height: 30
     width: 86
@@ -61,6 +57,7 @@ Item
                 "#5790d5"
             }
         }
+
         radius: 5
 
         Text
@@ -104,7 +101,7 @@ Item
         onClicked:
         {
             container.forceActiveFocus()
-            clickUsername()
+            clickTag()
         }
     }
 

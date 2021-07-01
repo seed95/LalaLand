@@ -31,7 +31,8 @@ Rectangle
 
     property bool is_odd: ar2en(id_number)%2
 
-    signal setUserRole (int user_id, int user_role)
+    signal setUserRole(int user_id, int user_role)
+    signal addUserRole()
 
 
     width: 850
@@ -123,5 +124,10 @@ Rectangle
     {
         anchors.left: parent.left
         anchors.verticalCenter: parent.verticalCenter
+
+        onAddUsrRole:
+                    {
+                        addUserRole();
+                    }
     }
 }

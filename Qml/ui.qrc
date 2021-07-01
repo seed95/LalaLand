@@ -56,5 +56,9 @@
         <file alias="HhmAttachmentBtn.qml">Elements/HhmAttachmentBtn.qml</file>
         <file alias="HhmAttachmentBar.qml">Elements/HhmAttachmentBar.qml</file>
         <file alias="HhmUTableNewRole.qml">Pages/Admin/HhmUTableNewRole.qml</file>
+        <file alias="HhmHoverSelect.qml">Elements/HhmHoverSelect.qml</file>
+        <file alias="HhmAdminSideBar.qml">Pages/Admin/HhmAdminSideBar.qml</file>
+        <file alias="HhmSelect.qml">Elements/HhmSelect.qml</file>
+        <file alias="HhmSelectBtn.qml">Elements/HhmSelectBtn.qml</file>
     </qresource>
 </RCC>

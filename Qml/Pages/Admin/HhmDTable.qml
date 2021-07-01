@@ -5,6 +5,7 @@ Item
     height: childrenRect.height
     width: 800
     signal crteDepartments(string text_value)
+    signal addDepartmentGrp()
 
 
     ListModel
@@ -20,6 +21,11 @@ Item
            {
                id_number: list_number
                id_username: list_username
+
+               onAddDepartmentGroup:
+               {
+                   addDepartmentGrp()
+               }
            }
     }
 

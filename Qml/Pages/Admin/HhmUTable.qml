@@ -2,9 +2,12 @@ import QtQuick 2.0
 
 Rectangle
 {
+    signal stUserRole(int user_id, int user_role)
+    signal addUsrRole(int user_id)
+
     width: 850
     height: childrenRect.height
-    signal stUserRole (int user_id, int user_role)
+
     color: "blue"
 
 
@@ -24,6 +27,11 @@ Rectangle
             id_number: list_number
             id_username: list_username
             id_name: list_name
+
+            onAddUserRole:
+                         {
+                            addUsrRole(id_number)
+                         }
         }
     }
 
@@ -40,8 +48,8 @@ Rectangle
         interactive: false
     }
 
-    function addUser(username)
+    function addUser(name, username)
     {
-        userListModel.append({list_number: en2ar(userListModel.count+1),list_username: username,list_name:"lolo"})
+        userListModel.append({list_number: en2ar(userListModel.count+1),list_username: username,list_name: name})
     }
 }

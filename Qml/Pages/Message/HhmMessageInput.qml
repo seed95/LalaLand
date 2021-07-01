@@ -253,12 +253,9 @@ Item
             delegate: HhmTag
             {
                 tag_text:      enteredUsername
-                text_firstname:     firstName
-                text_lastname:      lastName
-                id_user:            userId
                 separator_visible:  sepVisible
 
-                onClickUsername:
+                onClickTag:
                 {
                     removeUsername(enteredUsername)
                 }
