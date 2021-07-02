@@ -14,7 +14,7 @@ Item
     Image
     {
         anchors.fill: parent
-        source: "qrc:/login_bg.jpg"
+        source: "qrc:/Images/login_bg.jpg"
     }
 
     Rectangle

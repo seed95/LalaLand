@@ -4,13 +4,14 @@ Rectangle
 {
     id: container
 
+    //Set this variables in qml
     property int    attachMode:         con.hhm_ATTACHMENT_NONE_MODE
 
     //Set this variables in cpp
     property string attach_filename:    ""
     property int    attach_fileId:      0
 
-    property int cnt_id: 0//Counter for id of attach file
+    property int cnt_id: 0//Counter for id of attach file in upload mode
 
     //Qml Signals
     signal fileClicked(int idFile)
@@ -40,19 +41,19 @@ Rectangle
         flickableDirection: Flickable.AutoFlickIfNeeded
         clip: true
 
-        onContentWidthChanged:
-        {
-            if( contentWidth<container.width )
-            {
-                interactive = false
-                anchors.leftMargin = container.width - contentWidth
-            }
-            else
-            {
-                interactive = true
-                anchors.leftMargin = 1
-            }
-        }
+//        onContentWidthChanged:
+//        {
+//            if( contentWidth<container.width )
+//            {
+//                interactive = false
+//                anchors.leftMargin = container.width - contentWidth
+//            }
+//            else
+//            {
+//                interactive = true
+//                anchors.leftMargin = 1
+//            }
+//        }
 
         ListView
         {

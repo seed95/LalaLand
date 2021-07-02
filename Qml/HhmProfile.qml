@@ -47,7 +47,7 @@ Rectangle
             width: 78
             height: 78
             anchors.centerIn: parent
-            source: "qrc:/user_image.png"
+            source: "qrc:/Images/user_image.png"
         }
 
     }

@@ -33,6 +33,15 @@ Item
         anchors.left: parent.left
         anchors.top: actions.bottom
         objectName: "MessageNew"
+        visible: container.messageState===con.hhm_MESSAGE_VIEW_STATE
+    }
+
+    HhmMessageView
+    {
+        id: view_message
+        anchors.left: parent.left
+        anchors.top: actions.bottom
+        objectName: "MessageView"
         visible: container.messageState===con.hhm_MESSAGE_NEW_STATE
     }
 

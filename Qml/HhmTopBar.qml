@@ -45,7 +45,7 @@ Rectangle
         width: 115
         height: 65
         anchors.centerIn: parent
-        source: "qrc:/logo.png"
+        source: "qrc:/Images/logo.png"
     }
 
     Item
