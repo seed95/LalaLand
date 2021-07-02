@@ -60,5 +60,8 @@
         <file alias="HhmAdminSideBar.qml">Pages/Admin/HhmAdminSideBar.qml</file>
         <file alias="HhmSelect.qml">Elements/HhmSelect.qml</file>
         <file alias="HhmSelectBtn.qml">Elements/HhmSelectBtn.qml</file>
+        <file alias="HhmDownBtn.qml">Elements/HhmDownBtn.qml</file>
+        <file alias="HhmDropDialog.qml">Elements/HhmDropDialog.qml</file>
+        <file alias="HhmDropDownItem.qml">Elements/HhmDropDownItem.qml</file>
     </qresource>
 </RCC>

@@ -4,11 +4,15 @@ Rectangle
 {
     signal stUserRole(int user_id, int user_role)
     signal addUsrRole(int user_id)
+    signal clickedDownBottom()
+
+    property int row_number: 0
+    property string next_tag_text: ""
 
     width: 850
     height: childrenRect.height
 
-    color: "blue"
+    color: "transparent"
 
 
     ListModel
@@ -28,12 +32,19 @@ Rectangle
             id_number: list_number
             id_username: list_username
             id_name: list_name
+            addTagFlag: tag_flag
 
             onAddUserRole:
                          {
-                            addUsrRole(id_number)
-                            addRle(list_name)
+                            addUsrRole(id_number); //signal send to c++
+                            row_number = ar2en(id_number) - 1;
                          }
+
+            onClickedDnBottom:
+                             {
+                                clickedDownBottom();
+                                row_number = id_number;
+                             }
         }
     }
 
@@ -52,6 +63,23 @@ Rectangle
 
     function addUser(name, username)
     {
-        userListModel.append({list_number: en2ar(userListModel.count+1),list_username: username,list_name: name})
+        userListModel.append({list_number: en2ar(userListModel.count+1),
+                              list_username: username,list_name: name,
+                              tag_flag: 0})
+    }
+
+    function addRoleTagF(index)
+    {
+        var flag = userListModel.get(index).tag_flag;
+
+        if( flag )
+        {
+            userListModel.get(index).tag_flag = 0;
+        }
+        else
+        {
+            userListModel.get(index).tag_flag = 1;
+        }
+
     }
 }

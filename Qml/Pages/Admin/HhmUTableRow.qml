@@ -28,12 +28,18 @@ Rectangle
     property string id_number: "number"
     property string id_username: "username"
     property string id_name: "name"
+    property int addTagFlag: 0
 
     property bool is_odd: ar2en(id_number)%2
 
     signal setUserRole(int user_id, int user_role)
     signal addUserRole()
+    signal clickedDnBottom(int id_number)
 
+    onAddTagFlagChanged:
+                       {
+                            table_new_role.addRole(u_table.next_tag_text);
+                       }
 
     width: 850
     height: 30
@@ -116,7 +122,7 @@ Rectangle
 
         onClickedDownBottom:
                            {
-                                console.log("lolo");
+                                clickedDnBottom(ar2en(id_number))
                            }
     }
 
@@ -132,8 +138,8 @@ Rectangle
                     }
     }
 
-    function addRle(role)
+    function addTagRole(role_name)
     {
-        table_new_role.addRole(role);
+        table_new_role.addRole(role_name);
     }
 }

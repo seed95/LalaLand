@@ -22,8 +22,7 @@ public:
 private slots:
     void addNewPermission(QString permission);
     void addNewDepartment(QString department);
-    void setUserRole(int user_id, int user_role);
-    void addUserRole(int user_role);
+    void setUserRole(int user_index, int role_id);
     void setUserDepartment(int user_id, int user_department);
     void setRolePermission(int role_id, int permission_id, int value);
     void setDepartmentGroup(int department_id, int group_id);
@@ -34,6 +33,10 @@ private:
     void getUsers();
     QString getUsername(int user_id);
     QString getName(int user_id);
+    QString getPermissionName(int role_id);
+    int     getUserID(int user_index);
+    int     getUserIndex(int user_id);
+    void    getUserRoles(int user_index);
 
     QObject *departments_ui;
     QObject *roles_ui;

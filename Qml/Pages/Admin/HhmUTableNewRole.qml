@@ -62,11 +62,6 @@ Rectangle
                     {
                        addUsrRole();
                     }
-
-//        onSetUserRole:
-//        {
-//            stUserRole (int user_id, int user_role);
-//        }
     }
 
     function removeRole(role_id)
@@ -88,7 +83,12 @@ Rectangle
 
     function addRole(role)
     {
-        lm_role.append({role_id: en2ar(lm_role.count+1),role_name: role, sep_visible:true })
+        lm_role.append({role_id: en2ar(lm_role.count+1),role_name: role, sep_visible: false});
+
+        if( lm_role.count>1 )
+        {
+            lm_role.get(lm_role.count-2).sep_visible = true;
+        }
     }
 
 }

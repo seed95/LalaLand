@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 Rectangle
 {
-    signal clickedBtn(int value)
+    signal clickedBtn(int value, string sel_txt)
 
     property bool is_active: false
     property bool is_hovered: false
@@ -18,7 +18,7 @@ Rectangle
         MouseArea
         {
             anchors.fill: parent
-            onClicked: clickedBtn(-1);
+            onClicked: clickedBtn(-1, "");
         }
     }
 
@@ -40,7 +40,7 @@ Rectangle
 
             onClicked:
                      {
-                        clickedBtn(val)
+                        clickedBtn(val, sel_text)
                      }
         }
 

@@ -3,7 +3,7 @@ import QtQuick.Controls 2.10
 
 Rectangle
 {
-    signal clicked(int val)
+    signal clicked(int val , string sel_text)
 
     height: childrenRect.height
     color: "transparent"
@@ -23,7 +23,7 @@ Rectangle
                width: parent.parent.width
                onClcked:
                        {
-                           clicked(s_number);
+                           clicked(s_number , b_text);
                        }
            }
     }

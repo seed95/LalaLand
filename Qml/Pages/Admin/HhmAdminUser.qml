@@ -6,8 +6,7 @@ Rectangle
     property string user_name: ""
     property string user_username: ""
     property string role: ""
-    signal setUserRole (int user_id, int user_role)
-    signal addUserRole(int user_id)
+    signal setUserRole (int role_id, int user_id)
 
     height: childrenRect.height
     color: "transparent"
@@ -44,6 +43,13 @@ Rectangle
                         {
                               hover_select.visible = true;
                         }
+
+            onClickedDownBottom:
+                             {
+                                drop_dialog.visible = !drop_dialog.visible;
+                                console.log ("loloo");
+                                unselect_hover.visible = true;
+                             }
         }
     }
 
@@ -55,9 +61,13 @@ Rectangle
         visible: false
         onClickedBtn:
                     {
-                        addUserRole(value)
                         visible = false;
-                        console.log(value)
+                        if( sel_txt )
+                        {
+                            setUserRole(u_table.row_number, value);
+                            u_table.next_tag_text = sel_txt;
+                            u_table.addRoleTagF(u_table.row_number);
+                        }
                     }
     }
 
@@ -86,6 +96,37 @@ Rectangle
         }
 
         policy: ScrollBar.AsNeeded
+    }
+
+
+    Rectangle
+    {
+        id: unselect_hover
+        anchors.fill: parent
+        color: "black"
+        opacity: 0.02
+        visible: false
+
+        MouseArea
+        {
+            anchors.fill: parent
+            onClicked:
+                     {
+                         unselect_hover.visible = false;
+                         drop_dialog.visible = false;
+                     }
+        }
+    }
+
+    HhmDropDialog
+    {
+        id: drop_dialog
+        visible: false
+        anchors.left: parent.left
+        anchors.leftMargin: 420
+        anchors.top: parent.top
+        anchors.topMargin: 30*u_table.row_number + 68
+
     }
 
     function addUser()
