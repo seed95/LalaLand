@@ -171,7 +171,7 @@ Window
         id: login
         anchors.fill: parent
         z: 1
-        visible: false
+//        visible: false
         onSignInUser:
         {
             root.loginUser(uname, pass)

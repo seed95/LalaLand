@@ -55,7 +55,7 @@ void HhmChapar::loginUser(QString uname, QString pass)
     {
         QMetaObject::invokeMethod(ui, "loginSuccessfully");
         document->loginSuccessfully();
-//        message->loginSuccessfully();
+        message->loginSuccessfully();
     }
 }
 

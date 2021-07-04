@@ -41,19 +41,19 @@ Rectangle
         flickableDirection: Flickable.AutoFlickIfNeeded
         clip: true
 
-//        onContentWidthChanged:
-//        {
-//            if( contentWidth<container.width )
-//            {
-//                interactive = false
-//                anchors.leftMargin = container.width - contentWidth
-//            }
-//            else
-//            {
-//                interactive = true
-//                anchors.leftMargin = 1
-//            }
-//        }
+        onContentWidthChanged:
+        {
+            if( contentWidth<container.width )
+            {
+                interactive = false
+                anchors.leftMargin = container.width - contentWidth
+            }
+            else
+            {
+                interactive = true
+                anchors.leftMargin = 1
+            }
+        }
 
         ListView
         {

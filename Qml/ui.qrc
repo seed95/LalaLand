@@ -26,11 +26,14 @@
         <file alias="HhmDateInputTable.qml">Pages/Document/HhmDateInputTable.qml</file>
         <file alias="HhmInputTable.qml">Pages/Document/HhmInputTable.qml</file>
         <file alias="HhmTable.qml">Pages/Document/HhmTable.qml</file>
-        <file alias="HhmMessageInput.qml">Pages/Message/HhmMessageInput.qml</file>
+        <file alias="HhmMessage.qml">Pages/Message/HhmMessage.qml</file>
+        <file alias="HhmMessageList.qml">Pages/Message/HhmMessageList.qml</file>
+        <file alias="HhmMessageSidebar.qml">Pages/Message/HhmMessageSidebar.qml</file>
+        <file alias="HhmMessageSidebarElement.qml">Pages/Message/HhmMessageSidebarElement.qml</file>
         <file alias="HhmMessageAction.qml">Pages/Message/HhmMessageAction.qml</file>
         <file alias="HhmMessageNew.qml">Pages/Message/HhmMessageNew.qml</file>
-        <file alias="HhmMessage.qml">Pages/Message/HhmMessage.qml</file>
         <file alias="HhmMessageView.qml">Pages/Message/HhmMessageView.qml</file>
+        <file alias="HhmMessageInput.qml">Pages/Message/HhmMessageInput.qml</file>
         <file alias="HhmTab.qml">Pages/Admin/HhmTab.qml</file>
         <file alias="HhmAdmin.qml">Pages/Admin/HhmAdmin.qml</file>
         <file alias="HhmPTable.qml">Pages/Admin/HhmPTable.qml</file>

@@ -37,8 +37,8 @@ Item
     property int hhm_DOCUMENT_NEW_STATE:        1
     property int hhm_DOCUMENT_VIEW_STATE:       2
 
-    property string hhm_TEXT_DOC_STATUS_SUCCESS: qsTr("تمت بنجاح")
-    property string hhm_TEXT_DOC_STATUS_PENDING: qsTr("غير مقروءة")
-    property string hhm_TEXT_DOC_STATUS_FAILED:  qsTr("رفض")
+    property string hhm_TEXT_DOC_STATUS_SUCCESS: "تمت بنجاح"
+    property string hhm_TEXT_DOC_STATUS_PENDING: "غير مقروءة"
+    property string hhm_TEXT_DOC_STATUS_FAILED:  "رفض"
 
 }

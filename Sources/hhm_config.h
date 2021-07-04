@@ -22,14 +22,15 @@
 #define HHM_DOC_STATUS_REJECT  3
 
 //Tables
-#define HHM_TABLE_CONFIG       "config"
-#define HHM_TABLE_USER         "user"
-#define HHM_TABLE_EMAIL        "email"
-#define HHM_TABLE_DOCUMENT     "document"
-#define HHM_TABLE_USER_EMAIL   "user_email"
-#define HHM_TABLE_NEWS         "news"
-#define HHM_TABLE_FILES        "files"
-#define HHM_TABLE_MESSAGE      "message"
+#define HHM_TABLE_CONFIG                    "config"
+#define HHM_TABLE_USER                      "user"
+#define HHM_TABLE_EMAIL                     "email"
+#define HHM_TABLE_DOCUMENT                  "document"
+#define HHM_TABLE_USER_EMAIL                "user_email"
+#define HHM_TABLE_NEWS                      "news"
+#define HHM_TABLE_FILES                     "files"
+#define HHM_TABLE_MESSAGE                   "message"
+#define HHM_TABLE_JOIN_USER_MESSAGE         "join_user_message"
 
 //Columns in Table `HHM_TABLE_CONFIG`
 #define HHM_CONFIG_KEY          "config_key"
@@ -96,18 +97,20 @@
 //Columns in Table `HHM_TABLE_FILES`
 #define HHM_FILES_ID                 "id"
 #define HHM_FILES_FILENAME           "filename"
-#define HHM_FILES_SENDER_ID          "s_id"
-#define HHM_FILES_TO_IDS             "to_ids"
-#define HHM_FILES_CC_IDS             "cc_ids"
+#define HHM_FILES_MESSAGE_ID         "message_id"
 
 //Columns in Table `HHM_TABLE_MESSAGE`
 #define HHM_MESSAGE_ID                 "id"
-#define HHM_MESSAGE_SENDER_ID          "sender_id"
-#define HHM_MESSAGE_TO_IDS             "to_ids"
-#define HHM_MESSAGE_CC_IDS             "cc_ids"
 #define HHM_MESSAGE_SUBJECT            "subject"
 #define HHM_MESSAGE_CONTENT            "content"
-#define HHM_MESSAGE_FILE_IDS           "file_ids"
-#define HHM_MESSAGE_DATETIME           "date_time"
+#define HHM_MESSAGE_SEND_DATE          "send_date"
+#define HHM_MESSAGE_REPLY_ID           "reply_message_id"
+
+//Columns in Table `HHM_TABLE_JOIN_USER_MESSAGE`
+#define HHM_JUM_USER_ID                 "user_id"
+#define HHM_JUM_MESSAGE_ID              "message_id"
+#define HHM_JUM_SENDER_FLAG             "sender_flag"
+#define HHM_JUM_TO_FLAG                 "to_flag"
+#define HHM_JUM_CC_FLAG                 "cc_flag"
 
 #endif // HHM_CONFIG_H

@@ -170,6 +170,24 @@ QString hhm_removeCasenumber(QString file, int casenumber)
     return result;
 }
 
+QString hhm_appendMessageId(QString file, qint64 id)
+{
+    QString result;
+    QFileInfo file_info(file);
+    result = file_info.path() + "/" + file_info.baseName() + "_" + QString::number(id) +
+             "." + file_info.completeSuffix();
+    return result;
+}
+
+QString hhm_removeMessageId(QString file, qint64 id)
+{
+    QString result;
+    QFileInfo file_info(file);
+    QString file_name = file_info.fileName();
+    file_name = file_name.replace(QString::number(id) + "_", "");
+    result = file_info.path() + "/" + file_name;
+    return result;
+}
 
 //Print in qDebug and LOG_FILE
 void hhm_log(QString msg)

@@ -15,18 +15,29 @@
 #define ID_INDEX        0
 #define USERNAME_INDEX  1
 
+#define SENDER_FLAG  1
+#define TO_FLAG      2
+#define CC_FLAG      3
+
 typedef struct MessageData
 {
-    int             id;//message id
+    qint64          id;//message id
     int             senderId;
     QVariantList    toData;
     QVariantList    ccData;
     QString         subject;
     QString         content;
-    QString         date;
     QStringList     filenames;//attach filenames
-    QStringList     fileIds;
 }MessageData;
+
+
+
+typedef enum UserMessageType
+{
+    Sender,
+    To,
+    Cc
+} UserMessageType;
 
 class HhmMessage : public QObject
 {
@@ -49,6 +60,14 @@ private slots:
     void attachNewFile();
     void newMessageClicked();
 
+    //Sidebar Slots
+    void syncInbox();
+    void syncOutbox();
+    void syncMessages();
+
+    //Box Slots
+    void readMessage(QString idMessage);
+
     //Input Slots
     void addNewUsernameTo(QString username);
     void addNewUsernameCc(QString username);
@@ -58,28 +77,42 @@ private slots:
                         QString subject, QString content,
                         QVariant attachFiles);
 
+    //Main Slots
+    void showMessage(QString idMessage);
+
 private:
     void fillDestinationFilenames();
     void insertNewFile();
+    void insertNewUserMessage(int idUser, int flag);
+    void updateMessage();
+    void updateJUM();//Join User Message
     void uploadNextFile();
     void uploadAttachFilesFinished();
-    void updateMessage();
+
+    //Sidebar Functions
+    void loadInboxEmails();
+    void loadOutboxEmails();
+    void addMessageToSidebar(QObject *list_ui, qint64 messageId);
 
     //Utility Functions
     void addUserTag(QSqlQuery res, QObject *ui);
-    QStringList getUsersId(QVariantList users);
     int getMaxId(QString fieldId, QString table);
 
 private:
     QObject *main_ui;
     QObject *action_ui;
-
+    QObject *sidebar_ui;
     QObject *new_ui;
+    QObject *view_ui;
+
     QObject *new_input_to_ui;
     QObject *new_input_cc_ui;
     QObject *new_attachbar;
 
-    QObject *show_ui;
+    QObject *inbox_ui;
+    QObject *outbox_ui;
+    QObject *search_ui;
+
 
     HhmDatabase *db;
     HhmUser     *m_user;
@@ -91,7 +124,7 @@ private:
     QStringList dst_filenames;
 
     MessageData new_data;   //new message data
-    MessageData show_data;  //show message data
+    MessageData view_data;  //show message data
 };
 
 #endif // HHMMESSAGE_H

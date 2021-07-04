@@ -36,6 +36,7 @@ Rectangle
         }
     }
 
+    property color color_text_normal:           "#505050"
     property color color_text_active:           "#d7d7d7"
     property color color_text_active_hovered:   "#e6e6e6"
 
@@ -99,7 +100,7 @@ Rectangle
             }
             else
             {
-                "#505050"
+                color_text_normal
             }
         }
     }

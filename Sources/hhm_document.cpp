@@ -550,28 +550,29 @@ void HhmDocument::insertNewEmail()
  * */
 void HhmDocument::insertNewFile()
 {
-    //Insert new row file
-    QString columns  = "`" + QString(HHM_FILES_FILENAME) + "`, ";
-    columns += "`" + QString(HHM_FILES_SENDER_ID) + "`, ";
-    columns += "`" + QString(HHM_FILES_TO_IDS) + "`, ";
-    columns += "`" + QString(HHM_FILES_CC_IDS) + "`";
+    ///FIXME:
+//    //Insert new row file
+//    QString columns  = "`" + QString(HHM_FILES_FILENAME) + "`, ";
+//    columns += "`" + QString(HHM_FILES_SENDER_ID) + "`, ";
+//    columns += "`" + QString(HHM_FILES_TO_IDS) + "`, ";
+//    columns += "`" + QString(HHM_FILES_CC_IDS) + "`";
 
-    QString filename = getFtpFilename();
-    QString values  = "'" + filename + "'";
-    values += ", '" + QString::number(new_data.senderId) + "'";
-    values += ", '" + new_data.toUser.at(ID_INDEX).toString() + "'";
-    QString cc = "";
-    values += ", '" + cc + "'";
+//    QString filename = getFtpFilename();
+//    QString values  = "'" + filename + "'";
+//    values += ", '" + QString::number(new_data.senderId) + "'";
+//    values += ", '" + new_data.toUser.at(ID_INDEX).toString() + "'";
+//    QString cc = "";
+//    values += ", '" + cc + "'";
 
-    db->insert(HHM_TABLE_FILES, columns, values);
+//    db->insert(HHM_TABLE_FILES, columns, values);
 
-    int file_id = getMaxId(HHM_FILES_ID, HHM_TABLE_FILES);
-    if( file_id==-1 )
-    {
-        hhm_log("Table " + QString(HHM_TABLE_FILES) + " is empty");
-        file_id = 0;
-    }
-    new_data.fileIds.append(QString::number(file_id));
+//    int file_id = getMaxId(HHM_FILES_ID, HHM_TABLE_FILES);
+//    if( file_id==-1 )
+//    {
+//        hhm_log("Table " + QString(HHM_TABLE_FILES) + " is empty");
+//        file_id = 0;
+//    }
+//    new_data.fileIds.append(QString::number(file_id));
 }
 
 /***************** Utility Functions *****************/

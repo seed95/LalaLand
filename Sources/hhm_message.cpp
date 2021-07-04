@@ -9,13 +9,28 @@ HhmMessage::HhmMessage(QObject *root, HhmDatabase *database, HhmUser *userLogged
     main_ui     = root->findChild<QObject*>("Message");
     new_ui      = main_ui->findChild<QObject*>("MessageNew");
     action_ui   = main_ui->findChild<QObject*>("MessageAction");
+    sidebar_ui  = main_ui->findChild<QObject*>("MessageSidebar");
 
     new_input_to_ui   = main_ui->findChild<QObject*>("MessageNewTo");
     new_input_cc_ui   = main_ui->findChild<QObject*>("MessageNewCc");
     new_attachbar     = main_ui->findChild<QObject*>("MessageAttachbar");
 
+    inbox_ui  = sidebar_ui->findChild<QObject*>("InboxList");
+    outbox_ui = sidebar_ui->findChild<QObject*>("OutboxList");
+    search_ui = sidebar_ui->findChild<QObject*>("SearchList");
+
+    connect(main_ui, SIGNAL(showMessage(QString)), this, SLOT(showMessage(QString)));
+
     connect(action_ui, SIGNAL(attachNewFile()), this, SLOT(attachNewFile()));
     connect(action_ui, SIGNAL(newMessageClicked()), this, SLOT(newMessageClicked()));
+
+    connect(sidebar_ui, SIGNAL(syncInbox()), this, SLOT(syncInbox()));
+    connect(sidebar_ui, SIGNAL(syncOutbox()), this, SLOT(syncOutbox()));
+    connect(sidebar_ui, SIGNAL(syncMessages()), this, SLOT(syncMessages()));
+
+    connect(inbox_ui, SIGNAL(readMessage(QString)), this, SLOT(readMessage(QString)));
+    connect(outbox_ui, SIGNAL(readMessage(QString)), this, SLOT(readMessage(QString)));
+    connect(search_ui, SIGNAL(readMessage(QString)), this, SLOT(readMessage(QString)));
 
     connect(new_ui, SIGNAL(sendNewMessage(QVariant, QVariant, QString, QString, QVariant)),
             this, SLOT(sendNewMessage(QVariant, QVariant, QString, QString, QVariant)));
@@ -28,7 +43,6 @@ HhmMessage::HhmMessage(QObject *root, HhmDatabase *database, HhmUser *userLogged
     connect(ftp, SIGNAL(uploadFailed(QString)), this, SLOT(uploadFailed(QString)));
     connect(ftp, SIGNAL(downloadSuccess(QString)), this, SLOT(downloadSuccess(QString)));
     connect(ftp, SIGNAL(downloadFailed(QString)), this, SLOT(downloadFailed(QString)));
-
 }
 
 HhmMessage::~HhmMessage()
@@ -37,6 +51,11 @@ HhmMessage::~HhmMessage()
     {
         delete ftp;
     }
+}
+
+void HhmMessage::loginSuccessfully()
+{
+    loadInboxEmails();
 }
 
 /***************** Ftp Slots *****************/
@@ -74,6 +93,13 @@ void HhmMessage::downloadFailed(QString filename)
     qDebug() << filename;
 }
 
+/***************** Main Slots *****************/
+
+void HhmMessage::showMessage(QString idMessage)
+{
+    qDebug() << "showMessage" << idMessage.toLong();
+}
+
 /***************** Action Slots *****************/
 void HhmMessage::attachNewFile()
 {
@@ -91,19 +117,43 @@ void HhmMessage::attachNewFile()
 
 void HhmMessage::newMessageClicked()
 {
+    new_data.id = QDateTime::currentMSecsSinceEpoch();
     //Insert new row message
-    QString columns = "`" + QString(HHM_MESSAGE_SENDER_ID) + "`";
-    QString values  = "'" + QString::number(m_user->getId()) + "'";
+    QString columns = "`" + QString(HHM_MESSAGE_ID) + "`";
+    QString values  = "'" + QString::number(new_data.id) + "'";
     db->insert(HHM_TABLE_MESSAGE, columns, values);
-
-    //Get max message id
-    new_data.id = getMaxId(HHM_MESSAGE_ID, HHM_TABLE_MESSAGE);
-    if( new_data.id==-1 )
-    {
-        hhm_log("Table " + QString(HHM_TABLE_MESSAGE) + " is empty");
-        new_data.id = 0;
-    }
 }
+
+/***************** Sidebar Slots *****************/
+void HhmMessage::syncInbox()
+{
+    loadInboxEmails();
+    hhm_updateFromServer();
+    QMetaObject::invokeMethod(sidebar_ui, "finishSync");
+}
+
+void HhmMessage::syncOutbox()
+{
+    loadOutboxEmails();
+    hhm_updateFromServer();
+    QMetaObject::invokeMethod(sidebar_ui, "finishSync");
+}
+
+void HhmMessage::syncMessages()
+{
+    syncInbox();
+    syncOutbox();
+}
+
+/***************** Box Slots *****************/
+void HhmMessage::readMessage(QString idMessage)
+{
+//    //Change State `opened` Email
+//    QString condition = "`" + QString(HHM_EMAIL_ID) + "`=" + QString::number(idEmail);
+//    QString value = "`" + QString(HHM_EMAIL_OPENED) + "`=" + QString::number(1);
+//    db->update(condition, value, HHM_TABLE_EMAIL);
+}
+
 
 /***************** Input Slots *****************/
 void HhmMessage::addNewUsernameTo(QString username)
@@ -151,10 +201,6 @@ void HhmMessage::sendNewMessage(QVariant toData, QVariant ccData,
     new_data.subject    = subject;
     new_data.content    = content;
     new_data.filenames  = attachFiles.toStringList();
-    new_data.fileIds.clear();
-
-    QLocale locale(QLocale::English);
-    new_data.date = locale.toString(QDateTime::currentDateTime(), "yyyy-MM-dd hh:mm:ss");
 
     attach_file_ind = -1;
     uploadNextFile();
@@ -173,10 +219,10 @@ void HhmMessage::fillDestinationFilenames()
     QVariantList r_user;//Receiver(to,cc) user
 
     src = new_data.filenames.at(attach_file_ind);
-    dst_filename = hhm_appendCasenumber(src, new_data.id);
+    dst_filename = hhm_appendMessageId(src, new_data.id);
+    dst_filename = QFileInfo(dst_filename).fileName();
 
-    ///FIXME: Ask Bijan
-    dst_filepath  = /*"DocumentManager/" +*/ dst_filename;
+    dst_filepath  = dst_filename;
     dst_filenames.append(dst_filepath);
 
     ///FIXME: Ask Bijan
@@ -221,25 +267,8 @@ void HhmMessage::uploadNextFile()
 void HhmMessage::uploadAttachFilesFinished()
 {
     updateMessage();
+    updateJUM();
     QMetaObject::invokeMethod(main_ui, "successfullySend");
-}
-
-void HhmMessage::updateMessage()
-{
-    QString condition = "`" + QString(HHM_MESSAGE_ID) + "`='" +
-                        QString::number(new_data.id) + "'";
-    QStringList to_ids = getUsersId(new_data.toData);
-    QStringList cc_ids = getUsersId(new_data.ccData);
-    QString values = "`" + QString(HHM_MESSAGE_TO_IDS) + "`='" +
-                     to_ids.join(",") + "'";
-    values += ", `" + QString(HHM_MESSAGE_CC_IDS) + "`='" +
-              cc_ids.join(",") + "'";
-    values += ", `" + QString(HHM_MESSAGE_SUBJECT) + "`='" + new_data.subject + "'";
-    values += ", `" + QString(HHM_MESSAGE_CONTENT) + "`='" + new_data.content + "'";
-    values += ", `" + QString(HHM_MESSAGE_FILE_IDS) + "`='" + new_data.fileIds.join(",") + "'";
-    values += ", `" + QString(HHM_MESSAGE_DATETIME) +"`='" + new_data.date + "'";
-
-    db->update(condition, values, HHM_TABLE_MESSAGE);
 }
 
 /*
@@ -249,34 +278,130 @@ void HhmMessage::updateMessage()
  * */
 void HhmMessage::insertNewFile()
 {
-    //Insert new row file
-    QString columns  = "`" + QString(HHM_FILES_FILENAME) + "`, ";
-    columns += "`" + QString(HHM_FILES_SENDER_ID) + "`, ";
-    columns += "`" + QString(HHM_FILES_TO_IDS) + "`, ";
-    columns += "`" + QString(HHM_FILES_CC_IDS) + "`";
+    QString columns  = "`" + QString(HHM_FILES_FILENAME) + "`";
+    columns  += ", `" + QString(HHM_FILES_MESSAGE_ID) + "`";
 
     QString src = new_data.filenames.at(attach_file_ind);
-    ///FIXME: Ask Bijan
-    QString filename = /*"DocumentManager/" +*/ QString::number(new_data.id) + "_" + QFileInfo(src).fileName();
+    QString filename = hhm_appendMessageId(src, new_data.id);
+    filename = QFileInfo(filename).fileName();
 
-    QString values  = "'" + filename + "', ";
-    values += "'" + QString::number(m_user->getId()) + "', ";
-    QStringList to_ids = getUsersId(new_data.toData);
-    values += "'" + to_ids.join(",") + "', ";
-    QStringList cc_ids = getUsersId(new_data.ccData);
-    values += "'" + cc_ids.join(",") + "'";
+    QString values  = "'" + filename + "'";
+    values += ", '" + QString::number(new_data.id) + "'";
 
     db->insert(HHM_TABLE_FILES, columns, values);
-
-    int file_id = getMaxId(HHM_FILES_ID, HHM_TABLE_FILES);
-    if( file_id==-1 )
-    {
-        hhm_log("Table " + QString(HHM_TABLE_FILES) + " is empty");
-        file_id = 0;
-    }
-    new_data.fileIds.append(QString::number(file_id));
 }
 
+void HhmMessage::updateMessage()
+{
+    QString condition = "`" + QString(HHM_MESSAGE_ID) + "`=" +
+                        QString::number(new_data.id);
+    QString values = "`" + QString(HHM_MESSAGE_SUBJECT) + "`='" +
+                     new_data.subject + "'";
+    values += ", `" + QString(HHM_MESSAGE_CONTENT) + "`='" +
+              new_data.content + "'";
+
+    QLocale locale(QLocale::English);
+    QString date = locale.toString(QDateTime::currentDateTime(), "yyyy-MM-dd hh:mm:ss");
+    values += ", `" + QString(HHM_MESSAGE_SEND_DATE) + "`='" +
+              date + "'";
+    db->update(condition, values, HHM_TABLE_MESSAGE);
+}
+
+void HhmMessage::updateJUM()
+{
+    QVariantList r_user;//Receiver(to,cc) user
+
+    insertNewUserMessage(m_user->getId(), SENDER_FLAG);
+
+    for(int to_ind=0; to_ind<new_data.toData.length(); to_ind++)
+    {
+        r_user = new_data.toData.at(to_ind).toList();
+        insertNewUserMessage(r_user.at(ID_INDEX).toInt(), TO_FLAG);
+    }
+
+    for(int cc_ind=0; cc_ind<new_data.ccData.length(); cc_ind++)
+    {
+        r_user = new_data.toData.at(cc_ind).toList();
+        insertNewUserMessage(r_user.at(ID_INDEX).toInt(), CC_FLAG);
+    }
+}
+
+void HhmMessage::insertNewUserMessage(int idUser, int flag)
+{
+//    QVariantList user = new_data.toData.at(to_ind).toList();
+    QString columns = "`" + QString(HHM_JUM_USER_ID) + "`";
+    columns += ", `" + QString(HHM_JUM_MESSAGE_ID) + "`";
+    if( flag==SENDER_FLAG )
+    {
+        columns += ", `" + QString(HHM_JUM_SENDER_FLAG) + "`";
+    }
+    else if( flag==TO_FLAG )
+    {
+        columns += ", `" + QString(HHM_JUM_TO_FLAG) + "`";
+    }
+    else if( flag==CC_FLAG )
+    {
+        columns += ", `" + QString(HHM_JUM_CC_FLAG) + "`";
+    }
+
+    QString values  = "'" + QString::number(idUser) + "'";
+    values += ", '" + QString::number(new_data.id) + "'";
+    values += ", '1'";
+    db->insert(HHM_TABLE_JOIN_USER_MESSAGE, columns, values);
+}
+
+/***************** Sidebar Functions *****************/
+void HhmMessage::loadInboxEmails()
+{
+    QString condition = "`" + QString(HHM_JUM_USER_ID) + "`=" +
+                        QString::number(m_user->getId());
+    condition += " AND ( `" + QString(HHM_JUM_TO_FLAG) + "`='1'";
+    condition += " OR `" + QString(HHM_JUM_CC_FLAG) + "`='1')";
+    QSqlQuery res = db->select(HHM_JUM_MESSAGE_ID, HHM_TABLE_JOIN_USER_MESSAGE, condition);
+    while( res.next() )
+    {
+        qDebug() << res.value(0).toString();
+        addMessageToSidebar(inbox_ui, res.value(0).toLongLong());
+    }
+}
+
+void HhmMessage::loadOutboxEmails()
+{
+//    showEmailInSidebar(outbox_ui, getIdEmails(HHM_UE_SENT_EMAILS));
+}
+
+void HhmMessage::addMessageToSidebar(QObject *list_ui, qint64 messageId)
+{
+
+    QString condition = "`" + QString(HHM_MESSAGE_ID) + "`=" +
+                        QString::number(messageId);
+    QSqlQuery res = db->select("*", HHM_TABLE_MESSAGE, condition);
+    if( res.next() )
+    {
+        QQmlProperty::write(list_ui, "messageId", QString::number(messageId));
+
+        QVariant data = res.value(HHM_MESSAGE_SUBJECT);
+        if( data.isValid() )
+        {
+            QQmlProperty::write(list_ui, "subject", data.toInt());
+        }
+
+//        data = res.value(HHM_MESSAGE_CONTENT);
+//        if( data.isValid() )
+//        {
+//            QQmlProperty::write(list_ui, "text_subject", data.toString());
+//        }
+
+        data = res.value(HHM_MESSAGE_SEND_DATE);
+        if( data.isValid() )
+        {
+            QQmlProperty::write(list_ui, "date", data.toInt());
+        }
+
+        QQmlProperty::write(list_ui, "isRead", false);
+        QMetaObject::invokeMethod(list_ui, "addToList");
+    }
+}
 /***************** Utility Functions *****************/
 void HhmMessage::addUserTag(QSqlQuery res, QObject *ui)
 {
@@ -321,21 +446,6 @@ void HhmMessage::addUserTag(QSqlQuery res, QObject *ui)
     }
 
     QMetaObject::invokeMethod(ui, "addUsername");
-}
-
-/*
- * Return ids in 'users' variable
- * */
-QStringList HhmMessage::getUsersId(QVariantList users)
-{
-    QStringList result;
-    QVariantList user;//user
-    for(int i=0; i<users.length(); i++)
-    {
-        user = users.at(i).toList();
-        result.append(user.at(ID_INDEX).toString());
-    }
-    return result;
 }
 
 /*
