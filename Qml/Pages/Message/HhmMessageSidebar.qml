@@ -23,7 +23,8 @@ Rectangle
     //Qml Signals
     signal inboxClicked()
     signal outboxClicked()
-    signal messageClicked(string idMessage)
+    signal selectMessage(string idMessage)
+    signal deselectMessage()
 
     color: "#d7d7d7"
     width: 300
@@ -119,6 +120,7 @@ Rectangle
 
                 onClicked:
                 {
+                    inbox.forceActiveFocus()
                     inboxClicked()
                 }
 
@@ -171,6 +173,7 @@ Rectangle
 
                 onClicked:
                 {
+                    outbox.forceActiveFocus()
                     outboxClicked()
                 }
 
@@ -255,12 +258,13 @@ Rectangle
         if( container.selectedMessageId===idMessage )
         {
             container.selectedMessageId = con.hhm_NO_SELECTED_ITEM
+            deselectMessage()
         }
         else
         {
             container.selectedMessageId = idMessage
+            selectMessage(idMessage)
         }
-        messageClicked(container.selectedMessageId)
     }
 
     function searchText(text)

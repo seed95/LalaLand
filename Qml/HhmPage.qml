@@ -29,6 +29,7 @@ Item
     function signOut()
     {
         document.signOut()
+        message.signOut()
     }
 
 }

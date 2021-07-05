@@ -13,7 +13,7 @@ bool HhmUser::loadUser(QString username, QString password)
     QSqlQuery res = db->select("*", HHM_TABLE_USER, condition);
     if( !res.next() )
     {
-        hhm_showMessage(tr("Username or Password is wrong"), 3000);
+        hhm_showMessage("Username or Password is wrong", 3000);
         return false;
     }
 
@@ -158,6 +158,76 @@ QString HhmUser::getBio()
 QString HhmUser::getImage()
 {
     QVariant data = QQmlProperty::read(ui, "image");
+    return data.toString();
+}
+
+QString HhmUser::getFirstname(int id)
+{
+    QString condition = "`" + QString(HHM_USER_ID) + "`='" +
+                        QString::number(id) + "'";
+    QSqlQuery res = db->select(HHM_USER_FIRSTNAME, HHM_TABLE_USER, condition);
+
+    if( !res.next() )
+    {
+        hhm_log("User id is not valid " + QString::number(id));
+        return "";
+    }
+
+    QVariant data = res.value(HHM_USER_FIRSTNAME);
+    return data.toString();
+}
+
+QString HhmUser::getLastname(int id)
+{
+    QString condition = "`" + QString(HHM_USER_ID) + "`='" +
+                        QString::number(id) + "'";
+    QSqlQuery res = db->select(HHM_USER_LASTNAME, HHM_TABLE_USER, condition);
+
+    if( !res.next() )
+    {
+        hhm_log("User id is not valid " + QString::number(id));
+        return "";
+    }
+
+    QVariant data = res.value(HHM_USER_LASTNAME);
+    return data.toString();
+}
+
+QString HhmUser::getName(int id)
+{
+    QString condition = "`" + QString(HHM_USER_ID) + "`='" +
+                        QString::number(id) + "'";
+    QString fields = "" + QString(HHM_USER_FIRSTNAME) +
+                     ", " + QString(HHM_USER_LASTNAME);
+    QSqlQuery res = db->select(fields, HHM_TABLE_USER, condition);
+
+    if( !res.next() )
+    {
+        hhm_log("User id is not valid " + QString::number(id));
+        return "";
+    }
+
+    QString result;
+    QVariant data = res.value(HHM_USER_FIRSTNAME);
+    result = data.toString();
+    data = res.value(HHM_USER_LASTNAME);
+    result += " " + data.toString();
+    return result;
+}
+
+QString HhmUser::getUsername(int id)
+{
+    QString condition = "`" + QString(HHM_USER_ID) + "`='" +
+                        QString::number(id) + "'";
+    QSqlQuery res = db->select(HHM_USER_USERNAME, HHM_TABLE_USER, condition);
+
+    if( !res.next() )
+    {
+        hhm_log("User id is not valid " + QString::number(id));
+        return "";
+    }
+
+    QVariant data = res.value(HHM_USER_USERNAME);
     return data.toString();
 }
 

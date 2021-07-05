@@ -8,7 +8,7 @@ Item
     //Set this variables in cpp
     property string messageId:      ""//The Qml does not support int64
     property string subject:        "النادي تعديل الزوراء كأس العراق"
-    property string name:           "ابراهيم محمد"
+    property string senderName:     "ابراهيم محمد"
     property string date:           "۷:۱۷"
     property bool   isRead:         false
     property bool   containFile:    true
@@ -97,7 +97,7 @@ Item
             if( container.messageId===lm_message.get(i).idMessage )
             {
                 lm_message.get(i).textSubject   = container.subject
-                lm_message.get(i).textName      = container.name
+                lm_message.get(i).textName      = container.senderName
                 lm_message.get(i).textDate      = container.date
                 lm_message.get(i).isOpen        = container.isRead
                 lm_message.get(i).isAttach      = container.containFile
@@ -108,7 +108,7 @@ Item
             {
                 lm_message.insert(i, {  "idMessage" : container.messageId,
                                         "textSubject" : container.subject,
-                                        "textName" : container.name,
+                                        "textName" : container.senderName,
                                         "textDate" : container.date,
                                         "isOpen" : container.isRead,
                                         "isAttach" : container.containFile})
@@ -117,7 +117,7 @@ Item
         }
         lm_message.append({ "idMessage" : container.messageId,
                             "textSubject" : container.subject,
-                            "textName" : container.name,
+                            "textName" : container.senderName,
                             "textDate" : container.date,
                             "isOpen" : container.isRead,
                             "isAttach" : container.containFile})

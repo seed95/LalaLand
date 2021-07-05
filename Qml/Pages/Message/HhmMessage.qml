@@ -9,7 +9,7 @@ Item
     property int sidebarState:  con.hhm_SIDEBAR_NONE_STATE
 
     //Cpp Signals
-    signal showMessage(string idMessage)
+    signal messageClicked(string idMessage)
 
     Settings
     {
@@ -23,7 +23,14 @@ Item
         anchors.topMargin: -10
         anchors.left: parent.left
         objectName: "MessageAction"
+
         onSendMessageClicked: new_message.sendMessage()
+
+        onViewBackClicked:
+        {
+            container.messageState = con.hhm_MESSAGE_NONE_STATE
+            sidebar.clearSelectedItem()
+        }
     }
 
     HhmMessageSidebar
@@ -53,16 +60,14 @@ Item
             }
         }
 
-        onMessageClicked:
+        onSelectMessage:
         {
-            if( idMessage===con.hhm_NO_SELECTED_ITEM )
-            {
-                container.messageState = con.hhm_MESSAGE_NONE_STATE
-            }
-            else
-            {
-                showMessage(idMessage)
-            }
+            messageClicked(idMessage)
+        }
+
+        onDeselectMessage:
+        {
+            container.messageState = con.hhm_MESSAGE_NONE_STATE
         }
 
     }
@@ -91,5 +96,18 @@ Item
         //Check if a message selected, state changed to hhm_MESSAGE_VIEW_STATE
         container.messageState = con.hhm_MESSAGE_NONE_STATE
     }
+
+    function showMessage()
+    {
+        container.messageState = con.hhm_MESSAGE_VIEW_STATE
+    }
+
+    /*** Call this functions from qml ***/
+    function signOut()
+    {
+        container.messageState = con.hhm_MESSAGE_NONE_STATE
+        sidebar.signOut()
+    }
+
 
 }

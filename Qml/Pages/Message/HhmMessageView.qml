@@ -2,11 +2,13 @@ import QtQuick 2.0
 
 Rectangle
 {
+    //Set this variables in cpp
+    property string messageId:      ""//The Qml does not support int64
     property string subject:        "النادي تعديل الزوراء كأس العراق"
-    property string sender_name:    "علاء عباس"
-    property string to_name:        "ابراهيم محمد"
-    property string cc_name:        "صفاء هادي"
-    property string date_time:      "۲۴ مايو/ أيار  ۲۰۲۱ الساعة ۱۲:۱۵"
+    property string senderName:     "علاء عباس"
+    property string toName:         "ابراهيم محمد"
+    property string ccName:         "صفاء هادي"
+    property string dateTime:       "۲۴ مايو/ أيار  ۲۰۲۱ الساعة ۱۲:۱۵"
     property string content:        "علي عدنان (من مواليد 19 ديسمبر 1993 في حي القاهرة في الأعظمية، بغداد، العراق)، لاعب المنتخب العراقي لكرة القدم. يلعب في الظهير الايسر مع نادي فانكوفر وايتكابس الكندي في الدوري الأميركي. كان أحد الفائزين كأفضل لاعب آسيوي شاب للعام 2013. لعب في كأس آسيا للشباب 2012 في الإمارات، وحصل مع منتخب بلاده على القلادة الفضية.
 عمه هو علي كاظم أحد أشهر لاعبين كرة القدم لعب مع الفرق الكروية العراقية في عقد السبعينيات من القرن الماضي. علي عدنان (من مواليد 19 ديسمبر 1993 في حي القاهرة في الأعظمية، بغداد، العراق)، لاعب المنتخب العراقي لكرة القدم. يلعب في الظهير الايسر مع نادي فانكوفر وايتكابس الكندي في الدوري الأميركي. كان أحد الفائزين كأفضل لاعب آسيوي شاب للعام 2013. لعب في كأس آسيا للشباب 2012 في الإمارات، وحصل مع منتخب بلاده على القلادة الفضية.
 عمه هو علي كاظم أحد أشهر لاعبين كرة القدم لعب مع الفرق الكروية العراقية في عقد السبعينيات من القرن الماضي. علي عدنان (من مواليد 19 ديسمبر 1993 في حي القاهرة في الأعظمية، بغداد، العراق)، لاعب المنتخب العراقي لكرة القدم. يلعب في الظهير الايسر مع نادي فانكوفر وايتكابس الكندي في الدوري الأميركي. كان أحد الفائزين كأفضل لاعب آسيوي شاب للعام 2013. لعب في كأس آسيا للشباب 2012 في الإمارات، وحصل مع منتخب بلاده على القلادة الفضية.
@@ -18,18 +20,12 @@ Rectangle
 عمه هو علي كاظم أحد أشهر لاعبين كرة القدم لعب مع الفرق الكروية العراقية في عقد السبعينيات من القرن الماضي. علي عدنان (من مواليد 19 ديسمبر 1993 في حي القاهرة في الأعظمية، بغداد، العراق)، لاعب المنتخب العراقي لكرة القدم. يلعب في الظهير الايسر مع نادي فانكوفر وايتكابس الكندي في الدوري الأميركي. كان أحد الفائزين كأفضل لاعب آسيوي شاب للعام 2013. لعب في كأس آسيا للشباب 2012 في الإمارات، وحصل مع منتخب بلاده على القلادة الفضية.
 عمه هو علي كاظم أحد أشهر لاعبين كرة القدم لعب مع الفرق الكروية العراقية في عقد السبعينيات من القرن الماضي. "
 
+    //Cpp Signals
+    signal downloadFile(int idFile)
+
     width: 980
     height: 675
     color: "#dcdcdc"
-
-    Component.onCompleted:
-    {
-        attachbar1.attach_filename = "filename1.pdf"
-        attachbar1.addAttachFile()
-
-        attachbar1.attach_filename = "filename2.pdf"
-        attachbar1.addAttachFile()
-    }
 
     Text
     {
@@ -112,7 +108,7 @@ Rectangle
     {
         id: top_data
         width: parent.width
-        height: 86
+        height: downloadbar.height + downloadbar.y
         anchors.left: parent.left
         anchors.top: split_line1.bottom
 
@@ -135,7 +131,7 @@ Rectangle
             anchors.rightMargin: 28
             anchors.top: parent.top
             anchors.topMargin: 2
-            text: sender_name
+            text: senderName
             font.family: fontDroidKufiRegular.name
             font.weight: Font.Normal
             font.pixelSize: 20
@@ -148,7 +144,7 @@ Rectangle
             anchors.right: label_name_sender.right
             anchors.top: label_name_sender.bottom
             anchors.topMargin: -6
-            text: "به: " + to_name
+            text: "به: " + toName
             font.family: fontDroidKufiRegular.name
             font.weight: Font.Normal
             font.pixelSize: 12
@@ -161,7 +157,7 @@ Rectangle
             anchors.right: label_name_sender.right
             anchors.top: label_name_to.bottom
             anchors.topMargin: -4
-            text: "نسخة إلى: " + cc_name
+            text: "نسخة إلى: " + ccName
             font.family: fontDroidKufiRegular.name
             font.weight: Font.Normal
             font.pixelSize: 12
@@ -175,27 +171,28 @@ Rectangle
             anchors.leftMargin: 38
             anchors.top: parent.top
             anchors.topMargin: 8
-            text: date_time
+            text: dateTime
             font.family: fontDroidKufiRegular.name
             font.weight: Font.Normal
             font.pixelSize: 15
             color: "#646464"
         }
 
-        HhmAttachmentBar
+        HhmMessageDownloadBar
         {
-            id: attachbar1
-            width: 300
+            id: downloadbar
+            width: parent.width
             anchors.top: label_date_time.bottom
-            anchors.topMargin: -15
+            anchors.topMargin: 10
             anchors.left: label_date_time.left
-            color: "transparent"
-            attachMode: con.hhm_ATTACHMENT_DOWNLOAD_MODE
-            objectName: "MessageViewAttachbar1"
+            anchors.right: image_sender.right
+            objectName: "MessageDownloadbar"
 
             onFileClicked:
             {
+                downloadFile(idFile)
             }
+
         }
 
     }
@@ -207,6 +204,7 @@ Rectangle
         height: 1
         anchors.left: split_line1.left
         anchors.top: top_data.bottom
+        anchors.topMargin: 11
         color: "#bebebe"
     }
 

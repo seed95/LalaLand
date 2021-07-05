@@ -4,6 +4,11 @@ Rectangle
 {
     id: container
 
+    property string placeholder_content: "اكتب المحتوى هنا"
+
+    property color color_input_normal:      "#464646"
+    property color color_input_placeholder: "#828282"
+
     //Cpp Signals
     signal sendNewMessage(variant toData, variant ccData, string subject,
                           string content, variant attachFiles)
@@ -73,7 +78,7 @@ Rectangle
                 parent.bottom
             }
         }
-        contentHeight: input_message.contentHeight + input_message.anchors.topMargin
+        contentHeight: content_message.contentHeight + content_message.anchors.topMargin
         clip: true
         flickableDirection: Flickable.VerticalFlick
 
@@ -85,8 +90,8 @@ Rectangle
 
         function updateContentY()
         {
-            var cursorRect = input_message.cursorRectangle
-            var top_margin = input_message.anchors.topMargin
+            var cursorRect = content_message.cursorRectangle
+            var top_margin = content_message.anchors.topMargin
             if( contentY>=cursorRect.y )
             {
                 contentY = cursorRect.y
@@ -99,27 +104,46 @@ Rectangle
 
         TextEdit
         {
-            id: input_message
+            id: content_message
             anchors.left: parent.left
             anchors.leftMargin: 30
             anchors.right: parent.right
             anchors.rightMargin: 30
             anchors.top: parent.top
             anchors.topMargin: 30
-            text: "علي عدنان (من مواليد 19 ديسمبر 1993 في حي القاهرة في الأعظمية، بغداد، العراق)، لاعب المنتخب العراقي لكرة القدم. يلعب في الظهير الايسر مع نادي فانكوفر وايتكابس الكندي في الدوري الأميركي. كان أحد الفائزين كأفضل لاعب آسيوي شاب للعام 2013. لعب في كأس آسيا للشباب 2012 في الإمارات، وحصل مع منتخب بلاده على القلادة الفضية.
-عمه هو علي كاظم أحد أشهر لاعبين كرة القدم لعب مع الفرق الكروية العراقية في عقد السبعينيات من القرن الماضي.علي عدنان (من مواليد 19 ديسمبر 1993 في حي القاهرة في الأعظمية، بغداد، العراق)، لاعب المنتخب العراقي لكرة القدم. يلعب في الظهير الايسر مع نادي فانكوفر وايتكابس الكندي في الدوري الأميركي. كان أحد الفائزين كأفضل لاعب آسيوي شاب للعام 2013. لعب في كأس آسيا للشباب 2012 في الإمارات، وحصل مع منتخب بلاده على القلادة الفضية.
-عمه هو علي كاظم أحد أشهر لاعبين كرة القدم لعب مع الفرق الكروية العراقية في عقد السبعينيات من القرن الماضي. علي عدنان (من مواليد 19 ديسمبر 1993 في حي القاهرة في الأعظمية، بغداد، العراق)، لاعب المنتخب العراقي لكرة القدم. يلعب في الظهير الايسر مع نادي فانكوفر وايتكابس الكندي في الدوري الأميركي. كان أحد الفائزين كأفضل لاعب آسيوي شاب للعام 2013. لعب في كأس آسيا للشباب 2012 في الإمارات، وحصل مع منتخب بلاده على القلادة الفضية.
-عمه هو علي كاظم أحد أشهر لاعبين كرة القدم لعب مع الفرق الكروية العراقية في عقد السبعينيات من القرن الماضي. علي عدنان (من مواليد 19 ديسمبر 1993 في حي القاهرة في الأعظمية، بغداد، العراق)، لاعب المنتخب العراقي لكرة القدم. يلعب في الظهير الايسر مع نادي فانكوفر وايتكابس الكندي في الدوري الأميركي. كان أحد الفائزين كأفضل لاعب آسيوي شاب للعام 2013. لعب في كأس آسيا للشباب 2012 في الإمارات، وحصل مع منتخب بلاده على القلادة الفضية.
-عمه هو علي كاظم أحد أشهر لاعبين كرة القدم لعب مع الفرق الكروية العراقية في عقد السبعينيات من القرن الماضي. علي عدنان (من مواليد 19 ديسمبر 1993 في حي القاهرة في الأعظمية، بغداد، العراق)، لاعب المنتخب العراقي لكرة القدم. يلعب في الظهير الايسر مع نادي فانكوفر وايتكابس الكندي في الدوري الأميركي. كان أحد الفائزين كأفضل لاعب آسيوي شاب للعام 2013. لعب في كأس آسيا للشباب 2012 في الإمارات، وحصل مع منتخب بلاده على القلادة الفضية.
-عمه هو علي كاظم أحد أشهر لاعبين كرة القدم لعب مع الفرق الكروية العراقية في عقد السبعينيات من القرن الماضي.  "
+            text: placeholder_content
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 15
-            color: "#464646"
-            wrapMode: TextEdit.WordWrap
+            color: color_input_placeholder
+            wrapMode: TextEdit.Wrap
+            horizontalAlignment: Text.AlignRight
             selectedTextColor: "#222"
             selectionColor: "#888"
             selectByMouse: true
             onCursorRectangleChanged: flick_middle.updateContentY()
+
+            onFocusChanged:
+            {
+                if( focus )
+                {
+                    if( text===placeholder_content )
+                    {
+                        text = ""
+                    }
+
+                    color = color_input_normal
+                }
+                else
+                {
+                    if( text==="" )
+                    {
+                        text = placeholder_content
+                        color = color_input_placeholder
+                    }
+                }
+            }
+
+
         }
     }
 
@@ -138,8 +162,17 @@ Rectangle
         sendNewMessage(text_input_to.getUsernameIds(),
                        text_input_cc.getUsernameIds(),
                        text_input_subject.getSubject(),
-                       input_message.text,
+                       getContent(),
                        attachbar.getAttachFiles())
+    }
+
+    function getContent()
+    {
+        if( content_message.text===container.placeholder_content )
+        {
+            return ""
+        }
+        return content_message.text
     }
 
 }

@@ -72,8 +72,8 @@ Rectangle
         id: label_read
         anchors.right: parent.right
         anchors.top: parent.top
-        anchors.rightMargin: 16
-        anchors.topMargin: 14
+        anchors.rightMargin: 17
+        anchors.topMargin: 12
         text:
         {
             if( is_open )
@@ -85,28 +85,28 @@ Rectangle
                 "\uf0e0"
             }
         }
-        font.family: fontAwesomeRegular.name
-//        {
-//            if( is_open )
-//            {
-//                fontAwesomeRegular.name
-//            }
-//            else
-//            {
-//                fontAwesomeSolid.name
-//            }
-//        }
-        font.weight: Font.Normal
-//        {
-//            if( is_open )
-//            {
-//                Font.Normal
-//            }
-//            else
-//            {
-//                Font.Bold
-//            }
-//        }
+        font.family:
+        {
+            if( is_open )
+            {
+                fontAwesomeRegular.name
+            }
+            else
+            {
+                fontAwesomeSolid.name
+            }
+        }
+        font.weight:
+        {
+            if( is_open )
+            {
+                Font.Normal
+            }
+            else
+            {
+                Font.Bold
+            }
+        }
         font.pixelSize: 15
         color: color_text
     }
@@ -114,14 +114,14 @@ Rectangle
     Text
     {
         id: label_subject
-        text: root.sliceString(text_subject, 22)
+        text: root.sliceString(text_subject, 32)
         font.family: fontDroidKufiRegular.name
         font.weight: Font.Normal
-        font.pixelSize: 13
+        font.pixelSize: 12
         anchors.right: label_read.left
         anchors.rightMargin: 10
         anchors.top: parent.top
-        anchors.topMargin: 8
+        anchors.topMargin: 7
         color: color_text
     }
 
@@ -133,8 +133,9 @@ Rectangle
         font.weight: Font.Normal
         font.pixelSize: 11
         anchors.right: label_subject.right
-        anchors.top: label_date.bottom
-        anchors.topMargin: 5
+        anchors.rightMargin: 1
+        anchors.top: label_subject.bottom
+        anchors.topMargin: -3
         color:
         {
             if( is_active && isHovered )
@@ -164,9 +165,9 @@ Rectangle
         font.weight: Font.Normal
         font.pixelSize: 12
         anchors.left: split_line.left
-        anchors.leftMargin: 1
+        anchors.leftMargin: 2
         anchors.top: parent.top
-        anchors.topMargin: 10
+        anchors.topMargin: 5
         color: color_text
     }
 
@@ -175,10 +176,10 @@ Rectangle
         id: label_attach
         text: "\uf0c6"
         anchors.top: label_date.bottom
-        anchors.topMargin: 3
+        anchors.topMargin: -2
         anchors.left: split_line.left
         anchors.leftMargin: 2
-        font.family: fontAwesomeSolid.name
+        font.family: fontAwesomeRegular.name
         font.pixelSize: 15
         color: color_text
         visible: is_attach

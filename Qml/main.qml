@@ -9,6 +9,7 @@ Window
 
     property bool rtl:          true //Right to Left
     property bool fontOffset:   true
+    property bool devMode:      false//Development mode
 
     property string domain:         "lolo.com"
     property string base_id:        "lolo.com"
@@ -22,10 +23,10 @@ Window
     property int    error_duration:     100
 
     //User properties
-    property int    idUser:     102
+    property int    idUser:     103
     property string firstname:  "Cassie"
     property string lastname:   "Hicks"
-    property string username:   "Admin"
+    property string username:   "Adnan"
     property string lastlogin:  "2020/08/19 12:23:43"
     property int    status:     0
     property string bio:        "Bio"
@@ -171,7 +172,7 @@ Window
         id: login
         anchors.fill: parent
         z: 1
-//        visible: false
+        visible: !devMode
         onSignInUser:
         {
             root.loginUser(uname, pass)
@@ -248,7 +249,6 @@ Window
     }
 
     /*** Call this function from qml ***/
-
     function signOut()
     {
         login.visible = true

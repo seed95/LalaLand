@@ -11,6 +11,10 @@ QString ftp_password;
 void hhm_setBackendUI(QObject *item)
 {
     ui = item;
+
+#ifdef HHM_DEV_MODE
+    QQmlProperty::write(ui, "devMode", true);
+#endif
 }
 
 void hhm_setServerStatus(QString status)
@@ -174,8 +178,11 @@ QString hhm_appendMessageId(QString file, qint64 id)
 {
     QString result;
     QFileInfo file_info(file);
-    result = file_info.path() + "/" + file_info.baseName() + "_" + QString::number(id) +
-             "." + file_info.completeSuffix();
+    result = file_info.path() + "/" + file_info.baseName() + "_" + QString::number(id);
+    if( file_info.completeSuffix()!="" )
+    {
+        result += "." + file_info.completeSuffix();
+    }
     return result;
 }
 
@@ -184,7 +191,7 @@ QString hhm_removeMessageId(QString file, qint64 id)
     QString result;
     QFileInfo file_info(file);
     QString file_name = file_info.fileName();
-    file_name = file_name.replace(QString::number(id) + "_", "");
+    file_name = file_name.replace("_" + QString::number(id), "");
     result = file_info.path() + "/" + file_name;
     return result;
 }

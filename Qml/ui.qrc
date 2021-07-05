@@ -33,6 +33,7 @@
         <file alias="HhmMessageAction.qml">Pages/Message/HhmMessageAction.qml</file>
         <file alias="HhmMessageNew.qml">Pages/Message/HhmMessageNew.qml</file>
         <file alias="HhmMessageView.qml">Pages/Message/HhmMessageView.qml</file>
+        <file alias="HhmMessageDownloadBar.qml">Pages/Message/HhmMessageDownloadBar.qml</file>
         <file alias="HhmMessageInput.qml">Pages/Message/HhmMessageInput.qml</file>
         <file alias="HhmTab.qml">Pages/Admin/HhmTab.qml</file>
         <file alias="HhmAdmin.qml">Pages/Admin/HhmAdmin.qml</file>

@@ -7,7 +7,6 @@ Rectangle
     property int    id_list:        0 //Handle for delete attach files
     property bool   download_mode:  false
 
-
     property color color_background_normal:     "#e6e6e6"
     property color color_background_hovered:    "#f0f0f0"
     property color color_background:
@@ -139,7 +138,6 @@ Rectangle
             id: label_file
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-            elide: Text.ElideRight
             text: text_filename.replace(/^.*[\\\/]/, '')
             font.family: fontRobotoRegular.name
             font.pixelSize: 17

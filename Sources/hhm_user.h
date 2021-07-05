@@ -25,6 +25,12 @@ public:
     QString     getBio();
     QString     getImage();
 
+    QString     getFirstname(int id);
+    QString     getLastname(int id);
+    QString     getName(int id);
+    QString     getUsername(int id);
+
+private:
     void printUser();
 
 private:

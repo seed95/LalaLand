@@ -26,6 +26,7 @@ Item
 
     property bool   username_err: false
 
+    //Cpp Signals
     signal addNewUsername(string username)
 
     width: 980
@@ -207,6 +208,7 @@ Item
                     else
                     {
                         input_username.text = username_placeholder
+                        color = color_input_placeholder
                     }
                 }
             }
@@ -387,6 +389,7 @@ Item
     function addUsername()
     {
         input_username.text = username_placeholder
+        input_username.color = color_input_placeholder
         for(var i=0; i<lm_username.count; i++)
         {
             lm_username.get(i).sepVisible = true

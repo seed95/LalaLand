@@ -1,6 +1,8 @@
 #ifndef HHM_CONFIG_H
 #define HHM_CONFIG_H
 
+#define HHM_DEV_MODE
+
 #define HHM_CONFIG_FILE "db.conf"
 #define HHM_LOG_FILE    "dm.log"
 
@@ -112,5 +114,6 @@
 #define HHM_JUM_SENDER_FLAG             "sender_flag"
 #define HHM_JUM_TO_FLAG                 "to_flag"
 #define HHM_JUM_CC_FLAG                 "cc_flag"
+#define HHM_JUM_IS_READ                 "is_read"
 
 #endif // HHM_CONFIG_H

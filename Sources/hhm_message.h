@@ -10,6 +10,7 @@
 #include "hhm_database.h"
 #include "hhm_user.h"
 #include "hhm_ftp.h"
+#include "hhm_message_sidebar.h"
 
 
 #define ID_INDEX        0
@@ -29,8 +30,6 @@ typedef struct MessageData
     QString         content;
     QStringList     filenames;//attach filenames
 }MessageData;
-
-
 
 typedef enum UserMessageType
 {
@@ -56,17 +55,12 @@ private slots:
     void downloadSuccess(QString filename);
     void downloadFailed(QString filename);
 
+    //Main Slots
+    void messageClicked(QString idMessage);
+
     //Action Slots
     void attachNewFile();
     void newMessageClicked();
-
-    //Sidebar Slots
-    void syncInbox();
-    void syncOutbox();
-    void syncMessages();
-
-    //Box Slots
-    void readMessage(QString idMessage);
 
     //Input Slots
     void addNewUsernameTo(QString username);
@@ -77,8 +71,8 @@ private slots:
                         QString subject, QString content,
                         QVariant attachFiles);
 
-    //Main Slots
-    void showMessage(QString idMessage);
+    //View Slots
+    void downloadFile(int fileId);
 
 private:
     void fillDestinationFilenames();
@@ -89,14 +83,14 @@ private:
     void uploadNextFile();
     void uploadAttachFilesFinished();
 
-    //Sidebar Functions
-    void loadInboxEmails();
-    void loadOutboxEmails();
-    void addMessageToSidebar(QObject *list_ui, qint64 messageId);
+    //View Functions
+    QString getSenderName(qint64 messageId);
+    QString getToNames(qint64 messageId);
+    QString getCcNames(qint64 messageId);
+    void    setAttachFiles(qint64 messageId);
 
     //Utility Functions
     void addUserTag(QSqlQuery res, QObject *ui);
-    int getMaxId(QString fieldId, QString table);
 
 private:
     QObject *main_ui;
@@ -109,14 +103,12 @@ private:
     QObject *new_input_cc_ui;
     QObject *new_attachbar;
 
-    QObject *inbox_ui;
-    QObject *outbox_ui;
-    QObject *search_ui;
+    QObject *view_downloadbar_ui;
 
-
-    HhmDatabase *db;
-    HhmUser     *m_user;
-    HhmFtp      *ftp;
+    HhmDatabase         *db;
+    HhmUser             *m_user;
+    HhmFtp              *ftp;
+    HhmMessageSidebar   *sidebar;
 
     int attach_file_ind;
     int dst_filename_ind;
