@@ -20,7 +20,7 @@ bool HhmUser::loadUser(QString username, QString password)
     QVariant data = res.value(HHM_USER_ID);
     if(data.isValid())
     {
-        QQmlProperty::write(ui, "idUser", data);
+        QQmlProperty::write(ui, "idUser", data.toInt());
     }
     else
     {
@@ -30,7 +30,7 @@ bool HhmUser::loadUser(QString username, QString password)
     data = res.value(HHM_USER_FIRSTNAME);
     if(data.isValid())
     {
-        QQmlProperty::write(ui, "firstname", data);
+        QQmlProperty::write(ui, "firstname", data.toString());
     }
     else
     {
@@ -40,7 +40,7 @@ bool HhmUser::loadUser(QString username, QString password)
     data = res.value(HHM_USER_LASTNAME);
     if(data.isValid())
     {
-        QQmlProperty::write(ui, "lastname", data);
+        QQmlProperty::write(ui, "lastname", data.toString());
     }
     else
     {
@@ -50,7 +50,7 @@ bool HhmUser::loadUser(QString username, QString password)
     data = res.value(HHM_USER_USERNAME);
     if(data.isValid())
     {
-        QQmlProperty::write(ui, "username", data);
+        QQmlProperty::write(ui, "username", data.toString());
     }
     else
     {
@@ -71,7 +71,7 @@ bool HhmUser::loadUser(QString username, QString password)
     data = res.value(HHM_USER_STATUS);
     if(data.isValid())
     {
-        QQmlProperty::write(ui, "status", data);
+        QQmlProperty::write(ui, "status", data.toInt());
     }
     else
     {
@@ -81,7 +81,7 @@ bool HhmUser::loadUser(QString username, QString password)
     data = res.value(HHM_USER_BIO);
     if(data.isValid())
     {
-        QQmlProperty::write(ui, "bio", data);
+        QQmlProperty::write(ui, "bio", data.toString());
     }
     else
     {
@@ -91,11 +91,21 @@ bool HhmUser::loadUser(QString username, QString password)
     data = res.value(HHM_USER_IMAGE);
     if(data.isValid())
     {
-        QQmlProperty::write(ui, "image", data);
+        QQmlProperty::write(ui, "image", data.toString());
     }
     else
     {
         hhm_log("image is not valid");
+    }
+
+    data = res.value(HHM_USER_DEPARTMENT_ID);
+    if(data.isValid())
+    {
+        QQmlProperty::write(ui, "idDepartment", data.toInt());
+    }
+    else
+    {
+        hhm_log("department id is not valid");
     }
 
     //Check HHM_TABLE_USER_EMAIL for this id
@@ -159,6 +169,29 @@ QString HhmUser::getImage()
 {
     QVariant data = QQmlProperty::read(ui, "image");
     return data.toString();
+}
+
+int HhmUser::getDepartmentId()
+{
+    QVariant data = QQmlProperty::read(ui, "idDepartment");
+    return data.toInt();
+}
+
+int HhmUser::getPermission()
+{
+    int result=0, permission;
+    QString condition = "`" + QString(HHM_JUR_USER_ID) + "`=" +
+                        QString::number(getId());
+    QSqlQuery res = db->select(HHM_JUR_ROLE_ID, HHM_TABLE_JOIN_USER_ROLE, condition);
+    while( res.next() )
+    {
+        permission = getRolePermission(res.value(HHM_JUR_ROLE_ID).toInt());
+        if( permission>result )
+        {
+            result = permission;
+        }
+    }
+    return result;
 }
 
 QString HhmUser::getFirstname(int id)
@@ -269,4 +302,32 @@ void HhmUser::printUser()
     result += QString("%1").arg(data.toString(), space, QLatin1Char(' '));
 
     qDebug() << result;
+}
+
+int HhmUser::getRolePermission(int roleId)
+{
+    QString condition = "`" + QString(HHM_ROLE_ID) + "`=" +
+                        QString::number(roleId);
+    QSqlQuery res = db->select("*", HHM_TABLE_ROLE, condition);
+    if( res.next() )
+    {
+        bool all_message = res.value(HHM_ROLE_PERMISSION7).toBool();
+        if( all_message )
+        {
+            return PERMISSION_ALL_MESSAGE;
+        }
+
+        bool department_message = res.value(HHM_ROLE_PERMISSION4).toBool();
+        if( department_message )
+        {
+            return PERMISSION_DEPARTMENT_MESSAGE;
+        }
+
+        bool my_message = res.value(HHM_ROLE_PERMISSION1).toBool();
+        if( my_message )
+        {
+            return PERMISSION_MY_MESSAGE;
+        }
+    }
+    return 0;
 }

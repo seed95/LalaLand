@@ -24,6 +24,8 @@ public:
     int         getStatus();
     QString     getBio();
     QString     getImage();
+    int         getDepartmentId();
+    int         getPermission();
 
     QString     getFirstname(int id);
     QString     getLastname(int id);
@@ -32,6 +34,8 @@ public:
 
 private:
     void printUser();
+
+    int getRolePermission(int roleId);
 
 private:
     HhmDatabase *db;

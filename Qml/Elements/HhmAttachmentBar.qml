@@ -20,15 +20,6 @@ Rectangle
     color: "#dcdcdc"
     visible: lm_attachment.count!==0
 
-    onVisibleChanged:
-    {
-        if( !visible )
-        {
-            cnt_id = 0
-            lm_attachment.clear()
-        }
-    }
-
     Flickable
     {
         id: flickbar
@@ -110,11 +101,11 @@ Rectangle
     }
 
     /*** Call this function from qml ***/
-    function removeAttachFile(fileId)
+    function removeAttachFile(listId)
     {
         for(var i=0; i<lm_attachment.count; i++)
         {
-            if( lm_attachment.get(i).idFile===fileId )
+            if( lm_attachment.get(i).idList===listId )
             {
                 lm_attachment.remove(i)
                 break

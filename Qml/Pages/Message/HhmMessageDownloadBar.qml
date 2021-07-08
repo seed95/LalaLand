@@ -4,10 +4,6 @@ Item
 {
     id: container
 
-    //Set this variables in cpp
-    property int    attach_fileId:      0
-    property string attach_filename:    ""
-
     property int num_attach_file: 0
 
     //Qml Signals
@@ -17,7 +13,7 @@ Item
     {
         if( num_attach_file<3 )
         {
-            attach1.height
+            attach1.height + attach1.y
         }
         else
         {
@@ -92,23 +88,22 @@ Item
 
     }
 
-    /*** Call this function from cpp ***/
-    function addAttachFile()
+    function addAttachFile(fileId, filename)
     {
         if( container.num_attach_file==0 )
         {
-            attach1.text_filename = container.attach_filename
-            attach1.id_file = container.attach_fileId
+            attach1.text_filename = filename
+            attach1.id_file = fileId
         }
         else if( container.num_attach_file==1 )
         {
-            attach2.text_filename = container.attach_filename
-            attach2.id_file = container.attach_fileId
+            attach2.text_filename = filename
+            attach2.id_file = fileId
         }
         else
         {
-            lm_attachment.append({"attachFilename" : container.attach_filename,
-                                  "idFile" : container.attach_fileId})
+            lm_attachment.append({"attachFilename" : filename,
+                                  "idFile" : fileId})
         }
         container.num_attach_file += 1
     }

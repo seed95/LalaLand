@@ -6,15 +6,15 @@ Item
     id: container
 
     property int    input_type: con.hhm_MTIT_DEFAULT
-    property string text_label: "الموضوع"
+    property string text_label: ""
 
     //Set this variables in cpp
-    property string label_username:     ""
-    property string label_firstname:    ""
-    property string label_lastname:     ""
-    property int    user_id:            0
+    property int    tagMode:        con.hhm_TAG_USER
+    property int    tagId:          0
+    property string tagName:        ""
+    property string tagUsername:    ""
 
-    property string username_placeholder:   "Username"
+    property string username_placeholder:   "User or Department"
     property string subject_placeholder:    "الموضوع"
     property color  color_background:       "#f0f0f0"
     property color  color_border:           "#aaaaaa"
@@ -24,17 +24,17 @@ Item
     property color color_input_placeholder: "#828282"
     property color color_input_normal:      "#505050"
 
-    property bool   username_err: false
+    property bool   username_department_err: false
 
     //Cpp Signals
-    signal addNewUsername(string username)
+    signal addNewTag(string tagName)
 
     width: 980
     height: 30
 
     onVisibleChanged:
     {
-        input_username.text = username_placeholder
+        input_username_department.text = username_placeholder
         input_subject.text = subject_placeholder
         lm_username.clear()
     }
@@ -113,13 +113,13 @@ Item
             onClicked:
             {
                 container.forceActiveFocus()
-                if( checkUniqueUsername(input_username.text) )
+                if( checkUniqueUsername(input_username_department.text) )
                 {
-                    addNewUsername(input_username.text)
+                    addNewTag(root.ar2en(input_username_department.text))
                 }
                 else
                 {
-                    input_username.text = username_placeholder
+                    setPlaceholderStyle()
                 }
             }
         }
@@ -128,7 +128,7 @@ Item
 
     Rectangle
     {
-        id: rect_username
+        id: rect_username_department
         width: 150
         height: 30
         anchors.left: rect_add.right
@@ -138,7 +138,7 @@ Item
         border.width: 1
         border.color:
         {
-            if( username_err )
+            if( username_department_err )
             {
                 "#cb8989"
             }
@@ -152,7 +152,7 @@ Item
 
         TextField
         {
-            id: input_username
+            id: input_username_department
             anchors.left: parent.left
             anchors.leftMargin: 4
             anchors.right: parent.right
@@ -160,7 +160,7 @@ Item
             anchors.verticalCenter: parent.verticalCenter
             text: username_placeholder
             font.family: fontRobotoRegular.name
-            font.pixelSize: 17
+            font.pixelSize: 12
             color: color_input_placeholder
             selectByMouse: true
             selectedTextColor: "#222"
@@ -174,7 +174,7 @@ Item
             {
                 if( focus )
                 {
-                    username_err = false
+                    username_department_err = false
                     if( text===username_placeholder )
                     {
                         text = ""
@@ -184,14 +184,13 @@ Item
                         selectAll()
                     }
 
-                    color = color_input_normal
+                    setNormalStyle()
                 }
                 else
                 {
                     if( text==="" )
                     {
-                        text = username_placeholder
-                        color = color_input_placeholder
+                        setPlaceholderStyle()
                     }
                 }
             }
@@ -201,14 +200,13 @@ Item
                 focus = false
                 if( text!=="" && text!==username_placeholder )
                 {
-                    if( checkUniqueUsername(input_username.text) )
+                    if( checkUniqueUsername(input_username_department.text) )
                     {
-                        addNewUsername(input_username.text)
+                        addNewTag(root.ar2en(input_username_department.text))
                     }
                     else
                     {
-                        input_username.text = username_placeholder
-                        color = color_input_placeholder
+                        setPlaceholderStyle()
                     }
                 }
             }
@@ -227,7 +225,7 @@ Item
         id: entered_username
         width: 620
         height: 30
-        anchors.left: rect_username.right
+        anchors.left: rect_username_department.right
         anchors.leftMargin: 8
         anchors.verticalCenter: parent.verticalCenter
         color: color_background
@@ -254,12 +252,12 @@ Item
 
             delegate: HhmTag
             {
-                tag_text:      enteredUsername
+                tag_text:           textName
                 separator_visible:  sepVisible
 
                 onClickTag:
                 {
-                    removeUsername(enteredUsername)
+                    removeTag(textName)
                 }
             }
 
@@ -378,41 +376,44 @@ Item
     {
         for(var i=0; i<lm_username.count; i++)
         {
-            if( lm_username.get(i).enteredUsername.toLowerCase()===username.toLowerCase() )
+            if( lm_username.get(i).modeTag===1 )
             {
-                return false
+                if( lm_username.get(i).username.toLowerCase()===username.toLowerCase() )
+                {
+                    return false
+                }
             }
         }
         return true
     }
 
-    function addUsername()
+    function addTag()
     {
-        input_username.text = username_placeholder
-        input_username.color = color_input_placeholder
+        setPlaceholderStyle()
         for(var i=0; i<lm_username.count; i++)
         {
             lm_username.get(i).sepVisible = true
         }
 
-        lm_username.append({"enteredUsername" : container.label_username,
-                            "firstName" : container.label_firstname,
-                            "lastName" : container.label_lastname,
-                            "userId" : container.user_id,
+
+        lm_username.append({"textName" : container.tagName,
+                            "idTag" : container.tagId,
+                            "username" : container.tagUsername,
+                            "modeTag" : container.tagMode,
                             "sepVisible" : false})
     }
 
-    function usernameNotFound()
+    function nameNotFound()
     {
-        username_err = true
-        input_username.color = color_input_error
+        container.username_department_err = true
+        input_username_department.color = color_input_error
     }
 
-    function removeUsername(textUsername)
+    function removeTag(textName)
     {
         for(var i=0; i<lm_username.count; i++)
         {
-            if( lm_username.get(i).enteredUsername===textUsername )
+            if( lm_username.get(i).textName===textName )
             {
                 lm_username.remove(i)
                 break
@@ -435,15 +436,17 @@ Item
         return input_subject.text
     }
 
-    //Return format: list of users
-    function getUsernameIds()
+
+    //Return list of tags
+    function getTags()
     {
         var result = []
         for(var i=0; i<lm_username.count ; i++)
         {
             var item = []
-            item.push(lm_username.get(i).userId)
-            item.push(lm_username.get(i).enteredUsername)
+            item.push(lm_username.get(i).modeTag)
+            item.push(lm_username.get(i).idTag)
+            item.push(lm_username.get(i).username)
             result.push(item)
         }
         return result
@@ -451,9 +454,22 @@ Item
 
     function clearInput()
     {
-        input_username.text = username_placeholder
+        input_username_department.text = username_placeholder
         input_subject.text = subject_placeholder
         lm_username.clear()
+    }
+
+    function setPlaceholderStyle()
+    {
+        input_username_department.text = username_placeholder
+        input_username_department.color = color_input_placeholder
+        input_username_department.font.pixelSize = 12
+    }
+
+    function setNormalStyle()
+    {
+        input_username_department.color = color_input_normal
+        input_username_department.font.pixelSize = 17
     }
 
 }

@@ -38,6 +38,10 @@ HhmDocument::HhmDocument(QObject *root, HhmDatabase *database, HhmUser *userLogg
     connect(ftp, SIGNAL(uploadFailed(QString)), this, SLOT(uploadFailed(QString)));
     connect(ftp, SIGNAL(downloadSuccess(QString)), this, SLOT(downloadSuccess(QString)));
     connect(ftp, SIGNAL(downloadFailed(QString)), this, SLOT(downloadFailed(QString)));
+
+#ifdef HHM_DEV_MODE
+    sidebar->loadEmails();
+#endif
 }
 
 HhmDocument::~HhmDocument()
@@ -79,13 +83,14 @@ void HhmDocument::uploadFailed(QString filename)
 
 void HhmDocument::downloadSuccess(QString filename)
 {
-    qDebug() << filename;
+    hhm_log("Download Successfully " + filename);
+    hhm_showMessage("Download Successfully", 2000);
 }
 
 void HhmDocument::downloadFailed(QString filename)
 {
-    qDebug() << filename;
     ///FIXME: complete this segment
+    hhm_log("Download Failed " + filename);
     hhm_showMessage("Download Failed", 2000);
 }
 
@@ -130,11 +135,26 @@ void HhmDocument::showDocument(int casenumber)
             QQmlProperty::write(view_ui, "text_subject", data.toString());
         }
 
+        data = res.value(HHM_DOCUMENT_SENDER_ID);
+        if( data.isValid() )
+        {
+            HhmUserTable sender_user = getUser(data.toInt());
+            QQmlProperty::write(view_ui, "text_name", sender_user.firstname + " " + sender_user.lastname);
+            QQmlProperty::write(view_ui, "text_username", sender_user.username );
+        }
+
+        data = res.value(HHM_DOCUMENT_SENDER_NAME);
+        if( data.isValid() )
+        {
+            QQmlProperty::write(view_ui, "text_name", data.toString());
+        }
+
         data = res.value(HHM_DOCUMENT_STATUS);
         if( data.isValid() )
         {
             QQmlProperty::write(view_ui, "doc_status", data.toInt());
         }
+
         data = res.value(HHM_DOCUMENT_DATE);
         if( data.isValid() )
         {
@@ -143,6 +163,7 @@ void HhmDocument::showDocument(int casenumber)
             date = ar_locale.toString(data.toDateTime(), "hh:mm");
             QQmlProperty::write(view_ui, "text_time", date);
         }
+
         data = res.value(HHM_DOCUMENT_RECEIVER_IDS);
         if( data.isValid() )
         {
@@ -374,13 +395,13 @@ HhmUserTable HhmDocument::getUser(int idUser)
 
 HhmFileTable HhmDocument::getFile(int idFile)
 {
-    QString condition = "`" + QString(HHM_FILES_ID) + "`=" + QString::number(idFile);
-    QSqlQuery res = db->select("*", HHM_TABLE_FILES, condition);
+    QString condition = "`" + QString(HHM_DOCUMENT_FILES_ID) + "`=" + QString::number(idFile);
+    QSqlQuery res = db->select("*", HHM_TABLE_DOCUMENT_FILES, condition);
     HhmFileTable file;
     if( res.next() )
     {
         file.fileId = idFile;
-        QVariant data = res.value(HHM_FILES_FILENAME);
+        QVariant data = res.value(HHM_DOCUMENT_FILES_FILENAME);
         if( data.isValid() )
         {
             file.filepath = data.toString();
@@ -388,7 +409,6 @@ HhmFileTable HhmDocument::getFile(int idFile)
     }
     return file;
 }
-
 
 /*
  * Fill 'dst_filenames' with filename at
@@ -405,8 +425,7 @@ void HhmDocument::fillDestinationFilenames()
     dst_filename = hhm_appendCasenumber(src, new_data.casenumber);
     dst_filename = QFileInfo(dst_filename).fileName();
 
-    ///FIXME: Ask Bijan
-    dst_filepath  = /*"DocumentManager/" +*/ dst_filename;
+    dst_filepath  = dst_filename;
     dst_filenames.append(dst_filepath);
 
     ///FIXME: Ask Bijan
@@ -550,29 +569,28 @@ void HhmDocument::insertNewEmail()
  * */
 void HhmDocument::insertNewFile()
 {
-    ///FIXME:
-//    //Insert new row file
-//    QString columns  = "`" + QString(HHM_FILES_FILENAME) + "`, ";
-//    columns += "`" + QString(HHM_FILES_SENDER_ID) + "`, ";
-//    columns += "`" + QString(HHM_FILES_TO_IDS) + "`, ";
-//    columns += "`" + QString(HHM_FILES_CC_IDS) + "`";
+    //Insert new row file
+    QString columns  = "`" + QString(HHM_DOCUMENT_FILES_FILENAME) + "`, ";
+    columns += "`" + QString(HHM_DOCUMENT_FILES_SENDER_ID) + "`, ";
+    columns += "`" + QString(HHM_DOCUMENT_FILES_TO_IDS) + "`, ";
+    columns += "`" + QString(HHM_DOCUMENT_FILES_CC_IDS) + "`";
 
-//    QString filename = getFtpFilename();
-//    QString values  = "'" + filename + "'";
-//    values += ", '" + QString::number(new_data.senderId) + "'";
-//    values += ", '" + new_data.toUser.at(ID_INDEX).toString() + "'";
-//    QString cc = "";
-//    values += ", '" + cc + "'";
+    QString filepath = hhm_appendCasenumber(new_data.filenames.at(attach_file_ind), new_data.casenumber);
+    QString values  = "'" + QFileInfo(filepath).fileName() + "'";
+    values += ", '" + QString::number(new_data.senderId) + "'";
+    values += ", '" + new_data.toUser.at(ID_INDEX).toString() + "'";
+    QString cc = "";
+    values += ", '" + cc + "'";
 
-//    db->insert(HHM_TABLE_FILES, columns, values);
+    db->insert(HHM_TABLE_DOCUMENT_FILES, columns, values);
 
-//    int file_id = getMaxId(HHM_FILES_ID, HHM_TABLE_FILES);
-//    if( file_id==-1 )
-//    {
-//        hhm_log("Table " + QString(HHM_TABLE_FILES) + " is empty");
-//        file_id = 0;
-//    }
-//    new_data.fileIds.append(QString::number(file_id));
+    int file_id = getMaxId(HHM_DOCUMENT_FILES_ID, HHM_TABLE_DOCUMENT_FILES);
+    if( file_id==-1 )
+    {
+        hhm_log("Table " + QString(HHM_TABLE_DOCUMENT_FILES) + " is empty");
+        file_id = 0;
+    }
+    new_data.fileIds.append(QString::number(file_id));
 }
 
 /***************** Utility Functions *****************/
@@ -592,14 +610,6 @@ int HhmDocument::getMaxId(QString fieldId, QString table)
         max_id = res.value(0).toInt();
     }
     return max_id;
-}
-
-QString HhmDocument::getFtpFilename()
-{
-    QString src = new_data.filenames.at(attach_file_ind);
-    ///FIXME: Ask Bijan
-    return (/*"DocumentManager/" +*/
-            QString::number(new_data.casenumber) + "_" + QFileInfo(src).fileName());
 }
 
 //Return Invalid Qvariant if not found key

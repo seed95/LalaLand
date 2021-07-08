@@ -6,6 +6,9 @@
 #include "hhm_database.h"
 #include "hhm_user.h"
 
+#define INBOX_TYPE  1
+#define OUTBOX_TYPE 2
+
 class HhmMessageSidebar : public QObject
 {
     Q_OBJECT
@@ -24,13 +27,18 @@ private slots:
     void syncMessages();
 
     //Box Slots
-    void readMessage(QString idMessage);
+    void readInboxMessage(QString idMessage);
+    void readOutboxMessage(QString idMessage);
 
 private:
-    void     addMessageToSidebar(QObject *list_ui, qint64 messageId);
-    bool     messageIsRead(qint64 messageId);
+    void     loadBox(int typeBox);
+    void     loadDepartmentMessage(int idDepartment);
+    void     loadAllMessage();
+    void     addMessageToSidebar(QObject *list_ui, qint64 messageId, bool isRead);
+    bool     messageIsSource(qint64 messageId);
     bool     messageContainFile(qint64 messageId);
     QString  getSenderName(qint64 messageId);
+    int      getPermission();
 
 private:
     QObject *sidebar_ui;

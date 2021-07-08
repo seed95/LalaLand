@@ -1,5 +1,5 @@
-#ifndef HHMMESSAGE_H
-#define HHMMESSAGE_H
+#ifndef HHM_MESSAGE_H
+#define HHM_MESSAGE_H
 
 #include <QObject>
 #include <QQmlProperty>
@@ -12,9 +12,9 @@
 #include "hhm_ftp.h"
 #include "hhm_message_sidebar.h"
 
-
-#define ID_INDEX        0
-#define USERNAME_INDEX  1
+#define TAG_MODE_INDEX      0
+#define TAG_ID_INDEX        1
+#define TAG_USERNAME_INDEX  2
 
 #define SENDER_FLAG  1
 #define TO_FLAG      2
@@ -22,21 +22,16 @@
 
 typedef struct MessageData
 {
-    qint64          id;//message id
+    qint64          id;//Message Id
     int             senderId;
     QVariantList    toData;
     QVariantList    ccData;
     QString         subject;
     QString         content;
-    QStringList     filenames;//attach filenames
+    QStringList     filenames;//Attach Filenames
+    bool            replyMode;
+    qint64          replyId;//Reply Message Id
 }MessageData;
-
-typedef enum UserMessageType
-{
-    Sender,
-    To,
-    Cc
-} UserMessageType;
 
 class HhmMessage : public QObject
 {
@@ -56,41 +51,56 @@ private slots:
     void downloadFailed(QString filename);
 
     //Main Slots
+    void sendNewMessage(QVariant toData, QVariant ccData,
+                        QString subject, QString content,
+                        QVariant attachFiles);
     void messageClicked(QString idMessage);
+    void replyMessage(QString replyMessageId);
+    void sendReplyMessage(QVariant toData, QVariant ccData,
+                          QString subject, QString content,
+                          QVariant attachFiles, QString replyMessageId);
 
     //Action Slots
     void attachNewFile();
     void newMessageClicked();
 
     //Input Slots
-    void addNewUsernameTo(QString username);
-    void addNewUsernameCc(QString username);
-
-    //New Slots
-    void sendNewMessage(QVariant toData, QVariant ccData,
-                        QString subject, QString content,
-                        QVariant attachFiles);
+    void addNewTagTo(QString name);
+    void addNewTagCc(QString name);
 
     //View Slots
-    void downloadFile(int fileId);
+    void downloadAttachFile(int fileId);
 
 private:
+
+    //New Functions
     void fillDestinationFilenames();
     void insertNewFile();
-    void insertNewUserMessage(int idUser, int flag);
+    void insertNewUserMessage(int userId, int flag);
+    void insertNewMessageForDepartment(int departmentId, int groupId);
+    void insertNewDepartmentMessage(int departmentId, int flag);
+    void insertNewDepartmentUserMessage(int departmentId, int userId);
     void updateMessage();
-    void updateJUM();//Join User Message
+    void updateSourceMessage();
+    void updateJoinMessage();
     void uploadNextFile();
     void uploadAttachFilesFinished();
 
     //View Functions
-    QString getSenderName(qint64 messageId);
-    QString getToNames(qint64 messageId);
-    QString getCcNames(qint64 messageId);
-    void    setAttachFiles(qint64 messageId);
+    void            showMessage(qint64 messageId);
+    QString         getSenderName(qint64 messageId);
+    QString         getToNames(qint64 messageId);
+    QString         getCcNames(qint64 messageId);
+    QVariantList    getAttachFiles(qint64 messageId);
+
+    //Reply Functions
+    void setToTagForReply(qint64 replyMessageId);
+    void setCcTagsForReply(qint64 replyMessageId);
 
     //Utility Functions
-    void addUserTag(QSqlQuery res, QObject *ui);
+    bool addUserTag(QString username, QObject *ui);
+    bool addDepartmentTag(QString name, QObject *ui);
+    QString getDepartmentName(int departmentId);
 
 private:
     QObject *main_ui;
@@ -98,12 +108,10 @@ private:
     QObject *sidebar_ui;
     QObject *new_ui;
     QObject *view_ui;
+    QObject *attach_ui;
 
     QObject *new_input_to_ui;
     QObject *new_input_cc_ui;
-    QObject *new_attachbar;
-
-    QObject *view_downloadbar_ui;
 
     HhmDatabase         *db;
     HhmUser             *m_user;
@@ -119,4 +127,4 @@ private:
     MessageData view_data;  //show message data
 };
 
-#endif // HHMMESSAGE_H
+#endif // HHM_MESSAGE_H

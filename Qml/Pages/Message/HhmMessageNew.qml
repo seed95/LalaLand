@@ -4,18 +4,32 @@ Rectangle
 {
     id: container
 
+    property int message_state: con.hhm_MESSAGE_NONE_STATE
+
     property string placeholder_content: "اكتب المحتوى هنا"
 
     property color color_input_normal:      "#464646"
     property color color_input_placeholder: "#828282"
 
-    //Cpp Signals
-    signal sendNewMessage(variant toData, variant ccData, string subject,
-                          string content, variant attachFiles)
-
     width: 980
-    height: 675
+    height:
+    {
+        if( container.message_state===con.hhm_MESSAGE_REPLY_STATE )
+        {
+            flick_middle.contentHeight + flick_middle.y + 20/*bottom margin*/
+        }
+        else//messageState===con.hhm_MESSAGE_NEW_STATE
+        {
+            675
+        }
+    }
     color: "#f0f0f0"
+
+    onVisibleChanged:
+    {
+        content_message.text = placeholder_content
+        content_message.color = color_input_placeholder
+    }
 
     Rectangle
     {
@@ -67,26 +81,20 @@ Rectangle
         anchors.left: parent.left
         anchors.top: rect_top.bottom
         anchors.topMargin: 1
-        anchors.bottom:
+        anchors.bottom: parent.bottom
+        interactive:
         {
-            if( attachbar.visible )
+            if( container.message_state===con.hhm_MESSAGE_NEW_STATE )
             {
-                attachbar.top
+                contentHeight>height
             }
             else
             {
-                parent.bottom
+                false
             }
         }
         contentHeight: content_message.contentHeight + content_message.anchors.topMargin
         clip: true
-        flickableDirection: Flickable.VerticalFlick
-
-        onContentHeightChanged:
-        {
-            //disable interactive for prevent stealing mouse event
-            interactive = height<contentHeight ? true : false
-        }
 
         function updateContentY()
         {
@@ -143,27 +151,23 @@ Rectangle
                 }
             }
 
-
         }
+
     }
 
-    HhmAttachmentBar
+    function getToData()
     {
-        id: attachbar
-        width: parent.width
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        attachMode: con.hhm_ATTACHMENT_UPLOAD_MODE
-        objectName: "MessageAttachbar"
+        return text_input_to.getTags()
     }
 
-    function sendMessage()
+    function getCcData()
     {
-        sendNewMessage(text_input_to.getUsernameIds(),
-                       text_input_cc.getUsernameIds(),
-                       text_input_subject.getSubject(),
-                       getContent(),
-                       attachbar.getAttachFiles())
+        return text_input_cc.getTags()
+    }
+
+    function getSubject()
+    {
+        return text_input_subject.getSubject()
     }
 
     function getContent()

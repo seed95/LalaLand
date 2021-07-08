@@ -3,7 +3,8 @@ import QtQuick 2.0
 Item
 {
 
-    property int hhm_NO_SELECTED_ITEM: -1
+    property int    hhm_NO_SELECTED_ITEM:       -1
+    property string hhm_NO_SELECTED_MESSAGE:    "-1"
 
     property int id_DOC_STATUS_SUCCESS: 1
     property int id_DOC_STATUS_PENDING: 2
@@ -25,6 +26,10 @@ Item
     property int hhm_SIDEBAR_INBOX_STATE :      1
     property int hhm_SIDEBAR_OUTBOX_STATE:      2
 
+    //Sync With hhm_config.h
+    property int hhm_TAG_USER:          1
+    property int hhm_TAG_DEPARTMENT:    2
+
     property int hhm_ATTACHMENT_NONE_MODE:         0
     property int hhm_ATTACHMENT_UPLOAD_MODE:       1
     property int hhm_ATTACHMENT_DOWNLOAD_MODE:     2
@@ -32,6 +37,7 @@ Item
     property int hhm_MESSAGE_NONE_STATE:        0
     property int hhm_MESSAGE_NEW_STATE:         1
     property int hhm_MESSAGE_VIEW_STATE:        2
+    property int hhm_MESSAGE_REPLY_STATE:       3
 
     property int hhm_DOCUMENT_NONE_STATE:       0
     property int hhm_DOCUMENT_NEW_STATE:        1

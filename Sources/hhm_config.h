@@ -12,6 +12,13 @@
 #define HHM_INBOX_STATE     1
 #define HHM_OUTBOX_STATE    2
 
+#define HHM_TAG_USER          1
+#define HHM_TAG_DEPARTMENT    2
+
+#define PERMISSION_MY_MESSAGE           1
+#define PERMISSION_DEPARTMENT_MESSAGE   4
+#define PERMISSION_ALL_MESSAGE          7
+
 /*****              DataBase Configs            *****/
 
 #define SERVER_PORT     3306
@@ -24,15 +31,22 @@
 #define HHM_DOC_STATUS_REJECT  3
 
 //Tables
-#define HHM_TABLE_CONFIG                    "config"
-#define HHM_TABLE_USER                      "user"
-#define HHM_TABLE_EMAIL                     "email"
-#define HHM_TABLE_DOCUMENT                  "document"
-#define HHM_TABLE_USER_EMAIL                "user_email"
-#define HHM_TABLE_NEWS                      "news"
-#define HHM_TABLE_FILES                     "files"
-#define HHM_TABLE_MESSAGE                   "message"
-#define HHM_TABLE_JOIN_USER_MESSAGE         "join_user_message"
+#define HHM_TABLE_CONFIG                            "config"
+#define HHM_TABLE_USER                              "user"
+#define HHM_TABLE_EMAIL                             "email"
+#define HHM_TABLE_DOCUMENT                          "document"
+#define HHM_TABLE_USER_EMAIL                        "user_email"
+#define HHM_TABLE_DOCUMENT_FILES                    "document_files"
+#define HHM_TABLE_NEWS                              "news"
+#define HHM_TABLE_FILES                             "files"
+#define HHM_TABLE_MESSAGE                           "message"
+#define HHM_TABLE_DEPARTMENT                        "department"
+#define HHM_TABLE_ROLE                              "role"
+#define HHM_TABLE_JOIN_USER_MESSAGE                 "join_user_message"
+#define HHM_TABLE_JOIN_DEPARTMENT_MESSAGE           "join_department_message"
+#define HHM_TABLE_JOIN_DEPARTMENT_USER_MESSAGE      "join_department_user_message"
+#define HHM_TABLE_DEPARTMENT_GROUP                  "department_group"
+#define HHM_TABLE_JOIN_USER_ROLE                    "join_user_role"
 
 //Columns in Table `HHM_TABLE_CONFIG`
 #define HHM_CONFIG_KEY          "config_key"
@@ -56,6 +70,7 @@
 #define HHM_USER_BIO            "bio"
 #define HHM_USER_IMAGE          "image"
 #define HHM_USER_PASSWORD       "password"
+#define HHM_USER_DEPARTMENT_ID  "department_id"
 
 //Columns in Table `HHM_TABLE_EMAIL`
 #define HHM_EMAIL_ID                   "id"
@@ -96,6 +111,13 @@
 #define HHM_NEWS_CONTENT            "content"
 #define HHM_NEWS_DATE               "date"
 
+//Columns in Table `HHM_TABLE_DOCUMENT_FILES`
+#define HHM_DOCUMENT_FILES_ID               "id"
+#define HHM_DOCUMENT_FILES_FILENAME         "filename"
+#define HHM_DOCUMENT_FILES_SENDER_ID        "sender_id"
+#define HHM_DOCUMENT_FILES_TO_IDS           "to_ids"
+#define HHM_DOCUMENT_FILES_CC_IDS           "cc_ids"
+
 //Columns in Table `HHM_TABLE_FILES`
 #define HHM_FILES_ID                 "id"
 #define HHM_FILES_FILENAME           "filename"
@@ -106,7 +128,26 @@
 #define HHM_MESSAGE_SUBJECT            "subject"
 #define HHM_MESSAGE_CONTENT            "content"
 #define HHM_MESSAGE_SEND_DATE          "send_date"
-#define HHM_MESSAGE_REPLY_ID           "reply_message_id"
+#define HHM_MESSAGE_NUMBER_SOURCES     "number_sources"
+#define HHM_MESSAGE_SOURCE_ID          "source_message_id"
+#define HHM_MESSAGE_SOURCE_FLAG        "source_flag"
+
+//Columns in Table `HHM_TABLE_DEPARTMENT`
+#define HHM_DEPARTMENT_ID               "id"
+#define HHM_DEPARTMENT_NAME             "name"
+
+//Columns in Table `HHM_TABLE_ROLE`
+#define HHM_ROLE_ID                     "id"
+#define HHM_ROLE_NAME                   "name"
+#define HHM_ROLE_PERMISSION1            "permission_1"
+#define HHM_ROLE_PERMISSION2            "permission_2"
+#define HHM_ROLE_PERMISSION3            "permission_3"
+#define HHM_ROLE_PERMISSION4            "permission_4"
+#define HHM_ROLE_PERMISSION5            "permission_5"
+#define HHM_ROLE_PERMISSION6            "permission_6"
+#define HHM_ROLE_PERMISSION7            "permission_7"
+#define HHM_ROLE_PERMISSION8            "permission_8"
+#define HHM_ROLE_PERMISSION9            "permission_9"
 
 //Columns in Table `HHM_TABLE_JOIN_USER_MESSAGE`
 #define HHM_JUM_USER_ID                 "user_id"
@@ -114,6 +155,27 @@
 #define HHM_JUM_SENDER_FLAG             "sender_flag"
 #define HHM_JUM_TO_FLAG                 "to_flag"
 #define HHM_JUM_CC_FLAG                 "cc_flag"
-#define HHM_JUM_IS_READ                 "is_read"
+#define HHM_JUM_READ_FLAG               "read_flag"
+
+//Columns in Table `HHM_TABLE_JOIN_DEPARTMENT_MESSAGE`
+#define HHM_JDM_DEPARTMENT_ID           "department_id"
+#define HHM_JDM_MESSAGE_ID              "message_id"
+#define HHM_JDM_TO_FLAG                 "to_flag"
+#define HHM_JDM_CC_FLAG                 "cc_flag"
+
+//Columns in Table `HHM_TABLE_JOIN_DEPARTMENT_USER_MESSAGE`
+#define HHM_JDUM_DEPARTMENT_ID           "department_id"
+#define HHM_JDUM_USER_ID                 "user_id"
+#define HHM_JDUM_MESSAGE_ID              "message_id"
+#define HHM_JDUM_READ_FLAG               "read_flag"
+
+//Columns in Table `HHM_TABLE_DEPARTMENT_GROUP`
+#define HHM_JDG_DEPARTMENT_ID           "department_id"
+#define HHM_JDG_GROUP_ID                "group_id"
+
+//Columns in Table `HHM_TABLE_JOIN_USER_ROLE`
+#define HHM_JUR_USER_ID                 "user_id"
+#define HHM_JUR_ROLE_ID                 "role_id"
+
 
 #endif // HHM_CONFIG_H

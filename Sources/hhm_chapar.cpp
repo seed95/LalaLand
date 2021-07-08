@@ -20,7 +20,7 @@ HhmChapar::HhmChapar(QObject *item, QObject *parent) : QObject(parent)
 
     //Instance Message
     message = new HhmMessage(ui, db, user);
-    admin = new HhmAdmin(ui, db, user);
+//    admin = new HhmAdmin(ui, db, user);
 
     //Instance Document
     document = new HhmDocument(ui, db, user);

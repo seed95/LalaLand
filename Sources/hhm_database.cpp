@@ -51,8 +51,8 @@ QSqlQuery HhmDatabase::sendQuery(QString query)
     }
     else if( res.size()==0 )
     {
-        s_err = "Query return null result";
-        hhm_log(s_err);
+//        s_err = "Query return null result";
+//        hhm_log(s_err);
     }
 
     return res;

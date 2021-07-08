@@ -6,7 +6,7 @@ Rectangle
     id: container
 
     property int    boxState:           con.hhm_SIDEBAR_NONE_STATE
-    property string selectedMessageId:  con.hhm_NO_SELECTED_ITEM//The Qml does not support int64
+    property string selectedMessageId:  con.hhm_NO_SELECTED_MESSAGE//The Qml does not support int64
 
     property string last_searched_text: ""
     property bool   search_mode: false
@@ -32,7 +32,7 @@ Rectangle
 
     onBoxStateChanged:
     {
-        container.selectedMessageId = con.hhm_NO_SELECTED_ITEM
+        container.selectedMessageId = con.hhm_NO_SELECTED_MESSAGE
         if( search_mode )
         {
             searchText(last_searched_text)
@@ -230,7 +230,10 @@ Rectangle
         onClickMessage:
         {
             handleClickMessage(idMessage)
-            clickSearchedItem()
+            if( container.selectedMessageId!==con.hhm_NO_SELECTED_MESSAGE )
+            {
+                clickSearchedItem()
+            }
         }
     }
 
@@ -257,7 +260,7 @@ Rectangle
     {
         if( container.selectedMessageId===idMessage )
         {
-            container.selectedMessageId = con.hhm_NO_SELECTED_ITEM
+            container.selectedMessageId = con.hhm_NO_SELECTED_MESSAGE
             deselectMessage()
         }
         else
@@ -286,22 +289,22 @@ Rectangle
     {
         if( container.boxState===con.hhm_SIDEBAR_INBOX_STATE )
         {
-            inbox_list.clickSearchedItem(container.selectedMessageId)
+            inbox_list.clickItemOnSearch(container.selectedMessageId)
         }
         else if( container.boxState===con.hhm_SIDEBAR_OUTBOX_STATE )
         {
-            outbox_list.clickSearchedItem(container.selectedMessageId)
+            outbox_list.clickItemOnSearch(container.selectedMessageId)
         }
     }
 
     function clearSelectedItem()
     {
-        container.selectedMessageId = con.hhm_NO_SELECTED_ITEM
+        container.selectedMessageId = con.hhm_NO_SELECTED_MESSAGE
     }
 
     function signOut()
     {
-        selectedMessageId = con.hhm_NO_SELECTED_ITEM
+        clearSelectedItem()
         inbox_list.clearList()
         outbox_list.clearList()
         search_list.clearList()

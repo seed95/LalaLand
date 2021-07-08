@@ -6,7 +6,7 @@ Rectangle
 {
     id: container
 
-    property string tag_text:  "علي عدنان"
+    property string tag_text:           "علي عدنان"
     property bool   separator_visible:  false//Separator is visible
 
     property bool   isHovered: false

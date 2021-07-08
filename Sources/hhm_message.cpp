@@ -11,25 +11,25 @@ HhmMessage::HhmMessage(QObject *root, HhmDatabase *database, HhmUser *userLogged
     sidebar_ui  = main_ui->findChild<QObject*>("MessageSidebar");
     new_ui      = main_ui->findChild<QObject*>("MessageNew");
     view_ui     = main_ui->findChild<QObject*>("MessageView");
+    attach_ui   = main_ui->findChild<QObject*>("MessageAttachbar");
 
-    new_input_to_ui   = main_ui->findChild<QObject*>("MessageNewTo");
-    new_input_cc_ui   = main_ui->findChild<QObject*>("MessageNewCc");
-    new_attachbar     = main_ui->findChild<QObject*>("MessageAttachbar");
+    new_input_to_ui   = new_ui->findChild<QObject*>("MessageNewTo");
+    new_input_cc_ui   = new_ui->findChild<QObject*>("MessageNewCc");
 
-    view_downloadbar_ui  = view_ui->findChild<QObject*>("MessageDownloadbar");
-
+    connect(main_ui, SIGNAL(sendNewMessage(QVariant, QVariant, QString, QString, QVariant)),
+            this, SLOT(sendNewMessage(QVariant, QVariant, QString, QString, QVariant)));
     connect(main_ui, SIGNAL(messageClicked(QString)), this, SLOT(messageClicked(QString)));
+    connect(main_ui, SIGNAL(replyMessage(QString)), this, SLOT(replyMessage(QString)));
+    connect(main_ui, SIGNAL(sendReplyMessage(QVariant, QVariant, QString, QString, QVariant, QString)),
+            this, SLOT(sendReplyMessage(QVariant, QVariant, QString, QString, QVariant, QString)));
 
     connect(action_ui, SIGNAL(attachNewFile()), this, SLOT(attachNewFile()));
     connect(action_ui, SIGNAL(newMessageClicked()), this, SLOT(newMessageClicked()));
 
-    connect(new_ui, SIGNAL(sendNewMessage(QVariant, QVariant, QString, QString, QVariant)),
-            this, SLOT(sendNewMessage(QVariant, QVariant, QString, QString, QVariant)));
+    connect(view_ui, SIGNAL(downloadAttachFile(int)), this, SLOT(downloadAttachFile(int)));
 
-    connect(new_input_to_ui, SIGNAL(addNewUsername(QString)), this, SLOT(addNewUsernameTo(QString)));
-    connect(new_input_cc_ui, SIGNAL(addNewUsername(QString)), this, SLOT(addNewUsernameCc(QString)));
-
-    connect(view_ui, SIGNAL(downloadFile(int)), this, SLOT(downloadFile(int)));
+    connect(new_input_to_ui, SIGNAL(addNewTag(QString)), this, SLOT(addNewTagTo(QString)));
+    connect(new_input_cc_ui, SIGNAL(addNewTag(QString)), this, SLOT(addNewTagCc(QString)));
 
     sidebar = new HhmMessageSidebar(sidebar_ui, database, userLoggedIn);
 
@@ -84,57 +84,88 @@ void HhmMessage::uploadFailed(QString filename)
 
 void HhmMessage::downloadSuccess(QString filename)
 {
-    qDebug() << filename;
+    hhm_log("Download Successfully: " + filename);
+    hhm_showMessage("Download Successfully", 2000);
 }
 
 void HhmMessage::downloadFailed(QString filename)
 {
-    qDebug() << filename;
+    ///FIXME: complete this segment
+    hhm_log("Download Failed: " + filename);
+    hhm_showMessage("Download Failed", 2000);
 }
 
 /***************** Main Slots *****************/
-void HhmMessage::messageClicked(QString idMessage)
+void HhmMessage::sendNewMessage(QVariant toData, QVariant ccData,
+                                QString subject, QString content,
+                                QVariant attachFiles)
 {
-    qint64 message_id = idMessage.toLong();
-    QString condition = "`" + QString(HHM_MESSAGE_ID) + "`=" +
-                        QString::number(message_id);
-    QSqlQuery res = db->select("*", HHM_TABLE_MESSAGE, condition);
-    if( res.next() )
+    if( toData.toList().size()==0 )
     {
-        QQmlProperty::write(view_ui, "messageId", QString::number(message_id));
-
-        QVariant data = res.value(HHM_MESSAGE_SUBJECT);
-        if( data.isValid() )
-        {
-            QQmlProperty::write(view_ui, "subject", data.toString());
-        }
-
-        data = res.value(HHM_MESSAGE_CONTENT);
-        if( data.isValid() )
-        {
-            QQmlProperty::write(view_ui, "content", data.toString());
-        }
-
-        QQmlProperty::write(view_ui, "senderName", getSenderName(message_id));
-        QQmlProperty::write(view_ui, "toName", getToNames(message_id));
-        QQmlProperty::write(view_ui, "ccName", getCcNames(message_id));
-
-        data = res.value(HHM_MESSAGE_SEND_DATE);
-        if( data.isValid() )
-        {
-            QLocale locale(QLocale::Arabic);
-            QDateTime message_date = data.toDateTime();
-            QString date = locale.toString(message_date, "dd MMMM/");
-            date += locale.toString(message_date, " أيار yyyy");
-            date += locale.toString(message_date, " الساعة hh:mm");
-            QQmlProperty::write(view_ui, "dateTime",date);
-        }
-
-        setAttachFiles(message_id);
+        hhm_showMessage("Please select that you want to send which user", 5000);
+        return;
     }
 
+    new_data.senderId   = m_user->getId();
+    new_data.toData     = toData.toList();
+    new_data.ccData     = ccData.toList();
+    new_data.subject    = subject;
+    new_data.content    = content;
+    new_data.filenames  = attachFiles.toStringList();
+    new_data.replyMode  = false;
+    new_data.replyId    = -1;
+
+    attach_file_ind = -1;
+    uploadNextFile();
+}
+
+void HhmMessage::messageClicked(QString idMessage)
+{
+    QMetaObject::invokeMethod(view_ui, "clearMessages");
+    qint64 message_id = idMessage.toLong();
+    showMessage(message_id);
     QMetaObject::invokeMethod(main_ui, "showMessage");
 }
+
+void HhmMessage::replyMessage(QString replyMessageId)
+{
+    qint64 reply_message_id = replyMessageId.toLong();
+    QMetaObject::invokeMethod(view_ui, "clearMessages");
+    showMessage(reply_message_id);
+    setToTagForReply(reply_message_id);
+    setCcTagsForReply(reply_message_id);
+
+    new_data.id = QDateTime::currentMSecsSinceEpoch();
+    //Insert new row message
+    QString columns = "`" + QString(HHM_MESSAGE_ID) + "`";
+    QString values  = "'" + QString::number(new_data.id) + "'";
+    db->insert(HHM_TABLE_MESSAGE, columns, values);
+}
+
+void HhmMessage::sendReplyMessage(QVariant toData, QVariant ccData,
+                                  QString subject, QString content,
+                                  QVariant attachFiles, QString replyMessageId)
+{
+    qDebug() << "sendReplyMessage" << replyMessageId;
+    if( toData.toList().size()==0 )
+    {
+        hhm_showMessage("Please select that you want to send which user", 5000);
+        return;
+    }
+
+    new_data.senderId   = m_user->getId();
+    new_data.toData     = toData.toList();
+    new_data.ccData     = ccData.toList();
+    new_data.subject    = subject;
+    new_data.content    = content;
+    new_data.filenames  = attachFiles.toStringList();
+    new_data.replyMode  = true;
+    new_data.replyId    = replyMessageId.toLong();
+
+    attach_file_ind = -1;
+    uploadNextFile();
+}
+
 
 /***************** Action Slots *****************/
 void HhmMessage::attachNewFile()
@@ -146,8 +177,8 @@ void HhmMessage::attachNewFile()
     if( !file_path.isEmpty() )
     {
         hhm_setLastDirectory(QFileInfo(file_path).absolutePath());
-        QQmlProperty::write(new_attachbar, "attach_filename", file_path);
-        QMetaObject::invokeMethod(new_attachbar, "addAttachFile");
+        QQmlProperty::write(attach_ui, "attach_filename", file_path);
+        QMetaObject::invokeMethod(attach_ui, "addAttachFile");
     }
 }
 
@@ -161,58 +192,30 @@ void HhmMessage::newMessageClicked()
 }
 
 /***************** Input Slots *****************/
-void HhmMessage::addNewUsernameTo(QString username)
+void HhmMessage::addNewTagTo(QString name)
 {
-    QString condition = "`" + QString(HHM_USER_USERNAME) + "`='" + username + "'";
-    QSqlQuery res = db->select("*", HHM_TABLE_USER, condition);
-    if( res.next() )
+    if( !addUserTag(name, new_input_to_ui) )
     {
-        addUserTag(res, new_input_to_ui);
-    }
-    else
-    {
-        QMetaObject::invokeMethod(new_input_to_ui, "usernameNotFound");
+        if( !addDepartmentTag(name, new_input_to_ui) )
+        {
+            QMetaObject::invokeMethod(new_input_to_ui, "nameNotFound");
+        }
     }
 }
 
-void HhmMessage::addNewUsernameCc(QString username)
-{
-    QString condition = "`" + QString(HHM_USER_USERNAME) + "`='" + username + "'";
-    QSqlQuery res = db->select("*", HHM_TABLE_USER, condition);
-    if( res.next() )
+void HhmMessage::addNewTagCc(QString name)
+{ 
+    if( !addUserTag(name, new_input_cc_ui) )
     {
-        addUserTag(res, new_input_cc_ui);
+        if( !addDepartmentTag(name, new_input_cc_ui) )
+        {
+            QMetaObject::invokeMethod(new_input_cc_ui, "nameNotFound");
+        }
     }
-    else
-    {
-        QMetaObject::invokeMethod(new_input_cc_ui, "usernameNotFound");
-    }
-}
-
-/***************** New Slots *****************/
-void HhmMessage::sendNewMessage(QVariant toData, QVariant ccData,
-                                QString subject, QString content,
-                                QVariant attachFiles)
-{
-    if( toData.toList().size()==0 )
-    {
-        hhm_showMessage("Please select that you want to send witch user", 5000);
-        return;
-    }
-
-    new_data.senderId   = m_user->getId();
-    new_data.toData     = toData.toList();
-    new_data.ccData     = ccData.toList();
-    new_data.subject    = subject;
-    new_data.content    = content;
-    new_data.filenames  = attachFiles.toStringList();
-
-    attach_file_ind = -1;
-    uploadNextFile();
 }
 
 /***************** View Slots *****************/
-void HhmMessage::downloadFile(int fileId)
+void HhmMessage::downloadAttachFile(int fileId)
 {
     QString src;
     qint64 message_id = 0;
@@ -246,7 +249,7 @@ void HhmMessage::downloadFile(int fileId)
     }
 }
 
-/***************** Private Functions *****************/
+/***************** New Functions *****************/
 /*
  * Fill 'dst_filenames' with filename at
  * position 'attach_file_ind' in
@@ -256,7 +259,7 @@ void HhmMessage::fillDestinationFilenames()
 {
     dst_filenames.clear();
     QString src, dst_filepath, dst_filename;
-    QVariantList r_user;//Receiver(to,cc) user
+    QVariantList receiver;//Receiver(to,cc) user or department
 
     src = new_data.filenames.at(attach_file_ind);
     dst_filename = hhm_appendMessageId(src, new_data.id);
@@ -271,18 +274,34 @@ void HhmMessage::fillDestinationFilenames()
 
     for(int to_ind=0; to_ind<new_data.toData.length(); to_ind++)
     {
-        r_user = new_data.toData.at(to_ind).toList();
-        ///FIXME: Ask Bijan
-        dst_filepath = r_user.at(USERNAME_INDEX).toString().toLower() + "/Received/" + dst_filename;
-        dst_filenames.append(dst_filepath);
+        receiver = new_data.toData.at(to_ind).toList();
+        if( receiver.at(TAG_MODE_INDEX).toInt()==HHM_TAG_USER )
+        {
+            ///FIXME: Ask Bijan
+            dst_filepath = receiver.at(TAG_USERNAME_INDEX).toString().toLower() + "/Received/" + dst_filename;
+            dst_filenames.append(dst_filepath);
+        }
+        else//HHM_TAG_DEPARTMENT
+        {
+            dst_filepath = "Department/" + receiver.at(TAG_ID_INDEX).toString().toLower() + "/" + dst_filename;
+            dst_filenames.append(dst_filepath);
+        }
     }
 
     for(int cc_ind=0; cc_ind<new_data.ccData.length(); cc_ind++)
     {
-        r_user = new_data.ccData.at(cc_ind).toList();
-        ///FIXME: Ask Bijan
-        dst_filepath = r_user.at(USERNAME_INDEX).toString().toLower() + "/Received/" + dst_filename;
-        dst_filenames.append(dst_filepath);
+        receiver = new_data.ccData.at(cc_ind).toList();
+        if( receiver.at(TAG_MODE_INDEX).toInt()==HHM_TAG_USER )
+        {
+            ///FIXME: Ask Bijan
+            dst_filepath = receiver.at(TAG_USERNAME_INDEX).toString().toLower() + "/Received/" + dst_filename;
+            dst_filenames.append(dst_filepath);
+        }
+        else//HHM_TAG_DEPARTMENT
+        {
+            dst_filepath = "Department/" + receiver.at(TAG_ID_INDEX).toString().toLower() + "/" + dst_filename;
+            dst_filenames.append(dst_filepath);
+        }
     }
 
 }
@@ -306,8 +325,12 @@ void HhmMessage::uploadNextFile()
 
 void HhmMessage::uploadAttachFilesFinished()
 {
+    if( new_data.replyMode )
+    {
+        updateSourceMessage();
+    }
     updateMessage();
-    updateJUM();
+    updateJoinMessage();
     sidebar->loadOutbox();
     QMetaObject::invokeMethod(main_ui, "successfullySend");
 }
@@ -345,31 +368,79 @@ void HhmMessage::updateMessage()
     QString date = locale.toString(QDateTime::currentDateTime(), "yyyy-MM-dd hh:mm:ss");
     values += ", `" + QString(HHM_MESSAGE_SEND_DATE) + "`='" +
               date + "'";
+
+    if( new_data.replyMode )
+    {
+        int number_sources = 0;
+        QString condition = "`" + QString(HHM_MESSAGE_ID) + "`=" +
+                            QString::number(new_data.replyId);
+        QSqlQuery res = db->select(HHM_MESSAGE_NUMBER_SOURCES, HHM_TABLE_MESSAGE, condition);
+        if( res.next() )
+        {
+            number_sources = res.value(0).toInt() + 1;
+        }
+        values += ", `" + QString(HHM_MESSAGE_NUMBER_SOURCES) + "`='" +
+                  QString::number(number_sources) + "'";
+
+        values += ", `" + QString(HHM_MESSAGE_SOURCE_ID) + "`='" +
+                  QString::number(new_data.replyId) + "'";
+    }
+
     db->update(condition, values, HHM_TABLE_MESSAGE);
 }
 
-void HhmMessage::updateJUM()
+void HhmMessage::updateSourceMessage()
 {
-    QVariantList r_user;//Receiver(to,cc) user
+    QString condition = "`" + QString(HHM_MESSAGE_ID) + "`=" +
+                        QString::number(new_data.replyId);
+    QString values = "`" + QString(HHM_MESSAGE_SOURCE_FLAG) + "`='1'";
+    db->update(condition, values, HHM_TABLE_MESSAGE);
+}
+
+/*
+ * Update tables that join with message
+ * JoinUserMessage, JoinDepartmentMessage
+ * */
+void HhmMessage::updateJoinMessage()
+{
+    QVariantList receiver;//Receiver(to,cc) user or department
 
     insertNewUserMessage(m_user->getId(), SENDER_FLAG);
 
+    int department_id;
     for(int to_ind=0; to_ind<new_data.toData.length(); to_ind++)
     {
-        r_user = new_data.toData.at(to_ind).toList();
-        insertNewUserMessage(r_user.at(ID_INDEX).toInt(), TO_FLAG);
+        receiver = new_data.toData.at(to_ind).toList();
+        if( receiver.at(TAG_MODE_INDEX).toInt()==HHM_TAG_USER )
+        {
+            insertNewUserMessage(receiver.at(TAG_ID_INDEX).toInt(), TO_FLAG);
+        }
+        else//HHM_TAG_DEPARTMENT
+        {
+            department_id = receiver.at(TAG_ID_INDEX).toInt();
+            insertNewDepartmentMessage(department_id, TO_FLAG);
+            insertNewMessageForDepartment(department_id, department_id);
+        }
     }
 
     for(int cc_ind=0; cc_ind<new_data.ccData.length(); cc_ind++)
     {
-        r_user = new_data.ccData.at(cc_ind).toList();
-        insertNewUserMessage(r_user.at(ID_INDEX).toInt(), CC_FLAG);
+        receiver = new_data.ccData.at(cc_ind).toList();
+        if( receiver.at(TAG_MODE_INDEX).toInt()==HHM_TAG_USER )
+        {
+            insertNewUserMessage(receiver.at(TAG_ID_INDEX).toInt(), CC_FLAG);
+        }
+        else//HHM_TAG_DEPARTMENT
+        {
+            department_id = receiver.at(TAG_ID_INDEX).toInt();
+            insertNewDepartmentMessage(department_id, TO_FLAG);
+            insertNewMessageForDepartment(department_id, department_id);
+        }
     }
 }
 
-void HhmMessage::insertNewUserMessage(int idUser, int flag)
+void HhmMessage::insertNewUserMessage(int userId, int flag)
 {
-//    QVariantList user = new_data.toData.at(to_ind).toList();
     QString columns = "`" + QString(HHM_JUM_USER_ID) + "`";
     columns += ", `" + QString(HHM_JUM_MESSAGE_ID) + "`";
     if( flag==SENDER_FLAG )
@@ -385,13 +456,115 @@ void HhmMessage::insertNewUserMessage(int idUser, int flag)
         columns += ", `" + QString(HHM_JUM_CC_FLAG) + "`";
     }
 
-    QString values  = "'" + QString::number(idUser) + "'";
+    QString values  = "'" + QString::number(userId) + "'";
     values += ", '" + QString::number(new_data.id) + "'";
     values += ", '1'";
     db->insert(HHM_TABLE_JOIN_USER_MESSAGE, columns, values);
 }
 
+/*
+ * Insert new message for all users in department
+ * and groups in department
+ * */
+void HhmMessage::insertNewMessageForDepartment(int departmentId, int groupId)
+{
+    QString condition = "`" + QString(HHM_USER_DEPARTMENT_ID) + "`=" +
+                        QString::number(groupId);
+    QSqlQuery res = db->select(HHM_USER_ID, HHM_TABLE_USER, condition);
+    while( res.next() )
+    {
+        insertNewDepartmentUserMessage(departmentId, res.value(0).toInt());
+    }
+
+    condition = "`" + QString(HHM_JDG_DEPARTMENT_ID) + "`=" +
+                QString::number(groupId);
+    res = db->select(HHM_JDG_GROUP_ID, HHM_TABLE_DEPARTMENT_GROUP, condition);
+    while( res.next() )
+    {
+        insertNewMessageForDepartment(departmentId, res.value(0).toInt());
+    }
+}
+
+void HhmMessage::insertNewDepartmentMessage(int departmentId, int flag)
+{
+    QString columns = "`" + QString(HHM_JDM_DEPARTMENT_ID) + "`";
+    columns += ", `" + QString(HHM_JDM_MESSAGE_ID) + "`";
+    if( flag==TO_FLAG )
+    {
+        columns += ", `" + QString(HHM_JDM_TO_FLAG) + "`";
+    }
+    else if( flag==CC_FLAG )
+    {
+        columns += ", `" + QString(HHM_JDM_CC_FLAG) + "`";
+    }
+    QString values  = "'" + QString::number(departmentId) + "'";
+    values += ", '" + QString::number(new_data.id) + "'";
+    values += ", '1'";
+    db->insert(HHM_TABLE_JOIN_DEPARTMENT_MESSAGE, columns, values);
+}
+
+void HhmMessage::insertNewDepartmentUserMessage(int departmentId, int userId)
+{
+    QString columns = "`" + QString(HHM_JDUM_DEPARTMENT_ID) + "`";
+    columns += ", `" + QString(HHM_JDUM_USER_ID) + "`";
+    columns += ", `" + QString(HHM_JDUM_MESSAGE_ID) + "`";
+
+    QString values  = "'" + QString::number(departmentId) + "'";
+    values += ", '" + QString::number(userId) + "'";
+    values += ", '" + QString::number(new_data.id) + "'";
+    db->insert(HHM_TABLE_JOIN_DEPARTMENT_USER_MESSAGE, columns, values);
+}
+
 /***************** View Functions *****************/
+void HhmMessage::showMessage(qint64 messageId)
+{
+    QString condition = "`" + QString(HHM_MESSAGE_ID) + "`=" +
+                        QString::number(messageId);
+    QSqlQuery res = db->select("*", HHM_TABLE_MESSAGE, condition);
+    if( res.next() )
+    {
+        QQmlProperty::write(view_ui, "messageId", QString::number(messageId));
+
+        QVariant data = res.value(HHM_MESSAGE_SUBJECT);
+        if( data.isValid() )
+        {
+            QQmlProperty::write(view_ui, "subject", data.toString());
+        }
+
+        data = res.value(HHM_MESSAGE_CONTENT);
+        if( data.isValid() )
+        {
+            QQmlProperty::write(view_ui, "content", data.toString());
+        }
+
+        QQmlProperty::write(view_ui, "senderName", getSenderName(messageId));
+        QQmlProperty::write(view_ui, "toName", getToNames(messageId));
+        QQmlProperty::write(view_ui, "ccName", getCcNames(messageId));
+
+        data = res.value(HHM_MESSAGE_SEND_DATE);
+        if( data.isValid() )
+        {
+            QLocale locale(QLocale::Arabic);
+            QDateTime message_date = data.toDateTime();
+            QString date = locale.toString(message_date, "dd MMMM/");
+            date += locale.toString(message_date, " أيار yyyy");
+            date += locale.toString(message_date, " الساعة hh:mm");
+            QQmlProperty::write(view_ui, "dateTime", date);
+        }
+
+        QVariantList files = getAttachFiles(messageId);
+        QQmlProperty::write(view_ui, "files", files);
+        QMetaObject::invokeMethod(view_ui, "addMessage");
+
+        data = res.value(HHM_MESSAGE_SOURCE_ID);
+        if( !data.isNull() )
+        {
+            showMessage(data.toLongLong());
+        }
+
+    }
+}
+
 QString HhmMessage::getSenderName(qint64 messageId)
 {
     QString condition = "`" + QString(HHM_JUM_MESSAGE_ID) + "`=" +
@@ -407,14 +580,26 @@ QString HhmMessage::getSenderName(qint64 messageId)
 
 QString HhmMessage::getToNames(qint64 messageId)
 {
-    QString condition = "`" + QString(HHM_JUM_MESSAGE_ID) + "`=" +
-                        QString::number(messageId);
-    condition += " AND `" + QString(HHM_JUM_TO_FLAG) + "`='1'";
-    QSqlQuery res = db->select(HHM_JUM_USER_ID, HHM_TABLE_JOIN_USER_MESSAGE, condition);
     QStringList result;
+
+    QString message_condition = "`" + QString(HHM_JUM_MESSAGE_ID) + "`='" +
+                                QString::number(messageId) + "'";
+    QString to_condition = "`" + QString(HHM_JUM_TO_FLAG) + "`='1'";
+    QString condition = message_condition + " AND " + to_condition;
+    QSqlQuery res = db->select(HHM_JUM_USER_ID, HHM_TABLE_JOIN_USER_MESSAGE, condition);
     while( res.next() )
     {
         result.append(m_user->getName(res.value(0).toInt()));
+    }
+
+    message_condition = "`" + QString(HHM_JDM_MESSAGE_ID) + "`=" +
+                        QString::number(messageId);
+    to_condition = "`" + QString(HHM_JDM_TO_FLAG) + "`='1'";
+    condition = message_condition + " AND " + to_condition;
+    res = db->select(HHM_JDM_DEPARTMENT_ID, HHM_TABLE_JOIN_DEPARTMENT_MESSAGE, condition);
+    while( res.next() )
+    {
+        result.append(getDepartmentName(res.value(HHM_JDM_DEPARTMENT_ID).toInt()));
     }
 
     return result.join(",");
@@ -422,88 +607,173 @@ QString HhmMessage::getToNames(qint64 messageId)
 
 QString HhmMessage::getCcNames(qint64 messageId)
 {
-    QString condition = "`" + QString(HHM_JUM_MESSAGE_ID) + "`=" +
-                        QString::number(messageId);
-    condition += " AND `" + QString(HHM_JUM_CC_FLAG) + "`='1'";
-    QSqlQuery res = db->select(HHM_JUM_USER_ID, HHM_TABLE_JOIN_USER_MESSAGE, condition);
     QStringList result;
+
+    QString message_condition = "`" + QString(HHM_JUM_MESSAGE_ID) + "`=" +
+                                QString::number(messageId);
+    QString cc_condition = "`" + QString(HHM_JUM_CC_FLAG) + "`='1'";
+    QString condition = message_condition + " AND " + cc_condition;
+    QSqlQuery res = db->select(HHM_JUM_USER_ID, HHM_TABLE_JOIN_USER_MESSAGE, condition);
     while( res.next() )
     {
         result.append(m_user->getName(res.value(0).toInt()));
     }
 
+    message_condition = "`" + QString(HHM_JDM_MESSAGE_ID) + "`=" +
+                        QString::number(messageId);
+    cc_condition = "`" + QString(HHM_JUM_CC_FLAG) + "`='1'";
+    condition = message_condition + " AND " + cc_condition;
+    res = db->select(HHM_JDM_DEPARTMENT_ID, HHM_TABLE_JOIN_DEPARTMENT_MESSAGE, condition);
+    while( res.next() )
+    {
+        result.append(getDepartmentName(res.value(HHM_JDM_DEPARTMENT_ID).toInt()));
+    }
+
     return result.join(",");
 }
 
-void HhmMessage::setAttachFiles(qint64 messageId)
+QVariantList HhmMessage::getAttachFiles(qint64 messageId)
 {
-    QMetaObject::invokeMethod(view_downloadbar_ui, "removeAllAttach");
-
     QString condition = "`" + QString(HHM_FILES_MESSAGE_ID) + "`=" +
                         QString::number(messageId);
     QSqlQuery res = db->select("*", HHM_TABLE_FILES, condition);
-    QString filename;
+    QVariantList result;
     while( res.next() )
     {
+        QVariantMap item;
         QVariant data = res.value(HHM_FILES_ID);
         if( data.isValid() )
         {
-            QQmlProperty::write(view_downloadbar_ui, "attach_fileId", data.toInt());
+            ///Note: Dont Change 'fileId' Key(used in qml)
+            item.insert("fileId", data.toInt());
         }
 
         data = res.value(HHM_FILES_FILENAME);
         if( data.isValid() )
         {
-            filename = hhm_removeMessageId(data.toString(), messageId);
-            QQmlProperty::write(view_downloadbar_ui, "attach_filename", filename);
+            ///Note: Dont Change 'fileName' Key(used in qml)
+            item.insert("fileName", hhm_removeMessageId(data.toString(), messageId));
         }
 
-        QMetaObject::invokeMethod(view_downloadbar_ui, "addAttachFile");
+        result.append(item);
+    }
+    return result;
+}
+
+/***************** Utility Functions *****************/
+void HhmMessage::setToTagForReply(qint64 replyMessageId)
+{
+    QString message_condition = "`" + QString(HHM_JUM_MESSAGE_ID) + "`=" +
+                                QString::number(replyMessageId);
+    QString sender_condition = "`" + QString(HHM_JUM_SENDER_FLAG) + "`='1'";
+    QString condition = message_condition + " AND " + sender_condition;
+    QSqlQuery res = db->select(HHM_JUM_USER_ID, HHM_TABLE_JOIN_USER_MESSAGE, condition);
+    if( res.next() )
+    {
+        addUserTag(m_user->getUsername(res.value(HHM_JUM_USER_ID).toInt()), new_input_to_ui);
+    }
+}
+
+void HhmMessage::setCcTagsForReply(qint64 replyMessageId)
+{
+    QString message_condition = "`" + QString(HHM_JUM_MESSAGE_ID) + "`=" +
+                                QString::number(replyMessageId);
+    QString cc_condition = "`" + QString(HHM_JUM_CC_FLAG) + "`='1'";
+    QString condition = message_condition + " AND " + cc_condition;
+    QSqlQuery res = db->select(HHM_JUM_USER_ID, HHM_TABLE_JOIN_USER_MESSAGE, condition);
+    while( res.next() )
+    {
+        addUserTag(m_user->getUsername(res.value(HHM_JUM_USER_ID).toInt()), new_input_cc_ui);
+    }
+
+    message_condition = "`" + QString(HHM_JDM_MESSAGE_ID) + "`=" +
+                        QString::number(replyMessageId);
+    cc_condition = "`" + QString(HHM_JDM_CC_FLAG) + "`='1'";
+    condition = message_condition + " AND " + cc_condition;
+    res = db->select(HHM_JDM_DEPARTMENT_ID, HHM_TABLE_JOIN_DEPARTMENT_MESSAGE, condition);
+    while( res.next() )
+    {
+        addDepartmentTag(getDepartmentName(res.value(HHM_JDM_DEPARTMENT_ID).toInt()), new_input_cc_ui);
     }
 }
 
 /***************** Utility Functions *****************/
-void HhmMessage::addUserTag(QSqlQuery res, QObject *ui)
+bool HhmMessage::addUserTag(QString username, QObject *ui)
 {
+    QString condition = "`" + QString(HHM_USER_USERNAME) + "`='" + username + "'";
+    QSqlQuery res = db->select("*", HHM_TABLE_USER, condition);
+    if( !res.next() )
+    {
+        return false;
+    }
+
+    QQmlProperty::write(ui, "tagMode", 1);
     QVariant data = res.value(HHM_USER_ID);
     if( data.isValid() )
     {
-        QQmlProperty::write(ui, "user_id", data.toInt());
-    }
-    else
-    {
-        hhm_log("add user tag, user id is not valid");
+        QQmlProperty::write(ui, "tagId", data.toInt());
     }
 
+    QString name = "";
     data = res.value(HHM_USER_FIRSTNAME);
     if( data.isValid() )
     {
-        QQmlProperty::write(ui, "label_firstname", data.toString());
-    }
-    else
-    {
-        hhm_log("add user tag, user firstname is not valid");
+        name = data.toString();
     }
 
     data = res.value(HHM_USER_LASTNAME);
     if( data.isValid() )
     {
-        QQmlProperty::write(ui, "label_lastname", data.toString());
+        name += " " + data.toString();
     }
-    else
-    {
-        hhm_log("add user tag, user lastname is not valid");
-    }
+    QQmlProperty::write(ui, "tagName", name);
 
     data = res.value(HHM_USER_USERNAME);
     if( data.isValid() )
     {
-        QQmlProperty::write(ui, "label_username", data.toString());
-    }
-    else
-    {
-        hhm_log("add user tag, username is not valid");
+        QQmlProperty::write(ui, "tagUsername", data.toString());
     }
 
-    QMetaObject::invokeMethod(ui, "addUsername");
+    QMetaObject::invokeMethod(ui, "addTag");
+    return true;
+}
+
+bool HhmMessage::addDepartmentTag(QString name, QObject *ui)
+{
+    QString condition = "`" + QString(HHM_DEPARTMENT_ID) + "`='" + name + "'";
+    QSqlQuery res = db->select("*", HHM_TABLE_DEPARTMENT, condition);
+    if( !res.next() )
+    {
+        return false;
+    }
+
+    QQmlProperty::write(ui, "tagMode", 2);
+    QVariant data = res.value(HHM_DEPARTMENT_ID);
+    if( data.isValid() )
+    {
+        QQmlProperty::write(ui, "tagId", data.toInt());
+    }
+
+    data = res.value(HHM_DEPARTMENT_NAME);
+    if( data.isValid() )
+    {
+        QQmlProperty::write(ui, "tagName", data.toString());
+    }
+
+    QQmlProperty::write(ui, "tagUsername", "");
+
+    QMetaObject::invokeMethod(ui, "addTag");
+    return true;
+}
+
+QString HhmMessage::getDepartmentName(int departmentId)
+{
+    QString condition = "`" + QString(HHM_DEPARTMENT_ID) + "`=" +
+                        QString::number(departmentId);
+    QSqlQuery res = db->select(HHM_DEPARTMENT_NAME, HHM_TABLE_DEPARTMENT, condition);
+    if( res.next() )
+    {
+        return res.value(HHM_DEPARTMENT_NAME).toString();
+    }
+    return "";
 }

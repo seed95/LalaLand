@@ -7,13 +7,15 @@ Item
 
     //Set this variables in cpp
     property string messageId:      ""//The Qml does not support int64
+    property int    sourceId:       0
     property string subject:        "النادي تعديل الزوراء كأس العراق"
+    property int    numberSources:  7
     property string senderName:     "ابراهيم محمد"
     property string date:           "۷:۱۷"
     property bool   isRead:         false
     property bool   containFile:    true
 
-    property string selectedId: con.hhm_NO_SELECTED_ITEM
+    property string selectedId: con.hhm_NO_SELECTED_MESSAGE
 
     //Cpp Signals
     signal readMessage(string idMessage)
@@ -37,14 +39,16 @@ Item
 
         delegate: HhmMessageSidebarElement
         {
-            width:          container.width
-            message_id:     idMessage
-            text_subject:   textSubject
-            text_name:      textName
-            text_date:      textDate
-            is_open:        isOpen
-            is_attach:      isAttach
-            is_active:      container.selectedId===idMessage
+            width:                  container.width
+            message_id:             idMessage
+            source_id:              idSource
+            text_subject:           textSubject
+            text_number_sources:    textNumberSources
+            text_name:              textName
+            text_date:              textDate
+            is_open:                isOpen
+            is_attach:              isAttach
+            is_active:              container.selectedId===idMessage
 
             onClickItem:
             {
@@ -87,8 +91,8 @@ Item
         policy: ScrollBar.AsNeeded
     }
 
-    //Add if not exist
-    //Update if exist
+    /*** Call this function from cpp ***/
+    //Add if not exist, Update if exist
     function addToList()
     {
         for(var i=0; i<lm_message.count; i++)
@@ -96,18 +100,36 @@ Item
             //Message exist
             if( container.messageId===lm_message.get(i).idMessage )
             {
-                lm_message.get(i).textSubject   = container.subject
-                lm_message.get(i).textName      = container.senderName
-                lm_message.get(i).textDate      = container.date
-                lm_message.get(i).isOpen        = container.isRead
-                lm_message.get(i).isAttach      = container.containFile
+                lm_message.get(i).idSource              = container.sourceId
+                lm_message.get(i).textSubject           = container.subject
+                lm_message.get(i).textNumberSources     = container.numberSources
+                lm_message.get(i).textName              = container.senderName
+                lm_message.get(i).textDate              = container.date
+                lm_message.get(i).isOpen                = container.isRead
+                lm_message.get(i).isAttach              = container.containFile
+                return
+            }
+
+            //Source Message exist
+            if( container.sourceId===lm_message.get(i).idMessage )
+            {
+                lm_message.get(i).idMessage             = container.messageId
+                lm_message.get(i).idSource              = container.sourceId
+                lm_message.get(i).textSubject           = container.subject
+                lm_message.get(i).textNumberSources     = container.numberSources
+                lm_message.get(i).textName              = container.senderName
+                lm_message.get(i).textDate              = container.date
+                lm_message.get(i).isOpen                = container.isRead
+                lm_message.get(i).isAttach              = container.containFile
                 return
             }
 
             if( container.messageId>lm_message.get(i).idMessage )
             {
                 lm_message.insert(i, {  "idMessage" : container.messageId,
+                                        "idSource" : container.sourceId,
                                         "textSubject" : container.subject,
+                                        "textNumberSources" : container.numberSources,
                                         "textName" : container.senderName,
                                         "textDate" : container.date,
                                         "isOpen" : container.isRead,
@@ -116,31 +138,30 @@ Item
             }
         }
         lm_message.append({ "idMessage" : container.messageId,
+                            "idSource" : container.sourceId,
                             "textSubject" : container.subject,
+                            "textNumberSources" : container.numberSources,
                             "textName" : container.senderName,
                             "textDate" : container.date,
                             "isOpen" : container.isRead,
                             "isAttach" : container.containFile})
     }
 
-    //Search with casenumber and subject
-    //and return all object that match
+    function clearList()
+    {
+        lm_message.clear()
+    }
+
+    /*** Call this function from qml ***/
+    //Search subject and return all object that match
     function searchObject(text)
     {
         var objects = []
 
         for(var i=0; i<lm_message.count; i++)
         {
-            //Search on case number
-            var slice_case_number = lm_message.get(i).caseNumber.toString().slice(0, text.length)
-            if( slice_case_number===text )
-            {
-                objects.push(lm_message.get(i))
-                continue
-            }
-
             //Search on subject
-            var slice_subject = lm_message.get(i).docSubject.toString().slice(0, text.length)
+            var slice_subject = lm_message.get(i).textSubject.toString().slice(0, text.length)
             if( slice_subject===text )
             {
                 objects.push(lm_message.get(i))
@@ -158,22 +179,22 @@ Item
         lm_message.append(objects)
     }
 
-    function clickSearchedItem(idEmail)
+    function clickItemOnSearch(messageId)
     {
         for(var i=0; i<lm_message.count; i++)
         {
-            if( lm_message.get(i).emailId===idEmail )
+            if( lm_message.get(i).idMessage===messageId )
             {
-                lm_message.get(i).emailOpened = true
-                readMessage(lm_message.get(i).emailId)
+                if( !lm_message.get(i).isOpen )
+                {
+                    lm_message.get(i).isOpen = true
+                    readMessage(lm_message.get(i).idMessage)
+                }
+                clickMessage(lm_message.get(i).idMessage)
                 break
             }
         }
     }
 
-    function clearList()
-    {
-        lm_message.clear()
-    }
 }
 

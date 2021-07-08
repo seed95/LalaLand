@@ -4,13 +4,15 @@ Rectangle
 {
     id: container
 
-    property string message_id:         ""//The Qml does not support int64
-    property string text_subject:       "Subject"
-    property string text_name:          "Subject"
-    property string text_date:          "Subject"
-    property bool   is_active:          false
-    property bool   is_open:            false
-    property bool   is_attach:          true
+    property string message_id:             ""//The Qml does not support int64
+    property int    source_id:              0//The Qml does not support int64
+    property string text_subject:           "Subject"
+    property int    text_number_sources:    7
+    property string text_name:              "Subject"
+    property string text_date:              "Subject"
+    property bool   is_active:              false
+    property bool   is_open:                false
+    property bool   is_attach:              true
 
     property color color_background_normal:         "#d7d7d7"
     property color color_background_hovered:        "#e5e5e5"
@@ -123,6 +125,30 @@ Rectangle
         anchors.top: parent.top
         anchors.topMargin: 7
         color: color_text
+    }
+
+    Text
+    {
+        id: label_number_sources
+        text: root.en2ar(text_number_sources)
+        font.family: fontDroidKufiRegular.name
+        font.weight: Font.Normal
+        font.pixelSize: 12
+        anchors.right: label_subject.left
+        anchors.rightMargin: 12
+        anchors.top: label_subject.top
+        color:
+        {
+            if( is_active )
+            {
+                "#c6c8ca"
+            }
+            else
+            {
+                "#6e6e6e"
+            }
+        }
+        visible: text_number_sources!==1
     }
 
     Text

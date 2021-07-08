@@ -23,14 +23,15 @@ Window
     property int    error_duration:     100
 
     //User properties
-    property int    idUser:     103
-    property string firstname:  "Cassie"
-    property string lastname:   "Hicks"
-    property string username:   "Adnan"
-    property string lastlogin:  "2020/08/19 12:23:43"
-    property int    status:     0
-    property string bio:        "Bio"
-    property string image:      "Image"
+    property int    idUser:         103
+    property string firstname:      "علی"
+    property string lastname:       "عدنان"
+    property string username:       "Adnan"
+    property string lastlogin:      "2020/08/19 12:23:43"
+    property int    status:         0
+    property string bio:            "Bio"
+    property string image:          "Image"
+    property int    idDepartment:   8
 
     //Properties for news
     property string news_title1:     ""
