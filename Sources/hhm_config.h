@@ -1,7 +1,7 @@
 #ifndef HHM_CONFIG_H
 #define HHM_CONFIG_H
 
-#define HHM_DEV_MODE
+//#define HHM_DEV_MODE
 #define HHM_MAX_PERMISSION 9
 
 #define HHM_CONFIG_FILE "db.conf"

@@ -122,7 +122,7 @@ void HhmMessage::sendNewMessage(QVariant toData, QVariant ccData,
 void HhmMessage::messageClicked(QString idMessage)
 {
     QMetaObject::invokeMethod(view_ui, "clearMessages");
-    qint64 message_id = idMessage.toLong();
+    qint64 message_id = idMessage.toLongLong();
     showMessage(message_id);
     QMetaObject::invokeMethod(main_ui, "showMessage");
 }
@@ -517,6 +517,7 @@ void HhmMessage::insertNewDepartmentUserMessage(int departmentId, int userId)
 /***************** View Functions *****************/
 void HhmMessage::showMessage(qint64 messageId)
 {
+    qDebug() << "showMessage" << messageId;
     QString condition = "`" + QString(HHM_MESSAGE_ID) + "`=" +
                         QString::number(messageId);
     QSqlQuery res = db->select("*", HHM_TABLE_MESSAGE, condition);
@@ -556,6 +557,7 @@ void HhmMessage::showMessage(qint64 messageId)
         QMetaObject::invokeMethod(view_ui, "addMessage");
 
         data = res.value(HHM_MESSAGE_SOURCE_ID);
+        qDebug() << data.toLongLong();
         if( !data.isNull() )
         {
             showMessage(data.toLongLong());
