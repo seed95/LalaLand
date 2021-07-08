@@ -28,11 +28,17 @@ Rectangle
     property string id_number: "number"
     property string id_username: "name"
     property bool is_odd: ar2en(id_number)%2
+    property int addTagFlag: 0
+
 
     signal addDepartmentGroup()
 
+    onAddTagFlagChanged:
+                       {
+                            table_new_group.addGroup(d_table.next_tag_text);
+                       }
 
-    width: 800
+    width: 905
     height: 30
     color:
          {
@@ -73,7 +79,7 @@ Rectangle
         width: 190
         height: parent.height
         color: "transparent"
-        anchors.left: groupRect.right
+        anchors.left: table_new_group.right
         anchors.verticalCenter: parent.verticalCenter
         Text
         {
@@ -86,37 +92,20 @@ Rectangle
         }
     }
 
-    Rectangle
+    HhmDTableNewGroup
     {
-        id: groupRect
-        width: 500
-        height: parent.height
-        color: "transparent"
-        anchors.top: parent.top
+        id: table_new_group
         anchors.left: parent.left
-        Rectangle
-        {
-            width: 400
-            height: 24
-            color: "#E6E6E6"
-            radius: 6
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.leftMargin: 55
-            anchors.left: parent.left
-            border.color: "#969696"
-        }
-    }
-
-    HhmAddBtn
-    {
         anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.leftMargin: 30
 
-        onClickedBtn:
-                    {
-                        addDepartmentGroup();
-                    }
+        onAddDepGroup:
+                     {
+                       addDepartmentGroup();
+                     }
     }
 
+    function addTagGroup(group_name)
+    {
+        table_new_group.addGroup(group_name);
+    }
 }

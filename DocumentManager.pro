@@ -14,6 +14,9 @@ CONFIG += c++11
 SOURCES += Sources/main.cpp \
            Sources/backend.cpp \
            Sources/hhm_admin.cpp \
+           Sources/hhm_admin_departments.cpp \
+           Sources/hhm_admin_permissions.cpp \
+           Sources/hhm_admin_users.cpp \
            Sources/hhm_chapar.cpp \
            Sources/hhm_database.cpp \
            Sources/hhm_document.cpp \
@@ -27,6 +30,9 @@ SOURCES += Sources/main.cpp \
 
 HEADERS += Sources/backend.h \
            Sources/hhm_admin.h \
+           Sources/hhm_admin_departments.h \
+           Sources/hhm_admin_permissions.h \
+           Sources/hhm_admin_users.h \
            Sources/hhm_chapar.h \
            Sources/hhm_config.h \
            Sources/hhm_database.h \

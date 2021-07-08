@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 Rectangle
 {
-    signal clickedBtn(int value)
+    signal clickedBtn(int value, string sel_text)
 
     property bool is_active: false
     property bool is_hovered: false
@@ -62,53 +62,48 @@ Rectangle
 
         ListModel
         {
-            id: sectionDropDownList
+            id: lm_department
 
             ListElement
             {
-                list_item: "English"
+                item_id: 1
+                item_list: "تدليك"
             }
             ListElement
             {
-                list_item: "French"
+                item_id: 2
+                item_list: "وثيقة"
             }
             ListElement
             {
-                list_item: "Italian"
+                item_id: 3
+                item_list: "الملف الشخصي"
             }
         }
 
         Component
         {
-            id: meli01
+            id: ud_department
 
             HhmDropDownItem
             {
-                text_val: list_item
+                text_val: item_list
                 width: 180
                 height: 30
+
+                onClcked:
+                        {
+                            clickedBtn(item_id, text_val)
+                        }
             }
         }
 
         ListView
         {
             anchors.fill: parent
-            model: sectionDropDownList
-            delegate: meli01
+            model: lm_department
+            delegate: ud_department
         }
-
-    }
-
-    HhmSelect
-    {
-        id: select
-        anchors.centerIn: parent
-        width: 240
-
-        onClicked:
-                 {
-                    clickedBtn(val)
-                 }
     }
 
     function addItem(i_item)

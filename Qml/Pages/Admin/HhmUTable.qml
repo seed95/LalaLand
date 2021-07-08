@@ -9,7 +9,7 @@ Rectangle
     property int row_number: 0
     property string next_tag_text: ""
 
-    width: 850
+    width: 905
     height: childrenRect.height
 
     color: "transparent"
@@ -32,6 +32,7 @@ Rectangle
             id_number: list_number
             id_username: list_username
             id_name: list_name
+            drop_text: dropdown_text
             addTagFlag: tag_flag
 
             onAddUserRole:
@@ -61,11 +62,11 @@ Rectangle
         interactive: false
     }
 
-    function addUser(name, username)
+    function addUser(name, username, department)
     {
         userListModel.append({list_number: en2ar(userListModel.count+1),
                               list_username: username,list_name: name,
-                              tag_flag: 0})
+                              dropdown_text: department, tag_flag: 0})
     }
 
     function addRoleTagF(index)
@@ -80,6 +81,10 @@ Rectangle
         {
             userListModel.get(index).tag_flag = 1;
         }
+    }
 
+    function setUserDepartment(user_index, user_department)
+    {
+        userListModel.get(user_index-1).dropdown_text = user_department;
     }
 }

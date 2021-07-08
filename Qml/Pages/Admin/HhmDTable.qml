@@ -3,10 +3,13 @@ import QtQuick 2.0
 Item
 {
     height: childrenRect.height
-    width: 800
+    width: 905
+
     signal crteDepartments(string text_value)
     signal addDepartmentGrp()
 
+    property int row_number: 0
+    property string next_tag_text: ""
 
     ListModel
     {
@@ -22,9 +25,12 @@ Item
                id_number: list_number
                id_username: list_username
 
+               addTagFlag: tag_flag
+
                onAddDepartmentGroup:
                {
-                   addDepartmentGrp()
+                   addDepartmentGrp(id_number) //signal send to c++
+                   row_number = ar2en(id_number) - 1;
                }
            }
     }
@@ -59,6 +65,22 @@ Item
 
     function addDepartmentsUser(username)
     {
-        departmentsListModel.append({list_number: en2ar(departmentsListModel.count+1),list_username: username})
+        departmentsListModel.append({list_number: en2ar(departmentsListModel.count+1),
+                                     list_username: username ,tag_flag: 0})
     }
+
+    function addDepartmentTagF(index)
+    {
+        var flag = departmentsListModel.get(index).tag_flag;
+
+        if( flag )
+        {
+            departmentsListModel.get(index).tag_flag = 0;
+        }
+        else
+        {
+            departmentsListModel.get(index).tag_flag = 1;
+        }
+    }
+
 }

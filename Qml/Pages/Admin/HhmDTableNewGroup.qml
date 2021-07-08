@@ -2,36 +2,36 @@ import QtQuick 2.0
 
 Rectangle
 {
-    signal addUsrRole()
+    signal addDepGroup()
 
-    width:350
+    width: 500
     color: "transparent"
     height: 30
 
     Rectangle
     {
-        width: 296
+        width: 444
         height: 24
-        color: "#e6e6e6"
+        color: "#E6E6E6"
         radius: 6
         anchors.verticalCenter: parent.verticalCenter
-        anchors.leftMargin: 47
+        anchors.leftMargin: 55
         anchors.left: parent.left
         border.color: "#969696"
     }
 
     ListView
     {
-        id: lv_role
+        id: lv_group
         width: parent.width
         height: 22
         anchors.right: parent.right
-        anchors.rightMargin: 10
+        anchors.rightMargin: 5
         anchors.verticalCenter: parent.verticalCenter
 
         model: ListModel
                {
-                    id: lm_role
+                    id: lm_group
                }
         clip: true
         orientation: ListView.Horizontal
@@ -40,13 +40,13 @@ Rectangle
         delegate: HhmTag
         {
             anchors.verticalCenter: parent.verticalCenter
-            tag_text:   role_name
+            tag_text:   group_name
             separator_visible:  sep_visible
             height: 22
 
             onClickTag:
             {
-                removeRole(role_id)
+                removeGroup(group_id)
             }
         }
 
@@ -60,34 +60,34 @@ Rectangle
 
         onClickedBtn:
                     {
-                       addUsrRole();
+                        addDepartmentGroup();
                     }
     }
 
-    function removeRole(role_id)
+    function removeGroup(group_id)
     {
-        for(var i=0; i<lm_role.count; i++)
+        for(var i=0; i<lm_group.count; i++)
         {
-            if( lm_role.get(i).role_id===role_id )
+            if( lm_group.get(i).group_id===group_id )
             {
-                lm_role.remove(i);
+                lm_group.remove(i);
                 break;
             }
         }
 
-        if( lm_role.count )
+        if( lm_group.count )
         {
-            lm_role.get(lm_role.count-1).sepVisible = false;
+            lm_group.get(lm_group.count-1).sepVisible = false;
         }
     }
 
-    function addRole(role)
+    function addGroup(group)
     {
-        lm_role.append({role_id: en2ar(lm_role.count+1),role_name: role, sep_visible: false});
+        lm_group.append({group_id: en2ar(lm_group.count+1),group_name: group, sep_visible: false});
 
-        if( lm_role.count>1 )
+        if( lm_group.count>1 )
         {
-            lm_role.get(lm_role.count-2).sep_visible = true;
+            lm_group.get(lm_group.count-2).sep_visible = true;
         }
     }
 

@@ -4,6 +4,18 @@ import QtQuick.Controls 2.10
 Rectangle
 {
     property string permission_name: ""
+    property bool permission1: false
+    property bool permission2: false
+    property bool permission3: false
+    property bool permission4: false
+    property bool permission5: false
+    property bool permission6: false
+    property bool permission7: false
+    property bool permission8: false
+    property bool permission9: false
+    property int permission_row: 0
+    property int permission_column: 0
+
     height: childrenRect.height
     color: "transparent"
     signal createPermission(string text_value)
@@ -81,6 +93,14 @@ Rectangle
 
     function addPermission()
     {
-        permission_table.addPermissionUser(permission_name)
+        permission_table.addPermissionUser(permission_name,permission1, permission2,
+                                           permission3, permission4, permission5,
+                                           permission6, permission7, permission8,
+                                           permission9);
+    }
+
+    function setPermission()
+    {
+        //console.log("set permissin:" + permission_row + " " + permission_column)
     }
 }

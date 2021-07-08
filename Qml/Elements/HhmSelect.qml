@@ -3,7 +3,7 @@ import QtQuick.Controls 2.10
 
 Rectangle
 {
-    signal clicked(int val , string sel_text)
+    signal clicked(int val ,string sel_text)
 
     height: childrenRect.height
     color: "transparent"

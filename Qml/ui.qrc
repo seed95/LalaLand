@@ -69,5 +69,6 @@
         <file alias="HhmDownBtn.qml">Elements/HhmDownBtn.qml</file>
         <file alias="HhmDropDialog.qml">Elements/HhmDropDialog.qml</file>
         <file alias="HhmDropDownItem.qml">Elements/HhmDropDownItem.qml</file>
+        <file alias="HhmDTableNewGroup.qml">Pages/Admin/HhmDTableNewGroup.qml</file>
     </qresource>
 </RCC>

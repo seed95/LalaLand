@@ -9,7 +9,7 @@ Rectangle
     signal createDepartments(string text_value)
 
     height: 30
-    width: 800
+    width: 905
     color:
          {
             if( is_odd )

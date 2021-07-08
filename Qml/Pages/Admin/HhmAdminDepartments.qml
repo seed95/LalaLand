@@ -3,19 +3,22 @@ import QtQuick.Controls 2.10
 
 Rectangle
 {
+    // begin cpp variables
     property string department_name: ""
-    property string group: ""
+    property int department_index: 0
+    property string group_name: ""
+    // end of cpp varibles
 
     height: childrenRect.height
     color: "transparent"
     signal createDepartments(string text_value)
-    signal addDepartmentGroup()
+    signal addDepartmentGroup(int department_index, int group_index)
 
     HhmDTableTitle
     {
         id:dtable_title
         anchors.left: parent.left
-        anchors.leftMargin: 85
+        anchors.leftMargin: 40
         anchors.top: parent.top
         anchors.topMargin: 40
     }
@@ -26,15 +29,15 @@ Rectangle
         anchors.left: dtable_title.left
         anchors.top: dtable_title.bottom
         anchors.bottom: parent.bottom
-        width: 900
+        width: 905
 
         clip: true
-        contentHeight: department_table.height+50
+        contentHeight: d_table.height+50
         ScrollBar.vertical: departments_scrollbar
 
         HhmDTable
         {
-            id: department_table
+            id: d_table
             anchors.left: parent.left
             anchors.top: parent.top
             onCrteDepartments:
@@ -44,7 +47,6 @@ Rectangle
 
             onAddDepartmentGrp:
             {
-                addDepartmentGroup();
                 dhover_select.visible = true;
             }
         }
@@ -59,7 +61,12 @@ Rectangle
         onClickedBtn:
                     {
                         visible = false;
-                        console.log(value)
+                        if( sel_txt )
+                        {
+                            addDepartmentGroup(d_table.row_number, value);
+                            d_table.next_tag_text = sel_txt;
+                            d_table.addDepartmentTagF(d_table.row_number);
+                        }
                     }
     }
 
@@ -92,12 +99,18 @@ Rectangle
 
     function addDepartment()
     {
-        department_table.addDepartmentsUser(department_name)
+        d_table.addDepartmentsUser(department_name)
     }
 
-    function addGroup()
+    function addSelectGroup()
     {
-        dhover_select.addItem(group)
+        dhover_select.addItem(group_name)
     }
 
+    function setGroup() //From c++
+    {
+        d_table.next_tag_text = group_name;
+        d_table.row_number = department_index;
+        d_table.addDepartmentTagF(d_table.row_number);
+    }
 }

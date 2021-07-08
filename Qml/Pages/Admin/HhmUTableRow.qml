@@ -28,6 +28,7 @@ Rectangle
     property string id_number: "number"
     property string id_username: "username"
     property string id_name: "name"
+    property string drop_text: ""
     property int addTagFlag: 0
 
     property bool is_odd: ar2en(id_number)%2
@@ -41,7 +42,7 @@ Rectangle
                             table_new_role.addRole(u_table.next_tag_text);
                        }
 
-    width: 850
+    width: 905
     height: 30
     color:
          {
@@ -119,10 +120,15 @@ Rectangle
     {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
+        anchors.leftMargin: 360
+
+        text_val: drop_text
 
         onClickedDownBottom:
                            {
-                                clickedDnBottom(ar2en(id_number))
+                                var id_number_en = ar2en(id_number);
+                                clickedDnBottom(id_number_en);
+                                u_table.row_number = id_number_en;
                            }
     }
 

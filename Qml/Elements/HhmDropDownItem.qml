@@ -39,6 +39,8 @@ Item
                                   }
                              }
 
+    signal clcked()
+
     width: 180
     height: 30
 
@@ -53,8 +55,12 @@ Item
     Text
     {
         anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.leftMargin: 10
+        anchors.right: parent.right
+        anchors.rightMargin: 10
+
+        font.family: fontDroidKufiRegular.name
+        font.weight: Font.Normal
+        font.pixelSize: 12
 
         text: text_val
         color: text_color
@@ -65,6 +71,10 @@ Item
         anchors.fill: parent
 
         hoverEnabled: true
+        onClicked:
+                 {
+                    clcked()
+                 }
         onEntered:
                  {
                    is_hovered = true;

@@ -21,6 +21,16 @@ Item
            {
                id_number: list_number
                id_name: list_name
+               permission_1: permission1
+               permission_2: permission2
+               permission_3: permission3
+               permission_4: permission4
+               permission_5: permission5
+               permission_6: permission6
+               permission_7: permission7
+               permission_8: permission8
+               permission_9: permission9
+
                onChkBoxChanged:
                {
                    checkBoxChanged(id, ar2en(list_number), val);
@@ -56,8 +66,13 @@ Item
         }
     }
 
-    function addPermissionUser(username)
+    function addPermissionUser(username, permission_1, permission_2, permission_3, permission_4,
+                               permission_5, permission_6, permission_7, permission_8,
+                               permission_9)
     {
-        permissionListModel.append({list_number: en2ar(permissionListModel.count+1),list_name: username })
+        permissionListModel.append({list_number: en2ar(permissionListModel.count+1),list_name: username,
+                                    permission1: permission_1, permission2: permission_2, permission3: permission_3,
+                                    permission4: permission_4, permission5: permission_5, permission6: permission_6,
+                                    permission7: permission_7, permission8: permission_8, permission9: permission_9})
     }
 }

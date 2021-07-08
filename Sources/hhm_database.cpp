@@ -138,6 +138,14 @@ QSqlQuery HhmDatabase::select(QString fields, QString table)
     return sendQuery(query);
 }
 
+QSqlQuery HhmDatabase::selectOrder(QString fields, QString table, QString order_column)
+{
+    QString query = "SELECT " + fields + " FROM `" + QString(DATABASE_NAME) + "`.`" + table + "`";
+    query += " ORDER BY " + order_column + " ASC;";
+    return sendQuery(query);
+}
+
+
 QSqlQuery HhmDatabase::select(QString fields, QString table, QString condition)
 {
     QString query = "SELECT " + fields + " FROM `" + QString(DATABASE_NAME) + "`.`" + table;

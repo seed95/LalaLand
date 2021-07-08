@@ -22,6 +22,7 @@ public:
     void update(QString condition, QString value, QString table);
     void insert(QString table, QString columns, QString values);
     QSqlQuery select(QString fields, QString table);
+    QSqlQuery selectOrder(QString fields, QString table, QString order_column);
     QSqlQuery select(QString fields, QString table, QString condition);
 
     int getId(QString username);

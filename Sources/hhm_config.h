@@ -2,6 +2,7 @@
 #define HHM_CONFIG_H
 
 #define HHM_DEV_MODE
+#define HHM_MAX_PERMISSION 9
 
 #define HHM_CONFIG_FILE "db.conf"
 #define HHM_LOG_FILE    "dm.log"
@@ -40,13 +41,13 @@
 #define HHM_TABLE_NEWS                              "news"
 #define HHM_TABLE_FILES                             "files"
 #define HHM_TABLE_MESSAGE                           "message"
-#define HHM_TABLE_DEPARTMENT                        "department"
-#define HHM_TABLE_ROLE                              "role"
+#define HHM_TABLE_DEPARTMENT                        "departments"
+#define HHM_TABLE_ROLE                              "roles"
 #define HHM_TABLE_JOIN_USER_MESSAGE                 "join_user_message"
 #define HHM_TABLE_JOIN_DEPARTMENT_MESSAGE           "join_department_message"
 #define HHM_TABLE_JOIN_DEPARTMENT_USER_MESSAGE      "join_department_user_message"
 #define HHM_TABLE_DEPARTMENT_GROUP                  "department_group"
-#define HHM_TABLE_JOIN_USER_ROLE                    "join_user_role"
+#define HHM_TABLE_JOIN_USER_ROLE                    "user_role"
 
 //Columns in Table `HHM_TABLE_CONFIG`
 #define HHM_CONFIG_KEY          "config_key"
@@ -134,7 +135,7 @@
 
 //Columns in Table `HHM_TABLE_DEPARTMENT`
 #define HHM_DEPARTMENT_ID               "id"
-#define HHM_DEPARTMENT_NAME             "name"
+#define HHM_DEPARTMENT_NAME             "department_name"
 
 //Columns in Table `HHM_TABLE_ROLE`
 #define HHM_ROLE_ID                     "id"

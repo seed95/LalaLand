@@ -10,16 +10,21 @@ HhmAdmin::HhmAdmin(QObject *root, HhmDatabase *database, QObject *parent): QObje
 
     connect(roles_ui, SIGNAL(chkBoxChanged(int, int, int)), this, SLOT(setRolePermission(int, int, int)));
     connect(roles_ui, SIGNAL(createPermission(QString)), this, SLOT(addNewPermission(QString)));
+    connect(users_ui, SIGNAL(setUserRole(int, int)), this, SLOT(addUserRole(int, int)));
     connect(departments_ui, SIGNAL(createDepartments(QString)), this, SLOT(addNewDepartment(QString)));
-    connect(users_ui, SIGNAL(setUserRole(int, int)), this, SLOT(setUserRole(int, int)));
+
+
 
     getUsers();
     getDepartment();
     getRoles();
 
-    setUserRole(4, 7);
+    m_auser = new HhmAdminUsers(root, db);
+    m_arole = new HhmAdminPermissions(root, db);
+    m_adepartment = new HhmAdminDepartments(root, db);
+
+//    getUserRoles(4);
     setUserDepartment(4, 5);
-    setDepartmentGroup(6, 8);
 }
 
 HhmAdmin::~HhmAdmin()
@@ -29,48 +34,34 @@ HhmAdmin::~HhmAdmin()
 
 void HhmAdmin::addNewPermission(QString permission)
 {
-    QSqlQuery res = db->select("*", "roles");
+    QSqlQuery res = db->select("*", HHM_TABLE_ROLE);
     int count = res.size();
 
     qDebug() << permission;
-    QString table = "roles";
-    QString columns = "`role_id`, `role_name`, `permission_1`, `permission_2`, `permission_3`,";
+//    QString columns = "`" + QString(HHM_ROLE_ID)
+    QString columns = "`id`, `role_name`, `permission_1`, `permission_2`, `permission_3`,";
     columns += " `permission_4`, `permission_5`, `permission_6`, `permission_7`, `permission_8`, `permission_9`";
     QString values = "'" + QString::number(count+1);
     values += "', '" + permission + "', '0', '0', '0', '0', '0', '0', '0', '0', '0'";
 
-    db->insert(table, columns, values);
+    db->insert(HHM_TABLE_ROLE, columns, values);
 }
 
 void HhmAdmin::addNewDepartment(QString department)
 {
     qDebug() << department;
 
-    QSqlQuery res = db->select("*", "departments");
+    QSqlQuery res = db->select("*", HHM_TABLE_DEPARTMENT);
     int count = res.size();
 
-    QString table = "departments";
-    QString columns = "`department_id`, `department_name`, `group_id`";
-    QString values = "'" + QString::number(count+1) + "', '" + department + "', '2'";
-    db->insert(table, columns, values);
-}
-
-void HhmAdmin::setUserRole(int user_index, int role_id)
-{
-    QSqlQuery res_ur = db->select("*", "user_role");
-
-    QSqlRecord rec_ur = res_ur.record();
-    int count_ur = res_ur.size();
-
-    QString table = "user_role";
-    QString columns = "`id_admin_users`, `user_id`, `department_id`, `role_id`";
-    QString values = "'" + QString::number(count_ur+1) + "', '" + QString::number(user_index) + "', '-1', '" + QString::number(role_id) +"'";
-    db->insert(table, columns, values);
+    QString columns = "`id`, `department_name`";
+    QString values = "'" + QString::number(count+1) + "', '" + department + "'";
+    db->insert(HHM_TABLE_DEPARTMENT, columns, values);
 }
 
 QString HhmAdmin::getPermissionName(int role_id)
 {
-    QSqlQuery query = db->select("*", "roles");
+    QSqlQuery query = db->select("*", HHM_TABLE_ROLE);
     QSqlRecord rec_r = query.record();
 
     for( int i=0 ; i<role_id ; i++ )
@@ -84,7 +75,7 @@ QString HhmAdmin::getPermissionName(int role_id)
             qDebug() << "error getRoles";
         }
     }
-    QVariant data = query.value("role_name");
+    QVariant data = query.value(HHM_ROLE_NAME);
     QString permissionName = data.toString();
 
     return permissionName;
@@ -92,7 +83,7 @@ QString HhmAdmin::getPermissionName(int role_id)
 
 int HhmAdmin::getUserID(int user_index)
 {
-    QSqlQuery query = db->select("*", "user");
+    QSqlQuery query = db->select("*", HHM_TABLE_USER);
     QSqlRecord rec_r = query.record();
 
     for( int i=0 ; i<user_index ; i++ )
@@ -106,85 +97,84 @@ int HhmAdmin::getUserID(int user_index)
             qDebug() << "error getRoles";
         }
     }
-    QVariant data = query.value("id");
+    QVariant data = query.value(HHM_USER_ID);
     int userID = data.toInt();
 
     return userID;
 }
 
-int HhmAdmin::getUserIndex(int user_id)
+int HhmAdmin::getRoleID(int role_index)
 {
-    QSqlQuery query = db->select("*", "user");
-    QSqlRecord rec = query.record();
+    QSqlQuery query = db->selectOrder("*", HHM_TABLE_ROLE, HHM_ROLE_ID);
 
-    int count = query.size();
-
-
-    for( int i=0 ; i<count ; i++ )
+    for( int i=0 ; i<role_index ; i++ )
     {
         if( query.next() )
         {
-            QVariant data = query.value("id");
-            int userID = data.toInt();
-            if( user_id==userID )
-            {
-                return  i;
-            }
+            ;///FIXME: A Bug Lies Here (Bijan)
         }
         else
         {
             qDebug() << "error getRoles";
         }
     }
+    QVariant data = query.value(HHM_ROLE_ID);
+    int roleID = data.toInt();
+    qDebug() << "getRoleID" << roleID;
+
+    return roleID;
 }
 
-void HhmAdmin::setUserDepartment(int user_id, int user_department)
+void HhmAdmin::setUserDepartment(int user_index, int department_index)
 {
-    QString condition = "`id_admin_users` = '" + QString::number(user_id) + "'";
-    QString values = "`department_id` = '" + QString::number(user_department) + "'";
+    int user_id = getUserID(user_index);
+    int department_id = m_adepartment->getDepartmentID(department_index);
+
+    QString condition = "`user_id` = '" + QString::number(user_id) + "'";
+    QString values = "`department_id` = '" + QString::number(department_id) + "'";
     db->update(condition, values, "user_role");
 }
 
 void HhmAdmin::setRolePermission(int role_id, int permission_id, int value)
 {
     QString column_name;
-    QString condition = "`role_id` = '" + QString::number(role_id) + "'";
+    QString condition = "`id` = '" + QString::number(role_id) + "'";
 
     if( permission_id==1 )
     {
-        column_name = "permission_1";
+        column_name = HHM_ROLE_PERMISSION1;
     }
     else if( permission_id==2 )
     {
-        column_name = "permission_2";
+        column_name = HHM_ROLE_PERMISSION2;
     }
     else if( permission_id==3 )
     {
-        column_name = "permission_3";
+        column_name = HHM_ROLE_PERMISSION3;
     }
     else if( permission_id==4 )
     {
-        column_name = "permission_4";
+        column_name = HHM_ROLE_PERMISSION4;
     }
     else if( permission_id==5 )
     {
-        column_name = "permission_5";
+        column_name = HHM_ROLE_PERMISSION5;
     }
     else if( permission_id==6 )
     {
-        column_name = "permission_6";
+        column_name = HHM_ROLE_PERMISSION6;
     }
     else if( permission_id==7 )
     {
-        column_name = "permission_7";
+        column_name = HHM_ROLE_PERMISSION7;
     }
     else if( permission_id==8 )
     {
-        column_name = "permission_8";
+        column_name = HHM_ROLE_PERMISSION8;
     }
     else if( permission_id==9 )
     {
-        column_name = "permission_9";
+        column_name = HHM_ROLE_PERMISSION9;
     }
     else
     {
@@ -192,32 +182,51 @@ void HhmAdmin::setRolePermission(int role_id, int permission_id, int value)
     }
 
     QString values = "`" + column_name + "` = '" + QString::number(value) + "'";
-    db->update(condition, values, "roles");
+    db->update(condition, values, HHM_TABLE_ROLE);
 }
 
-void HhmAdmin::setDepartmentGroup(int department_id, int group_id)
+void HhmAdmin::addUserRole(int user_index, int role_index)
 {
-    QString condition = "`department_id` = '" + QString::number(department_id) + "'";
-    QString values = "`group_id` = '" + QString::number(group_id) + "'";
-    db->update(condition, values, "departments");
+    int user_id = getUserID(user_index+1);
+    int role_id = getRoleID(role_index);
+    QSqlQuery res_ur = db->select("*", "user_role");
+
+    QSqlRecord rec_ur = res_ur.record();
+    int count_ur = res_ur.size();
+
+    QString table = HHM_TABLE_JOIN_USER_ROLE;
+    QString columns = "`id`, `user_id`, `department_id`, `role_id`";
+    QString values = "'" + QString::number(count_ur+1) + "', '" + QString::number(user_id) + "', '-1', '" + QString::number(role_id) +"'";
+    db->insert(table, columns, values);
 }
 
 void HhmAdmin::getRoles()
 {
-    QSqlQuery res = db->select("*", "roles");
+    QSqlQuery query = db->selectOrder("*", HHM_TABLE_ROLE, "id");
 
-    QSqlRecord rec = res.record();
-    int count = res.size();
+    QSqlRecord rec = query.record();
+    int count = query.size();
     QString column_s;
+    int return_val[9];
 
     for( int i=0 ; i<count ; i++ )
     {
-        if( res.next() )
+        if( query.next() )
         {
-            QVariant data = res.value("role_name");
+            QVariant data = query.value("role_name");
             QString permissionName = data.toString();
+            m_arole->getPermmissionsA(query, return_val);
 
             QQmlProperty::write(roles_ui, "permission_name", permissionName);
+            QQmlProperty::write(roles_ui, "permission1", return_val[0]);
+            QQmlProperty::write(roles_ui, "permission2", return_val[1]);
+            QQmlProperty::write(roles_ui, "permission3", return_val[2]);
+            QQmlProperty::write(roles_ui, "permission4", return_val[3]);
+            QQmlProperty::write(roles_ui, "permission5", return_val[4]);
+            QQmlProperty::write(roles_ui, "permission6", return_val[5]);
+            QQmlProperty::write(roles_ui, "permission7", return_val[6]);
+            QQmlProperty::write(roles_ui, "permission8", return_val[7]);
+            QQmlProperty::write(roles_ui, "permission9", return_val[8]);
             QMetaObject::invokeMethod(roles_ui, "addPermission");
 
             QQmlProperty::write(users_ui, "role", permissionName);
@@ -232,7 +241,7 @@ void HhmAdmin::getRoles()
 
 void HhmAdmin::getDepartment()
 {
-    QSqlQuery res = db->select("*", "departments");
+    QSqlQuery res = db->selectOrder("*", "departments", "id");
 
     QSqlRecord rec = res.record();
     int count = res.size();
@@ -247,8 +256,8 @@ void HhmAdmin::getDepartment()
             QQmlProperty::write(departments_ui, "department_name", departmentName);
             QMetaObject::invokeMethod(departments_ui, "addDepartment");
 
-            QQmlProperty::write(departments_ui, "group", departmentName);
-            QMetaObject::invokeMethod(departments_ui, "addGroup");
+            QQmlProperty::write(departments_ui, "group_name", departmentName);
+            QMetaObject::invokeMethod(departments_ui, "addSelectGroup");
         }
         else
         {
@@ -259,7 +268,7 @@ void HhmAdmin::getDepartment()
 
 void HhmAdmin::getUsers()
 {
-    QSqlQuery res = db->select("*", "user");
+    QSqlQuery res = db->selectOrder("*", "user", "id");
 
     QSqlRecord rec = res.record();
     int count = res.size();
@@ -278,8 +287,8 @@ void HhmAdmin::getUsers()
             QQmlProperty::write(users_ui, "user_name", name);
             QMetaObject::invokeMethod(users_ui, "addUser");
 
-            qDebug() << "Role's of user" << i << "are:";
-            getUserRoles(i);
+//            qDebug() << "Role's of user" << i << "are:";
+//            getUserRoles(i);
         }
         else
         {
@@ -290,7 +299,6 @@ void HhmAdmin::getUsers()
 
 QString HhmAdmin::getUsername(int user_id)
 {
-
     QString condition = "`id`='" + QString::number(user_id) + "'";
     QSqlQuery res = db->select("*", HHM_TABLE_USER, condition);
 
@@ -328,34 +336,4 @@ QString HhmAdmin::getName(int user_id)
     }
 }
 
-void    HhmAdmin::getUserRoles(int user_index)
-{
-    int user_id = getUserID(user_index);
-
-    QSqlQuery query = db->select("*", "user_role");
-    QSqlRecord rec = query.record();
-
-    int count = query.size();
-
-
-    for( int i=0 ; i<count ; i++ )
-    {
-        if( query.next() )
-        {
-            QVariant data = query.value("user_id");
-            int user_id_server = data.toInt();
-
-            if( user_id_server==user_id )
-            {
-               data = query.value("role_id");
-               int role_id = data.toInt();
-               qDebug() << role_id;
-            }
-        }
-        else
-        {
-            qDebug() << "error getRoles";
-        }
-    }
-}
 
