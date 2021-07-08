@@ -16,7 +16,7 @@ Rectangle
     {
         if( container.message_state===con.hhm_MESSAGE_REPLY_STATE )
         {
-            flick_middle.contentHeight + flick_middle.y + 20/*bottom margin*/
+            flick_middle.contentHeight + flick_middle.y + 100/*bottom margin*/
         }
         else//messageState===con.hhm_MESSAGE_NEW_STATE
         {

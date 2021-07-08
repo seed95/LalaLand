@@ -7,7 +7,7 @@ Item
 
     //Set this variables in cpp
     property string messageId:      ""//The Qml does not support int64
-    property int    sourceId:       0
+    property string sourceId:       ""//The Qml does not support int64
     property string subject:        "النادي تعديل الزوراء كأس العراق"
     property int    numberSources:  7
     property string senderName:     "ابراهيم محمد"

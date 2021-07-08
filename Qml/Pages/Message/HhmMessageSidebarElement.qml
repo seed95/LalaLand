@@ -5,7 +5,7 @@ Rectangle
     id: container
 
     property string message_id:             ""//The Qml does not support int64
-    property int    source_id:              0//The Qml does not support int64
+    property string source_id:              ""//The Qml does not support int64
     property string text_subject:           "Subject"
     property int    text_number_sources:    7
     property string text_name:              "Subject"

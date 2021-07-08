@@ -139,7 +139,7 @@
 
 //Columns in Table `HHM_TABLE_ROLE`
 #define HHM_ROLE_ID                     "id"
-#define HHM_ROLE_NAME                   "name"
+#define HHM_ROLE_NAME                   "role_name"
 #define HHM_ROLE_PERMISSION1            "permission_1"
 #define HHM_ROLE_PERMISSION2            "permission_2"
 #define HHM_ROLE_PERMISSION3            "permission_3"
@@ -149,6 +149,11 @@
 #define HHM_ROLE_PERMISSION7            "permission_7"
 #define HHM_ROLE_PERMISSION8            "permission_8"
 #define HHM_ROLE_PERMISSION9            "permission_9"
+
+
+#define HHM_ROLE_ALL_MESSAGE            HHM_ROLE_PERMISSION7
+#define HHM_ROLE_DEPARTMENT_MESSAGE     HHM_ROLE_PERMISSION4
+#define HHM_ROLE_MY_MESSAGE             HHM_ROLE_PERMISSION1
 
 //Columns in Table `HHM_TABLE_JOIN_USER_MESSAGE`
 #define HHM_JUM_USER_ID                 "user_id"
@@ -175,7 +180,9 @@
 #define HHM_JDG_GROUP_ID                "group_id"
 
 //Columns in Table `HHM_TABLE_JOIN_USER_ROLE`
+#define HHM_JUR_ID                      "id"
 #define HHM_JUR_USER_ID                 "user_id"
+#define HHM_JUR_DEPARTMENT_ID           "department_id"
 #define HHM_JUR_ROLE_ID                 "role_id"
 
 

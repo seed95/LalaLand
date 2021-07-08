@@ -311,19 +311,19 @@ int HhmUser::getRolePermission(int roleId)
     QSqlQuery res = db->select("*", HHM_TABLE_ROLE, condition);
     if( res.next() )
     {
-        bool all_message = res.value(HHM_ROLE_PERMISSION7).toBool();
+        bool all_message = res.value(HHM_ROLE_ALL_MESSAGE).toBool();
         if( all_message )
         {
             return PERMISSION_ALL_MESSAGE;
         }
 
-        bool department_message = res.value(HHM_ROLE_PERMISSION4).toBool();
+        bool department_message = res.value(HHM_ROLE_DEPARTMENT_MESSAGE).toBool();
         if( department_message )
         {
             return PERMISSION_DEPARTMENT_MESSAGE;
         }
 
-        bool my_message = res.value(HHM_ROLE_PERMISSION1).toBool();
+        bool my_message = res.value(HHM_ROLE_MY_MESSAGE).toBool();
         if( my_message )
         {
             return PERMISSION_MY_MESSAGE;

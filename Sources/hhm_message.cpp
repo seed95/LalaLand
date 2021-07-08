@@ -146,7 +146,6 @@ void HhmMessage::sendReplyMessage(QVariant toData, QVariant ccData,
                                   QString subject, QString content,
                                   QVariant attachFiles, QString replyMessageId)
 {
-    qDebug() << "sendReplyMessage" << replyMessageId;
     if( toData.toList().size()==0 )
     {
         hhm_showMessage("Please select that you want to send which user", 5000);
