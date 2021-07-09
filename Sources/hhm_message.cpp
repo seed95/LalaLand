@@ -129,7 +129,7 @@ void HhmMessage::messageClicked(QString idMessage)
 
 void HhmMessage::replyMessage(QString replyMessageId)
 {
-    qint64 reply_message_id = replyMessageId.toLong();
+    qint64 reply_message_id = replyMessageId.toLongLong();
     QMetaObject::invokeMethod(view_ui, "clearMessages");
     showMessage(reply_message_id);
     setToTagForReply(reply_message_id);
@@ -159,7 +159,7 @@ void HhmMessage::sendReplyMessage(QVariant toData, QVariant ccData,
     new_data.content    = content;
     new_data.filenames  = attachFiles.toStringList();
     new_data.replyMode  = true;
-    new_data.replyId    = replyMessageId.toLong();
+    new_data.replyId    = replyMessageId.toLongLong();
 
     attach_file_ind = -1;
     uploadNextFile();
@@ -432,7 +432,7 @@ void HhmMessage::updateJoinMessage()
         else//HHM_TAG_DEPARTMENT
         {
             department_id = receiver.at(TAG_ID_INDEX).toInt();
-            insertNewDepartmentMessage(department_id, TO_FLAG);
+            insertNewDepartmentMessage(department_id, CC_FLAG);
             insertNewMessageForDepartment(department_id, department_id);
         }
     }
@@ -517,7 +517,6 @@ void HhmMessage::insertNewDepartmentUserMessage(int departmentId, int userId)
 /***************** View Functions *****************/
 void HhmMessage::showMessage(qint64 messageId)
 {
-    qDebug() << "showMessage" << messageId;
     QString condition = "`" + QString(HHM_MESSAGE_ID) + "`=" +
                         QString::number(messageId);
     QSqlQuery res = db->select("*", HHM_TABLE_MESSAGE, condition);
@@ -557,7 +556,6 @@ void HhmMessage::showMessage(qint64 messageId)
         QMetaObject::invokeMethod(view_ui, "addMessage");
 
         data = res.value(HHM_MESSAGE_SOURCE_ID);
-        qDebug() << data.toLongLong();
         if( !data.isNull() )
         {
             showMessage(data.toLongLong());
@@ -694,7 +692,7 @@ void HhmMessage::setCcTagsForReply(qint64 replyMessageId)
     res = db->select(HHM_JDM_DEPARTMENT_ID, HHM_TABLE_JOIN_DEPARTMENT_MESSAGE, condition);
     while( res.next() )
     {
-        addDepartmentTag(getDepartmentName(res.value(HHM_JDM_DEPARTMENT_ID).toInt()), new_input_cc_ui);
+        addDepartmentTag(res.value(HHM_JDM_DEPARTMENT_ID).toString(), new_input_cc_ui);
     }
 }
 
