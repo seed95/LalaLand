@@ -4,6 +4,7 @@ Rectangle
 {
     signal stUserRole(int user_id, int user_role)
     signal addUsrRole(int user_id)
+    signal removeUsrRole(int user_id, string tg_name)
     signal clickedDownBottom()
 
     property int row_number: 0
@@ -46,6 +47,10 @@ Rectangle
                                 clickedDownBottom();
                                 row_number = id_number;
                              }
+            onRemoveUserRole:
+                            {
+                                removeUsrRole(ar2en(id_number), tg_name);
+                            }
         }
     }
 

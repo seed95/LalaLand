@@ -40,5 +40,6 @@ QString hhm_appendMessageId(QString file, qint64 id);
 QString hhm_removeMessageId(QString file, qint64 id);
 
 void hhm_log(QString msg);
+void hhm_err(QString msg);
 
 #endif // BACKEND_H

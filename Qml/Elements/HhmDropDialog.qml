@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import QtQuick.Controls 2.10
 
 Rectangle
 {
@@ -16,7 +17,7 @@ Rectangle
     Rectangle
     {
         width: 200
-        height: 125
+        height:flickable_departments.height+30
         color: "transparent"
 
         Canvas
@@ -52,33 +53,17 @@ Rectangle
 
     Rectangle
     {
-        width: childrenRect.width
-        height: 120
-        color: "green"
+        width: 180
+        height: flickable_departments.height
+        color: "transparent"
         anchors.left: parent.left
         anchors.leftMargin: 10
         anchors.top: parent.top
-        anchors.topMargin: 25
+        anchors.topMargin: 22
 
         ListModel
         {
             id: lm_department
-
-            ListElement
-            {
-                item_id: 1
-                item_list: "تدليك"
-            }
-            ListElement
-            {
-                item_id: 2
-                item_list: "وثيقة"
-            }
-            ListElement
-            {
-                item_id: 3
-                item_list: "الملف الشخصي"
-            }
         }
 
         Component
@@ -98,17 +83,73 @@ Rectangle
             }
         }
 
-        ListView
+        Flickable
         {
-            anchors.fill: parent
-            model: lm_department
-            delegate: ud_department
+            id: flickable_departments
+            anchors.left: parent.left
+            anchors.top: parent.top
+
+            width: parent.width
+            height:
+                  {
+                     if( lm_department.count>10 )
+                     {
+                         300
+                     }
+                     else
+                     {
+                         lm_department.count*30
+                     }
+                  }
+
+            clip: true
+            contentHeight: lv_dropdialog.height
+            ScrollBar.vertical: departments_scrollbar
+
+            ListView
+            {
+                id: lv_dropdialog
+
+                width: parent.width
+                height: childrenRect.height
+
+                model: lm_department
+                delegate: ud_department
+            }
+        }
+
+        ScrollBar
+        {
+            id: departments_scrollbar
+            anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.bottom: parent.bottom
+
+            background: Rectangle
+            {
+                width: 6
+                anchors.left: parent.left
+                anchors.top: parent.top
+                color: "#b4b4b4"
+            }
+
+            contentItem: Rectangle
+            {
+                anchors.left: parent.left
+                radius: 3
+                implicitWidth: 6
+                implicitHeight: 50
+                color: "#646464"
+            }
+
+            policy: ScrollBar.AsNeeded
         }
     }
 
+
     function addItem(i_item)
     {
-        select.addItem(i_item)
+        lm_department.append({item_id: lm_department.count, item_list: i_item});
     }
 
 }

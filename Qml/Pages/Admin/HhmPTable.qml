@@ -4,13 +4,14 @@ Item
 {
     signal checkBoxChanged(int col_id, int row_id, int value)
     signal crtePermission(string text_value)
+    signal rmvPermission(int permission_indx)
 
     height: childrenRect.height
     width: 800
 
     ListModel
     {
-        id: permissionListModel
+        id: lm_permission
     }
 
     Component
@@ -35,6 +36,11 @@ Item
                {
                    checkBoxChanged(id, ar2en(list_number), val);
                }
+
+               onClkedBtn:
+                         {
+                            removePermissionUser(ar2en(id_number));
+                         }
            }
     }
 
@@ -48,7 +54,7 @@ Item
         height: childrenRect.height
         interactive: false
 
-        model: permissionListModel
+        model: lm_permission
         delegate: permissionRowDelegate
     }
 
@@ -57,7 +63,7 @@ Item
         anchors.left: parent.left
         anchors.top: permissionListView.bottom
 
-        is_odd: (permissionListModel.count+1)%2
+        is_odd: (lm_permission.count+1)%2
 
         onCreatePermission:
         {
@@ -70,9 +76,22 @@ Item
                                permission_5, permission_6, permission_7, permission_8,
                                permission_9)
     {
-        permissionListModel.append({list_number: en2ar(permissionListModel.count+1),list_name: username,
-                                    permission1: permission_1, permission2: permission_2, permission3: permission_3,
-                                    permission4: permission_4, permission5: permission_5, permission6: permission_6,
-                                    permission7: permission_7, permission8: permission_8, permission9: permission_9})
+        lm_permission.append({list_number: en2ar(lm_permission.count+1),list_name: username,
+                            permission1: permission_1, permission2: permission_2, permission3: permission_3,
+                            permission4: permission_4, permission5: permission_5, permission6: permission_6,
+                            permission7: permission_7, permission8: permission_8, permission9: permission_9})
+    }
+
+    function removePermissionUser(index)
+    {
+        lm_permission.remove(index-1);
+        rmvPermission(index);
+
+        var count = lm_permission.count;
+
+        for( var i=0 ; i<count ; i++ )
+        {
+            lm_permission.get(i).list_number = en2ar(i+1);
+        }
     }
 }

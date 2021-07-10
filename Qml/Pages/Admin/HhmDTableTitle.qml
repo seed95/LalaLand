@@ -19,12 +19,12 @@ Rectangle
     Rectangle
     {
         id: toptableup_01
-        width: 100
+        width: 60
         height: parent.height
         color: "transparent"
         anchors.top: parent.top
-        anchors.left: toptableup_02.right
-        anchors.rightMargin: 15
+        anchors.right: parent.right
+        anchors.rightMargin: 47
         Text
         {
             text: "عدد"
@@ -39,11 +39,11 @@ Rectangle
     Rectangle
     {
         id: toptableup_02
-        width: 190
+        width: 280
         height: parent.height
         color: "transparent"
         anchors.top: parent.top
-        anchors.left: toptableup_03.right
+        anchors.right: toptableup_01.left
 
         Text
         {
@@ -59,11 +59,11 @@ Rectangle
     Rectangle
     {
         id: toptableup_03
-        width: 500
+        width: 460
         height: parent.height
         color: "transparent"
         anchors.top: parent.top
-        anchors.left: parent.left
+        anchors.right: toptableup_02.left
 
         Text
         {

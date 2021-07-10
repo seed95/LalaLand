@@ -8,7 +8,6 @@ HhmDatabase::HhmDatabase(QObject *parent) : QObject(parent)
     db.setDatabaseName(DATABASE_NAME);
     db.setUserName(SERVER_USER);
     db.setPassword(SERVER_PASS);
-    qDebug() << "Server IP" << hhm_getServerIP();
 
     if( db.open() )
     {
@@ -36,6 +35,7 @@ QSqlQuery HhmDatabase::sendQuery(QString query)
     else if( err.type()==QSqlError::StatementError )
     {
         s_err = "Query " + query + " contains syntax error";
+        hhm_err(s_err);
         hhm_setStatus(s_err);
     }
     else if( err.type()==QSqlError::TransactionError )
@@ -77,6 +77,7 @@ void HhmDatabase::update(QString condition, QString value, QString table)
     {
         s_err = "Query " + query + " contains syntax error";
         hhm_setStatus(s_err);
+        hhm_err(s_err);
         return;
     }
     else if( err.type()==QSqlError::TransactionError )
@@ -102,34 +103,17 @@ void HhmDatabase::insert(QString table, QString columns, QString values)
     QSqlQuery res = db.exec(query);
 
     QSqlError err = res.lastError();
-    QString s_err; //string error
-    if( err.type()==QSqlError::ConnectionError )
-    {
-        s_err = "Error(insert): Connection is not establish between server ";
-        s_err += QString(hhm_getServerIP()) + " " + QString::number(SERVER_PORT);
-        hhm_setStatus(s_err);
-        return;
-    }
-    else if( err.type()==QSqlError::StatementError )
-    {
-        s_err = "Query " + query + " contains syntax error";
-        hhm_setStatus(s_err);
-        return;
-    }
-    else if( err.type()==QSqlError::TransactionError )
-    {
-        s_err = "Query " + query + " executation time limit has been reached";
-        hhm_setStatus(s_err);
-        return;
-    }
-    else if( err.type()==QSqlError::UnknownError )
-    {
-        s_err = "Query " + query + " results in unkown error";
-        s_err += " server: " + QString(hhm_getServerIP()) + ":" + QString::number(SERVER_PORT);
-        hhm_setStatus(s_err);
-        return;
-    }
+    handleError(err, query);
+}
 
+void HhmDatabase::remove(QString table, QString columns, QString values)
+{
+    QString query = "DELETE FROM `" + QString(DATABASE_NAME) + "`.`" + table;
+    query += "` WHERE (`" + columns + "` = '" + values + "');";
+    QSqlQuery res = db.exec(query);
+
+    QSqlError err = res.lastError();
+    handleError(err, query);
 }
 
 QSqlQuery HhmDatabase::select(QString fields, QString table)
@@ -144,7 +128,6 @@ QSqlQuery HhmDatabase::selectOrder(QString fields, QString table, QString order_
     query += " ORDER BY " + order_column + " ASC;";
     return sendQuery(query);
 }
-
 
 QSqlQuery HhmDatabase::select(QString fields, QString table, QString condition)
 {
@@ -181,6 +164,7 @@ void HhmDatabase::printQuery(QSqlQuery res)
     {
         s_err = "Query " + res.lastQuery() + " contains syntax error";
         hhm_setStatus(s_err);
+        hhm_err(s_err);
         return;
     }
     else if( err.type()==QSqlError::TransactionError )
@@ -216,6 +200,39 @@ void HhmDatabase::printQuery(QSqlQuery res)
         }
         qDebug() << column_s;
     }
+}
+
+void HhmDatabase::handleError(QSqlError err, QString query)
+{
+    QString s_err; //string error
+    if( err.type()==QSqlError::ConnectionError )
+    {
+        s_err = "Error(insert): Connection is not establish between server ";
+        s_err += QString(hhm_getServerIP()) + " " + QString::number(SERVER_PORT);
+        hhm_setStatus(s_err);
+        return;
+    }
+    else if( err.type()==QSqlError::StatementError )
+    {
+        s_err = "Query " + query + " contains syntax error";
+        hhm_setStatus(s_err);
+        hhm_err(s_err);
+        return;
+    }
+    else if( err.type()==QSqlError::TransactionError )
+    {
+        s_err = "Query " + query + " executation time limit has been reached";
+        hhm_setStatus(s_err);
+        return;
+    }
+    else if( err.type()==QSqlError::UnknownError )
+    {
+        s_err = "Query " + query + " results in unkown error";
+        s_err += " server: " + QString(hhm_getServerIP()) + ":" + QString::number(SERVER_PORT);
+        hhm_setStatus(s_err);
+        return;
+    }
+
 }
 
 QString HhmDatabase::printQVariant(QVariant v)

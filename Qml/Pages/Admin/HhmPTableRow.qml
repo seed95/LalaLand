@@ -17,6 +17,7 @@ Rectangle
     property bool permission_9: false
 
     signal chkBoxChanged(int id, int val)
+    signal clkedBtn()
 
     height: 30
     width: 800
@@ -31,6 +32,17 @@ Rectangle
                 "#D2D2D2"
             }
          }
+
+
+    HhmDeleteBtn
+    {
+        id: deleteRect
+        anchors.left: parent.right
+        anchors.leftMargin: 10
+        anchors.verticalCenter: parent.verticalCenter
+
+        onClickedBtn: clkedBtn();
+    }
 
     Rectangle
     {
@@ -241,7 +253,8 @@ Rectangle
     Rectangle
     {
         id: pTableContainer10
-        anchors.left: pTableContainer9.right
+        anchors.right: pTableContainer11.left
+        anchors.rightMargin: 5
         anchors.verticalCenter: parent.verticalCenter
 
         width: 180
@@ -250,7 +263,6 @@ Rectangle
         Text
         {
              anchors.right: parent.right
-             anchors.rightMargin: 28.5
              anchors.verticalCenter: parent.verticalCenter
 
              text: id_name
@@ -263,7 +275,7 @@ Rectangle
     Rectangle
     {
         id: pTableContainer11
-        anchors.left: pTableContainer10.right
+        anchors.right: parent.right
         anchors.verticalCenter: parent.verticalCenter
 
         width: 54

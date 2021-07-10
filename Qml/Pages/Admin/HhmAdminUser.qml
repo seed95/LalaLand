@@ -8,6 +8,7 @@ Rectangle
     property string user_username: ""
     property int user_index: 0
     property string tag_name: ""
+    property string department_name: ""
     // end of cpp varibles
     property string role: ""
 
@@ -127,7 +128,7 @@ Rectangle
         id: drop_dialog
         visible: false
         anchors.left: parent.left
-        anchors.leftMargin: 420
+        anchors.leftMargin: 400
         anchors.top: parent.top
         anchors.topMargin: 30*u_table.row_number + 68
 
@@ -142,7 +143,7 @@ Rectangle
 
     function addUser()
     {
-        u_table.addUser(user_name, user_username, "a")
+        u_table.addUser(user_name, user_username, department_name)
     }
 
     function addRole()
@@ -160,5 +161,15 @@ Rectangle
         u_table.next_tag_text = tag_name;
         u_table.row_number = user_index;
         u_table.addRoleTagF(u_table.row_number);
+    }
+
+    function addDeprtment()
+    {
+        drop_dialog.addItem(department_name);
+    }
+
+    function setUserDepartmentQ()
+    {
+        u_table.setUserDepartment(user_index, department_name);
     }
 }

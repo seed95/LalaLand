@@ -6,14 +6,16 @@ Item
     width: 905
 
     signal crteDepartments(string text_value)
+    signal rmvDepartments(int department_indx)
     signal addDepartmentGrp()
+    signal removeDepartmentGrp(int department_indx, string tg_name)
 
     property int row_number: 0
     property string next_tag_text: ""
 
     ListModel
     {
-        id: departmentsListModel
+        id: lm_department
     }
 
     Component
@@ -32,12 +34,23 @@ Item
                    addDepartmentGrp(id_number) //signal send to c++
                    row_number = ar2en(id_number) - 1;
                }
+
+               onClkedBtn:
+                         {
+                            removeDepartment(ar2en(id_number));
+                         }
+
+               onRemoveDepartmentGroup:
+                                       {
+                                           removeDepartmentGrp(ar2en(id_number), tg_name)
+                                           console.log(ar2en(id_number) + tg_name)
+                                       }
            }
     }
 
     ListView
     {
-        id: departmentsListView
+        id: lv_department
 
         anchors.left: parent.left
         anchors.top: parent.top
@@ -45,16 +58,16 @@ Item
         height: childrenRect.height
         interactive: false
 
-        model: departmentsListModel
+        model: lm_department
         delegate: departmentsRowDelegate
     }
 
     HhmDTableNewRow
     {
-        anchors.left: parent.left
-        anchors.top: departmentsListView.bottom
+        anchors.right: parent.right
+        anchors.top: lv_department.bottom
 
-        is_odd: (departmentsListModel.count)%2
+        is_odd: (lm_department.count)%2
 
         onCreateDepartments:
         {
@@ -65,22 +78,34 @@ Item
 
     function addDepartmentsUser(username)
     {
-        departmentsListModel.append({list_number: en2ar(departmentsListModel.count+1),
+        lm_department.append({list_number: en2ar(lm_department.count+1),
                                      list_username: username ,tag_flag: 0})
     }
 
     function addDepartmentTagF(index)
     {
-        var flag = departmentsListModel.get(index).tag_flag;
+        var flag = lm_department.get(index).tag_flag;
 
         if( flag )
         {
-            departmentsListModel.get(index).tag_flag = 0;
+            lm_department.get(index).tag_flag = 0;
         }
         else
         {
-            departmentsListModel.get(index).tag_flag = 1;
+            lm_department.get(index).tag_flag = 1;
         }
     }
 
+    function removeDepartment(index)
+    {
+        lm_department.remove(index-1);
+        rmvDepartments(index);
+
+        var count = lm_department.count;
+
+        for( var i=0 ; i<count ; i++ )
+        {
+            lm_department.get(i).list_number = en2ar(i+1);
+        }
+    }
 }

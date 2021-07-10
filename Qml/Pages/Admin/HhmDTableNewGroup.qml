@@ -3,53 +3,52 @@ import QtQuick 2.0
 Rectangle
 {
     signal addDepGroup()
+    signal removeDepGroup(string tg_name)
 
-    width: 500
+    width: 520
     color: "transparent"
     height: 30
 
     Rectangle
     {
-        width: 444
+        width: parent.width-60
         height: 24
         color: "#E6E6E6"
         radius: 6
         anchors.verticalCenter: parent.verticalCenter
         anchors.leftMargin: 55
-        anchors.left: parent.left
-        border.color: "#969696"
-    }
-
-    ListView
-    {
-        id: lv_group
-        width: parent.width
-        height: 22
         anchors.right: parent.right
-        anchors.rightMargin: 5
-        anchors.verticalCenter: parent.verticalCenter
-
-        model: ListModel
-               {
-                    id: lm_group
-               }
-        clip: true
-        orientation: ListView.Horizontal
-        layoutDirection: Qt.RightToLeft
-
-        delegate: HhmTag
+        border.color: "#969696"
+        ListView
         {
-            anchors.verticalCenter: parent.verticalCenter
-            tag_text:   group_name
-            separator_visible:  sep_visible
+            id: lv_group
+            width: parent.width-6
             height: 22
+            anchors.right: parent.right
+            anchors.rightMargin: 3
+            anchors.verticalCenter: parent.verticalCenter
 
-            onClickTag:
+            model: ListModel
+                   {
+                        id: lm_group
+                   }
+            clip: true
+            orientation: ListView.Horizontal
+            layoutDirection: Qt.RightToLeft
+
+            delegate: HhmTag
             {
-                removeGroup(group_id)
+                anchors.verticalCenter: parent.verticalCenter
+                tag_text:   group_name
+                separator_visible:  sep_visible
+                height: 22
+
+                onClickTag:
+                {
+                    removeGroup(group_id)
+                }
             }
         }
-
     }
 
     HhmAddBtn
@@ -70,14 +69,16 @@ Rectangle
         {
             if( lm_group.get(i).group_id===group_id )
             {
+                var group_name= lm_group.get(i).group_name
+                removeDepGroup(group_name)
                 lm_group.remove(i);
                 break;
             }
         }
 
-        if( lm_group.count )
+        if( lm_group.count>1 )
         {
-            lm_group.get(lm_group.count-1).sepVisible = false;
+            lm_group.get(lm_group.count-1).sep_visible = false;
         }
     }
 

@@ -15,16 +15,17 @@ Rectangle
                                         }
                                   }
     property color backcolor_Plus:
-                                  {
-                                        if( is_hovered )
-                                        {
-                                            "#eef0f2"
-                                        }
-                                        else
-                                        {
-                                            "#e5e6e7"
-                                        }
-                                  }
+                                 {
+                                       if( is_hovered )
+                                       {
+                                           "#eef0f2"
+                                       }
+                                       else
+                                       {
+                                           "#e5e6e7"
+                                       }
+                                 }
+
     property string id_number: "number"
     property string id_username: "username"
     property string id_name: "name"
@@ -35,6 +36,7 @@ Rectangle
 
     signal setUserRole(int user_id, int user_role)
     signal addUserRole()
+    signal removeUserRole(string tg_name)
     signal clickedDnBottom(int id_number)
 
     onAddTagFlagChanged:
@@ -59,7 +61,7 @@ Rectangle
     Rectangle
     {
         id: numberBackRec
-        width: 74
+        width: 75
         height: parent.height
         color: "transparent"
         anchors.right: parent.right
@@ -75,11 +77,10 @@ Rectangle
         }
     }
 
-
     Rectangle
     {
         id: usernameBackRec
-        width: 134
+        width: 140
         height: parent.height
         color: "transparent"
         anchors.right: numberBackRec.left
@@ -95,11 +96,10 @@ Rectangle
         }
     }
 
-
     Rectangle
     {
         id: nameBackRec
-        width: 133
+        width: 140
         height: parent.height
         color: "transparent"
         anchors.right: usernameBackRec.left
@@ -115,12 +115,11 @@ Rectangle
         }
     }
 
-
     HhmDropDown
     {
         anchors.verticalCenter: parent.verticalCenter
-        anchors.left: parent.left
-        anchors.leftMargin: 360
+        anchors.leftMargin: 15
+        anchors.left: table_new_role.right
 
         text_val: drop_text
 
@@ -136,12 +135,18 @@ Rectangle
     {
         id: table_new_role
         anchors.left: parent.left
+        anchors.leftMargin: 20
         anchors.verticalCenter: parent.verticalCenter
 
         onAddUsrRole:
                     {
                         addUserRole();
                     }
+
+        onRemoveUsrRole:
+                       {
+                            removeUserRole(tg_name);
+                       }
     }
 
     function addTagRole(role_name)

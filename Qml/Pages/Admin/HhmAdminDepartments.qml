@@ -12,7 +12,9 @@ Rectangle
     height: childrenRect.height
     color: "transparent"
     signal createDepartments(string text_value)
+    signal removeDepartments(int department_index)
     signal addDepartmentGroup(int department_index, int group_index)
+    signal removeDepartmentGroup(int department_index, string group_name)
 
     HhmDTableTitle
     {
@@ -43,11 +45,23 @@ Rectangle
             onCrteDepartments:
             {
                 createDepartments(text_value);
+                dhover_select.addItem(text_value); //add to select dialog
             }
 
             onAddDepartmentGrp:
             {
                 dhover_select.visible = true;
+            }
+
+            onRmvDepartments:
+            {
+                removeDepartments(department_indx);
+                dhover_select.removeItem(department_indx); //add to select dialog
+            }
+
+            onRemoveDepartmentGrp:
+            {
+                removeDepartmentGroup(department_indx, tg_name)
             }
         }
     }

@@ -25,13 +25,15 @@ Rectangle
                                             "#e5e6e7"
                                         }
                                   }
+
     property string id_number: "number"
     property string id_username: "name"
     property bool is_odd: ar2en(id_number)%2
     property int addTagFlag: 0
 
-
     signal addDepartmentGroup()
+    signal removeDepartmentGroup(string tg_name)
+    signal clkedBtn()
 
     onAddTagFlagChanged:
                        {
@@ -52,15 +54,25 @@ Rectangle
                }
          }
 
+    HhmDeleteBtn
+    {
+        id: deleteRect
+        anchors.right: parent.right
+        anchors.rightMargin: 25
+        anchors.verticalCenter: parent.verticalCenter
+
+        onClickedBtn: clkedBtn();
+    }
 
     Rectangle
     {
         id: numberRect
-        width: 100
+        width: 60
         height: parent.height
         color: "transparent"
-        anchors.left: usernameRect.right
+        anchors.right: deleteRect.left
         anchors.verticalCenter: parent.verticalCenter
+
         Text
         {
             text: id_number
@@ -70,16 +82,15 @@ Rectangle
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 15
         }
-
     }
 
     Rectangle
     {
         id: usernameRect
-        width: 190
+        width: 280
         height: parent.height
         color: "transparent"
-        anchors.left: table_new_group.right
+        anchors.right: numberRect.left
         anchors.verticalCenter: parent.verticalCenter
         Text
         {
@@ -95,13 +106,18 @@ Rectangle
     HhmDTableNewGroup
     {
         id: table_new_group
-        anchors.left: parent.left
+        anchors.right: usernameRect.left
         anchors.verticalCenter: parent.verticalCenter
 
         onAddDepGroup:
                      {
                        addDepartmentGroup();
                      }
+
+        onRemoveDepGroup:
+                       {
+                            removeDepartmentGroup(tg_name);
+                       }
     }
 
     function addTagGroup(group_name)

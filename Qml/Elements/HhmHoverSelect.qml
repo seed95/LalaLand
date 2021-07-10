@@ -51,4 +51,9 @@ Rectangle
         select.addItem(i_item)
     }
 
+    function removeItem(i_item)
+    {
+        select.removeItem(i_item)
+    }
+
 }

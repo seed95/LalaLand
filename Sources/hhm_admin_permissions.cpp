@@ -11,6 +11,8 @@ HhmAdminPermissions::HhmAdminPermissions(QObject *root, HhmDatabase *database, Q
     roles_ui = root->findChild<QObject*>("AdminRoles");
     users_ui = root->findChild<QObject*>("AdminUsers");
 
+    connect(roles_ui, SIGNAL(removePermission(int)), this, SLOT(removePermission(int)));
+
     connect(timer, SIGNAL(timeout()), this, SLOT(qmlComplete()));
 
     timer->setSingleShot(true);
@@ -91,3 +93,61 @@ void HhmAdminPermissions::setPermissionUi(int row, int column)
     QMetaObject::invokeMethod(roles_ui, "setPermission");
 }
 
+void HhmAdminPermissions::removePermission(int role_index)
+{
+    int role_id = getPermissionID(role_index);
+
+    QString table = "roles";
+    QString columns = "id";
+    QString values = QString::number(role_id);
+    db->remove(table, columns, values);
+}
+
+int  HhmAdminPermissions::getPermissionIndex(int permisson_id)
+{
+    QSqlQuery query = db->selectOrder("*", "roles", "id");
+
+    int count = query.size();
+
+    for( int i=0 ; i<count ; i++ )
+    {
+        if( query.next() )
+        {
+            QVariant id_v = query.value("id");
+            int id = id_v.toInt();
+
+            if( permisson_id==id )
+            {
+                return  i;
+            }
+        }
+        else
+        {
+            qDebug() << "error getPermissionIndex";
+        }
+    }
+
+    return -1;
+}
+
+int HhmAdminPermissions::getPermissionID(int permission_index)
+{
+    QSqlQuery query = db->selectOrder("*", "roles", "id");
+    QSqlRecord rec_r = query.record();
+
+    for( int i=0 ; i<permission_index ; i++ )
+    {
+        if( query.next() )
+        {
+            ;///FIXME: A Bug Lies Here (Bijan)
+        }
+        else
+        {
+            qDebug() << "error getPermissionID";
+        }
+    }
+    QVariant data = query.value("id");
+    int permissionID = data.toInt();
+
+    return permissionID;
+}

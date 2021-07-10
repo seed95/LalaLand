@@ -26,10 +26,10 @@ Rectangle
     {
         id: rect1
         subject_placeholder: "القسم"
-        anchors.left: parent.left
-        anchors.leftMargin: 500
+        anchors.right: rect2.left
+        anchors.rightMargin: 10
         anchors.verticalCenter: parent.verticalCenter
-        width: 190
+        width: 220
 
         onEnterPressed:
         {
@@ -44,7 +44,8 @@ Rectangle
         width: 100
         height: parent.height
         color: "transparent"
-        anchors.left: rect1.right
+        anchors.right: parent.right
+        anchors.rightMargin: 28
         anchors.verticalCenter: parent.verticalCenter
         HhmAddBtn
         {

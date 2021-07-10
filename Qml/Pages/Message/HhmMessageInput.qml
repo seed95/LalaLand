@@ -260,9 +260,7 @@ Item
                     removeTag(textName)
                 }
             }
-
         }
-
     }
 
     Rectangle
@@ -374,7 +372,7 @@ Item
     //Return true if not found 'username' in lm_username
     function checkUniqueUsername(username)
     {
-        for(var i=0; i<lm_username.count; i++)
+        for( var i=0 ; i<lm_username.count ; i++)
         {
             if( lm_username.get(i).modeTag===1 )
             {
@@ -390,7 +388,7 @@ Item
     function addTag()
     {
         setPlaceholderStyle()
-        for(var i=0; i<lm_username.count; i++)
+        for( var i=0 ; i<lm_username.count ; i++)
         {
             lm_username.get(i).sepVisible = true
         }

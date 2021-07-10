@@ -196,11 +196,9 @@ QString hhm_removeMessageId(QString file, qint64 id)
     return result;
 }
 
-//Print in qDebug and LOG_FILE
+//Print in LOG_FILE
 void hhm_log(QString msg)
 {
-    qDebug() << msg;
-
     QLocale en_localce(QLocale::English);
     QString date = en_localce.toString(QDateTime::currentDateTime(), "(dd/MM hh:mm:ss) : ");
     QFile log_file(HHM_LOG_FILE);
@@ -214,4 +212,10 @@ void hhm_log(QString msg)
     {
         qDebug() << "Cannot open" << log_file.fileName();
     }
+}
+
+void hhm_err(QString msg)
+{
+    hhm_log(msg);
+    qDebug() << msg;
 }

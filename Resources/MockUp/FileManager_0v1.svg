@@ -49,11 +49,11 @@
      borderopacity="1"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="515.2269"
-     inkscape:cy="445.57618"
+     inkscape:zoom="1"
+     inkscape:cx="587.1181"
+     inkscape:cy="269.83914"
      inkscape:document-units="px"
-     inkscape:current-layer="layer32"
+     inkscape:current-layer="g5197"
      showgrid="false"
      showguides="false"
      inkscape:window-width="1920"
@@ -1392,7 +1392,7 @@
      inkscape:groupmode="layer"
      id="layer18"
      inkscape:label="Page"
-     style="display:none">
+     style="display:inline">
     <g
        inkscape:label="Document_New"
        inkscape:groupmode="layer"
@@ -2233,7 +2233,7 @@
       </g>
     </g>
     <g
-       style="display:inline"
+       style="display:none"
        transform="translate(0,-236.73723)"
        id="g2449"
        inkscape:groupmode="layer"
@@ -3100,7 +3100,7 @@
            style="stroke-width:0.9375" /></text>
     </g>
     <g
-       style="display:inline"
+       style="display:none"
        transform="translate(0,-236.73723)"
        id="g5339"
        inkscape:groupmode="layer"
@@ -6200,137 +6200,137 @@
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         x="316.98752"
+         x="365.73752"
          y="630.6076"
          id="text5930"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5932"
-           x="328.92599"
+           x="377.67599"
            y="630.6076"
            style="font-size:37.49999619px;line-height:1.25"> </tspan></text>
       <rect
-         y="471.11221"
-         x="79.79705"
-         height="28.124998"
-         width="749.99994"
+         y="471.11227"
+         x="42.187496"
+         height="28.124994"
+         width="843.74994"
          id="rect5934"
          style="fill:#bebebe;fill-opacity:1;stroke:none" />
       <text
          id="text5936"
          y="492.48077"
-         x="770.51453"
+         x="815.51453"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end"
            y="492.48077"
-           x="770.51453"
+           x="815.51453"
            id="tspan5938"
            sodipodi:role="line">١</tspan></text>
       <rect
          style="fill:#d2d2d2;fill-opacity:1;stroke:none"
          id="rect5944"
-         width="749.99994"
-         height="28.124998"
-         x="79.687492"
-         y="499.23721" />
+         width="843.74994"
+         height="28.124994"
+         x="42.187496"
+         y="499.23727" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="768.74884"
+         x="813.74884"
          y="519.26648"
          id="text5946"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5948"
-           x="768.74884"
+           x="813.74884"
            y="519.26648"
            style="font-size:16.0714283px;line-height:1.25">٢</tspan></text>
       <rect
          style="fill:#bebebe;fill-opacity:1;stroke:none"
          id="rect5954"
-         width="749.99994"
-         height="28.124998"
-         x="79.687492"
-         y="527.36224" />
+         width="843.74994"
+         height="28.124994"
+         x="42.187496"
+         y="527.3623" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="768.06598"
+         x="813.06598"
          y="546.05225"
          id="text5956"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5958"
-           x="768.06598"
+           x="813.06598"
            y="546.05225"
            style="font-size:16.0714283px;line-height:1.25">٣</tspan></text>
       <rect
          rx="8"
          ry="8.400178"
-         y="442.98721"
-         x="79.687492"
+         y="441.11221"
+         x="42.187496"
          height="28.124998"
-         width="749.99994"
+         width="843.74994"
          id="rect5964"
          style="fill:#464646;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.89285715" />
       <image
          y="457.06033"
-         x="79.687492"
+         x="42.187496"
          id="image5966"
          xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmwAAAAZCAIAAAADh+UpAAAAA3NCSVQICAjb4U/gAAAAf0lEQVR4 nO3VQQ0AIRDAwOPErX9JaKAfQjKjoL+umfkAgHP/7QAAeJWJAkBkogAQmSgARCYKAJGJAkBkogAQ mSgARCYKAJGJAkBkogAQmSgARCYKAJGJAkBkogAQmSgARCYKAJGJAkBkogAQmSgARCYKAJGJAkBk ogAQmSgARBuSYQEEPx9JZwAAAABJRU5ErkJggg== "
          style="image-rendering:optimizeSpeed"
          preserveAspectRatio="none"
          height="14.05189"
-         width="749.99994" />
+         width="843.74994" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#dcdcdc;fill-opacity:1;stroke:none"
-         x="768.19543"
+         x="813.19543"
          y="461.4364"
          id="text5968"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5970"
-           x="768.19543"
+           x="813.19543"
            y="461.4364"
            style="font-size:16.0714283px;line-height:1.25">عدد</tspan></text>
       <text
          id="text5976"
          y="461.06757"
-         x="319.22418"
+         x="336.09918"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#dcdcdc;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            y="461.06757"
-           x="319.22418"
+           x="336.09918"
            id="tspan5978"
            sodipodi:role="line"
            style="font-size:16.0714283px;line-height:1.25">مجموعات فرعية</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#dcdcdc;fill-opacity:1;stroke:none"
-         x="634.54553"
+         x="655.17053"
          y="460.58496"
          id="text5980"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan5982"
-           x="634.54553"
+           x="655.17053"
            y="460.58496"
            style="font-size:16.0714283px;line-height:1.25">اسم القسم</tspan></text>
       <rect
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect5998"
-         width="373.67282"
+         width="439.29782"
          height="21.862955"
-         x="132.38383"
+         x="89.726074"
          y="476.1347"
          rx="5"
          ry="5" />
       <g
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92274,-197.70928)"
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29145,-197.70928)"
          id="g6000">
         <rect
            style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#5790d5;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -6358,14 +6358,14 @@
          ry="5"
          rx="5"
          y="502.92044"
-         x="132.38383"
+         x="89.726074"
          height="21.862955"
-         width="373.67282"
+         width="439.29782"
          id="rect6008"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
          id="g6010"
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92272,-170.92356)">
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29143,-170.92356)">
         <rect
            ry="5"
            rx="5"
@@ -6389,16 +6389,16 @@
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#5790d5;fill-opacity:1">+</tspan></text>
       </g>
       <rect
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect6020"
-         width="373.67282"
+         width="439.29782"
          height="21.862955"
-         x="132.38383"
+         x="89.726074"
          y="529.70612"
          rx="5"
          ry="5" />
       <g
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92274,-144.13785)"
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29145,-144.13785)"
          id="g6022">
         <rect
            style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#5790d5;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -6426,7 +6426,7 @@
          ry="5"
          rx="5"
          y="478.40155"
-         x="451.73077"
+         x="474.23077"
          height="17.214291"
          width="50.916443"
          id="rect6048"
@@ -6434,20 +6434,20 @@
       <text
          id="text6050"
          y="489.444"
-         x="477.35379"
+         x="499.85376"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1"
            y="489.444"
-           x="477.35379"
+           x="499.85376"
            id="tspan6052"
            sodipodi:role="line">الموظف</tspan></text>
       <rect
          ry="5"
          rx="5"
          y="505.29498"
-         x="434.23972"
+         x="456.73972"
          height="17.113958"
          width="68.357346"
          id="rect6030"
@@ -6455,13 +6455,13 @@
       <text
          id="text6032"
          y="515.91412"
-         x="468.42068"
+         x="490.92065"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1"
            y="515.91412"
-           x="468.42068"
+           x="490.92065"
            id="tspan6034"
            sodipodi:role="line">مدير مجموعة</tspan></text>
       <rect
@@ -6469,36 +6469,36 @@
          id="rect6036"
          width="50.916443"
          height="17.214291"
-         x="372.31454"
+         x="394.81454"
          y="505.24481"
          rx="5"
          ry="5" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
-         x="397.93756"
+         x="420.43756"
          y="515.91412"
          id="text6038"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan6040"
-           x="397.93756"
+           x="420.43756"
            y="515.91412"
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1">الموظف</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
-         x="429.04568"
+         x="451.54568"
          y="517.78912"
          id="text6042"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan6044"
-           x="429.04568"
+           x="451.54568"
            y="517.78912"
            style="font-size:14.06249905px;line-height:1.25;fill:#5790d5;fill-opacity:1">,</tspan></text>
       <g
-         transform="translate(100.14102,0.35254809)"
+         transform="translate(122.64102,0.35254809)"
          id="g6054">
         <rect
            ry="5"
@@ -6599,88 +6599,88 @@
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="685.37689"
+         x="702.25189"
          y="492.48077"
          id="text6098"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan6100"
-           x="685.37689"
+           x="702.25189"
            y="492.48077"
            style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end">قسم الهندسة</tspan></text>
       <text
          id="text6108"
          y="516.85577"
-         x="634.43176"
+         x="651.30676"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle"
            y="516.85577"
-           x="634.43176"
+           x="651.30676"
            id="tspan6110"
            sodipodi:role="line">قسم التقنیه معلومات</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="634.43176"
+         x="651.30676"
          y="544.98077"
          id="text6112"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan6114"
-           x="634.43176"
+           x="651.30676"
            y="544.98077"
            style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle">قسم الحسابات</tspan></text>
       <rect
-         y="555.48718"
-         x="79.687492"
-         height="28.124998"
-         width="749.99994"
+         y="555.48724"
+         x="42.187496"
+         height="28.124994"
+         width="843.74994"
          id="rect6909"
          style="fill:#d2d2d2;fill-opacity:1;stroke:none" />
       <text
          id="text6911"
          y="575.51648"
-         x="768.74884"
+         x="813.74884"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            y="575.51648"
-           x="768.74884"
+           x="813.74884"
            id="tspan6913"
            sodipodi:role="line"
            style="font-size:16.0714283px;line-height:1.25">٤</tspan></text>
       <rect
-         y="583.61224"
-         x="79.687492"
-         height="28.124998"
-         width="749.99994"
+         y="583.6123"
+         x="42.187496"
+         height="28.124994"
+         width="843.74994"
          id="rect6915"
          style="fill:#bebebe;fill-opacity:1;stroke:none" />
       <text
          id="text6917"
          y="602.30225"
-         x="768.06598"
+         x="813.06598"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            y="602.30225"
-           x="768.06598"
+           x="813.06598"
            id="tspan6919"
            sodipodi:role="line"
            style="font-size:16.0714283px;line-height:1.25">٥</tspan></text>
       <rect
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect6921"
-         width="373.67282"
+         width="439.29782"
          height="21.862955"
-         x="132.38383"
+         x="89.726074"
          y="559.17041"
          rx="5"
          ry="5" />
       <g
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92272,-114.67356)"
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29143,-114.67356)"
          id="g6923">
         <rect
            style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#5790d5;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -6708,14 +6708,14 @@
          ry="5"
          rx="5"
          y="585.95612"
-         x="132.38383"
+         x="89.726074"
          height="21.862955"
-         width="373.67282"
+         width="439.29782"
          id="rect6931"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
          id="g6933"
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92274,-87.887851)">
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29145,-87.887851)">
         <rect
            ry="5"
            rx="5"
@@ -6743,27 +6743,27 @@
          id="rect6941"
          width="68.357346"
          height="17.113958"
-         x="434.23972"
+         x="456.73972"
          y="561.54498"
          rx="5"
          ry="5" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
-         x="468.42068"
+         x="490.92065"
          y="572.16412"
          id="text6943"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan6945"
-           x="468.42068"
+           x="490.92065"
            y="572.16412"
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1">مدير مجموعة</tspan></text>
       <rect
          ry="5"
          rx="5"
          y="561.49481"
-         x="372.31454"
+         x="394.81454"
          height="17.214291"
          width="50.916443"
          id="rect6947"
@@ -6771,30 +6771,30 @@
       <text
          id="text6949"
          y="572.16412"
-         x="397.93756"
+         x="420.43756"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1"
            y="572.16412"
-           x="397.93756"
+           x="420.43756"
            id="tspan6951"
            sodipodi:role="line">الموظف</tspan></text>
       <text
          id="text6953"
          y="574.03912"
-         x="429.04568"
+         x="451.54568"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:14.06249905px;line-height:1.25;fill:#5790d5;fill-opacity:1"
            y="574.03912"
-           x="429.04568"
+           x="451.54568"
            id="tspan6955"
            sodipodi:role="line">,</tspan></text>
       <g
          id="g6957"
-         transform="translate(100.14102,56.602545)">
+         transform="translate(122.64102,56.602545)">
         <rect
            style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#5790d5;stroke-width:0.74638546;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="rect6959"
@@ -6820,77 +6820,77 @@
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="634.43176"
+         x="651.30676"
          y="573.10577"
          id="text6965"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan6967"
-           x="634.43176"
+           x="651.30676"
            y="573.10577"
            style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle">قسم التدقیق</tspan></text>
       <text
          id="text6969"
          y="601.23077"
-         x="634.43176"
+         x="651.30676"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle"
            y="601.23077"
-           x="634.43176"
+           x="651.30676"
            id="tspan6971"
            sodipodi:role="line">قسم التخطیط و المتابعة</tspan></text>
       <rect
          style="fill:#d2d2d2;fill-opacity:1;stroke:none"
          id="rect6973"
-         width="749.99994"
-         height="28.124998"
-         x="79.687492"
-         y="611.73718" />
+         width="843.74994"
+         height="28.124994"
+         x="42.187496"
+         y="611.73724" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="768.74884"
+         x="813.74884"
          y="631.76648"
          id="text6975"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan6977"
-           x="768.74884"
+           x="813.74884"
            y="631.76648"
            style="font-size:16.0714283px;line-height:1.25">٦</tspan></text>
       <rect
          style="fill:#bebebe;fill-opacity:1;stroke:none"
          id="rect6979"
-         width="749.99994"
-         height="28.124998"
-         x="79.687492"
+         width="843.74994"
+         height="28.124994"
+         x="42.187496"
          y="639.86224" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="768.06598"
+         x="813.06598"
          y="658.55225"
          id="text6981"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan6983"
-           x="768.06598"
+           x="813.06598"
            y="658.55225"
            style="font-size:16.0714283px;line-height:1.25">٧</tspan></text>
       <rect
          ry="5"
          rx="5"
          y="615.42041"
-         x="132.38383"
+         x="89.726074"
          height="21.862955"
-         width="373.67282"
+         width="439.29782"
          id="rect6985"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
          id="g6987"
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92272,-58.423563)">
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29143,-58.423563)">
         <rect
            ry="5"
            rx="5"
@@ -6914,16 +6914,16 @@
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#5790d5;fill-opacity:1">+</tspan></text>
       </g>
       <rect
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect6995"
-         width="373.67282"
+         width="439.29782"
          height="21.862955"
-         x="132.38383"
+         x="89.726074"
          y="642.20612"
          rx="5"
          ry="5" />
       <g
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92274,-31.637854)"
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29145,-31.637854)"
          id="g6997">
         <rect
            style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#5790d5;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -6951,7 +6951,7 @@
          ry="5"
          rx="5"
          y="617.79498"
-         x="434.23972"
+         x="456.73972"
          height="17.113958"
          width="68.357346"
          id="rect7005"
@@ -6959,13 +6959,13 @@
       <text
          id="text7007"
          y="628.41412"
-         x="468.42068"
+         x="490.92065"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1"
            y="628.41412"
-           x="468.42068"
+           x="490.92065"
            id="tspan7009"
            sodipodi:role="line">مدير مجموعة</tspan></text>
       <rect
@@ -6973,36 +6973,36 @@
          id="rect7011"
          width="50.916443"
          height="17.214291"
-         x="372.31454"
+         x="394.81454"
          y="617.74481"
          rx="5"
          ry="5" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
-         x="397.93756"
+         x="420.43756"
          y="628.41412"
          id="text7013"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7015"
-           x="397.93756"
+           x="420.43756"
            y="628.41412"
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1">الموظف</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
-         x="429.04568"
+         x="451.54568"
          y="630.28912"
          id="text7017"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7019"
-           x="429.04568"
+           x="451.54568"
            y="630.28912"
            style="font-size:14.06249905px;line-height:1.25;fill:#5790d5;fill-opacity:1">,</tspan></text>
       <g
-         transform="translate(100.14102,112.85254)"
+         transform="translate(122.64102,112.85254)"
          id="g7021">
         <rect
            ry="5"
@@ -7029,76 +7029,76 @@
       <text
          id="text7029"
          y="629.35577"
-         x="634.26697"
+         x="651.14197"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle"
            y="629.35577"
-           x="634.26697"
+           x="651.14197"
            id="tspan7031"
            sodipodi:role="line">مدیر مکتب</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="634.43176"
+         x="651.30676"
          y="657.48077"
          id="text7033"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7035"
-           x="634.43176"
+           x="651.30676"
            y="657.48077"
            style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle">قسم إدارة موارد البشریة</tspan></text>
       <rect
          y="667.98718"
-         x="79.687492"
-         height="28.124998"
-         width="749.99994"
+         x="42.187496"
+         height="28.124994"
+         width="843.74994"
          id="rect7037"
          style="fill:#d2d2d2;fill-opacity:1;stroke:none" />
       <text
          id="text7039"
          y="688.01648"
-         x="768.74884"
+         x="813.74884"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            y="688.01648"
-           x="768.74884"
+           x="813.74884"
            id="tspan7041"
            sodipodi:role="line"
            style="font-size:16.0714283px;line-height:1.25">٨</tspan></text>
       <rect
          y="696.11224"
-         x="79.687492"
-         height="28.124998"
-         width="749.99994"
+         x="42.187496"
+         height="28.124994"
+         width="843.74994"
          id="rect7043"
          style="fill:#bebebe;fill-opacity:1;stroke:none" />
       <text
          id="text7045"
          y="714.80225"
-         x="768.06598"
+         x="813.06598"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            y="714.80225"
-           x="768.06598"
+           x="813.06598"
            id="tspan7047"
            sodipodi:role="line"
            style="font-size:16.0714283px;line-height:1.25">٩</tspan></text>
       <rect
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect7049"
-         width="373.67282"
+         width="439.29782"
          height="21.862955"
-         x="132.38383"
+         x="89.726074"
          y="671.67041"
          rx="5"
          ry="5" />
       <g
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92272,-2.173566)"
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29143,-2.173566)"
          id="g7051">
         <rect
            style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#5790d5;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -7126,14 +7126,14 @@
          ry="5"
          rx="5"
          y="698.45612"
-         x="132.38383"
+         x="89.726074"
          height="21.862955"
-         width="373.67282"
+         width="439.29782"
          id="rect7059"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
          id="g7061"
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92274,24.612143)">
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29145,24.612143)">
         <rect
            ry="5"
            rx="5"
@@ -7161,27 +7161,27 @@
          id="rect7069"
          width="68.357346"
          height="17.113958"
-         x="434.23972"
+         x="456.73972"
          y="674.04498"
          rx="5"
          ry="5" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
-         x="468.42068"
+         x="490.92065"
          y="684.66412"
          id="text7071"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7073"
-           x="468.42068"
+           x="490.92065"
            y="684.66412"
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1">مدير مجموعة</tspan></text>
       <rect
          ry="5"
          rx="5"
          y="673.99481"
-         x="372.31454"
+         x="394.81454"
          height="17.214291"
          width="50.916443"
          id="rect7075"
@@ -7189,30 +7189,30 @@
       <text
          id="text7077"
          y="684.66412"
-         x="397.93756"
+         x="420.43756"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1"
            y="684.66412"
-           x="397.93756"
+           x="420.43756"
            id="tspan7079"
            sodipodi:role="line">الموظف</tspan></text>
       <text
          id="text7081"
          y="686.53912"
-         x="429.04568"
+         x="451.54568"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:14.06249905px;line-height:1.25;fill:#5790d5;fill-opacity:1"
            y="686.53912"
-           x="429.04568"
+           x="451.54568"
            id="tspan7083"
            sodipodi:role="line">,</tspan></text>
       <g
          id="g7085"
-         transform="translate(100.14102,169.10254)">
+         transform="translate(122.64102,169.10254)">
         <rect
            style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#5790d5;stroke-width:0.74638546;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="rect7087"
@@ -7238,77 +7238,77 @@
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="634.43176"
+         x="651.30676"
          y="685.60577"
          id="text7093"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7095"
-           x="634.43176"
+           x="651.30676"
            y="685.60577"
            style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle">قسم العقود الحكومية</tspan></text>
       <text
          id="text7097"
          y="713.73077"
-         x="634.43176"
+         x="651.30676"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle"
            y="713.73077"
-           x="634.43176"
+           x="651.30676"
            id="tspan7099"
            sodipodi:role="line">قسم إدارة مشاريع</tspan></text>
       <rect
          style="fill:#d2d2d2;fill-opacity:1;stroke:none"
          id="rect7101"
-         width="749.99994"
-         height="28.124998"
-         x="79.687492"
+         width="843.74994"
+         height="28.124994"
+         x="42.187496"
          y="724.23718" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="768.74884"
+         x="813.74884"
          y="744.26648"
          id="text7103"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7105"
-           x="768.74884"
+           x="813.74884"
            y="744.26648"
            style="font-size:16.0714283px;line-height:1.25">١٠</tspan></text>
       <rect
          style="fill:#bebebe;fill-opacity:1;stroke:none"
          id="rect7107"
-         width="749.99994"
-         height="28.124998"
-         x="79.687492"
+         width="843.74994"
+         height="28.124994"
+         x="42.187496"
          y="752.36224" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="768.06598"
+         x="813.06598"
          y="771.05225"
          id="text7109"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7111"
-           x="768.06598"
+           x="813.06598"
            y="771.05225"
            style="font-size:16.0714283px;line-height:1.25">١١</tspan></text>
       <rect
          ry="5"
          rx="5"
          y="727.92041"
-         x="132.38383"
+         x="89.726074"
          height="21.862955"
-         width="373.67282"
+         width="439.29782"
          id="rect7113"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
          id="g7115"
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92272,54.076431)">
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29143,54.076431)">
         <rect
            ry="5"
            rx="5"
@@ -7332,16 +7332,16 @@
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#5790d5;fill-opacity:1">+</tspan></text>
       </g>
       <rect
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect7123"
-         width="373.67282"
+         width="439.29782"
          height="21.862955"
-         x="132.38383"
+         x="89.726074"
          y="754.70612"
          rx="5"
          ry="5" />
       <g
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92274,80.86214)"
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29145,80.86214)"
          id="g7125">
         <rect
            style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#5790d5;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -7369,7 +7369,7 @@
          ry="5"
          rx="5"
          y="730.29498"
-         x="434.23972"
+         x="456.73972"
          height="17.113958"
          width="68.357346"
          id="rect7133"
@@ -7377,13 +7377,13 @@
       <text
          id="text7135"
          y="740.91412"
-         x="468.42068"
+         x="490.92065"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1"
            y="740.91412"
-           x="468.42068"
+           x="490.92065"
            id="tspan7137"
            sodipodi:role="line">مدير مجموعة</tspan></text>
       <rect
@@ -7391,36 +7391,36 @@
          id="rect7139"
          width="50.916443"
          height="17.214291"
-         x="372.31454"
+         x="394.81454"
          y="730.24481"
          rx="5"
          ry="5" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
-         x="397.93756"
+         x="420.43756"
          y="740.91412"
          id="text7141"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7143"
-           x="397.93756"
+           x="420.43756"
            y="740.91412"
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1">الموظف</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
-         x="429.04568"
+         x="451.54568"
          y="742.78912"
          id="text7145"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7147"
-           x="429.04568"
+           x="451.54568"
            y="742.78912"
            style="font-size:14.06249905px;line-height:1.25;fill:#5790d5;fill-opacity:1">,</tspan></text>
       <g
-         transform="translate(100.14102,225.35254)"
+         transform="translate(122.64102,225.35254)"
          id="g7149">
         <rect
            ry="5"
@@ -7447,76 +7447,76 @@
       <text
          id="text7157"
          y="741.85577"
-         x="634.43176"
+         x="651.30676"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle"
            y="741.85577"
-           x="634.43176"
+           x="651.30676"
            id="tspan7159"
            sodipodi:role="line">قسم القانوني</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="634.54553"
+         x="651.42053"
          y="769.98077"
          id="text7161"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7163"
-           x="634.54553"
+           x="651.42053"
            y="769.98077"
            style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle">الدائرة المالية و الشؤون الإدارية</tspan></text>
       <rect
          y="780.48718"
-         x="79.687492"
-         height="28.124998"
-         width="749.99994"
+         x="42.187496"
+         height="28.124994"
+         width="843.74994"
          id="rect7165"
          style="fill:#d2d2d2;fill-opacity:1;stroke:none" />
       <text
          id="text7167"
          y="800.51648"
-         x="768.74884"
+         x="813.74884"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            y="800.51648"
-           x="768.74884"
+           x="813.74884"
            id="tspan7169"
            sodipodi:role="line"
            style="font-size:16.0714283px;line-height:1.25">١٢</tspan></text>
       <rect
          y="808.61224"
-         x="79.687492"
-         height="28.124998"
-         width="749.99994"
+         x="42.187496"
+         height="28.124994"
+         width="843.74994"
          id="rect7171"
          style="fill:#bebebe;fill-opacity:1;stroke:none" />
       <text
          id="text7173"
          y="827.30225"
-         x="768.06598"
+         x="813.06598"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            y="827.30225"
-           x="768.06598"
+           x="813.06598"
            id="tspan7175"
            sodipodi:role="line"
            style="font-size:16.0714283px;line-height:1.25">١٣</tspan></text>
       <rect
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect7177"
-         width="373.67282"
+         width="439.29782"
          height="21.862955"
-         x="132.38383"
+         x="89.726074"
          y="784.17041"
          rx="5"
          ry="5" />
       <g
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92272,110.32643)"
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29143,110.32643)"
          id="g7179">
         <rect
            style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#5790d5;stroke-width:0.93749994;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -7544,14 +7544,14 @@
          ry="5"
          rx="5"
          y="810.95612"
-         x="132.38383"
+         x="89.726074"
          height="21.862955"
-         width="373.67282"
+         width="439.29782"
          id="rect7187"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
          id="g7189"
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92274,137.11214)">
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29145,137.11214)">
         <rect
            ry="5"
            rx="5"
@@ -7579,27 +7579,27 @@
          id="rect7197"
          width="68.357346"
          height="17.113958"
-         x="434.23972"
+         x="456.73972"
          y="786.54498"
          rx="5"
          ry="5" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
-         x="468.42068"
+         x="490.92065"
          y="797.16412"
          id="text7199"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7201"
-           x="468.42068"
+           x="490.92065"
            y="797.16412"
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1">مدير مجموعة</tspan></text>
       <rect
          ry="5"
          rx="5"
          y="786.49481"
-         x="372.31454"
+         x="394.81454"
          height="17.214291"
          width="50.916443"
          id="rect7203"
@@ -7607,30 +7607,30 @@
       <text
          id="text7205"
          y="797.16412"
-         x="397.93756"
+         x="420.43756"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1"
            y="797.16412"
-           x="397.93756"
+           x="420.43756"
            id="tspan7207"
            sodipodi:role="line">الموظف</tspan></text>
       <text
          id="text7209"
          y="799.03912"
-         x="429.04568"
+         x="451.54568"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:14.06249905px;line-height:1.25;fill:#5790d5;fill-opacity:1"
            y="799.03912"
-           x="429.04568"
+           x="451.54568"
            id="tspan7211"
            sodipodi:role="line">,</tspan></text>
       <g
          id="g7213"
-         transform="translate(100.14102,281.60254)">
+         transform="translate(122.64102,281.60254)">
         <rect
            style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#5790d5;stroke-width:0.74638546;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
            id="rect7215"
@@ -7656,65 +7656,65 @@
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="634.54553"
+         x="651.42053"
          y="798.10577"
          id="text7221"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7223"
-           x="634.54553"
+           x="651.42053"
            y="798.10577"
            style="font-size:16.0714283px;line-height:1.25;text-align:center;text-anchor:middle">ادارة العامة</tspan></text>
       <text
          id="text7225"
          y="826.23077"
-         x="654.34052"
+         x="671.21552"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end"
            y="826.23077"
-           x="654.34052"
+           x="671.21552"
            id="tspan7227"
            sodipodi:role="line">تصنيع</tspan></text>
       <rect
          style="fill:#d2d2d2;fill-opacity:1;stroke:none"
          id="rect7229"
-         width="749.99994"
-         height="28.124998"
-         x="79.687492"
+         width="843.74994"
+         height="28.124994"
+         x="42.187496"
          y="836.73718" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
-         x="768.74884"
+         x="813.74884"
          y="856.76648"
          id="text7231"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7233"
-           x="768.74884"
+           x="813.74884"
            y="856.76648"
            style="font-size:16.0714283px;line-height:1.25">١٤</tspan></text>
       <rect
          style="fill:#bebebe;fill-opacity:1;stroke:none"
          id="rect7235"
-         width="749.99994"
-         height="28.124998"
-         x="79.687492"
+         width="843.74994"
+         height="28.124994"
+         x="42.187496"
          y="864.86224" />
       <rect
          ry="5"
          rx="5"
          y="840.42041"
-         x="132.38383"
+         x="89.726074"
          height="21.862955"
-         width="373.67282"
+         width="439.29782"
          id="rect7241"
-         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716334;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#969696;stroke-width:1.32716346;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
          id="g7243"
-         transform="matrix(1.1428573,0,0,1.1428573,-213.92272,166.57643)">
+         transform="matrix(1.1428573,0,0,1.1428573,-261.29143,166.57643)">
         <rect
            ry="5"
            rx="5"
@@ -7742,7 +7742,7 @@
          id="rect7251"
          width="139.29784"
          height="22.110334"
-         x="-703.91193"
+         x="-720.78693"
          y="867.86957"
          rx="5"
          ry="5"
@@ -7751,7 +7751,7 @@
          ry="5"
          rx="5"
          y="842.79498"
-         x="434.23972"
+         x="456.73972"
          height="17.113958"
          width="68.357346"
          id="rect7261"
@@ -7759,13 +7759,13 @@
       <text
          id="text7263"
          y="853.41412"
-         x="468.42068"
+         x="490.92065"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1"
            y="853.41412"
-           x="468.42068"
+           x="490.92065"
            id="tspan7265"
            sodipodi:role="line">مدير مجموعة</tspan></text>
       <rect
@@ -7773,49 +7773,49 @@
          id="rect7267"
          width="50.916443"
          height="17.214291"
-         x="372.31454"
+         x="394.81454"
          y="842.74481"
          rx="5"
          ry="5" />
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
-         x="397.93756"
+         x="420.43756"
          y="853.41412"
          id="text7269"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7271"
-           x="397.93756"
+           x="420.43756"
            y="853.41412"
            style="font-size:9.375px;line-height:1.25;fill:#5790d5;fill-opacity:1">الموظف</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#5790d5;fill-opacity:1;stroke:none"
-         x="429.04568"
+         x="451.54568"
          y="855.28912"
          id="text7273"
          sodipodi:linespacing="0%"><tspan
            sodipodi:role="line"
            id="tspan7275"
-           x="429.04568"
+           x="451.54568"
            y="855.28912"
            style="font-size:14.06249905px;line-height:1.25;fill:#5790d5;fill-opacity:1">,</tspan></text>
       <text
          id="text7285"
          y="854.35577"
-         x="649.86359"
+         x="666.73859"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#464646;fill-opacity:1;stroke:none"
          xml:space="preserve"
          sodipodi:linespacing="0%"><tspan
            style="font-size:16.0714283px;line-height:1.25;text-align:end;text-anchor:end"
            y="854.35577"
-           x="649.86359"
+           x="666.73859"
            id="tspan7287"
            sodipodi:role="line">إنتاج</tspan></text>
       <g
          id="g7357"
-         transform="matrix(1.1428573,0,0,1.1428573,440.45225,194.14929)">
+         transform="matrix(1.1428573,0,0,1.1428573,485.45225,194.14929)">
         <rect
            ry="5"
            rx="5"
@@ -7838,13 +7838,307 @@
              sodipodi:role="line"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:14.06249905px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#5790d5;fill-opacity:1">+</tspan></text>
       </g>
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="840.2652"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect5951"
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text5953"
+         y="854.8241"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#969696;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="854.8241"
+           x="855.33258"
+           id="tspan5955"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1">x</tspan></text>
+      <rect
+         style="display:inline;fill:#eff0f1;fill-opacity:1;stroke:#cc6060;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5960"
+         width="21.069141"
+         height="21.069141"
+         x="844.77942"
+         y="812.1402"
+         rx="5.7142863"
+         ry="5.7142863" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#cc6060;fill-opacity:1;stroke:none"
+         x="855.33258"
+         y="826.6991"
+         id="text5962"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#cc6060;fill-opacity:1"
+           sodipodi:role="line"
+           id="tspan5964"
+           x="855.33258"
+           y="826.6991">x</tspan></text>
+      <rect
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5966"
+         width="21.069141"
+         height="21.069141"
+         x="844.77942"
+         y="784.0152"
+         rx="5.7142863"
+         ry="5.7142863" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#969696;fill-opacity:1;stroke:none"
+         x="855.33258"
+         y="798.5741"
+         id="text5969"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1"
+           sodipodi:role="line"
+           id="tspan5971"
+           x="855.33258"
+           y="798.5741">x</tspan></text>
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="755.8902"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect5973"
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text5977"
+         y="770.4491"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#969696;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="770.4491"
+           x="855.33258"
+           id="tspan5979"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1">x</tspan></text>
+      <rect
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5981"
+         width="21.069141"
+         height="21.069141"
+         x="844.77942"
+         y="699.6402"
+         rx="5.7142863"
+         ry="5.7142863" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#969696;fill-opacity:1;stroke:none"
+         x="855.33258"
+         y="714.1991"
+         id="text5983"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1"
+           sodipodi:role="line"
+           id="tspan5985"
+           x="855.33258"
+           y="714.1991">x</tspan></text>
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="643.3902"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect5987"
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text5989"
+         y="657.9491"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#969696;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="657.9491"
+           x="855.33258"
+           id="tspan5991"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1">x</tspan></text>
+      <rect
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect5993"
+         width="21.069141"
+         height="21.069141"
+         x="844.77942"
+         y="587.1402"
+         rx="5.7142863"
+         ry="5.7142863" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#969696;fill-opacity:1;stroke:none"
+         x="855.33258"
+         y="601.6991"
+         id="text5997"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1"
+           sodipodi:role="line"
+           id="tspan5999"
+           x="855.33258"
+           y="601.6991">x</tspan></text>
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="530.8902"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect6001"
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text6003"
+         y="545.4491"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#969696;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="545.4491"
+           x="855.33258"
+           id="tspan6005"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1">x</tspan></text>
+      <rect
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect6007"
+         width="21.069141"
+         height="21.069141"
+         x="844.77942"
+         y="474.6402"
+         rx="5.7142863"
+         ry="5.7142863" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#969696;fill-opacity:1;stroke:none"
+         x="855.33258"
+         y="489.1991"
+         id="text6009"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1"
+           sodipodi:role="line"
+           id="tspan6011"
+           x="855.33258"
+           y="489.1991">x</tspan></text>
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="727.7652"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect6013"
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text6016"
+         y="742.3241"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#969696;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="742.3241"
+           x="855.33258"
+           id="tspan6018"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1">x</tspan></text>
+      <rect
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect6021"
+         width="21.069141"
+         height="21.069141"
+         x="844.77942"
+         y="671.5152"
+         rx="5.7142863"
+         ry="5.7142863" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#969696;fill-opacity:1;stroke:none"
+         x="855.33258"
+         y="686.0741"
+         id="text6023"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1"
+           sodipodi:role="line"
+           id="tspan6025"
+           x="855.33258"
+           y="686.0741">x</tspan></text>
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="615.2652"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect6027"
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text6029"
+         y="629.8241"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#969696;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="629.8241"
+           x="855.33258"
+           id="tspan6031"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1">x</tspan></text>
+      <rect
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect6033"
+         width="21.069141"
+         height="21.069141"
+         x="844.77942"
+         y="559.0152"
+         rx="5.7142863"
+         ry="5.7142863" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#969696;fill-opacity:1;stroke:none"
+         x="855.33258"
+         y="573.5741"
+         id="text6035"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1"
+           sodipodi:role="line"
+           id="tspan6037"
+           x="855.33258"
+           y="573.5741">x</tspan></text>
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="502.7652"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect6039"
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text6041"
+         y="517.3241"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#969696;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="517.3241"
+           x="855.33258"
+           id="tspan6043"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1">x</tspan></text>
     </g>
     <g
        inkscape:label="Admin_Permissions"
        inkscape:groupmode="layer"
        id="g5197"
        transform="translate(0,-236.73723)"
-       style="display:none">
+       style="display:inline">
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;line-height:0%;font-family:sans-serif;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -9668,6 +9962,279 @@
          width="16.875"
          id="rect5926"
          style="opacity:1;fill:#dcdcdc;fill-opacity:1;stroke:#3d628b;stroke-width:1.87499988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="934.0152"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect6150"
+         style="display:inline;fill:#eff0f1;fill-opacity:1;stroke:#cc6060;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text6152"
+         y="948.5741"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#cc6060;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="948.5741"
+           x="855.33258"
+           id="tspan6154"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#cc6060;fill-opacity:1">x</tspan></text>
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="905.8902"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect6156"
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text6158"
+         y="920.4491"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="920.4491"
+           x="855.33258"
+           id="tspan6160"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1">x</tspan></text>
+      <rect
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect6162"
+         width="21.069141"
+         height="21.069141"
+         x="844.77942"
+         y="877.7652"
+         rx="5.7142863"
+         ry="5.7142863" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+         x="855.33258"
+         y="892.3241"
+         id="text6164"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1"
+           sodipodi:role="line"
+           id="tspan6166"
+           x="855.33258"
+           y="892.3241">x</tspan></text>
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="821.5152"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect6168"
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text6170"
+         y="836.0741"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="836.0741"
+           x="855.33258"
+           id="tspan6172"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1">x</tspan></text>
+      <rect
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect6174"
+         width="21.069141"
+         height="21.069141"
+         x="844.77942"
+         y="765.2652"
+         rx="5.7142863"
+         ry="5.7142863" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+         x="855.33258"
+         y="779.8241"
+         id="text6176"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1"
+           sodipodi:role="line"
+           id="tspan6178"
+           x="855.33258"
+           y="779.8241">x</tspan></text>
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="709.0152"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect6180"
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text6182"
+         y="723.5741"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="723.5741"
+           x="855.33258"
+           id="tspan6184"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1">x</tspan></text>
+      <rect
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect6186"
+         width="21.069141"
+         height="21.069141"
+         x="844.77942"
+         y="652.7652"
+         rx="5.7142863"
+         ry="5.7142863" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+         x="855.33258"
+         y="667.3241"
+         id="text6188"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1"
+           sodipodi:role="line"
+           id="tspan6190"
+           x="855.33258"
+           y="667.3241">x</tspan></text>
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="596.5152"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect6192"
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text6194"
+         y="611.0741"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="611.0741"
+           x="855.33258"
+           id="tspan6196"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1">x</tspan></text>
+      <rect
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect6198"
+         width="21.069141"
+         height="21.069141"
+         x="844.77942"
+         y="849.6402"
+         rx="5.7142863"
+         ry="5.7142863" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+         x="855.33258"
+         y="864.1991"
+         id="text6200"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1"
+           sodipodi:role="line"
+           id="tspan6202"
+           x="855.33258"
+           y="864.1991">x</tspan></text>
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="793.3902"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect6204"
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text6206"
+         y="807.9491"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="807.9491"
+           x="855.33258"
+           id="tspan6208"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1">x</tspan></text>
+      <rect
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect6210"
+         width="21.069141"
+         height="21.069141"
+         x="844.77942"
+         y="737.1402"
+         rx="5.7142863"
+         ry="5.7142863" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+         x="855.33258"
+         y="751.6991"
+         id="text6212"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1"
+           sodipodi:role="line"
+           id="tspan6214"
+           x="855.33258"
+           y="751.6991">x</tspan></text>
+      <rect
+         ry="5.7142863"
+         rx="5.7142863"
+         y="680.8902"
+         x="844.77942"
+         height="21.069141"
+         width="21.069141"
+         id="rect6216"
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text6218"
+         y="695.4491"
+         x="855.33258"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+         xml:space="preserve"
+         sodipodi:linespacing="0%"><tspan
+           y="695.4491"
+           x="855.33258"
+           id="tspan6220"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1">x</tspan></text>
+      <rect
+         style="display:inline;fill:#e5e6e7;fill-opacity:1;stroke:#969696;stroke-width:1.07142866;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect6222"
+         width="21.069141"
+         height="21.069141"
+         x="844.77942"
+         y="624.6402"
+         rx="5.7142863"
+         ry="5.7142863" />
+      <text
+         sodipodi:linespacing="0%"
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.71428776px;line-height:0%;font-family:'Droid Arabic Kufi';-inkscape-font-specification:'Droid Arabic Kufi';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;display:inline;fill:#969696;fill-opacity:1;stroke:none"
+         x="855.33258"
+         y="639.1991"
+         id="text6224"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.23437405px;line-height:1.25;font-family:roboto;-inkscape-font-specification:roboto;fill:#969696;fill-opacity:1"
+           sodipodi:role="line"
+           id="tspan6226"
+           x="855.33258"
+           y="639.1991">x</tspan></text>
     </g>
   </g>
   <g
@@ -11167,7 +11734,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer31"
-     inkscape:label="Home">
+     inkscape:label="Home"
+     style="display:none">
     <g
        inkscape:groupmode="layer"
        id="layer32"
@@ -11208,7 +11776,7 @@
       <text
          sodipodi:linespacing="0%"
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#535a61;fill-opacity:1;stroke:none;"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#535a61;fill-opacity:1;stroke:none"
          x="899.61847"
          y="313.62134"
          id="text6069"><tspan
@@ -11216,7 +11784,7 @@
            id="tspan6071"
            x="899.61847"
            y="313.62134"
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:56.24999619px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#535a61;fill-opacity:1;"></tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:56.24999619px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#535a61;fill-opacity:1"></tspan></text>
       <text
          sodipodi:linespacing="0%"
          id="text6111"
@@ -11234,9 +11802,9 @@
          id="text6075"
          y="313.62134"
          x="300.05975"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#535a61;fill-opacity:1;stroke:none;"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#535a61;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:56.24999619px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#535a61;fill-opacity:1;"
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:56.24999619px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#535a61;fill-opacity:1"
            y="313.62134"
            x="300.05975"
            id="tspan6077"
@@ -11258,9 +11826,9 @@
          id="text6088"
          y="631.04138"
          x="300.05975"
-         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#535a61;fill-opacity:1;stroke:none;"
+         style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;line-height:0%;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#535a61;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:56.24999619px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#535a61;fill-opacity:1;"
+           style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:56.24999619px;line-height:1.25;font-family:'Font Awesome 5 Free';-inkscape-font-specification:'Font Awesome 5 Free Heavy';text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#535a61;fill-opacity:1"
            y="631.04138"
            x="300.05975"
            id="tspan6090"
@@ -11705,15 +12273,16 @@
      inkscape:groupmode="layer"
      id="layer9"
      inkscape:label="screen shot"
-     style="display:inline;opacity:0.39291202"
-     transform="translate(0,-426.56248)">
+     style="display:inline;opacity:0.21100003"
+     transform="translate(0,-426.56248)"
+     sodipodi:insensitive="true">
     <text
        xml:space="preserve"
        id="text2353"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.75px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;fill:#000000;fill-opacity:1;stroke:none" />
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.75px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none" />
     <text
        xml:space="preserve"
        id="text1438"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.75px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;direction:rtl;fill:#000000;fill-opacity:1;stroke:none" />
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:18.75px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:Roboto;text-align:start;letter-spacing:0px;word-spacing:0px;direction:rtl;writing-mode:lr-tb;fill:#000000;fill-opacity:1;stroke:none" />
   </g>
 </svg>

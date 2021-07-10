@@ -26,7 +26,7 @@ Rectangle
     Rectangle
     {
         id: numberBackTitleRec
-        width: 74
+        width: 75
         height: parent.height
         color: "transparent"
         anchors.right: parent.right
@@ -46,7 +46,7 @@ Rectangle
     Rectangle
     {
         id: usernameTitleBackRec
-        width: 134
+        width: 140
         height: parent.height
         color: "transparent"
         anchors.right: numberBackTitleRec.left
@@ -66,7 +66,7 @@ Rectangle
     Rectangle
     {
         id: nameTitleBackRec
-        width: 133
+        width: 140
         height: parent.height
         color: "transparent"
         anchors.right: usernameTitleBackRec.left
@@ -86,12 +86,11 @@ Rectangle
     Rectangle
     {
         id: groupTitleBackRec
-        width: 133
+        width: 180
         height: parent.height
         color: "transparent"
-        anchors.verticalCenter: toptableup.verticalCenter
-        anchors.leftMargin: 417
-        anchors.left: parent.left
+        anchors.right: nameTitleBackRec.left
+        anchors.verticalCenter: parent.verticalCenter
         Text
         {
             id: toptableup_04
@@ -104,16 +103,24 @@ Rectangle
         }
     }
 
-    Text
+    Rectangle
     {
-        id: toptableup_05
-        text: "منصب"
-        anchors.verticalCenter: toptableup.verticalCenter
-        anchors.leftMargin: 186
-        anchors.left: parent.left
-        color: "#dcdcdc"
-        font.family: fontDroidKufiRegular.name
-        font.pixelSize: 15
+        id: roleTitleBackRec
+        width: 330
+        height: parent.height
+        color: "transparent"
+        anchors.right: groupTitleBackRec.left
+        anchors.verticalCenter: parent.verticalCenter
+        Text
+        {
+            id: toptableup_05
+            text: "منصب"
+            anchors.verticalCenter: parent.verticalCenter
+            anchors.horizontalCenter: parent.horizontalCenter
+            color: "#dcdcdc"
+            font.family: fontDroidKufiRegular.name
+            font.pixelSize: 15
+        }
     }
 }
 

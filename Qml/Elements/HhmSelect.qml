@@ -5,12 +5,12 @@ Rectangle
 {
     signal clicked(int val ,string sel_text)
 
-    height: childrenRect.height
+    height: flickable_role.height
     color: "transparent"
 
     ListModel
     {
-        id: hoverSelectModel
+        id: lm_select
     }
 
     Component
@@ -37,13 +37,13 @@ Rectangle
         width: parent.width
         height:
               {
-                 if( hoverSelectListView.count>12 )
+                 if( lm_select.count>12 )
                  {
                      480
                  }
                  else
                  {
-                     hoverSelectListView.count*40
+                     lm_select.count*40
                  }
               }
 
@@ -57,9 +57,8 @@ Rectangle
 
             width: parent.width
             height: childrenRect.height
-            interactive: false
 
-            model: hoverSelectModel
+            model: lm_select
             delegate: hoverSelectDelegate
         }
     }
@@ -68,6 +67,7 @@ Rectangle
     {
         id: users_scrollbar
         anchors.left: parent.left
+        anchors.leftMargin: -10
         anchors.top: parent.top
         anchors.bottom: parent.bottom
 
@@ -93,6 +93,29 @@ Rectangle
 
     function addItem(item_text)
     {
-        hoverSelectModel.append({s_number: (hoverSelectModel.count+1),s_text: item_text})
+        lm_select.append({s_number: (lm_select.count+1),s_text: item_text})
+
+//        if( lm_select.count>12 )
+//        {
+//            flickable_role.height = 480
+//        }
+//        else
+//        {
+//            flickable_role.height = lm_select.count*40
+//        }
+    }
+
+    function removeItem(item_index)
+    {
+        lm_select.remove(item_index-1);
+
+//        if( lm_select.count>12 )
+//        {
+//            flickable_role.height = 480
+//        }
+//        else
+//        {
+//            flickable_role.height = lm_select.count*40
+//        }
     }
 }

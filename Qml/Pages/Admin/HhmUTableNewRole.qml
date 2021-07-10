@@ -3,6 +3,7 @@ import QtQuick 2.0
 Rectangle
 {
     signal addUsrRole()
+    signal removeUsrRole(string tg_name)
 
     width:350
     color: "transparent"
@@ -12,51 +13,49 @@ Rectangle
     {
         width: 296
         height: 24
-        color: "#e6e6e6"
+        color:"#e6e6e6"
         radius: 6
         anchors.verticalCenter: parent.verticalCenter
-        anchors.leftMargin: 47
+        anchors.leftMargin: 40
         anchors.left: parent.left
         border.color: "#969696"
-    }
-
-    ListView
-    {
-        id: lv_role
-        width: parent.width
-        height: 22
-        anchors.right: parent.right
-        anchors.rightMargin: 10
-        anchors.verticalCenter: parent.verticalCenter
-
-        model: ListModel
-               {
-                    id: lm_role
-               }
-        clip: true
-        orientation: ListView.Horizontal
-        layoutDirection: Qt.RightToLeft
-
-        delegate: HhmTag
+        ListView
         {
-            anchors.verticalCenter: parent.verticalCenter
-            tag_text:   role_name
-            separator_visible:  sep_visible
+            id: lv_role
+            width: parent.width-6
             height: 22
+            anchors.right: parent.right
+            anchors.rightMargin: 3
+            anchors.verticalCenter: parent.verticalCenter
 
-            onClickTag:
+            model: ListModel
+                   {
+                        id: lm_role
+                   }
+            clip: true
+            orientation: ListView.Horizontal
+            layoutDirection: Qt.RightToLeft
+
+            delegate: HhmTag
             {
-                removeRole(role_id)
+                anchors.verticalCenter: parent.verticalCenter
+                tag_text:   role_name
+                separator_visible:  sep_visible
+                height: 22
+
+                onClickTag:
+                {
+                    removeRole(role_id)
+                }
             }
         }
-
     }
 
     HhmAddBtn
     {
         anchors.verticalCenter: parent.verticalCenter
         anchors.left: parent.left
-        anchors.leftMargin: 30
+        anchors.leftMargin: 10
 
         onClickedBtn:
                     {
@@ -70,15 +69,18 @@ Rectangle
         {
             if( lm_role.get(i).role_id===role_id )
             {
+                var role_name = lm_role.get(i).role_name;
+                removeUsrRole(role_name);
                 lm_role.remove(i);
                 break;
             }
         }
 
-        if( lm_role.count )
+        if( lm_role.count>1 )
         {
-            lm_role.get(lm_role.count-1).sepVisible = false;
+            lm_role.get(lm_role.count-1).sep_visible = false;
         }
+
     }
 
     function addRole(role)
@@ -90,5 +92,4 @@ Rectangle
             lm_role.get(lm_role.count-2).sep_visible = true;
         }
     }
-
 }

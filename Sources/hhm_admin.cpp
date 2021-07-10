@@ -8,20 +8,26 @@ HhmAdmin::HhmAdmin(QObject *root, HhmDatabase *database, QObject *parent): QObje
     roles_ui = root->findChild<QObject*>("AdminRoles");
     users_ui = root->findChild<QObject*>("AdminUsers");
 
-    connect(roles_ui, SIGNAL(chkBoxChanged(int, int, int)), this, SLOT(setRolePermission(int, int, int)));
-    connect(roles_ui, SIGNAL(createPermission(QString)), this, SLOT(addNewPermission(QString)));
-    connect(users_ui, SIGNAL(setUserRole(int, int)), this, SLOT(addUserRole(int, int)));
-    connect(departments_ui, SIGNAL(createDepartments(QString)), this, SLOT(addNewDepartment(QString)));
+    connect(users_ui, SIGNAL(setUserRole(int, int)),
+            this, SLOT(addUserRole(int, int)));
+    connect(users_ui, SIGNAL(setUserDepartment(int, int)),
+            this, SLOT(setUserDepartment(int, int)));
 
+    connect(roles_ui, SIGNAL(chkBoxChanged(int, int, int)),
+            this, SLOT(setRolePermission(int, int, int)));
+    connect(roles_ui, SIGNAL(createPermission(QString)),
+            this, SLOT(addNewPermission(QString)));
 
-
-    getUsers();
-    getDepartment();
-    getRoles();
+    connect(departments_ui, SIGNAL(createDepartments(QString)),
+            this, SLOT(addNewDepartment(QString)));
 
     m_auser = new HhmAdminUsers(root, db);
     m_arole = new HhmAdminPermissions(root, db);
     m_adepartment = new HhmAdminDepartments(root, db);
+
+    getUsers();
+    getDepartment();
+    getRoles();
 
 //    getUserRoles(4);
     setUserDepartment(4, 5);
@@ -49,8 +55,6 @@ void HhmAdmin::addNewPermission(QString permission)
 
 void HhmAdmin::addNewDepartment(QString department)
 {
-    qDebug() << department;
-
     QSqlQuery res = db->select("*", HHM_TABLE_DEPARTMENT);
     int count = res.size();
 
@@ -128,11 +132,11 @@ int HhmAdmin::getRoleID(int role_index)
 void HhmAdmin::setUserDepartment(int user_index, int department_index)
 {
     int user_id = getUserID(user_index);
-    int department_id = m_adepartment->getDepartmentID(department_index);
+    int department_id = m_adepartment->getDepartmentID(department_index+1);
 
-    QString condition = "`user_id` = '" + QString::number(user_id) + "'";
+    QString condition = "(`id` = '" + QString::number(user_id) + "')";
     QString values = "`department_id` = '" + QString::number(department_id) + "'";
-    db->update(condition, values, "user_role");
+    db->update(condition, values, "user");
 }
 
 void HhmAdmin::setRolePermission(int role_id, int permission_id, int value)
@@ -218,15 +222,15 @@ void HhmAdmin::getRoles()
             m_arole->getPermmissionsA(query, return_val);
 
             QQmlProperty::write(roles_ui, "permission_name", permissionName);
-            QQmlProperty::write(roles_ui, "permission1", return_val[0]);
-            QQmlProperty::write(roles_ui, "permission2", return_val[1]);
-            QQmlProperty::write(roles_ui, "permission3", return_val[2]);
-            QQmlProperty::write(roles_ui, "permission4", return_val[3]);
-            QQmlProperty::write(roles_ui, "permission5", return_val[4]);
-            QQmlProperty::write(roles_ui, "permission6", return_val[5]);
-            QQmlProperty::write(roles_ui, "permission7", return_val[6]);
-            QQmlProperty::write(roles_ui, "permission8", return_val[7]);
-            QQmlProperty::write(roles_ui, "permission9", return_val[8]);
+            QQmlProperty::write(roles_ui, "cpp_permission1", return_val[0]);
+            QQmlProperty::write(roles_ui, "cpp_permission2", return_val[1]);
+            QQmlProperty::write(roles_ui, "cpp_permission3", return_val[2]);
+            QQmlProperty::write(roles_ui, "cpp_permission4", return_val[3]);
+            QQmlProperty::write(roles_ui, "cpp_permission5", return_val[4]);
+            QQmlProperty::write(roles_ui, "cpp_permission6", return_val[5]);
+            QQmlProperty::write(roles_ui, "cpp_permission7", return_val[6]);
+            QQmlProperty::write(roles_ui, "cpp_permission8", return_val[7]);
+            QQmlProperty::write(roles_ui, "cpp_permission9", return_val[8]);
             QMetaObject::invokeMethod(roles_ui, "addPermission");
 
             QQmlProperty::write(users_ui, "role", permissionName);
@@ -241,23 +245,26 @@ void HhmAdmin::getRoles()
 
 void HhmAdmin::getDepartment()
 {
-    QSqlQuery res = db->selectOrder("*", "departments", "id");
+    QSqlQuery query = db->selectOrder("*", "departments", "id");
 
-    QSqlRecord rec = res.record();
-    int count = res.size();
+    int count = query.size();
     QString column_s;
 
-    for( int i=0 ; i<count ; i++ )
+    query.next();
+    for( int i=1 ; i<count ; i++ )
     {
-        if( res.next() )
+        if( query.next() )
         {
-            QVariant data = res.value("department_name");
+            QVariant data = query.value("department_name");
             QString departmentName = data.toString();
             QQmlProperty::write(departments_ui, "department_name", departmentName);
             QMetaObject::invokeMethod(departments_ui, "addDepartment");
 
             QQmlProperty::write(departments_ui, "group_name", departmentName);
             QMetaObject::invokeMethod(departments_ui, "addSelectGroup");
+
+            QQmlProperty::write(users_ui, "department_name", departmentName);
+            QMetaObject::invokeMethod(users_ui, "addDeprtment");
         }
         else
         {
@@ -283,12 +290,14 @@ void HhmAdmin::getUsers()
             QString username = getUsername(user_id);
             QString name = getName(user_id);
 
+            QVariant department_name_v = res.value("department_id");
+            int department_id = department_name_v.toInt();
+            QString department_name = m_adepartment->getDepartmentName(department_id);
+
             QQmlProperty::write(users_ui, "user_username", username);
             QQmlProperty::write(users_ui, "user_name", name);
+            QQmlProperty::write(users_ui, "department_name", department_name);
             QMetaObject::invokeMethod(users_ui, "addUser");
-
-//            qDebug() << "Role's of user" << i << "are:";
-//            getUserRoles(i);
         }
         else
         {

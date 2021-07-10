@@ -4,21 +4,22 @@ import QtQuick.Controls 2.10
 Rectangle
 {
     property string permission_name: ""
-    property bool permission1: false
-    property bool permission2: false
-    property bool permission3: false
-    property bool permission4: false
-    property bool permission5: false
-    property bool permission6: false
-    property bool permission7: false
-    property bool permission8: false
-    property bool permission9: false
+    property bool cpp_permission1: false
+    property bool cpp_permission2: false
+    property bool cpp_permission3: false
+    property bool cpp_permission4: false
+    property bool cpp_permission5: false
+    property bool cpp_permission6: false
+    property bool cpp_permission7: false
+    property bool cpp_permission8: false
+    property bool cpp_permission9: false
     property int permission_row: 0
     property int permission_column: 0
 
     height: childrenRect.height
     color: "transparent"
     signal createPermission(string text_value)
+    signal removePermission(int permission_index)
     signal chkBoxChanged(int row_id, int col_id, int val)
 
     HhmPTableTitles
@@ -60,6 +61,11 @@ Rectangle
             {
                 createPermission(text_value);
             }
+
+            onRmvPermission:
+            {
+                removePermission(permission_indx);
+            }
         }
 
     }
@@ -93,10 +99,11 @@ Rectangle
 
     function addPermission()
     {
-        permission_table.addPermissionUser(permission_name,permission1, permission2,
-                                           permission3, permission4, permission5,
-                                           permission6, permission7, permission8,
-                                           permission9);
+        permission_table.addPermissionUser(
+                    permission_name, cpp_permission1, cpp_permission2,
+                    cpp_permission3, cpp_permission4, cpp_permission5,
+                    cpp_permission6, cpp_permission7, cpp_permission8,
+                    cpp_permission9);
     }
 
     function setPermission()
