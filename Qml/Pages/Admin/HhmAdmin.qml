@@ -67,5 +67,17 @@ Item
 
         visible: admin_tab.active_tab===3
         objectName: "AdminDepartments"
+
+        onCreateDepartments:
+                            {
+                                admin_user.department_name = text_value
+                                admin_user.addDeprtment();
+                            }
+
+        onRemoveDepartmentC:
+                            {
+                                admin_user.department_name = text_value
+                                admin_user.addDeprtment();
+                            }
     }
 }

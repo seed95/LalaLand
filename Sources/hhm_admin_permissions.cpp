@@ -155,14 +155,52 @@ int HhmAdminPermissions::getRoleID(int permission_index)
 
 void HhmAdminPermissions::removeUserRole(int role_id)
 {
-    QString values = "`role_id` = '0'"; //Set role_id to NULL id
-    QString condition = "(`role_id` = '" + QString::number(role_id) + "')";
-    db->update(condition, values, "user_role");
+    //remove all role tags from ui
+    QString role_name = getRoleName(role_id);
+    QQmlProperty::write(users_ui, "role", role_name);
+    QMetaObject::invokeMethod(users_ui, "removeRoleTable");
+
+    QString table = "user_role";
+    QString columns = "role_id";
+    QString values = QString::number(role_id);
+    db->remove(table, columns, values);
+}
+
+QString HhmAdminPermissions::getRoleName(int role_id)
+{
+    QSqlQuery query = db->selectOrder("*", "roles", "id");
+    QSqlRecord rec_r = query.record();
+
+    for( int i=0 ; i<role_id ; i++ )
+    {
+        if( query.next() )
+        {
+            QVariant id_v = query.value("id");
+            int id = id_v.toInt();
+
+            if( id==role_id )
+            {
+                QVariant role_name_v = query.value("role_name");
+                QString role_name = role_name_v.toString();
+
+                return role_name;
+            }
+        }
+        else
+        {
+            qDebug() << "error getRoleID";
+        }
+    }
+
+    QVariant data = query.value("role_name");
+    QString permissionID = data.toString();
+
+    return permissionID;
 }
 
 int HhmAdminPermissions::getLastUserRoleId()
 {
-    QSqlQuery query = db->selectOrder("*", "roles", "id");
+    QSqlQuery query = db->selectOrder("*", "user_role", "id");
     int count = query.size();
 
     for( int i=0 ; i<count ; i++ )
@@ -180,4 +218,26 @@ int HhmAdminPermissions::getLastUserRoleId()
     int user_role_id = userRoleID_v.toInt();
 
     return user_role_id;
+}
+
+int HhmAdminPermissions::getLastRolesId()
+{
+    QSqlQuery query = db->selectOrder("*", "roles", "id");
+    int count = query.size();
+
+    for( int i=0 ; i<count ; i++ )
+    {
+        if( query.next() )
+        {
+            ;///FIXME: A Bug Lies Here (Bijan)
+        }
+        else
+        {
+            qDebug() << "error getLastUserRoleId";
+        }
+    }
+    QVariant roles_id_v = query.value("id");
+    int role_id = roles_id_v.toInt();
+
+    return role_id;
 }

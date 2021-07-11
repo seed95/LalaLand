@@ -37,7 +37,15 @@ Rectangle
 
     onAddTagFlagChanged:
                        {
-                            table_new_group.addGroup(d_table.next_tag_text);
+                            if( addTagFlag==1 )
+                            {
+                                table_new_group.addGroup(d_table.next_tag_text);
+                            }
+
+                            if( addTagFlag==-1 )
+                            {
+                                table_new_group.cppRemoveGroup(d_table.next_tag_text);
+                            }
                        }
 
     width: 905

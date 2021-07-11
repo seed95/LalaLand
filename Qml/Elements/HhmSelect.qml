@@ -94,28 +94,10 @@ Rectangle
     function addItem(item_text)
     {
         lm_select.append({s_number: (lm_select.count+1),s_text: item_text})
-
-//        if( lm_select.count>12 )
-//        {
-//            flickable_role.height = 480
-//        }
-//        else
-//        {
-//            flickable_role.height = lm_select.count*40
-//        }
     }
 
     function removeItem(item_index)
     {
         lm_select.remove(item_index-1);
-
-//        if( lm_select.count>12 )
-//        {
-//            flickable_role.height = 480
-//        }
-//        else
-//        {
-//            flickable_role.height = lm_select.count*40
-//        }
     }
 }

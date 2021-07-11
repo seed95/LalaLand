@@ -38,11 +38,11 @@ HhmAdmin::~HhmAdmin()
 void HhmAdmin::addNewPermission(QString permission)
 {
     QSqlQuery res = db->select("*", HHM_TABLE_ROLE);
-    int count = res.size()+1; //Null
+    int id = m_arole->getLastRolesId();
 //    QString columns = "`" + QString(HHM_ROLE_ID)
     QString columns = "`id`, `role_name`, `permission_1`, `permission_2`, `permission_3`,";
     columns += " `permission_4`, `permission_5`, `permission_6`, `permission_7`, `permission_8`, `permission_9`";
-    QString values = "'" + QString::number(count+1);
+    QString values = "'" + QString::number(id+1);
     values += "', '" + permission + "', '0', '0', '0', '0', '0', '0', '0', '0', '0'";
 
     db->insert(HHM_TABLE_ROLE, columns, values);
@@ -51,10 +51,10 @@ void HhmAdmin::addNewPermission(QString permission)
 void HhmAdmin::addNewDepartment(QString department)
 {
     QSqlQuery res = db->select("*", HHM_TABLE_DEPARTMENT);
-    int count = res.size();
+    int id = m_adepartment->getLastDepartmentId();
 
     QString columns = "`id`, `department_name`";
-    QString values = "'" + QString::number(count+1) + "', '" + department + "'";
+    QString values = "'" + QString::number(id+1) + "', '" + department + "'";
     db->insert(HHM_TABLE_DEPARTMENT, columns, values);
 }
 
@@ -119,7 +119,6 @@ int HhmAdmin::getRoleID(int role_index)
     }
     QVariant data = query.value(HHM_ROLE_ID);
     int roleID = data.toInt();
-    qDebug() << "getRoleID" << roleID;
 
     return roleID;
 }

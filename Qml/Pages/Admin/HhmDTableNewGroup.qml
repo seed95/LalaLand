@@ -92,4 +92,21 @@ Rectangle
         }
     }
 
+    // Called from c++
+    function cppRemoveGroup(group_name)
+    {
+        for(var i=0; i<lm_group.count; i++)
+        {
+            if( lm_group.get(i).group_name===group_name )
+            {
+                lm_group.remove(i);
+                break;
+            }
+        }
+
+        if( lm_group.count>1 )
+        {
+            lm_group.get(lm_group.count-1).sep_visible = false;
+        }
+    }
 }

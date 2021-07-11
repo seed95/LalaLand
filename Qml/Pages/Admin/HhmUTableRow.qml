@@ -41,7 +41,15 @@ Rectangle
 
     onAddTagFlagChanged:
                        {
-                            table_new_role.addRole(u_table.next_tag_text);
+                            if( addTagFlag==1 )
+                            {
+                                table_new_role.addRole(u_table.next_tag_text);
+                            }
+
+                            if( addTagFlag==-1 )
+                            {
+                                table_new_role.cppRemoveRole(u_table.next_tag_text);
+                            }
                        }
 
     width: 905

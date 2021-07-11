@@ -30,6 +30,8 @@ public:
     int  getRoleID(int permission_index);
     void removeUserRole(int role_id);
     int  getLastUserRoleId();
+    int  getLastRolesId();
+    QString getRoleName(int role_id);
 
 private:
     QObject *departments_ui;

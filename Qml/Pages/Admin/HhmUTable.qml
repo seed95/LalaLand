@@ -71,25 +71,32 @@ Rectangle
     {
         userListModel.append({list_number: en2ar(userListModel.count+1),
                               list_username: username,list_name: name,
-                              dropdown_text: department, tag_flag: 0})
+                              dropdown_text: department, tag_flag: 0});
     }
 
     function addRoleTagF(index)
     {
-        var flag = userListModel.get(index).tag_flag;
-
-        if( flag )
-        {
-            userListModel.get(index).tag_flag = 0;
-        }
-        else
-        {
-            userListModel.get(index).tag_flag = 1;
-        }
+        userListModel.get(index).tag_flag = 1;
+        userListModel.get(index).tag_flag = 0;
     }
 
     function setUserDepartment(user_index, user_department)
     {
         userListModel.get(user_index-1).dropdown_text = user_department;
+    }
+
+    function removeUserRole(role_name)
+    {
+        next_tag_text = role_name;
+
+        for( var i=0 ; i<userListModel.count ; i++ )
+        {
+            userListModel.get(i).tag_flag = -1;
+        }
+
+        for( var i=0 ; i<userListModel.count ; i++ )
+        {
+            userListModel.get(i).tag_flag = 0;
+        }
     }
 }

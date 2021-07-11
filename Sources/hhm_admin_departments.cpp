@@ -14,7 +14,7 @@ HhmAdminDepartments::HhmAdminDepartments(QObject *root, HhmDatabase *database,
 
     connect(departments_ui, SIGNAL(addDepartmentGroup(int, int)),
             this, SLOT(addDepartmentGroup(int, int)));
-    connect(departments_ui, SIGNAL(removeDepartments(int)),
+    connect(departments_ui, SIGNAL(removeDepartmentC(int)),
             this, SLOT(removeDepartment(int)));
     connect(departments_ui, SIGNAL(removeDepartmentGroup(int, QString)),
             this, SLOT(removeDepartmentGroup(int, QString)));
@@ -129,17 +129,20 @@ void HhmAdminDepartments::addDepartmentGroup(int department_index, int group_ind
     int group_id = getDepartmentID(group_index);
 
     QSqlQuery query = db->select("*", "department_group");
-    int count_ur = query.size();
+    int id = getLastDepartmentGroup();
 
     QString table = "department_group";
     QString columns = "`id`, `department_id`, `group_id`";
-    QString values = "'" + QString::number(count_ur+1) + "', '" + QString::number(depatment_id) + "', '" + QString::number(group_id) +"'";
+    QString values = "'" + QString::number(id+1) + "', '" + QString::number(depatment_id) + "', '" + QString::number(group_id) +"'";
     db->insert(table, columns, values);
 }
 
 void HhmAdminDepartments::removeDepartment(int department_index)
 {
     int depatment_id = getDepartmentID(department_index);
+    QString department_name = getDepartmentName(depatment_id);
+    QQmlProperty::write(departments_ui, "department_name", department_name);
+    QMetaObject::invokeMethod(departments_ui, "cppRemoveDepartment");
 
     QString table = "departments";
     QString columns = "id";
@@ -240,4 +243,48 @@ void HhmAdminDepartments::removeDepartmentGroup(int department_index, QString gr
                 qDebug() << "error getDepartments";
             }
         }
+}
+
+int HhmAdminDepartments::getLastDepartmentId()
+{
+    QSqlQuery query = db->selectOrder("*", "departments", "id");
+    int count = query.size();
+
+    for( int i=0 ; i<count ; i++ )
+    {
+        if( query.next() )
+        {
+            ;///FIXME: A Bug Lies Here (Bijan)
+        }
+        else
+        {
+            qDebug() << "error getLastDepartmentId";
+        }
+    }
+    QVariant department_id_v = query.value("id");
+    int department_id = department_id_v.toInt();
+
+    return department_id;
+}
+
+int HhmAdminDepartments::getLastDepartmentGroup()
+{
+    QSqlQuery query = db->selectOrder("*", "department_group", "id");
+    int count = query.size();
+
+    for( int i=0 ; i<count ; i++ )
+    {
+        if( query.next() )
+        {
+            ;///FIXME: A Bug Lies Here (Bijan)
+        }
+        else
+        {
+            qDebug() << "error getLastDepartmentId";
+        }
+    }
+    QVariant department_group_v = query.value("id");
+    int department_group = department_group_v.toInt();
+
+    return department_group;
 }

@@ -31,7 +31,10 @@ public:
     int     getDepartmentID(int department_index);
     int     getDepartmentID(QString department_name);
     QString getDepartmentName(int department_id);
-    void removeUserDepartment(int department_id);
+    void    removeUserDepartment(int department_id);
+    int     getLastDepartmentId();
+    int     getLastDepartmentGroup();
+
 
 private:
     QObject *departments_ui;

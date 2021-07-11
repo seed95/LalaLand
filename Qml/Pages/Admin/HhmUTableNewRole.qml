@@ -80,7 +80,6 @@ Rectangle
         {
             lm_role.get(lm_role.count-1).sep_visible = false;
         }
-
     }
 
     function addRole(role)
@@ -90,6 +89,24 @@ Rectangle
         if( lm_role.count>1 )
         {
             lm_role.get(lm_role.count-2).sep_visible = true;
+        }
+    }
+
+    // Called from c++
+    function cppRemoveGroup(role_name)
+    {
+        for(var i=0; i<lm_role.count; i++)
+        {
+            if( lm_role.get(i).role_name===role_name )
+            {
+                lm_role.remove(i);
+                break;
+            }
+        }
+
+        if( lm_role.count>1 )
+        {
+            lm_role.get(lm_role.count-1).sep_visible = false;
         }
     }
 }

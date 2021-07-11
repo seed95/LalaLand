@@ -83,16 +83,8 @@ Item
 
     function addDepartmentTagF(index)
     {
-        var flag = lm_department.get(index).tag_flag;
-
-        if( flag )
-        {
-            lm_department.get(index).tag_flag = 0;
-        }
-        else
-        {
-            lm_department.get(index).tag_flag = 1;
-        }
+        lm_department.get(index).tag_flag = 1;
+        lm_department.get(index).tag_flag = 0;
     }
 
     function removeDepartment(index)
@@ -105,6 +97,23 @@ Item
         for( var i=0 ; i<count ; i++ )
         {
             lm_department.get(i).list_number = en2ar(i+1);
+        }
+    }
+
+    function removeGroups(g_name)
+    {
+        next_tag_text = g_name;
+        var i=0;
+        console.log( "g_name= " + g_name);
+
+        for( i=0 ; i<lm_department.count ; i++ )
+        {
+            lm_department.get(i).tag_flag = -1;
+        }
+
+        for( i=0 ; i<lm_department.count ; i++ )
+        {
+            lm_department.get(i).tag_flag = 0;
         }
     }
 }

@@ -71,5 +71,7 @@
         <file alias="HhmDropDownItem.qml">Elements/HhmDropDownItem.qml</file>
         <file alias="HhmDTableNewGroup.qml">Pages/Admin/HhmDTableNewGroup.qml</file>
         <file alias="HhmDeleteBtn.qml">Elements/HhmDeleteBtn.qml</file>
+        <file alias="HhmHomePage.qml">Elements/HhmHomePage.qml</file>
+        <file alias="HhmHomePageBtn.qml">Elements/HhmHomePageBtn.qml</file>
     </qresource>
 </RCC>

@@ -162,6 +162,11 @@ Rectangle
         hover_select.removeItem(role)
     }
 
+    function removeRoleTable()
+    {
+        u_table.removeUserRole(role)
+    }
+
     function addRle()
     {
         u_table.addRole(role);

@@ -12,7 +12,7 @@ Rectangle
     height: childrenRect.height
     color: "transparent"
     signal createDepartments(string text_value)
-    signal removeDepartments(int department_index)
+    signal removeDepartmentC(int department_index)
     signal addDepartmentGroup(int department_index, int group_index)
     signal removeDepartmentGroup(int department_index, string group_name)
 
@@ -55,7 +55,7 @@ Rectangle
 
             onRmvDepartments:
             {
-                removeDepartments(department_indx);
+                removeDepartmentC(department_indx);
                 dhover_select.removeItem(department_indx); //add to select dialog
             }
 
@@ -114,6 +114,11 @@ Rectangle
     function addDepartment()
     {
         d_table.addDepartmentsUser(department_name)
+    }
+
+    function cppRemoveDepartment() //called from cpp
+    {
+        d_table.removeGroups(department_name)
     }
 
     function addSelectGroup()

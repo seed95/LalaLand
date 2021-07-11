@@ -234,6 +234,18 @@ Window
         anchors.centerIn: parent
         z: 10
     }
+
+    HhmHomePage
+    {
+        id: home_page
+        anchors.left: parent.left
+        anchors.top: news.bottom
+        anchors.bottom: bottombar.top
+        anchors.right: switcher.left
+        z: 2
+
+        visible: false
+    }
     
     //Functions
     /*** Call this functions from cpp ***/
