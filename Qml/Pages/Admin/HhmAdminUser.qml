@@ -13,6 +13,7 @@ Rectangle
     property string role: ""
 
     signal setUserRole(int role_index, int user_index)
+    signal removeUserRole(int user_index, string role_name)
     signal setUserDepartment(int user_index, int department_index)
 
     height: childrenRect.height
@@ -56,6 +57,11 @@ Rectangle
                                     drop_dialog.visible = !drop_dialog.visible;
                                     unselect_hover.visible = true;
                                }
+
+            onRemoveUsrRole:
+                           {
+                                removeUserRole(user_index, tg_name)
+                           }
         }
     }
 
@@ -149,6 +155,11 @@ Rectangle
     function addRole()
     {
         hover_select.addItem(role)
+    }
+
+    function removeRole()
+    {
+        hover_select.removeItem(role)
     }
 
     function addRle()

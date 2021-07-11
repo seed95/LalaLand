@@ -11,6 +11,9 @@ HhmAdminUsers::HhmAdminUsers(QObject *root, HhmDatabase *database, QObject *pare
     roles_ui = root->findChild<QObject*>("AdminRoles");
     users_ui = root->findChild<QObject*>("AdminUsers");
 
+    connect(users_ui, SIGNAL(removeUserRole(int, QString)),
+            this, SLOT(removeUserRole(int, QString)));
+
     connect(timer, SIGNAL(timeout()), this, SLOT(qmlComplete()));
 
     timer->setSingleShot(true);
@@ -27,11 +30,46 @@ void HhmAdminUsers::qmlComplete()
     readTags();
 }
 
+void HhmAdminUsers::removeUserRole(int user_index, QString role_name)
+{
+    int user_id = getUserID(user_index);
+    int role_id = getRoleID(role_name);
+
+    QSqlQuery query = db->select("*", "user_role");
+    int count = query.size();
+
+    for( int i=0 ; i<count ; i++ )
+    {
+        if( query.next() )
+        {
+            QVariant user_id_v = query.value("user_id");
+            int userID = user_id_v.toInt();
+
+            if( userID == user_id)
+            {
+                QVariant role_id_v = query.value("role_id");
+                int roleID = role_id_v.toInt();
+
+                if( roleID == role_id)
+                {
+                    QVariant id_v = query.value("id");
+                    int id = id_v.toInt();
+
+                    db->remove("user_role", "id", QString::number(id));
+                }
+            }
+        }
+        else
+        {
+            qDebug() << "error getDepartments";
+        }
+    }
+}
+
 void HhmAdminUsers::readTags()
 {
     QSqlQuery query = db->select("*", "user_role");
     int count = query.size();
-    qDebug() << count;
 
     for( int i=0 ; i<count ; i++ )
     {
@@ -115,5 +153,84 @@ int HhmAdminUsers::getUserIndex(int user_id)
     }
 }
 
+int HhmAdminUsers::getUserID(int user_index)
+{
+    QSqlQuery query = db->select("*", HHM_TABLE_USER);
+    QSqlRecord rec_r = query.record();
 
+    for( int i=0 ; i<user_index ; i++ )
+    {
+        if( query.next() )
+        {
+            ;///FIXME: A Bug Lies Here (Bijan)
+        }
+        else
+        {
+            qDebug() << "error getRoles";
+        }
+    }
+    QVariant data = query.value(HHM_USER_ID);
+    int userID = data.toInt();
 
+    return userID;
+}
+
+int HhmAdminUsers::getRoleID(QString role_name)
+{
+    QSqlQuery query = db->selectOrder("*", "roles", "id");
+    int count = query.size();
+
+    for( int i=0 ; i<count ; i++ )
+    {
+        if( query.next() )
+        {
+            QVariant role_name_v = query.value("role_name");
+            QString roleName = role_name_v.toString();
+
+            if( role_name == roleName)
+            {
+                QVariant role_id_v = query.value("id");
+                int roleID = role_id_v.toInt();
+
+                return roleID;
+            }
+        }
+        else
+        {
+            qDebug() << "error getDepartments";
+        }
+    }
+
+    return -1;
+}
+
+bool HhmAdminUsers::isRoleExist(int user_id, int role_id)
+{
+    QSqlQuery query = db->select("*", "user_role");
+    int count = query.size();
+
+    for( int i=0 ; i<count ; i++ )
+    {
+        if( query.next() )
+        {
+            QVariant user_id_v = query.value("user_id");
+            int userID = user_id_v.toInt();
+
+            if( userID == user_id)
+            {
+                QVariant role_id_v = query.value("role_id");
+                int roleID = role_id_v.toInt();
+
+                if( roleID == role_id)
+                {
+                    return true;
+                }
+            }
+        }
+        else
+        {
+            qDebug() << "error getDepartments";
+        }
+    }
+    return false;
+}

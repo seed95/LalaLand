@@ -12,6 +12,8 @@
 #include "hhm_config.h"
 #include "backend.h"
 
+#define HHM_NULL_ID 0
+
 class HhmDatabase : public QObject
 {
     Q_OBJECT

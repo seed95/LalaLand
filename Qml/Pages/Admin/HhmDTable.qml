@@ -31,7 +31,7 @@ Item
 
                onAddDepartmentGroup:
                {
-                   addDepartmentGrp(id_number) //signal send to c++
+                   addDepartmentGrp(ar2en(id_number)) //signal send to c++
                    row_number = ar2en(id_number) - 1;
                }
 
@@ -43,7 +43,6 @@ Item
                onRemoveDepartmentGroup:
                                        {
                                            removeDepartmentGrp(ar2en(id_number), tg_name)
-                                           console.log(ar2en(id_number) + tg_name)
                                        }
            }
     }

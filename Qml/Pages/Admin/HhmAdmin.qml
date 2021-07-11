@@ -42,6 +42,18 @@ Item
         visible: admin_tab.active_tab===2
         objectName: "AdminRoles"
         clip: true
+
+        onCreatePermission:
+                          {
+                              admin_user.role = text_value;
+                              admin_user.addRole();
+                          }
+
+        onRemovePermission:
+                          {
+                              admin_user.role = permission_index;
+                              admin_user.removeRole();
+                          }
     }
 
 

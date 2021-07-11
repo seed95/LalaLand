@@ -67,19 +67,22 @@ Item
 
         onCreatePermission:
         {
-            addPermissionUser(text_value);
+            addPermissionUser(text_value, false, false, false, false,
+                              false, false, false, false, false);
             crtePermission(text_value);
         }
     }
 
-    function addPermissionUser(username, permission_1, permission_2, permission_3, permission_4,
+    function addPermissionUser(p_name, permission_1, permission_2, permission_3, permission_4,
                                permission_5, permission_6, permission_7, permission_8,
                                permission_9)
     {
-        lm_permission.append({list_number: en2ar(lm_permission.count+1),list_name: username,
-                            permission1: permission_1, permission2: permission_2, permission3: permission_3,
-                            permission4: permission_4, permission5: permission_5, permission6: permission_6,
-                            permission7: permission_7, permission8: permission_8, permission9: permission_9})
+        lm_permission.append({list_number: en2ar(lm_permission.count+1),list_name: p_name,
+                            permission1: permission_1, permission2: permission_2,
+                            permission3: permission_3, permission4: permission_4,
+                            permission5: permission_5, permission6: permission_6,
+                            permission7: permission_7, permission8: permission_8,
+                            permission9: permission_9})
     }
 
     function removePermissionUser(index)

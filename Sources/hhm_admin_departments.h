@@ -9,8 +9,6 @@
 #include "hhm_user.h"
 #include "hhm_ftp.h"
 
-#define HHM_NULL_ID 0
-
 class HhmAdminDepartments : public QObject
 {
     Q_OBJECT
@@ -24,7 +22,6 @@ private slots:
     void addDepartmentGroup(int department_index, int group_index);
     void removeDepartment(int department_index);
     void removeDepartmentGroup(int department_index, QString group_name);
-    void removeUserDepartment(int department_id);
 
 public:
     void    readDepartments();
@@ -34,6 +31,7 @@ public:
     int     getDepartmentID(int department_index);
     int     getDepartmentID(QString department_name);
     QString getDepartmentName(int department_id);
+    void removeUserDepartment(int department_id);
 
 private:
     QObject *departments_ui;

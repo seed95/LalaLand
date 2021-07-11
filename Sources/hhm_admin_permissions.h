@@ -19,15 +19,17 @@ public:
 
 private slots:
     void qmlComplete();
-    void removePermission(int role_index);
+    void removeRole(int role_index);
 
 
 public:
     void readRoles();
     void *getPermmissionsA(QSqlQuery query, int *data);
     void setPermissionUi(int row, int column);
-    int  getPermissionIndex(int permisson_id);
-    int  getPermissionID(int permission_index);
+    int  getRoleIndex(int permisson_id);
+    int  getRoleID(int permission_index);
+    void removeUserRole(int role_id);
+    int  getLastUserRoleId();
 
 private:
     QObject *departments_ui;

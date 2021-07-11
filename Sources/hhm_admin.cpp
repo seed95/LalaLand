@@ -28,9 +28,6 @@ HhmAdmin::HhmAdmin(QObject *root, HhmDatabase *database, QObject *parent): QObje
     getUsers();
     getDepartment();
     getRoles();
-
-//    getUserRoles(4);
-    setUserDepartment(4, 5);
 }
 
 HhmAdmin::~HhmAdmin()
@@ -41,9 +38,7 @@ HhmAdmin::~HhmAdmin()
 void HhmAdmin::addNewPermission(QString permission)
 {
     QSqlQuery res = db->select("*", HHM_TABLE_ROLE);
-    int count = res.size();
-
-    qDebug() << permission;
+    int count = res.size()+1; //Null
 //    QString columns = "`" + QString(HHM_ROLE_ID)
     QString columns = "`id`, `role_name`, `permission_1`, `permission_2`, `permission_3`,";
     columns += " `permission_4`, `permission_5`, `permission_6`, `permission_7`, `permission_8`, `permission_9`";
@@ -192,15 +187,21 @@ void HhmAdmin::setRolePermission(int role_id, int permission_id, int value)
 void HhmAdmin::addUserRole(int user_index, int role_index)
 {
     int user_id = getUserID(user_index+1);
-    int role_id = getRoleID(role_index);
+    int role_id = getRoleID(role_index+1);
+
+    if( m_auser->isRoleExist(user_id, role_id) )
+    {
+        return;
+    }
+
     QSqlQuery res_ur = db->select("*", "user_role");
 
     QSqlRecord rec_ur = res_ur.record();
-    int count_ur = res_ur.size();
+    int id = m_arole->getLastUserRoleId();
 
     QString table = HHM_TABLE_JOIN_USER_ROLE;
-    QString columns = "`id`, `user_id`, `department_id`, `role_id`";
-    QString values = "'" + QString::number(count_ur+1) + "', '" + QString::number(user_id) + "', '-1', '" + QString::number(role_id) +"'";
+    QString columns = "`id`, `user_id`, `role_id`";
+    QString values = "'" + QString::number(id+1) + "', '" + QString::number(user_id) + "', '" + QString::number(role_id) +"'";
     db->insert(table, columns, values);
 }
 
@@ -213,7 +214,8 @@ void HhmAdmin::getRoles()
     QString column_s;
     int return_val[9];
 
-    for( int i=0 ; i<count ; i++ )
+    query.next(); //Skip Null Role
+    for( int i=1 ; i<count ; i++ )
     {
         if( query.next() )
         {

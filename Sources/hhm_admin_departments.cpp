@@ -2,7 +2,8 @@
 #include <QTimer>
 #include <QThread>
 
-HhmAdminDepartments::HhmAdminDepartments(QObject *root, HhmDatabase *database, QObject *parent): QObject(parent)
+HhmAdminDepartments::HhmAdminDepartments(QObject *root, HhmDatabase *database,
+                                         QObject *parent): QObject(parent)
 {
     db = database;
     timer = new QTimer();
@@ -38,10 +39,8 @@ void HhmAdminDepartments::readDepartments()
 {
     QSqlQuery query = db->select("*", "department_group");
     int count = query.size();
-    qDebug() << count;
 
-    query.next(); //skip NULL Department
-    for( int i=1 ; i<count ; i++ )
+    for( int i=0 ; i<count ; i++ )
     {
         if( query.next() )
         {
@@ -56,7 +55,7 @@ void HhmAdminDepartments::readDepartments()
 
             if( group_id!=-1 )
             {
-                setGroupUi(department_index, group_name);
+                setGroupUi(department_index-1, group_name);
             }
         }
         else
@@ -209,10 +208,10 @@ int HhmAdminDepartments::getDepartmentID(QString department_name)
 
 void HhmAdminDepartments::removeDepartmentGroup(int department_index, QString group_name)
 {
-        QSqlQuery query = db->select("*", "departments");
+        QSqlQuery query = db->select("*", "department_group");
 
-        int group_id = getDepartmentID(group_name);
         int department_id = getDepartmentID(department_index);
+        int group_id = getDepartmentID(group_name);
         int count = query.size();
 
         for( int i=0 ; i<count ; i++ )
