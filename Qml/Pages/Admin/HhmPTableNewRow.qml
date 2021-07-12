@@ -38,8 +38,7 @@ Rectangle
 
             onEnterPressed:
             {
-                createPermission(pTableInput.text_val);
-                pTableInput.setInput("");
+                newBtnPressed();
             }
         }
     }
@@ -57,16 +56,26 @@ Rectangle
              anchors.centerIn: parent
              onClickedBtn:
              {
-                 if( pTableInput.getInput()==="" )
-                 {
-                     pTableInput.isError = true;
-                 }
-                 else
-                 {
-                     createPermission(pTableInput.text_val);
-                     pTableInput.setInput("");
-                 }
+                 newBtnPressed();
              }
+        }
+    }
+
+    function newBtnPressed()
+    {
+        var input = pTableInput.getInput();
+        if( input==="" )
+        {
+            pTableInput.isError = true;
+        }
+        else if( p_table.isPermissionExist(input) )
+        {
+            pTableInput.isError = true;
+        }
+        else
+        {
+            createPermission(input);
+            pTableInput.setInput("");
         }
     }
 }

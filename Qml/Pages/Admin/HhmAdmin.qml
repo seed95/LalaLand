@@ -73,11 +73,5 @@ Item
                                 admin_user.department_name = text_value
                                 admin_user.addDeprtment();
                             }
-
-        onRemoveDepartmentC:
-                            {
-                                admin_user.department_name = text_value
-                                admin_user.addDeprtment();
-                            }
     }
 }

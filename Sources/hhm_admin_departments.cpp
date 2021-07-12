@@ -143,6 +143,8 @@ void HhmAdminDepartments::removeDepartment(int department_index)
     QString department_name = getDepartmentName(depatment_id);
     QQmlProperty::write(departments_ui, "department_name", department_name);
     QMetaObject::invokeMethod(departments_ui, "cppRemoveDepartment");
+    QQmlProperty::write(users_ui, "department_name", department_name);
+    QMetaObject::invokeMethod(users_ui, "removeDeprtment");
 
     QString table = "departments";
     QString columns = "id";

@@ -1,6 +1,7 @@
 #include "hhm_admin.h"
 
-HhmAdmin::HhmAdmin(QObject *root, HhmDatabase *database, QObject *parent): QObject(parent)
+HhmAdmin::HhmAdmin(QObject *root, HhmDatabase *database,
+                   QObject *parent): QObject(parent)
 {
     db = database;
 
@@ -345,5 +346,3 @@ QString HhmAdmin::getName(int user_id)
         return "";
     }
 }
-
-

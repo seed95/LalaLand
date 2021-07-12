@@ -75,11 +75,15 @@ Rectangle
         onClickedBtn:
                     {
                         visible = false;
-                        if( sel_txt )
+                        if( d_table.isDeparmentValid(sel_txt) )
                         {
                             addDepartmentGroup(d_table.row_number, value);
                             d_table.next_tag_text = sel_txt;
                             d_table.addDepartmentTagF(d_table.row_number);
+                        }
+                        else
+                        {
+                            console.log("Cannot creating loop department");
                         }
                     }
     }

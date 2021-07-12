@@ -146,10 +146,21 @@ Rectangle
         }
     }
 
-
     function addItem(i_item)
     {
         lm_department.append({item_id: lm_department.count, item_list: i_item});
     }
 
+    function removeItem(d_name)
+    {
+        var i=0;
+
+        for( i=0 ; i<lm_department.count ; i++ )
+        {
+            if( lm_department.get(i).item_list===d_name )
+            {
+                lm_department.remove(i);
+            }
+        }
+    }
 }

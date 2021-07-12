@@ -43,12 +43,12 @@ Rectangle
         width: 900
 
         clip: true
-        contentHeight: permission_table.height+50
+        contentHeight: p_table.height+50
         ScrollBar.vertical: permission_scrollbar
 
         HhmPTable
         {
-            id: permission_table
+            id: p_table
             anchors.left: parent.left
             anchors.top: parent.top
 
@@ -99,7 +99,7 @@ Rectangle
 
     function addPermission()
     {
-        permission_table.addPermissionUser(
+        p_table.addPermissionUser(
                     permission_name, cpp_permission1, cpp_permission2,
                     cpp_permission3, cpp_permission4, cpp_permission5,
                     cpp_permission6, cpp_permission7, cpp_permission8,

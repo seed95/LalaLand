@@ -184,6 +184,11 @@ Rectangle
         drop_dialog.addItem(department_name);
     }
 
+    function removeDeprtment()
+    {
+        drop_dialog.removeItem(department_name);
+    }
+
     function setUserDepartmentQ()
     {
         u_table.setUserDepartment(user_index, department_name);

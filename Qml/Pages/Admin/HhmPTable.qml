@@ -97,4 +97,17 @@ Item
             lm_permission.get(i).list_number = en2ar(i+1);
         }
     }
+
+    function isPermissionExist(p_name)
+    {
+        for( var i=0 ; i<lm_permission.count ; i++ )
+        {
+            if( lm_permission.get(i).list_name===p_name )
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

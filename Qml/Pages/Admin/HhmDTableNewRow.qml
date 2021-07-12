@@ -33,8 +33,7 @@ Rectangle
 
         onEnterPressed:
         {
-            createDepartments(text_val);
-            setInput("");
+            newBtnPressed();
         }
     }
 
@@ -52,16 +51,26 @@ Rectangle
             anchors.centerIn: parent
             onClickedBtn:
             {
-                if( rect1.getInput()==="" )
-                {
-                    rect1.isError = true;
-                }
-                else
-                {
-                    createDepartments(rect1.text_val);
-                    rect1.setInput("");
-                }
+                newBtnPressed();
             }
+        }
+    }
+
+    function newBtnPressed()
+    {
+        var input = rect1.getInput();
+        if( input==="" )
+        {
+            rect1.isError = true;
+        }
+        else if( d_table.isDeparmentExist(input) )
+        {
+            rect1.isError = true;
+        }
+        else
+        {
+            createDepartments(input);
+            rect1.setInput("");
         }
     }
 }

@@ -12,7 +12,8 @@ HhmAdminPermissions::HhmAdminPermissions(QObject *root, HhmDatabase *database,
     roles_ui = root->findChild<QObject*>("AdminRoles");
     users_ui = root->findChild<QObject*>("AdminUsers");
 
-    connect(roles_ui, SIGNAL(removePermission(int)), this, SLOT(removeRole(int)));
+    connect(roles_ui, SIGNAL(removePermission(int)),
+            this, SLOT(removeRole(int)));
 
     connect(timer, SIGNAL(timeout()), this, SLOT(qmlComplete()));
 

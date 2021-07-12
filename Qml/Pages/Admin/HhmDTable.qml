@@ -25,7 +25,7 @@ Item
            HhmDTableRow
            {
                id_number: list_number
-               id_username: list_username
+               id_name: list_dname
 
                addTagFlag: tag_flag
 
@@ -75,10 +75,10 @@ Item
         }
     }
 
-    function addDepartmentsUser(username)
+    function addDepartmentsUser(d_name)
     {
         lm_department.append({list_number: en2ar(lm_department.count+1),
-                                     list_username: username ,tag_flag: 0})
+                              list_dname: d_name ,tag_flag: 0})
     }
 
     function addDepartmentTagF(index)
@@ -115,5 +115,28 @@ Item
         {
             lm_department.get(i).tag_flag = 0;
         }
+    }
+
+    function isDeparmentExist(d_name)
+    {
+        for( var i=0 ; i<lm_department.count ; i++ )
+        {
+            if( lm_department.get(i).list_dname===d_name )
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    function isDeparmentValid(d_name)
+    {
+        if( lm_department.get(row_number).list_dname===d_name )
+        {
+            return false;
+        }
+
+        return true;
     }
 }
