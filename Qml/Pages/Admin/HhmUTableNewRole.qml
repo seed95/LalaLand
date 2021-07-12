@@ -82,9 +82,18 @@ Rectangle
         }
     }
 
-    function addRole(role)
+    function addRole(r_name)
     {
-        lm_role.append({role_id: en2ar(lm_role.count+1),role_name: role, sep_visible: false});
+        for( var i=0; i<lm_role.count; i++ )
+        {
+            if( lm_role.get(i).role_name===r_name )
+            {
+                return;
+            }
+        }
+
+        lm_role.append({role_id: en2ar(lm_role.count+1),
+                        role_name: r_name, sep_visible: false});
 
         if( lm_role.count>1 )
         {
@@ -93,18 +102,18 @@ Rectangle
     }
 
     // Called from c++
-    function cppRemoveGroup(role_name)
+    function cppRemoveRole(role_name)
     {
-        for(var i=0; i<lm_role.count; i++)
+        for( var i=0; i<lm_role.count; i++ )
         {
             if( lm_role.get(i).role_name===role_name )
             {
                 lm_role.remove(i);
-                break;
+                i = i-1;
             }
         }
 
-        if( lm_role.count>1 )
+        if( lm_role.count )
         {
             lm_role.get(lm_role.count-1).sep_visible = false;
         }

@@ -11,7 +11,7 @@
 #include "hhm_user.h"
 #include "hhm_ftp.h"
 #include "hhm_admin_users.h"
-#include "hhm_admin_permissions.h"
+#include "hhm_admin_roles.h"
 #include "hhm_admin_departments.h"
 
 class HhmAdmin : public QObject
@@ -23,7 +23,7 @@ public:
     ~HhmAdmin();
 
 private slots:
-    void addNewPermission(QString permission);
+    void addNewRole(QString permission);
     void addNewDepartment(QString department);
     void setUserDepartment(int user_index, int department_index);
     void setRolePermission(int role_id, int permission_id, int value);
@@ -35,7 +35,7 @@ private:
     void getUsers();
     QString getUsername(int user_id);
     QString getName(int user_id);
-    QString getPermissionName(int role_id);
+    QString getRoleName(int role_id);
     int     getUserID(int user_index);
     int     getRoleID(int role_index);
 
@@ -46,7 +46,7 @@ private:
     HhmDatabase *db;
     HhmUser     *m_user;
     HhmAdminUsers *m_auser;
-    HhmAdminPermissions *m_arole;
+    HhmAdminRoles *m_arole;
     HhmAdminDepartments *m_adepartment;
 };
 

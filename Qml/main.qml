@@ -9,7 +9,7 @@ Window
 
     property bool rtl:          true //Right to Left
     property bool fontOffset:   true
-    property bool devMode:      true//Development mode
+    property bool devMode:      false//Development mode
 
     property string domain:         "lolo.com"
     property string base_id:        "lolo.com"
@@ -244,7 +244,7 @@ Window
         anchors.right: switcher.left
         z: 2
 
-        visible: false
+//        visible: false
     }
     
     //Functions

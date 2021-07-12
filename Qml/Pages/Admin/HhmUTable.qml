@@ -18,38 +18,39 @@ Rectangle
 
     ListModel
     {
-        id: userListModel
+        id: lm_user
     }
 
     Component
     {
-        id: userDelegate
+        id: ld_user
 
         HhmUTableRow
         {
             id: utable_row
+
             width: parent.parent.width
             height: 30
-            id_number: list_number
-            id_username: list_username
-            id_name: list_name
+            row_index: list_number
+            row_user: list_username
+            row_name: list_name
             drop_text: dropdown_text
             addTagFlag: tag_flag
 
             onAddUserRole:
                          {
-                            addUsrRole(id_number); //signal send to c++
-                            row_number = ar2en(id_number) - 1;
+                            addUsrRole(row_index); //signal send to c++
+                            row_number = ar2en(row_index) - 1;
                          }
 
             onClickedDnBottom:
                              {
                                 clickedDownBottom();
-                                row_number = id_number;
+                                row_number = row_index;
                              }
             onRemoveUserRole:
                             {
-                                removeUsrRole(ar2en(id_number), tg_name);
+                                removeUsrRole(ar2en(row_index), tg_name);
                             }
         }
     }
@@ -62,41 +63,41 @@ Rectangle
         width: parent.width
         height: childrenRect.height
 
-        model: userListModel
-        delegate: userDelegate
+        model: lm_user
+        delegate: ld_user
         interactive: false
     }
 
     function addUser(name, username, department)
     {
-        userListModel.append({list_number: en2ar(userListModel.count+1),
+        lm_user.append({list_number: en2ar(lm_user.count+1),
                               list_username: username,list_name: name,
                               dropdown_text: department, tag_flag: 0});
     }
 
     function addRoleTagF(index)
     {
-        userListModel.get(index).tag_flag = 1;
-        userListModel.get(index).tag_flag = 0;
+        lm_user.get(index).tag_flag = 1;
+        lm_user.get(index).tag_flag = 0;
     }
 
     function setUserDepartment(user_index, user_department)
     {
-        userListModel.get(user_index-1).dropdown_text = user_department;
+        lm_user.get(user_index-1).dropdown_text = user_department;
     }
 
     function removeUserRole(role_name)
     {
         next_tag_text = role_name;
 
-        for( var i=0 ; i<userListModel.count ; i++ )
+        for( var i=0 ; i<lm_user.count ; i++ )
         {
-            userListModel.get(i).tag_flag = -1;
+            lm_user.get(i).tag_flag = -1;
         }
 
-        for( var i=0 ; i<userListModel.count ; i++ )
+        for( var i=0 ; i<lm_user.count ; i++ )
         {
-            userListModel.get(i).tag_flag = 0;
+            lm_user.get(i).tag_flag = 0;
         }
     }
 }

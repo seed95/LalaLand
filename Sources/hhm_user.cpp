@@ -182,7 +182,7 @@ int HhmUser::getPermission()
     int result=0, permission;
     QString condition = "`" + QString(HHM_JUR_USER_ID) + "`=" +
                         QString::number(getId());
-    QSqlQuery res = db->select(HHM_JUR_ROLE_ID, HHM_TABLE_JOIN_USER_ROLE, condition);
+    QSqlQuery res = db->select(HHM_JUR_ROLE_ID, HHM_TABLE_USER_ROLE, condition);
     while( res.next() )
     {
         permission = getRolePermission(res.value(HHM_JUR_ROLE_ID).toInt());
@@ -275,7 +275,6 @@ void HhmUser::printUser()
     result += QString("%1").arg("Status", space , QLatin1Char(' '));
     result += QString("%1").arg("Bio", space , QLatin1Char(' '));
     result += QString("%1").arg("Image", space , QLatin1Char(' '));
-    qDebug() << result;
 
     QVariant data = QQmlProperty::read(ui, "idUser");
     result = QString("%1").arg(QString::number(data.toInt()), space, QLatin1Char(' '));
@@ -300,8 +299,6 @@ void HhmUser::printUser()
 
     data = QQmlProperty::read(ui, "image");
     result += QString("%1").arg(data.toString(), space, QLatin1Char(' '));
-
-    qDebug() << result;
 }
 
 int HhmUser::getRolePermission(int roleId)

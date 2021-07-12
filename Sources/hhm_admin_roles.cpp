@@ -1,8 +1,8 @@
-#include "hhm_admin_permissions.h"
+#include "hhm_admin_roles.h"
 #include <QTimer>
 #include <QThread>
 
-HhmAdminPermissions::HhmAdminPermissions(QObject *root, HhmDatabase *database,
+HhmAdminRoles::HhmAdminRoles(QObject *root, HhmDatabase *database,
                                          QObject *parent): QObject(parent)
 {
     db = database;
@@ -21,19 +21,19 @@ HhmAdminPermissions::HhmAdminPermissions(QObject *root, HhmDatabase *database,
     timer->start(100);
 }
 
-HhmAdminPermissions::~HhmAdminPermissions()
+HhmAdminRoles::~HhmAdminRoles()
 {
     ;
 }
 
-void HhmAdminPermissions::qmlComplete()
+void HhmAdminRoles::qmlComplete()
 {
     readRoles();
 }
 
-void HhmAdminPermissions::readRoles()
+void HhmAdminRoles::readRoles()
 {
-    QSqlQuery query = db->select("*", "roles");
+    QSqlQuery query = db->select("*", HHM_TABLE_ROLE);
     int count = query.size();
     int return_val[9];
 
@@ -57,7 +57,7 @@ void HhmAdminPermissions::readRoles()
     }
 }
 
-void *HhmAdminPermissions::getPermmissionsA(QSqlQuery query, int *data)
+void *HhmAdminRoles::getPermmissionsA(QSqlQuery query, int *data)
 {
     QVariant permission1_v = query.value("permission_1");
     data[0] = permission1_v.toInt();
@@ -87,14 +87,14 @@ void *HhmAdminPermissions::getPermmissionsA(QSqlQuery query, int *data)
     data[8] = permission9_v.toInt();
 }
 
-void HhmAdminPermissions::setPermissionUi(int row, int column)
+void HhmAdminRoles::setPermissionUi(int row, int column)
 {
     QQmlProperty::write(roles_ui, "permission_row", row);
     QQmlProperty::write(roles_ui, "permission_column", column);
     QMetaObject::invokeMethod(roles_ui, "setPermission");
 }
 
-void HhmAdminPermissions::removeRole(int role_index)
+void HhmAdminRoles::removeRole(int role_index)
 {
     int role_id = getRoleID(role_index+1);
     removeUserRole(role_id); //set user role to NULL
@@ -105,7 +105,7 @@ void HhmAdminPermissions::removeRole(int role_index)
     db->remove(table, columns, values);
 }
 
-int  HhmAdminPermissions::getRoleIndex(int permisson_id)
+int  HhmAdminRoles::getRoleIndex(int permisson_id)
 {
     QSqlQuery query = db->selectOrder("*", "roles", "id");
 
@@ -132,7 +132,7 @@ int  HhmAdminPermissions::getRoleIndex(int permisson_id)
     return -1;
 }
 
-int HhmAdminPermissions::getRoleID(int permission_index)
+int HhmAdminRoles::getRoleID(int permission_index)
 {
     QSqlQuery query = db->selectOrder("*", "roles", "id");
     QSqlRecord rec_r = query.record();
@@ -154,7 +154,7 @@ int HhmAdminPermissions::getRoleID(int permission_index)
     return permissionID;
 }
 
-void HhmAdminPermissions::removeUserRole(int role_id)
+void HhmAdminRoles::removeUserRole(int role_id)
 {
     //remove all role tags from ui
     QString role_name = getRoleName(role_id);
@@ -167,7 +167,7 @@ void HhmAdminPermissions::removeUserRole(int role_id)
     db->remove(table, columns, values);
 }
 
-QString HhmAdminPermissions::getRoleName(int role_id)
+QString HhmAdminRoles::getRoleName(int role_id)
 {
     QSqlQuery query = db->selectOrder("*", "roles", "id");
     QSqlRecord rec_r = query.record();
@@ -199,7 +199,7 @@ QString HhmAdminPermissions::getRoleName(int role_id)
     return permissionID;
 }
 
-int HhmAdminPermissions::getLastUserRoleId()
+int HhmAdminRoles::getLastUserRoleId()
 {
     QSqlQuery query = db->selectOrder("*", "user_role", "id");
     int count = query.size();
@@ -221,7 +221,7 @@ int HhmAdminPermissions::getLastUserRoleId()
     return user_role_id;
 }
 
-int HhmAdminPermissions::getLastRolesId()
+int HhmAdminRoles::getLastRolesId()
 {
     QSqlQuery query = db->selectOrder("*", "roles", "id");
     int count = query.size();

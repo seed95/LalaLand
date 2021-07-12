@@ -20,29 +20,29 @@ Item
 
     Component
     {
-           id: departmentsRowDelegate
+           id: ld_department
 
            HhmDTableRow
            {
-               id_number: list_number
-               id_name: list_dname
+               row_index: list_number
+               row_dname: list_department
 
                addTagFlag: tag_flag
 
                onAddDepartmentGroup:
                {
-                   addDepartmentGrp(ar2en(id_number)) //signal send to c++
-                   row_number = ar2en(id_number) - 1;
+                   addDepartmentGrp(ar2en(row_index)) //signal send to c++
+                   row_number = ar2en(row_index) - 1;
                }
 
                onClkedBtn:
                          {
-                            removeDepartment(ar2en(id_number));
+                            removeDepartment(ar2en(row_index));
                          }
 
                onRemoveDepartmentGroup:
                                        {
-                                           removeDepartmentGrp(ar2en(id_number), tg_name)
+                                           removeDepartmentGrp(ar2en(row_index), tg_name)
                                        }
            }
     }
@@ -58,7 +58,7 @@ Item
         interactive: false
 
         model: lm_department
-        delegate: departmentsRowDelegate
+        delegate: ld_department
     }
 
     HhmDTableNewRow
@@ -78,7 +78,7 @@ Item
     function addDepartmentsUser(d_name)
     {
         lm_department.append({list_number: en2ar(lm_department.count+1),
-                              list_dname: d_name ,tag_flag: 0})
+                              list_department: d_name ,tag_flag: 0})
     }
 
     function addDepartmentTagF(index)
@@ -121,7 +121,7 @@ Item
     {
         for( var i=0 ; i<lm_department.count ; i++ )
         {
-            if( lm_department.get(i).list_dname===d_name )
+            if( lm_department.get(i).list_department===d_name )
             {
                 return true;
             }
@@ -132,7 +132,7 @@ Item
 
     function isDeparmentValid(d_name)
     {
-        if( lm_department.get(row_number).list_dname===d_name )
+        if( lm_department.get(row_number).list_department===d_name )
         {
             return false;
         }

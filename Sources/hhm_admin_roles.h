@@ -1,5 +1,5 @@
-#ifndef HHMADMINPERMISSIONS_H
-#define HHMADMINPERMISSIONS_H
+#ifndef HhmAdminRoles_H
+#define HhmAdminRoles_H
 
 #include <QObject>
 #include <QQmlProperty>
@@ -9,13 +9,13 @@
 #include "hhm_user.h"
 #include "hhm_ftp.h"
 
-class HhmAdminPermissions : public QObject
+class HhmAdminRoles : public QObject
 {
     Q_OBJECT
 public:
-    explicit HhmAdminPermissions(QObject *root, HhmDatabase *database,
+    explicit HhmAdminRoles(QObject *root, HhmDatabase *database,
                         QObject *parent = nullptr);
-    ~HhmAdminPermissions();
+    ~HhmAdminRoles();
 
 private slots:
     void qmlComplete();
@@ -44,4 +44,4 @@ private:
 
 };
 
-#endif // HHMADMINPERMISSIONS_H
+#endif // HhmAdminRoles_H

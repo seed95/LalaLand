@@ -84,7 +84,16 @@ Rectangle
 
     function addGroup(group)
     {
-        lm_group.append({group_id: en2ar(lm_group.count+1),group_name: group, sep_visible: false});
+        for( var i=0 ; i<lm_group.count ; i++ )
+        {
+            if( lm_group.get(i).group_name===group )
+            {
+                return;
+            }
+        }
+
+        lm_group.append({group_id: en2ar(lm_group.count+1),
+                         group_name: group, sep_visible: false});
 
         if( lm_group.count>1 )
         {
@@ -100,11 +109,11 @@ Rectangle
             if( lm_group.get(i).group_name===group_name )
             {
                 lm_group.remove(i);
-                break;
+                i = i-1
             }
         }
 
-        if( lm_group.count>1 )
+        if( lm_group.count )
         {
             lm_group.get(lm_group.count-1).sep_visible = false;
         }

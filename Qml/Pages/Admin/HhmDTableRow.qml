@@ -26,9 +26,9 @@ Rectangle
                                         }
                                   }
 
-    property string id_number: "number"
-    property string id_name: "name"
-    property bool is_odd: ar2en(id_number)%2
+    property string row_index: "number"
+    property string row_dname: "name"
+    property bool is_odd: ar2en(row_index)%2
     property int addTagFlag: 0
 
     signal addDepartmentGroup()
@@ -83,7 +83,7 @@ Rectangle
 
         Text
         {
-            text: id_number
+            text: row_index
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
             color: "#464646"
@@ -102,7 +102,7 @@ Rectangle
         anchors.verticalCenter: parent.verticalCenter
         Text
         {
-            text: id_name
+            text: row_dname
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
             color: "#464646"

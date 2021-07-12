@@ -11,17 +11,17 @@ Item
 
     ListModel
     {
-        id: lm_permission
+        id: lm_role
     }
 
     Component
     {
-           id: permissionRowDelegate
+           id: ld_role
 
-           HhmPTableRow
+           HhmRTableRow
            {
-               id_number: list_number
-               id_name: list_name
+               row_index: list_number
+               row_rname: list_name
                permission_1: permission1
                permission_2: permission2
                permission_3: permission3
@@ -34,19 +34,19 @@ Item
 
                onChkBoxChanged:
                {
-                   checkBoxChanged(id, ar2en(list_number), val);
+                   checkBoxChanged(id, ar2en(row_index), val);
                }
 
                onClkedBtn:
                          {
-                            removePermissionUser(ar2en(id_number));
+                            removePermissionUser(ar2en(row_index));
                          }
            }
     }
 
     ListView
     {
-        id: permissionListView
+        id: lv_role
 
         anchors.left: parent.left
         anchors.top: parent.top
@@ -54,16 +54,16 @@ Item
         height: childrenRect.height
         interactive: false
 
-        model: lm_permission
-        delegate: permissionRowDelegate
+        model: lm_role
+        delegate: ld_role
     }
 
-    HhmPTableNewRow
+    HhmRTableNewRow
     {
         anchors.left: parent.left
-        anchors.top: permissionListView.bottom
+        anchors.top: lv_role.bottom
 
-        is_odd: (lm_permission.count+1)%2
+        is_odd: (lm_role.count+1)%2
 
         onCreatePermission:
         {
@@ -77,7 +77,7 @@ Item
                                permission_5, permission_6, permission_7, permission_8,
                                permission_9)
     {
-        lm_permission.append({list_number: en2ar(lm_permission.count+1),list_name: p_name,
+        lm_role.append({list_number: en2ar(lm_role.count+1),list_name: p_name,
                             permission1: permission_1, permission2: permission_2,
                             permission3: permission_3, permission4: permission_4,
                             permission5: permission_5, permission6: permission_6,
@@ -87,22 +87,22 @@ Item
 
     function removePermissionUser(index)
     {
-        lm_permission.remove(index-1);
+        lm_role.remove(index-1);
         rmvPermission(index);
 
-        var count = lm_permission.count;
+        var count = lm_role.count;
 
         for( var i=0 ; i<count ; i++ )
         {
-            lm_permission.get(i).list_number = en2ar(i+1);
+            lm_role.get(i).list_number = en2ar(i+1);
         }
     }
 
     function isPermissionExist(p_name)
     {
-        for( var i=0 ; i<lm_permission.count ; i++ )
+        for( var i=0 ; i<lm_role.count ; i++ )
         {
-            if( lm_permission.get(i).list_name===p_name )
+            if( lm_role.get(i).list_name===p_name )
             {
                 return true;
             }

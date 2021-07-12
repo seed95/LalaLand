@@ -1,7 +1,7 @@
 #ifndef HHM_CONFIG_H
 #define HHM_CONFIG_H
 
-//#define HHM_DEV_MODE
+#define HHM_DEV_MODE
 #define HHM_MAX_PERMISSION 9
 
 #define HHM_CONFIG_FILE "db.conf"
@@ -47,7 +47,7 @@
 #define HHM_TABLE_JOIN_DEPARTMENT_MESSAGE           "join_department_message"
 #define HHM_TABLE_JOIN_DEPARTMENT_USER_MESSAGE      "join_department_user_message"
 #define HHM_TABLE_DEPARTMENT_GROUP                  "department_group"
-#define HHM_TABLE_JOIN_USER_ROLE                    "user_role"
+#define HHM_TABLE_USER_ROLE                         "user_role"
 
 //Columns in Table `HHM_TABLE_CONFIG`
 #define HHM_CONFIG_KEY          "config_key"

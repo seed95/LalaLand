@@ -22,9 +22,9 @@ Rectangle
     signal removePermission(int permission_index)
     signal chkBoxChanged(int row_id, int col_id, int val)
 
-    HhmPTableTitles
+    HhmRTableTitles
     {
-        id: pTableTitle
+        id: rTableTitle
 
         anchors.left: parent.left
         anchors.leftMargin: 90
@@ -37,18 +37,18 @@ Rectangle
     Flickable
     {
         id: flickable_permisson
-        anchors.left: pTableTitle.left
-        anchors.top: pTableTitle.bottom
+        anchors.left: rTableTitle.left
+        anchors.top: rTableTitle.bottom
         anchors.bottom: parent.bottom
         width: 900
 
         clip: true
-        contentHeight: p_table.height+50
+        contentHeight: r_table.height+50
         ScrollBar.vertical: permission_scrollbar
 
-        HhmPTable
+        HhmRTable
         {
-            id: p_table
+            id: r_table
             anchors.left: parent.left
             anchors.top: parent.top
 
@@ -99,7 +99,7 @@ Rectangle
 
     function addPermission()
     {
-        p_table.addPermissionUser(
+        r_table.addPermissionUser(
                     permission_name, cpp_permission1, cpp_permission2,
                     cpp_permission3, cpp_permission4, cpp_permission5,
                     cpp_permission6, cpp_permission7, cpp_permission8,

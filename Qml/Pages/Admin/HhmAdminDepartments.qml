@@ -19,6 +19,7 @@ Rectangle
     HhmDTableTitle
     {
         id:dtable_title
+
         anchors.left: parent.left
         anchors.leftMargin: 40
         anchors.top: parent.top
@@ -28,11 +29,12 @@ Rectangle
     Flickable
     {
         id: flickable_department
+
         anchors.left: dtable_title.left
         anchors.top: dtable_title.bottom
         anchors.bottom: parent.bottom
-        width: 905
 
+        width: 905
         clip: true
         contentHeight: d_table.height+50
         ScrollBar.vertical: departments_scrollbar
@@ -40,8 +42,10 @@ Rectangle
         HhmDTable
         {
             id: d_table
+
             anchors.left: parent.left
             anchors.top: parent.top
+
             onCrteDepartments:
             {
                 createDepartments(text_value);
@@ -69,9 +73,11 @@ Rectangle
     HhmHoverSelect
     {
         id: dhover_select
+
         anchors.fill: parent
 
         visible: false
+
         onClickedBtn:
                     {
                         visible = false;
@@ -91,21 +97,24 @@ Rectangle
     ScrollBar
     {
         id: departments_scrollbar
+
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.bottom: parent.bottom
 
         background: Rectangle
         {
-            width: 6
             anchors.left: parent.left
             anchors.top: parent.top
+
+            width: 6
             color: "#b4b4b4"
         }
 
         contentItem: Rectangle
         {
             anchors.left: parent.left
+
             radius: 3
             implicitWidth: 6
             implicitHeight: 50

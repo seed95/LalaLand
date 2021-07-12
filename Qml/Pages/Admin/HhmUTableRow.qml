@@ -26,18 +26,18 @@ Rectangle
                                        }
                                  }
 
-    property string id_number: "number"
-    property string id_username: "username"
-    property string id_name: "name"
+    property string row_index: "number"
+    property string row_user: "username"
+    property string row_name: "name"
     property string drop_text: ""
     property int addTagFlag: 0
 
-    property bool is_odd: ar2en(id_number)%2
+    property bool is_odd: ar2en(row_index)%2
 
     signal setUserRole(int user_id, int user_role)
     signal addUserRole()
     signal removeUserRole(string tg_name)
-    signal clickedDnBottom(int id_number)
+    signal clickedDnBottom(int row_index)
 
     onAddTagFlagChanged:
                        {
@@ -48,7 +48,7 @@ Rectangle
 
                             if( addTagFlag==-1 )
                             {
-                                table_new_role.cppRemoveGroup(u_table.next_tag_text);
+                                table_new_role.cppRemoveRole(u_table.next_tag_text);
                             }
                        }
 
@@ -76,7 +76,7 @@ Rectangle
         anchors.verticalCenter: parent.verticalCenter
         Text
         {
-            text: id_number
+            text: row_index
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
             color: "#464646"
@@ -95,7 +95,7 @@ Rectangle
         anchors.verticalCenter: parent.verticalCenter
         Text
         {
-            text: id_username
+            text: row_user
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
             color: "#464646"
@@ -114,7 +114,7 @@ Rectangle
         anchors.verticalCenter: parent.verticalCenter
         Text
         {
-            text: id_name
+            text: row_name
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.horizontalCenter
             color: "#464646"
@@ -133,9 +133,9 @@ Rectangle
 
         onClickedDownBottom:
                            {
-                                var id_number_en = ar2en(id_number);
-                                clickedDnBottom(id_number_en);
-                                u_table.row_number = id_number_en;
+                                var row_index_en = ar2en(row_index);
+                                clickedDnBottom(row_index_en);
+                                u_table.row_number = row_index_en;
                            }
     }
 

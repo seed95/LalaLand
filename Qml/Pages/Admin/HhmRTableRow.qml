@@ -2,9 +2,9 @@ import QtQuick 2.0
 
 Rectangle
 {
-    property string id_number: "number"
-    property string id_name: "name"
-    property bool is_odd: ar2en(id_number)%2
+    property string row_index: "number"
+    property string row_rname: "name"
+    property bool is_odd: ar2en(row_index)%2
     property int chkContainer_width: 60
     property bool permission_1: false
     property bool permission_2: false
@@ -265,7 +265,7 @@ Rectangle
              anchors.right: parent.right
              anchors.verticalCenter: parent.verticalCenter
 
-             text: id_name
+             text: row_rname
              font.family: fontDroidKufiRegular.name
              font.pixelSize: 17
              color: "#464646"
@@ -285,7 +285,7 @@ Rectangle
         {
              anchors.centerIn: parent
 
-             text: id_number
+             text: row_index
              font.family: fontDroidKufiRegular.name
              font.pixelSize: 17
              color: "#464646"

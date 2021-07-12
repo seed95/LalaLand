@@ -522,11 +522,9 @@ void HhmDocument::updateSenderUserEmail(int emailId)
 void HhmDocument::updateReceiverUserEmail(int emailId)
 {
     QString condition = "`" + QString(HHM_UE_USER_ID) + "`=" + new_data.toUser.at(ID_INDEX).toString();
-    qDebug() << condition;
     QSqlQuery res = db->select(HHM_UE_RECEIVED_EMAILS, HHM_TABLE_USER_EMAIL, condition);
     if( res.next() )
     {
-        qDebug() << res.value(0);
         QString emails = res.value(0).toString();
         if( emails.isEmpty() )
         {

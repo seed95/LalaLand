@@ -32,7 +32,7 @@ Item
         objectName: "AdminUsers"
     }
 
-    HhmAdminPermissions
+    HhmAdminRoles
     {
         anchors.left: parent.left
         anchors.right: admin_sidebar.left

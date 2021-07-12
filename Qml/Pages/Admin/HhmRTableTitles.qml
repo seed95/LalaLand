@@ -2,6 +2,16 @@ import QtQuick 2.0
 
 Rectangle
 {
+    property string ptable_permission1: "اضافة الملف"
+    property string ptable_permission2: "تعدیل الملف"
+    property string ptable_permission3: "مسح الملف"
+    property string ptable_permission4: "مسح بیانات الملف"
+    property string ptable_permission5: "عرض ملفات القسم"
+    property string ptable_permission6: "عرض ملفات الأقسام"
+    property string ptable_permission7: "عرض تقریر الملفات"
+    property string ptable_permission8: "عرض تقاریر القسم"
+    property string ptable_permission9: "عرض تقاریر الأقسام"
+
     color: "transparent"
 
     Rectangle
@@ -20,7 +30,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "اضافة الملف"
+            text: ptable_permission1
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -44,7 +54,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "تعدیل الملف"
+            text: ptable_permission2
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -68,7 +78,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "مسح الملف"
+            text: ptable_permission3
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -92,7 +102,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "مسح بیانات الملف"
+            text: ptable_permission4
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -116,7 +126,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "عرض ملفات القسم"
+            text: ptable_permission5
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -140,7 +150,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "عرض ملفات الأقسام"
+            text: ptable_permission6
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -164,7 +174,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "عرض تقریر الملفات"
+            text: ptable_permission7
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -188,7 +198,7 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "عرض تقاریر القسم"
+            text: ptable_permission8
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
@@ -212,11 +222,10 @@ Rectangle
             anchors.right: parent.right
             anchors.verticalCenter: parent.verticalCenter
 
-            text: "عرض تقاریر الأقسام"
+            text: ptable_permission9
             font.family: fontDroidKufiRegular.name
             font.pixelSize: 17
             color: "#464646"
         }
     }
-
 }

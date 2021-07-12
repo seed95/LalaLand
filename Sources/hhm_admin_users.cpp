@@ -81,9 +81,16 @@ void HhmAdminUsers::readTags()
             QVariant user_id_v = query.value("user_id");
             int user_id = user_id_v.toInt();
 
-            if( role_id!=-1 )
+            if( role_id!=HHM_NULL_ID )
             {
                 readTagUser(user_id, role_id);
+            }
+            else
+            {
+                QVariant id_v = query.value("id");
+                int id = id_v.toInt();
+
+                db->remove("user_role", "id", QString::number(id));
             }
         }
         else

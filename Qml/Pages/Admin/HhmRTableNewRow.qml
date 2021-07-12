@@ -68,7 +68,7 @@ Rectangle
         {
             pTableInput.isError = true;
         }
-        else if( p_table.isPermissionExist(input) )
+        else if( r_table.isPermissionExist(input) )
         {
             pTableInput.isError = true;
         }
