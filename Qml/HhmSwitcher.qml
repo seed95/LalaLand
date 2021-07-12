@@ -27,7 +27,17 @@ Rectangle
     HhmSwitcherBtn
     {
         id: profile
-        anchors.bottom: admin_panel.top
+        anchors.bottom:
+        {
+            if( root.isAdmin() )
+            {
+                admin_panel.top
+            }
+            else
+            {
+                signout.top
+            }
+        }
         text_icon: "\uf007"
         isActive: root.hhm_mode===con.hhm_PROFILE_MODE
         onButtonClicked: root.hhm_mode = con.hhm_PROFILE_MODE
@@ -39,6 +49,7 @@ Rectangle
         anchors.bottom: signout.top
         text_icon: "\uf509"
         isActive: root.hhm_mode===con.hhm_ADMINPANEL_MODE
+        visible: root.isAdmin()
         onButtonClicked: root.hhm_mode = con.hhm_ADMINPANEL_MODE
     }
 

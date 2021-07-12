@@ -270,6 +270,10 @@ Window
     }
 
     /*** Utilities functions ***/
+    function isAdmin()
+    {
+        return root.username.toLowerCase()==="admin"
+    }
 
     //Slice string from 0 with amount len
     //and add '...' to end text

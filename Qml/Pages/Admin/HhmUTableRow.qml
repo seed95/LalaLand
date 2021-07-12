@@ -48,7 +48,7 @@ Rectangle
 
                             if( addTagFlag==-1 )
                             {
-                                table_new_role.cppRemoveRole(u_table.next_tag_text);
+                                table_new_role.cppRemoveGroup(u_table.next_tag_text);
                             }
                        }
 

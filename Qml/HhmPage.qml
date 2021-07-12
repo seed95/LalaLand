@@ -15,7 +15,7 @@ Item
         id: admin_panel
         anchors.fill: parent
         objectName: "Admin"
-        visible: root.hhm_mode===con.hhm_ADMINPANEL_MODE
+        visible: root.hhm_mode===con.hhm_ADMINPANEL_MODE && root.isAdmin()
     }
 
     HhmDocument
